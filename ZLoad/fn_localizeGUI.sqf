@@ -1,0 +1,18 @@
+disableSerialization;
+_fdisplay = findDisplay 456963;
+_ctrl = _fdisplay displayCtrl(1601);
+_ctrl ctrlSetText format["%1",localize "zlo_apply_text"];
+_ctrl = _fdisplay displayCtrl(1000);
+_ctrl ctrlSetText format["%1",localize "zlo_change_skin_text"];
+_ctrl = _fdisplay displayCtrl(1603);
+_ctrl ctrlSetText format["  %1",localize "zlo_ammo_text"];
+_ctrl = _fdisplay displayCtrl(1604);
+_ctrl ctrlSetText format["%1",localize "zlo_refuel_text"];
+_ctrl = _fdisplay displayCtrl(1602);
+_ctrl ctrlSetText format["%1",localize "zlo_repair_text"];
+_ctrl = _fdisplay displayCtrl(1004);
+_ctrl ctrlSetText format["%1",localize "zlo_preset_text"];
+_ctrl = _fdisplay displayCtrl(1605);
+_ctrl ctrlSetText format["%1",localize "zlo_mirror_text"];
+_ctrl = _fdisplay displayCtrl(1607);
+_ctrl ctrlSetText format["%1",localize "zlo_spresets_text"];

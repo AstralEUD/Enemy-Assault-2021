@@ -1,0 +1,16 @@
+nul = [] spawn {
+	private ["_vehs"];
+	_cfgvehicles = configFile >> "cfgvehicles";
+	_vehs = [];
+	for "_i" from 0 to (count _cfgvehicles)-1 do {
+		_vehicle = _cfgvehicles select _i;
+		if (isClass _vehicle) then {
+			_wCName = configName(_vehicle);
+			
+			if (_wCName iskindof "Civilian_F") then {
+				_vehs = _vehs + [_wCName];
+				diag_log _wCName;
+			};
+		};
+	};
+};

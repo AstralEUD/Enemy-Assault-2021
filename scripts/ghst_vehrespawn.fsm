@@ -1,0 +1,279 @@
+/*%FSM<COMPILE "G:\Steam\SteamApps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ghst_vehrespawn">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-36.367805,-134.917938,53.632195,-84.917953,0.000000,"Start"};
+item1[] = {"__alive_vehicle",4,218,-36.896973,-30.711287,53.103104,19.288713,0.000000,"!alive vehicle"};
+item2[] = {"not_Server",4,218,105.725571,-135.033264,195.725571,-85.033264,1.000000,"not Server"};
+item3[] = {"End",1,250,230.108521,-134.178619,320.108551,-84.178635,0.000000,"End"};
+item4[] = {"Reset_Delay",2,250,-37.378075,200.618713,52.621941,250.618729,0.000000,"Reset Delay"};
+item5[] = {"Delay",4,218,125.277184,200.508835,215.277161,250.508865,0.000000,"Delay"};
+item6[] = {"__alive_vehicle",4,218,464.335938,98.475601,554.334839,148.475708,1.000000,"!alive vehicle"};
+item7[] = {"_",2,250,270.563751,200.929428,360.563782,250.929443,0.000000,""};
+item8[] = {"Respawn",2,4346,179.884033,-30.585781,269.884155,19.414204,0.000000,"Respawn"};
+item9[] = {"Reset_Delay_1",2,250,464.494446,-30.287277,554.494141,19.712692,0.000000,"Reset Delay"};
+item10[] = {"Delay",4,218,323.293335,-30.397133,413.293121,19.602856,0.000000,"Delay"};
+link0[] = {0,1};
+link1[] = {0,2};
+link2[] = {1,4};
+link3[] = {2,3};
+link4[] = {4,5};
+link5[] = {5,7};
+link6[] = {6,9};
+link7[] = {7,1};
+link8[] = {7,6};
+link9[] = {8,1};
+link10[] = {9,10};
+link11[] = {10,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-66.897705,588.540527,327.326538,-213.021240,823,833,1};
+window[] = {2,-1,-1,-1,-1,911,-1602,-673,78,3,841};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "ghst_vehrespawn";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"/*V2 By: Ghost - [vehicle,delay on respawn in mins, true for respawn time, false for only dead or !canmove]" \n
+                         "nul = [this,5,true] execfsm ""scripts\ghst_vehrespawn.fsm""; - will respawn vehicle after 5 minutes if no one is inside and cannot move or is destroyed.*/" \n
+                         "" \n
+                         "private [""_vehicle"",""_type"",""_startpos"",""_startdir"",""_delay"",""_sec"",""_vehname"",""_respawn"",""_mindist"",""_playerdist""];" \n
+                         "" \n
+                         "_vehicle = _this select 0;" \n
+                         "_sec = ((_this select  1) * 60);" \n
+                         "_respawn = _this select 2;" \n
+                         "" \n
+                         "_type = typeof _vehicle;" \n
+                         "" \n
+                         "if (surfaceIsWater getpos _vehicle) then {" \n
+                         "	_startpos = getposasl _vehicle;" \n
+                         "} else {" \n
+                         "	_startpos = getposatl _vehicle;" \n
+                         "};" \n
+                         "_startdir = direction _vehicle;" \n
+                         "_vehname = vehicleVarName _vehicle;" \n
+                         "_mindist = 50;" \n
+                         "_playerdist = 300;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "not_Server">*/
+                                class not_Server
+                                {
+                                        itemno = 2;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__alive_vehicle">*/
+                                class __alive_vehicle
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Reset_Delay";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _vehicle" \n
+                                         "or" \n
+                                         "!canMove _vehicle and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits" \n
+                                         "or" \n
+                                         "_respawn  and (_startpos distance _vehicle) > _mindist and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reset_Delay">*/
+                class Reset_Delay
+                {
+                        name = "Reset_Delay";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_delay = time + _sec;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _delay"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__alive_vehicle">*/
+                                class __alive_vehicle
+                                {
+                                        itemno = 6;
+                                        priority = 1.000000;
+                                        to="Reset_Delay_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _vehicle" \n
+                                         "or" \n
+                                         "!canMove _vehicle and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits" \n
+                                         "or" \n
+                                         "_respawn  and (_startpos distance _vehicle) > _mindist and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__alive_vehicle_1">*/
+                                class __alive_vehicle_1
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Reset_Delay";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _vehicle" \n
+                                         "or" \n
+                                         "!canMove _vehicle and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits" \n
+                                         "or" \n
+                                         "_respawn  and (_startpos distance _vehicle) > _mindist and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Respawn">*/
+                class Respawn
+                {
+                        name = "Respawn";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"_vehicle = createVehicle [_type,_startpos, [], 0, ""none""];" \n
+                         "_vehicle allowDamage false;" \n
+                         "" \n
+                         "if (surfaceIsWater _startpos) then {" \n
+                         "_vehicle setposasl [_startpos select 0, _startpos select 1, (_startpos select 2) + 0.5];" \n
+                         "_vehicle setVectorUP (surfaceNormal [(getPosasl _vehicle) select 0,(getPosasl _vehicle) select 1,((getPosasl _vehicle) select 2) + 0.5]);" \n
+                         "} else {" \n
+                         "_vehicle setposatl [_startpos select 0, _startpos select 1, (_startpos select 2) + 0.5];" \n
+                         "_vehicle setVectorUP (surfaceNormal [(getPosatl _vehicle) select 0,(getPosatl _vehicle) select 1,((getPosatl _vehicle) select 2) + 0.5]);" \n
+                         "};" \n
+                         "_vehicle setDir _startdir;" \n
+                         "_vehicle setvelocity [0,0,0];" \n
+                         "_vehicle SetVehicleVarName _vehname;" \n
+                         "_vehicle allowDamage true;" \n
+                         "" \n
+                         "//_vehicle Call Compile Format [""%1=_This ; PublicVariable '%1'"",_vehname];" \n
+                         "missionNamespace setVariable [_vehname,_vehicle];" \n
+                         "publicVariable _vehname;" \n
+                         "" \n
+                         "//Vehicle respawn points" \n
+                         "if ((_vehname == ""heli_1"") or (_vehname == ""heli_2"")) then {" \n
+                         "" \n
+                         "	[missionNamespace,_vehicle] call BIS_fnc_addRespawnPosition;" \n
+                         "};" \n
+                         "" \n
+                         "if ((_vehicle iskindof ""Heli_Light_01_base_F"") or (_vehicle iskindof ""Heli_Light_01_armed_base_F"")) then {" \n
+                         "			" \n
+                         "	_vehicle animate [""addDoors"", 1];" \n
+                         "			" \n
+                         "};" \n
+                         "" \n
+                         "if (_vehicle iskindof ""B_supplyCrate_F"") then {" \n
+                         "			" \n
+                         "	_vehicle call ghst_fnc_arsenal;" \n
+                         "			" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__alive_vehicle">*/
+                                class __alive_vehicle
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Reset_Delay";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive _vehicle" \n
+                                         "or" \n
+                                         "!canMove _vehicle and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits" \n
+                                         "or" \n
+                                         "_respawn  and (_startpos distance _vehicle) > _mindist and {alive _x} count crew _vehicle == 0" \n
+                                         "and" \n
+                                         "{ isPlayer _x and _x distance _vehicle > _playerdist } count playableunits == count playableunits"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reset_Delay_1">*/
+                class Reset_Delay_1
+                {
+                        name = "Reset_Delay_1";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"deleteVehicle _vehicle;" \n
+                         "" \n
+                         "_delay = time + 10;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Respawn";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _delay"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

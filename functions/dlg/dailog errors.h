@@ -1,0 +1,1 @@
+Error loading control C:\Users\Ghost\Documents\Arma 3\missions\enemy_assault_co36_v2_5.Altis\description.ext/SelectVehicle/VEHLIST/
