@@ -99,7 +99,6 @@ class RscTitles
 #include "zload\dialogLoadout.hpp"
 #include "zload\dialogHelp.hpp"
 #include "zload\dialogSave.hpp"
-
 /*──────────────────────────────────────────────────────┐
 │   Author: Connor                                      │
 │   Steam:  https://steamcommunity.com/id/_connor       │
