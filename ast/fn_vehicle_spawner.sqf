@@ -41,6 +41,7 @@ private _vehicles = [
 		systemchat format["_index: %1",_index];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
+		if (_nowmoney <= ((_vehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?";};
 			_spCheck = nearestObjects[_position,["landVehicle","Air","Ship"],12] select 0;
