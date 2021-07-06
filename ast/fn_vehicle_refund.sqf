@@ -6,10 +6,11 @@
 └──────────────────────────────────────────────────────*/
 
 params["_spCheck","_selections","_price","_crewCount","_nowmoney","_tobe"];
+private _position = getMarkerPos Vehicle_Spawn;
 _spCheck = nearestObjects[_position,["landVehicle","Air","Ship"],12] select 0;
 if (!isNil "_spCheck") exitWith {hint "There is no vehicle/aircraft/shop on the position"};
 [
-	["Are you want refund that vehicles really?"],
+	["Are you sure that want to refund vehicles really?"],
 	"Agreement",
 	{
 		if _confirmed then {

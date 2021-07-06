@@ -2,19 +2,11 @@
 │   Author: Astral                                      │
 │   Github: https://github.com/AstralKG                 │
 │                                                       │
-│   Description: For give playtime reward               │
+│   Description: Rearm & Refuel module                  │
 └──────────────────────────────────────────────────────*/
 
-params ["_nowmoney","_tobe","_nowuid"];
-
-while (true) then {
-	if (count _playerConnectArr > 1) then {
-		for "_i" from 0 to (count _playerConnectArr) do {
-			_nowuid = _playerConnectArr select _i;
-			_tobe = (["read", [_nowuid, "kill_score", 0]] call _inidbi) + 2;
-			["write", [_nowuid, "kill_score", _nowscore]] call _inidbi;
-		};
-	sleep 900;
-	};
-};
-			
+params ["_playerVehicle","_nowmoney","_tobe","_playerUID"];
+_playerUID = getPlayerUID player;
+_nowmoney = ["read", [_playerUID, "kill_score", 0]] call _inidbi;
+if (_nowmoney < 2) exitWith {format "Not enough Minerals!";};
+if (vehicle player == player) exitWith {format "Rearm can be used while you're in a vehicle!";};
