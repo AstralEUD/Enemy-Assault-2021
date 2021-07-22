@@ -257,5 +257,3 @@ sleep 30;
 
 // Info text
 [str("Enemy Assault") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By Ghost")] spawn BIS_fnc_infoText;
-
-execVM "ast\score.sqf";

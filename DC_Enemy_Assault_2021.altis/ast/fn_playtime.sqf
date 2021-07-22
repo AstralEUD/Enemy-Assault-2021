@@ -2,15 +2,17 @@
 │   Author: Astral                                      │
 │   Github: https://github.com/AstralKG                 │
 │                                                       │
-│   Description: For check serverDB (Not player)        │
+│   Description: For add EH to give playtme score       │
 └──────────────────────────────────────────────────────*/
 
-if (!isServer) exitWith {
-    hint("Miscalled server-only function");
-};
-
-_checkexist = "exists" call _inidbi;
-if (_checkexist == False) then {
-	hint("Exist Failed")
-	["new", "MainDB"] call OO_INIDBI;
-	};
+addMissionEventHandler ["PlayerConnected",
+{
+	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
+	playerConnectArr pushBackUnique "_uid";
+}];
+addMissionEventHandler ["PlayerDisconnected",
+{
+	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
+	playerConnectArr  = playerConnectArr - _uid;
+}];
+publicVariable "_playerConnectArr";
