@@ -5,7 +5,6 @@
 │   Description: For add EH to give playtme score       │
 └──────────────────────────────────────────────────────*/
 
-_playerConnectArr = [];
 addMissionEventHandler ["PlayerConnected",
 {
 	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];

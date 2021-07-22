@@ -6,7 +6,8 @@
 └──────────────────────────────────────────────────────*/
 
 params ["_nowmoney","_tobe","_nowuid"];
-
+_playerConnectArr = [];
+publicVariable "_playerConnectArr";
 while {true} do {
 	if (count _playerConnectArr > 1) then {
 		for "_i" from 0 to ((count _playerConnectArr)) do {

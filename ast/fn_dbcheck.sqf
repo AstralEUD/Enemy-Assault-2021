@@ -13,12 +13,10 @@ if (!isServer) exitWith {
 if (isNil "_inidbi") then {
     hint("Exist Failed");
     _inidbi = ["new", "MainDB"] call OO_INIDBI;
+    publicVariable "_inidbi";
+    _checkexist = "exists" call _inidbi;
+    if (_checkexist == False) then {
+        diag_log "Error for INIDB2";
+    };
 };
 
-// inidbi2 permission check
-_checkexist = "exists" call _inidbi;
-if (_checkexist == False) then {
-    diag_log "Error for INIDB2";
-};
-
-publicVariable "_inidbi";
