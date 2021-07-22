@@ -9,7 +9,7 @@ params ["_nowmoney","_tobe","_nowuid"];
 
 while (true) then {
 	if (count _playerConnectArr > 1) then {
-		for "_i" from 0 to (count _playerConnectArr) do {
+		for "_i" from 0 to ((count _playerConnectArr)) do {
 			_nowuid = _playerConnectArr select _i;
 			_tobe = (["read", [_nowuid, "kill_score", 0]] call _inidbi) + 2;
 			["write", [_nowuid, "kill_score", _nowscore]] call _inidbi;

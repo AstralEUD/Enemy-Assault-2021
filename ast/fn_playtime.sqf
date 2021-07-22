@@ -13,6 +13,6 @@ addMissionEventHandler ["PlayerConnected",
 addMissionEventHandler ["PlayerDisconnected",
 {
 	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
-	_playerConnectArr  = _playerCOnnectArr - _uid;
+	_playerConnectArr  = _playerConnectArr - _uid;
 }];
 publicVariable "_playerConnectArr";
