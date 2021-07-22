@@ -19,7 +19,7 @@ if (!isNil "_spCheck") exitWith {hint "There is no vehicle/aircraft/shop on the 
 			_price = round (((_vehicles find _selections) select 1 ;)*0.8)
 			if (!count(fullCrew [_spCheck, "cargo"]) < 1) exitWith {hint "There is still crew on the vehicle"};
 			_nowmoney = ["read", ["kill_score", _killeruid, 0]] call _inidbi;
-			_tobe = _nowmoney + _price
+			_tobe = _nowmoney + _price;
 			["write", [_killeruid, "kill_score", _tobe]] call _inidbi;
 			deleteVehicle _spCheck;
 		} else {

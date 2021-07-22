@@ -9,8 +9,16 @@ if (!isServer) exitWith {
     hint("Miscalled server-only function");
 };
 
+// inidbi2 variable check
+if (isNil "_inidbi") then {
+    hint("Exist Failed");
+    _inidbi = ["new", "MainDB"] call OO_INIDBI;
+};
+
+// inidbi2 permission check
 _checkexist = "exists" call _inidbi;
 if (_checkexist == False) then {
-	hint("Exist Failed")
-	["new", "MainDB"] call OO_INIDBI;
-	};
+    diag_log "Error for INIDB2";
+};
+
+publicVariable "_inidbi";

@@ -2,7 +2,7 @@
 │   Author: Astral                                      │
 │   Github: https://github.com/AstralKG                 │
 │                                                       │
-│   Description: For check serverDB (Not player)        │
+│   Description: For spawn list (vehicles)              │
 └──────────────────────────────────────────────────────*/
 
 _ASTvehicles = [["C_Hatchback_01_sport_F",5],
