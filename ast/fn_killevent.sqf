@@ -5,9 +5,7 @@
 │   Description: For record Kill / TeamKill by iniDB2   │
 │   Note: Need Optimization                             │
 └──────────────────────────────────────────────────────*/
-
-if (hasInterface) then {
-    addMissionEventHandler ["EntityKilled",{
+addMissionEventHandler ["EntityKilled",{
         params ["_killed", "_killer", "_instigator"];
 		if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0};
         if (isNull _instigator) then {_instigator = _killer};
@@ -26,5 +24,4 @@ if (hasInterface) then {
 		private _nowscore = (["read", [_killeruid, "kill_score", 0]] call _inidbi) + 1;
 		["write", [_killeruid, "kill_score", _nowscore]] call _inidbi;
 	}
-	];
-};
+];
