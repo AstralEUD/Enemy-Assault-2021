@@ -13,4 +13,4 @@ _ASTvehicles = [["C_Hatchback_01_sport_F",5],
 	["C_SUV_01_F",10],
 	["C_Van_01_box_F",5]
 	];
-publicVariable "_ASTvehicles";
+publicVariable "ASTvehicles";
