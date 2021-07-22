@@ -8,11 +8,11 @@
 addMissionEventHandler ["PlayerConnected",
 {
 	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
-	_playerConnectArr pushBackUnique "_uid";
+	playerConnectArr pushBackUnique "_uid";
 }];
 addMissionEventHandler ["PlayerDisconnected",
 {
 	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
-	_playerConnectArr  = _playerConnectArr - _uid;
+	playerConnectArr  = playerConnectArr - _uid;
 }];
 publicVariable "_playerConnectArr";
