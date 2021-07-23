@@ -7,7 +7,7 @@
 └──────────────────────────────────────────────────────*/
 params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowscore"];
 _playeruid = getPlayerUID player;
-_nowkill = ["read", [_playeruid, "kill_score", 0]] call inidbi;
+_nowkill = (["read", [_playeruid, "kill_score", 0]] call inidbi);
 hint format ["Now money : %1",_nowkill];
 
 [
@@ -23,7 +23,7 @@ hint format ["Now money : %1",_nowkill];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
 		_playeruid = getPlayerUID player;
-		_nowkill = ["read", [_playeruid, "kill_score", 0]] call inidbi;
+		_nowkill = (["read", [_playeruid, "kill_score", 0]] call inidbi);
 		if (_nowkill < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
 			_spCheck = nearestObjects[_position,["landVehicle","Air","Ship"],12] select 0;
