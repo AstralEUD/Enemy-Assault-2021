@@ -5,20 +5,20 @@
 │   Description: For spawn vehicle with currency        │
 │   Write like this: ["classname",price]                │
 └──────────────────────────────────────────────────────*/
-params["_spCheck","_position","_direction","_vehicle"]
+params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowmoney","_nowscore"];
 _playeruid = getPlayerUID player;
 _nowmoney = ["read", ["kill_score", _playeruid, 0]] call inidbi;
 hint format ["Now money : %1",_nowmoney];
 ASTvehicles apply {
 	[
 		[getText(configFile >> "CfgVehicles" >> _x select 0 >> "displayName")],
-		[format ["Points: %1",_x select 1],
+		[format ["Points: %1",_x select 1]],
 		[getText(configFile >> "CfgVehicles" >> _x select 0 >> "picture")],
 		[],
 		//[getText(configFile >> "CfgVehicles" >> _x select 0 >> "icon"),[random 1,random 1,random 1,1]],
 		getText(configFile >> "CfgVehicles" >> _x select 0 >> "displayName"),
 		_x,
-		getNumber(configFile >> "CfgVehicles" >> _x select 0 >> "scope")
+		getNumber(configFile >> "CfgVehicles" >> _x select 0 >> "scope")	
 	]
 };
 
