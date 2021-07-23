@@ -5,11 +5,10 @@
 │   Description: For spawn vehicle with currency        │
 │   Write like this: ["classname",price]                │
 └──────────────────────────────────────────────────────*/
-
-
-playeruid = getPlayerUID player;
-nowmoney = ["read", ["kill_score", playeruid, 0]] call inidbi;
-hint format ["Now money : %1",nowmoney];
+params["_spCheck","_position","_direction","_vehicle"]
+_playeruid = getPlayerUID player;
+_nowmoney = ["read", ["kill_score", _playeruid, 0]] call inidbi;
+hint format ["Now money : %1",_nowmoney];
 ASTvehicles apply {
 	[
 		[getText(configFile >> "CfgVehicles" >> _x select 0 >> "displayName")],
@@ -35,7 +34,9 @@ ASTvehicles apply {
 		systemchat format["_index: %1",_index];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
-		if (nowmoney < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
+		_playeruid = getPlayerUID player;
+		_nowmoney = ["read", ["kill_score", _playeruid, 0]] call inidbi;
+		if (_nowmoney < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?";};
 			_spCheck = nearestObjects[_position,["landVehicle","Air","Ship"],12] select 0;
@@ -47,7 +48,7 @@ ASTvehicles apply {
 			_vehicle setPos _position; //Make sure it gets set onto the position.
 			_vehicle setDir _direction; //Set the vehicles direction the same as the marker.
 			_vehicle allowDamage true;
-			_nowscore = nowmoney - ((ASTvehicles select _index) select 1);
+			_nowscore = _nowmoney - ((ASTvehicles select _index) select 1);
 			["write", [playeruid, "kill_score", _nowscore]] call inidbi;
 			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];
 			} else {
