@@ -87,11 +87,9 @@ if (worldName == "Enoch") then {
 ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") / 2;
 [(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,3,[true,30],[false,"ColorRed"]] spawn ghst_fnc_eair;
 [(getmarkerpos "bairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,2,[true,30],[false,"ColorBlue"]] spawn ghst_fnc_bair;
-[] execVM "ast\fn_playloop.sqf";
 [] execVM "ast\fn_spawnlist.sqf";
 [] execVM "ast\fn_killevent.sqf";
 [] execVM "ast\fn_dbcheck.sqf";
-[] execVM "ast\fn_playtime.sqf";
 _PARAM_AISkill = "PARAM_AISkill" call BIS_fnc_getParamValue;
 [[(getmarkerpos "Respawn_West"),1000],[600,600],(4 + round(random 2)),[false,"ColorRed"],(_PARAM_AISkill/10)] spawn ghst_fnc_randespawn;
 /*
