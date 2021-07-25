@@ -34,4 +34,5 @@ ASTvehiclesSpawnList = [["C_Hatchback_01_sport_F",5],
 };
 
 
+publicVariable "ASTvehiclesSpawnList";
 publicVariable "ASTvehicles";

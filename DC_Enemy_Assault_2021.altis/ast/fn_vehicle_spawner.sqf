@@ -7,7 +7,7 @@
 └──────────────────────────────────────────────────────*/
 
 params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowscore","_caller"];
-[player] remoteExec ["AST_fnc_db_fetch", 2, false];
+[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
 hint format ["Now money : %1",AST_kill_score];
 [
 	[
@@ -21,19 +21,20 @@ hint format ["Now money : %1",AST_kill_score];
 		systemchat format["_index: %1",_index];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
-		[player] remoteExec ["AST_fnc_db_fetch", 2, false];
+		[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
 		if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
-			_spCheck = nearestObjects[_position,["landVehicle","Air","Ship"],12] select 0;
-			if(!isNil "_spCheck") exitWith {hint "There is a Car/Aircraft/Ship on the spawn point. Check out!"};
-			_direction = markerDir Vehicle_Spawn;
-			_position = getMarkerPos Vehicle_Spawn;
+			_direction = markerDir "Vehicle_Spawn_Marker";
+			_position = getMarkerPos ["Vehicle_Spawn_Marker",true];
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?";};
+			_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
+			if(!isNil "_spCheck") exitWith {hint "There is a Car/Aircraft/Ship on the spawn point. Check out!"};
 			_vehicle = ((ASTvehicles select _index) select 0) createVehicle _position;
 			_vehicle allowDamage false;
 			_vehicle setPos _position; //Make sure it gets set onto the position.
 			_vehicle setDir _direction; //Set the vehicles direction the same as the marker.
 			_vehicle allowDamage true;
+			_displayName = getText(configFile >> "CfgVehicles" >> (ASTvehicles select _index) select 0 >> "displayName");
 			_nowscore = AST_kill_score - ((ASTvehicles select _index) select 1);
 			[player, "kill_score", _nowscore] remoteExec ["AST_fnc_db_save", 2, false];
 			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];

@@ -1,8 +1,4 @@
-
-[player] remoteExec ["AST_fnc_db_fetch", 2, false];
-if (isNil "AST_kill_score") then {
-	AST_kill_score = 0;
-};
+[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
 
 while {true} do {
 	sleep 900;
