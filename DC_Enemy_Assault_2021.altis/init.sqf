@@ -59,3 +59,5 @@ if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
 tf_no_auto_long_range_radio = true;
 
 //["Preload"] call BIS_fnc_arsenal;
+AST_fnc_db_fetch_money = compileFinal preprocessFileLineNumbers "ast\db_fetch_money.sqf";
+AST_fnc_db_save = compileFinal preprocessFileLineNumbers "ast\db_save.sqf";
