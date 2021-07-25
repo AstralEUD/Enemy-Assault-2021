@@ -251,6 +251,7 @@ simulWeatherSync;
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
+ASTvehSpawner addAction ["Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
 [] spawn ghst_fnc_ptracker;
 
 sleep 30;
