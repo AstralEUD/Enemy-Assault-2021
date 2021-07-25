@@ -25,7 +25,7 @@ hint format ["Now money : %1",AST_kill_score];
 		if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
 			_direction = markerDir "Vehicle_Spawn_Marker";
-			_position = getMarkerPos ["Vehicle_Spawn_Marker",true];
+			_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?";};
 			_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
 			if(!isNil "_spCheck") exitWith {hint "There is a Car/Aircraft/Ship on the spawn point. Check out!"};
