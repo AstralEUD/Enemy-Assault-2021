@@ -25,6 +25,7 @@ hint format ["Now money : %1",AST_kill_score];
 		if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
 			_direction = markerDir "Vehicle_Spawn_Marker";
+			_playeruid = getPlayerUID player;
 			_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?";};
 			_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
@@ -36,6 +37,7 @@ hint format ["Now money : %1",AST_kill_score];
 			_vehicle allowDamage true;
 			_displayName = getText(configFile >> "CfgVehicles" >> (ASTvehicles select _index) select 0 >> "displayName");
 			_nowscore = AST_kill_score - ((ASTvehicles select _index) select 1);
+			_vehicle setVariable ["spawner",_playeruid];
 			[player, "kill_score", _nowscore] remoteExec ["AST_fnc_db_save", 2, false];
 			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];
 			} else {

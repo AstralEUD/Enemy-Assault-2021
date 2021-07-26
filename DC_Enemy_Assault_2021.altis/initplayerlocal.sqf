@@ -251,7 +251,8 @@ simulWeatherSync;
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
-ASTvehSpawner addAction ["Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
+ASTvehSpawner addAction ["<t color='#d000ff' size='2.0'> Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
+ASTvehSpawner addAction ["<t color='#d00a2ff' size='2.0'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 

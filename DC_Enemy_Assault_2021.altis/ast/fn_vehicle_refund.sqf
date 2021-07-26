@@ -5,23 +5,24 @@
 │   Description: For  refund vehicle                    │
 └──────────────────────────────────────────────────────*/
 
-params["_spCheck","_selections","_price","_crewCount","_nowmoney","_tobe"];
-private _position = getMarkerPos Vehicle_Spawn;
-_spCheck = nearestObjects[_position,["landVehicle","Air","Ship"],12] select 0;
+params["_spCheck","_selections","_price","_crewCount","_nowmoney","_tobe","_playerUID","_position"];
+_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
+_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
+_playerUID = getPlayerUID player;
 if (!isNil "_spCheck") exitWith {hint "There is no vehicle/aircraft/shop on the position"};
+if (_spCheck getVariable ["spawner",""] != _playerUID) exitWith {hint "You're not owner/spawner of this Vehicle"};
 [
 	["Are you sure that want to refund vehicles really?"],
 	"Agreement",
 	{
 		if _confirmed then {
 			//systemchat "You accepted the T&C's";
-			_playeruid = getPlayerUID player;
 			_selections = ASTvehicles find _spCheck;
 			_price = round (((ASTvehicles find _selections) select 1 )*0.8)
 			if (!count(fullCrew [_spCheck, "cargo"]) < 1) exitWith {hint "There is still crew on the vehicle"};
-			_nowmoney = ["read", ["kill_score", _playeruid, 0]] call inidbi;
-			_tobe = _nowmoney + _price;
-			["write", [_playeruid, "kill_score", _tobe]] call inidbi;
+			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
+			_tobe = AST_kill_score + _price;
+			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
 			deleteVehicle _spCheck;
 		} else {
 			hint {"You rejcted it"};
