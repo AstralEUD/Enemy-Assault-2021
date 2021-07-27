@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.017453292;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=97;
+	toggles=225;
 	class ItemIDProvider
 	{
-		nextID=1779;
+		nextID=1780;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=423;
+		nextID=425;
 	};
 	class Camera
 	{
-		pos[]={16845.502,17.363287,21734.092};
-		dir[]={-0.15290926,-0.35547659,0.92210007};
-		up[]={-0.058150873,0.93468088,0.35069695};
-		aside[]={0.98653352,-2.330984e-006,0.16358361};
+		pos[]={16842.367,20.019121,21747.691};
+		dir[]={-0.055418875,-0.99786264,0.03502471};
+		up[]={-0.84350824,0.06552425,0.53310233};
+		aside[]={0.53425914,9.4918068e-006,0.84533364};
 	};
 };
 binarizationWanted=0;
@@ -512,14 +512,14 @@ class Mission
 	};
 	class Entities
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			dataType="Layer";
 			name="Base Layer";
 			class Entities
 			{
-				items=36;
+				items=35;
 				class Item0
 				{
 					dataType="Object";
@@ -2010,48 +2010,6 @@ class Mission
 					id=1761;
 					type="Land_PierLadder_F";
 					atlOffset=186.80365;
-				};
-				class Item35
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={16841.654,12.752305,21748.65};
-						angles[]={6.2818484,1.6451997,6.2192731};
-					};
-					side="Empty";
-					flags=4;
-					class Attributes
-					{
-						skill=0.60000002;
-						init="this allowdamage false;";
-						name="Vehicle_Spawn";
-					};
-					id=1777;
-					type="Land_Flush_Light_yellow_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									class type
-									{
-										type[]=
-										{
-											"BOOL"
-										};
-									};
-									value=0;
-								};
-							};
-						};
-						nAttributes=1;
-					};
 				};
 			};
 			id=1508;
@@ -3803,6 +3761,7 @@ class Mission
 							};
 							id=1723;
 							type="B_Soldier_GL_F";
+							atlOffset=9.5367432e-007;
 						};
 						class Item4
 						{
@@ -6155,15 +6114,34 @@ class Mission
 			};
 			id=1771;
 			type="Land_InfoStand_V2_F";
+			atlOffset=-0.0004863739;
 		};
 		class Item15
 		{
 			dataType="Marker";
-			position[]={16842.391,44.712002,21748.471};
+			position[]={16841.582,44.712002,21748.758};
 			name="Vehicle_Spawn_Marker";
 			type="Empty";
 			id=1778;
-			atlOffset=32.00705;
+			atlOffset=31.954987;
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16841.588,12.756642,21748.74};
+				angles[]={6.2818413,0,6.2192717};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="Vehicle_Spawn";
+			};
+			id=1779;
+			type="Land_HelipadCivil_F";
+			atlOffset=-9.5367432e-007;
 		};
 	};
 	class Connections

@@ -12,20 +12,7 @@ class paramDaytimeHour
 	texts[] = {"0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100","1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300","2400","Random"};
 	default = 12;
 };
-/*
-//class paramDaytimeHour
-#define DAYTIMEHOUR_DEFAULT	12
-#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
-*/
-/*
-class PARAM_Rain
-{
-	title= "    Weather Setting:";
-	values[]= {0,1,3,6,90,99};
-	texts[]= {"Random Weather and No Rain","Random Weather and Rain","%30 Rain","%60 Rain","Stormy Heavy Rain","Stormy no Rain"};
-	default= 1;
-};
-*/
+
 class PARAM_Fog
 {
 	title= "    Fog Setting:";

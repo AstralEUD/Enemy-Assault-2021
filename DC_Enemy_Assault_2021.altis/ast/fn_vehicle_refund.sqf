@@ -5,27 +5,33 @@
 │   Description: For  refund vehicle                    │
 └──────────────────────────────────────────────────────*/
 
-params["_spCheck","_selections","_price","_crewCount","_nowmoney","_tobe","_playerUID","_position"];
-_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
-_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
+params["_spCheck","_selections","_price","_tobe","_playerUID","_position"];
+_position = getPos Vehicle_Spawn;
+_CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
+_spCheck = typeOf _CheckAlpha;
 _playerUID = getPlayerUID player;
-if (!isNil "_spCheck") exitWith {hint "There is no vehicle/aircraft/shop on the position"};
-if (_spCheck getVariable ["spawner",""] != _playerUID) exitWith {hint "You're not owner/spawner of this Vehicle"};
+if (isNull _CheckAlpha) exitWith {hint format ["There is no vehicle/aircraft/shop on the position"];};
+_selections = ASTvehiclesR find _spCheck;
+if (_selections == -1) exitWith {hint format ["This vehicle are not added to Vehicle List %1",_spCheck];};
+if (count(fullCrew [_CheckAlpha, "cargo"]) > 1) exitWith {hint "There is still crew on the vehicle";};
+if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're not owner/spawner of this Vehicle";};
 [
 	["Are you sure that want to refund vehicles really?"],
 	"Agreement",
 	{
 		if _confirmed then {
 			//systemchat "You accepted the T&C's";
-			_selections = ASTvehicles find _spCheck;
-			_price = round (((ASTvehicles find _selections) select 1 )*0.8)
-			if (!count(fullCrew [_spCheck, "cargo"]) < 1) exitWith {hint "There is still crew on the vehicle"};
+			_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
+			_CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
+			_spCheck = typeOf _CheckAlpha;
+			_selections = ASTvehiclesR find _spCheck;
 			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
+			_price = round (((ASTvehicles select _selections) select 1 )*0.8);
 			_tobe = AST_kill_score + _price;
 			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
-			deleteVehicle _spCheck;
+			deleteVehicle _CheckAlpha;
 		} else {
-			hint {"You rejcted it"};
+			systemchat "You Rejected it";
 		};
 	},
 	"", // reverts to default
