@@ -10,8 +10,8 @@ _position = getPos Vehicle_Spawn;
 _CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
 _spCheck = typeOf _CheckAlpha;
 _playerUID = getPlayerUID player;
-if (isNull _CheckAlpha) exitWith {hint format ["There is no vehicle/aircraft/shop on the position"];};
 _selections = ASTvehiclesR find _spCheck;
+if(isNil "_spCheck") exitWith {hint "There is no a Car/Aircraft/Ship on the spawn point. Check out!"};
 if (_selections == -1) exitWith {hint format ["This vehicle are not added to Vehicle List %1",_spCheck];};
 if (count(fullCrew [_CheckAlpha, "cargo"]) > 1) exitWith {hint "There is still crew on the vehicle";};
 if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're not owner/spawner of this Vehicle";};
@@ -26,7 +26,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_spCheck = typeOf _CheckAlpha;
 			_selections = ASTvehiclesR find _spCheck;
 			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-			_price = round (((ASTvehicles select _selections) select 1 )*0.8);
+			_price = round (((ASTvehicles select _selections) select 1 )*1/2);
 			_tobe = AST_kill_score + _price;
 			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
 			deleteVehicle _CheckAlpha;
