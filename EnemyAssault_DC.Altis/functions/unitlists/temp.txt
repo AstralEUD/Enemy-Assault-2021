@@ -1,0 +1,60 @@
+faction = "rhs_faction_vdv";
+vehicleClass = "rhs_vehclass_tank";
+vehicleClass = "rhs_vehclass_apc";
+vehicleClass = "rhs_vehclass_car";
+vehicleClass = "rhs_vehclass_truck";
+vehicleClass = "rhs_vehclass_ifv";
+vehicleClass = "Armored";
+vehicleClass = "Static";
+vehicleClass = "rhs_vehclass_artillery";
+vehicleClass = "rhs_vehclass_helicopter";
+"rhs_a3spruttank_base"
+
+"RHS_Mi8_base"
+"RHS_Mi24_base"
+
+faction = "rhs_faction_tv";
+vehicleClass = "rhs_vehclass_tank";
+vehicleClass = "rhs_vehclass_ifv";
+vehicleClass = "rhs_vehclass_artillery";
+"rhs_tank_base"
+
+faction = "rhs_faction_vvs";
+vehicleClass = "rhs_vehclass_aircraft";
+"RHS_TU95MS_base"
+
+faction = "rhs_faction_vvs_c";
+vehicleClass = "rhs_vehclass_aircraft";
+
+faction = "rhs_faction_rva";
+vehicleClass = "rhs_vehclass_artillery";
+
+faction = "rhs_faction_vpvo";
+vehicleClass = "rhs_vehclass_aa";
+
+faction = rhsgref_faction_cdf_air
+faction = rhsgref_faction_cdf_air_b
+
+faction = rhsgref_faction_cdf_ground
+faction = rhsgref_faction_cdf_ground_b
+
+vehicleClass = "armored";
+
+faction = "OPF_F";
+faction = "IND_F";
+
+vehicleClass = "Car";
+vehicleClass = "Ship";
+vehicleClass = "Static";
+vehicleClass = "Armored";
+vehicleClass = "Air";
+
+faction = "CIV_F";
+vehicleClass = "Car";
+vehicleClass = "rhs_vehclass_truck";
+
+vehicleClass = "Air";
+
+"Helipad_base_F"
+
+"Kart_01_Base_F"
