@@ -1,4 +1,4 @@
-player createDiaryRecord ["Diary", ["Credits","<br />Author - Ghost <br/>Ideas and Support by Dixon <br/>Thanks to Kylania, WardenMac and the rest of the Ghostland Team<br/><br/><img image='pics\ghostadmin_icon.paa' widwidth='256' height='256'/>"]];
+player createDiaryRecord ["Diary", ["Credits","Enemy Assault with Personal Money <br/> Dev Lead by astral, with lululala22<br/> Thx to KingChiRoll, CrimyStickyR, SAKY <br/>[ORIGINAL CREDIT]<br/><br/>Author - Ghost <br/>Ideas and Support by Dixon <br/>Thanks to Kylania, WardenMac and the rest of the Ghostland Team"]];
 
 player createDiarySubject ["MissionFeatures","Mission Features"];
 
