@@ -1,6 +1,0 @@
-this addAction ["Open Garage",{ 
- 
- BIS_fnc_garage_center = getPosASL AIR_SPAWN1;
- 
- [ "Open", true ] call BIS_fnc_garage;  
-}];
