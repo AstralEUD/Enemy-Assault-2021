@@ -252,8 +252,10 @@ simulWeatherSync;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
 ASTvehSpawner addAction ["<t color='#d000ff' size='2.0'> Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
+ASTAirSpawner addAction ["<t color='#d000ff' size='2.0'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
 ASTvehSpawner addAction ["<t color='#6666FF' size='2.0'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
-ASTRearmPos addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_air_spawner.sqf","nil","1.5","true","true","player inArea ASTRearmArea"];
+ASTAirSpawner addAction ["<t color='#6666FF' size='2.0'> Aircraft Refund","ast\fn_air_refund.sqf"];
+ASTRearmPos addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf","nil","1.5","true","true","player inArea ASTRearmArea"];
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 
