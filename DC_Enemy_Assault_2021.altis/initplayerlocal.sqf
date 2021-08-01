@@ -121,12 +121,12 @@ player setVariable ["ghst_airlift", 0];
 [player,"Settings"] call BIS_fnc_addCommMenuItem;
 
 waituntil { !(isnil "ghst_carlist")};
-
+/*
 //addactions for halo and vehspawn. Should ensure them showing even with jip
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#FFA000'>Spawn Armor</t> <img size='3' color='#FFA000' shadow='2' image='\A3\armor_f_gamma\MBT_01\Data\UI\Slammer_M2A1_Base_ca.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_armorlist], 6, true, true, "","alive _target"];
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#ff634d'>Spawn Car</t> <img size='3' color='#ff634d' shadow='2' image='\A3\Soft_F_Exp\LSV_01\Data\UI\LSV_01_base_CA.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_carlist], 6, true, true, "","alive _target"];
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#9af2ff'>Spawn Static</t> <img size='3' color='#9af2ff' shadow='2' image='\A3\Static_f_gamma\data\ui\gear_StaticTurret_MG_CA.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_staticvehlist], 6, true, true, "","alive _target"];
-
+*/
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
 
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>Group HALO</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [true,1000,60,false], 4, true, true, "","alive _target and (leader group _this == _this)"];
@@ -140,7 +140,7 @@ if (player iskindof "B_Soldier_SL_F") then {
 if (player iskindof "B_soldier_UAV_F") then {
 	infostand addaction ["<t size='1.4' shadow='2' color='#FF0000'>Clear Pelter UGVs</t>", "call ghst_fnc_clear_ugv", [], 1, false, false, "","alive _target"];
 };	
-
+/*
 if (worldName == "Enoch") then {
 
 	infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>Spawn Infantry</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
@@ -176,6 +176,7 @@ if (ghst_acemod) then {
 };
 
 repair_point addAction ["<t color='#FF0000'>Rearm</t>", "call ghst_fnc_reload",[10], 6, true, true, "","alive _target and !(vehicle _this == _this)"];
+*/
 /*
 airspawn1 addAction ["Open Garage",{
 
@@ -255,7 +256,7 @@ ASTvehSpawner addAction ["<t color='#d000ff' size='2.0'> Vehicle Spawner","ast\f
 ASTAirSpawner addAction ["<t color='#d000ff' size='2.0'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
 ASTvehSpawner addAction ["<t color='#6666FF' size='2.0'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='2.0'> Aircraft Refund","ast\fn_air_refund.sqf"];
-ASTRearmPos addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf","nil","1.5","true","true","player inArea ASTRearmArea"];
+ASTRearmArea addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf","nil","1.5","true","true","player inArea ASTRearmArea"];
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 
@@ -264,4 +265,4 @@ ASTRearmPos addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)",
 sleep 30;
 
 // Info text
-[str("Enemy Assault") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By Ghost")] spawn BIS_fnc_infoText;
+[str("DCinside Enemy Assault 2021") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By ArmA Gallery")] spawn BIS_fnc_infoText;
