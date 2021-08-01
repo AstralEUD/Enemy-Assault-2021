@@ -39,7 +39,7 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 };
 
 	if !(worldName == "Enoch") then {
-		ghst_baseaa = [aa1,aa2,aa3,aa4,aa5,aa6,aa7,aa8,aa9,aa10];
+		ghst_baseaa = [aa1,aa2,aa3,aa4];
 	} else {
 		ghst_baseaa = [];
 	};
