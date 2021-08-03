@@ -256,7 +256,11 @@ ASTvehSpawner addAction ["<t color='#d000ff' size='2.0'> Vehicle Spawner","ast\f
 ASTAirSpawner addAction ["<t color='#d000ff' size='2.0'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
 ASTvehSpawner addAction ["<t color='#6666FF' size='2.0'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='2.0'> Aircraft Refund","ast\fn_air_refund.sqf"];
-ASTRearmArea addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf","nil","1.5","true","true","player inArea ASTRearmArea"];
+ASTRearmPos addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf","nil","50","true","true","player inArea ASTRearmArea"];
+ASTAirRearmPos addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf","nil","50","true","true","player inArea ASTAirRearm"];
+
+// auto run
+execVM "external\Auto_running.sqf";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 

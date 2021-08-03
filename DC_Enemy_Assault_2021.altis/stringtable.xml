@@ -571,3 +571,42 @@
 		</Container>
 	</Package>
 </Project>
+<Project name="Pylon Preset Allocator for Plane">
+	<Package name="Pylon Preset Allocator for Plane">
+<!-- PPAP LINE START -->
+<!-- Function/기능부 -->
+			<Key ID="STR_PPAP_INITIALIZED">
+				<Original>Pylon Preset Allocator for Plane initialized</Original>
+				<Korean>항공기 무장 프리셋 로더 불러오기 및 초기화 완료</Korean>
+			</Key>
+			<Key ID="STR_PPAP_MAIN_MENU_NAME">
+				<Original>Pylon Preset Allocator for Plane</Original>
+				<Korean>차량 형상 관리자</Korean>
+			</Key>
+			<Key ID="STR_PPAP_CLOSE_MENU">
+				<Original>Close</Original>
+				<Korean>닫기</Korean>
+			</Key>
+			<Key ID="STR_PPAP_CURRENT_VEHICLE">
+				<Original>Current Vehicle :</Original>
+				<Korean>현  재    차  량 :</Korean>
+			</Key>
+			<Key ID="STR_PPAP_APPLY">
+				<Original>Apply</Original>
+				<Korean>적용</Korean>
+			</Key>
+			<Key ID="STR_PPAP_DONE">
+				<Original>Preset Applied\nRearm your vehicle.</Original>
+				<Korean>프리셋 적용됨\n차량을 재보급하십시오.</Korean>
+			</Key>
+			<Key ID="STR_PPAP_PRESET">
+				<Original>Preset</Original>
+				<Korean>프리셋</Korean>
+			</Key>
+			<Key ID="STR_PPAP_NO_PRESET">
+				<Original>There is no preset.</Original>
+				<Korean>프리셋이 없습니다.</Korean>
+			</Key>
+<!-- PPAP LINE END -->
+	</Package>
+</Project>

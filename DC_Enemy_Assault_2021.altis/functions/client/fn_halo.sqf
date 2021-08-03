@@ -16,6 +16,24 @@ hint "Halo Not Available";
 _host removeaction _id;
 };
 
+[
+	["It costs 5pts, Do you want to continue HALO?"],
+	"Information",
+	{
+		if _confirmed then {
+			systemchat "HALO selection is now ongoing";
+			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
+			if (AST_kill_score < 5) exitWith {hint "Not enough minerals";};
+			private _tobe = AST_kill_score - 5;
+			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
+		} else {
+			exitWith {};
+		};
+	},
+	"", // reverts to default
+	""  // reverts to default, disable cancel option
+] call CAU_UserInputMenus_fnc_guiMessage;
+
 //save the backpack and its contents, also adds fake pack to front of unit
 //[_saveLoadOut,_caller] spawn ghst_halo_ventralpack;
 ghst_halo_ventralpack = {

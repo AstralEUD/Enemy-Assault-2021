@@ -118,6 +118,11 @@ class RscTitles
 #include "cau\userinputmenus\systems\displayText.cpp"
 #include "cau\userinputmenus\systems\displayTextMulti.cpp"
 
+// VAM_GUI
+#include "VAM_GUI\defines.hpp"
+#include "VAM_GUI\VAM_GUI_controls.hpp"
+#include "VAM_GUI\VAM_GUI_classes.hpp"
+
 class cfgFunctions {
 	
 	//ghst functions
