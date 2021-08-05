@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.017453292;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=233;
+	toggles=105;
 	class ItemIDProvider
 	{
 		nextID=3136;
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=437;
+		nextID=439;
 	};
 	class Camera
 	{
-		pos[]={23854.482,3.3900001,18504.391};
-		dir[]={-0.99035281,0.034262147,0.13455692};
-		up[]={0.033829354,0.99941713,-0.0045974334};
-		aside[]={0.1346357,1.1384e-006,0.99093628};
+		pos[]={23913.34,72.435219,18524.152};
+		dir[]={0.031694245,-0.99851662,0.045202065};
+		up[]={0.57323134,0.055079438,0.81753963};
+		aside[]={0.81881803,-5.5879354e-008,-0.57412809};
 	};
 };
 binarizationWanted=0;
@@ -2312,7 +2312,7 @@ class Mission
 					colorName="ColorWhite";
 					a=0.5;
 					b=0.5;
-					angle=9.0000267;
+					angle=9.0000257;
 					id=1587;
 					atlOffset=204.94405;
 				};
@@ -9357,17 +9357,18 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={23913.422,6.2867489,18538.24};
+				position[]={23913.422,6.2867498,18538.24};
 				angles[]={0,1.8325957,0};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
+				name="ASTRearmPos";
 			};
 			id=2959;
 			type="Land_FuelStation_01_roof_F";
-			atlOffset=-1.4305115e-006;
+			atlOffset=-2.3841858e-007;
 			class CustomAttributes
 			{
 				class Attribute0

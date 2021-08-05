@@ -55,10 +55,22 @@ switch (worldName) do {
 
 AST_fnc_db_fetch_money = compileFinal preprocessFileLineNumbers "ast\db_fetch_money.sqf";
 AST_fnc_db_save = compileFinal preprocessFileLineNumbers "ast\db_save.sqf";
-[] execVM "VAM_GUI\VAM_GUI_init.sqf";
-[] execVM "external\fn_flipVeh.sqf";
-//notice
-[] execVM "external\s_Welcome_Rule.sqf";
+
+if(!isDedicated && hasInterface)then{
+	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+	//[] execVM "external\fn_flipVeh.sqf";
+	//notice
+	[] execVM "external\s_Welcome_Rule.sqf";
+	//SAKY's Magazine Repack
+	[] execVM "external\SAKY_MAGAZINE_REPACK.sqf";
+	// auto run
+	[] execVM "external\Auto_running.sqf";
+	//SAKY's tankboy
+	[] execVM "external\tankboy.sqf";
+};
+player addEventHandler ["Respawn", {
+	[] execVM "jld\Auto_running.sqf";
+}];
 
 // Wait until player is initialized
 if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
