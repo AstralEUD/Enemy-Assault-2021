@@ -27,7 +27,7 @@ _host removeaction _id;
 			private _tobe = AST_kill_score - 5;
 			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
 		} else {
-			exitWith {};
+			exitWith {hint "now enough minerals";};
 		};
 	},
 	"", // reverts to default

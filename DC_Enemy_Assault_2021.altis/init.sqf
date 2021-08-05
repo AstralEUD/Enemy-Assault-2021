@@ -69,7 +69,7 @@ if(!isDedicated && hasInterface)then{
 	[] execVM "external\tankboy.sqf";
 };
 player addEventHandler ["Respawn", {
-	[] execVM "jld\Auto_running.sqf";
+	[] execVM "external\Auto_running.sqf";
 }];
 
 // Wait until player is initialized

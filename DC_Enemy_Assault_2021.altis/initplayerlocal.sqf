@@ -259,6 +259,21 @@ ASTAirSpawner addAction ["<t color='#6666FF' size='2.0'> Aircraft Refund","ast\f
 player addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 player addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 
+[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+//[] execVM "external\fn_flipVeh.sqf";
+//notice
+[] execVM "external\s_Welcome_Rule.sqf";
+//SAKY's Magazine Repack
+[] execVM "external\SAKY_MAGAZINE_REPACK.sqf";
+// auto run
+[] execVM "external\Auto_running.sqf";
+//SAKY's tankboy
+[] execVM "external\tankboy.sqf";
+player addEventHandler ["Respawn", {
+	[] execVM "external\Auto_running.sqf";
+}];
+
+
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
 
