@@ -8,11 +8,12 @@ if (_player iskindof "VirtualCurator_F") then {
 waituntil {! isnull player};
 
 //Detect ACE
-if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
+ghst_acemod = false;
+/*if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 	ghst_acemod = true;
 } else {
 	ghst_acemod = false;
-};
+};*/
 //RHS Escalation Detect
 _PARAM_RHS = "PARAM_RHS" call BIS_fnc_getParamValue;
 _PARAM_FIRAIR = "PARAM_FIRAIR" call BIS_fnc_getParamValue;
@@ -128,7 +129,6 @@ airspawn1 addAction ["<t size='1.5' shadow='2' color='#ff634d'>Spawn Car</t> <im
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#9af2ff'>Spawn Static</t> <img size='3' color='#9af2ff' shadow='2' image='\A3\Static_f_gamma\data\ui\gear_StaticTurret_MG_CA.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_staticvehlist], 6, true, true, "","alive _target"];
 */
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
-
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>Group HALO</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [true,1000,60,false], 4, true, true, "","alive _target and (leader group _this == _this)"];
 
 //halo setObjectTexture [0, "\A3\Characters_F\data\ui\icon_b_parachute_ca.paa"];
@@ -213,7 +213,7 @@ if ("PARAM_PIFF" call BIS_fnc_getParamValue == 1) then {
 };
 //[] call BIS_fnc_groupIndicator;
 
-//disable revive for ace
+
 if (ghst_acemod) then {
 
 	player addEventHandler ["Respawn", {[player] call bis_fnc_disableRevive}]; 
@@ -221,32 +221,11 @@ if (ghst_acemod) then {
 
 };
 
-//player addEventHandler ["Killed", {call ghst_fnc_remrandomspawn}];  
-//call ghst_fnc_remrandomspawn;
-//systemChat "Saving initial loadout";
-
-//call ghst_fnc_setrespawninventory;
-
-//Save loadout whenever player exits arsenal and disable ship defense access
 [ missionNamespace, "arsenalClosed", {
 	systemChat "Arsenal Loadout Saved";
 	player setVariable ["GHST_Current_Gear",getUnitLoadout player];
 	{player disableUAVConnectability [_x,true];} forEach ghst_baseaa;
 }] call BIS_fnc_addScriptedEventHandler;
-
-/*
-//set weather
-_delay = 86400;
-waituntil {! isNil {missionNamespace getvariable "ghst_weather"}};
-
-skipTime -24;
-[_delay] call ghst_fnc_UpdateWeather;
-skipTime 24;
-
-sleep 1;
-
-simulWeatherSync;
-*/
 [] spawn ghst_fnc_vehicle_actioninit;
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;

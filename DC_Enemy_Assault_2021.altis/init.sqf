@@ -4,7 +4,8 @@ diag_log text format["|=============================   %1   ====================
 diag_log text "";
 
 //Detect ACE
-if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
+ghst_acemod = false;
+/*if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 	ghst_acemod = true;
 } else {
 	ghst_acemod = false;
@@ -16,6 +17,7 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 } else {
 	ghst_rhsmod = false;
 };
+*/
 
 enableSaving [false, false];
 
@@ -55,22 +57,6 @@ switch (worldName) do {
 
 AST_fnc_db_fetch_money = compileFinal preprocessFileLineNumbers "ast\db_fetch_money.sqf";
 AST_fnc_db_save = compileFinal preprocessFileLineNumbers "ast\db_save.sqf";
-
-if(!isDedicated && hasInterface)then{
-	[] execVM "VAM_GUI\VAM_GUI_init.sqf";
-	//[] execVM "external\fn_flipVeh.sqf";
-	//notice
-	[] execVM "external\s_Welcome_Rule.sqf";
-	//SAKY's Magazine Repack
-	[] execVM "external\SAKY_MAGAZINE_REPACK.sqf";
-	// auto run
-	[] execVM "external\Auto_running.sqf";
-	//SAKY's tankboy
-	[] execVM "external\tankboy.sqf";
-};
-player addEventHandler ["Respawn", {
-	[] execVM "external\Auto_running.sqf";
-}];
 
 // Wait until player is initialized
 if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
