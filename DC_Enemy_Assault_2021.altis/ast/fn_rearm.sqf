@@ -7,7 +7,7 @@
 
 params ["_playerVehicle","_nowmoney","_tobe","_playerUID"];
 [player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-if (AST_kill_score < 2) exitWith {hint "Not enough Minerals!";};
+if (AST_kill_score < 5) exitWith {hint "Not enough Minerals!";};
 if (vehicle player == player) exitWith {hint "Rearm can be used while you're in a vehicle!";};
 _vec = (vehicle player);
 _type = typeOf vehicle player;

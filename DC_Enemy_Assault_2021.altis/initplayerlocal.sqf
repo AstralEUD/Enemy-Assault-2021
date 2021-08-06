@@ -72,7 +72,7 @@ if ghst_rhsmod then {
 #include "addnotes.sqf"
 
 if (player iskindof "B_recon_JTAC_F") then {
-[player,"CAS"] call BIS_fnc_addCommMenuItem;
+//[player,"CAS"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cassup", 0];
 player setVariable ["ghst_helosup", 0];
 player setVariable ["ghst_helosup2", 0];
@@ -80,7 +80,7 @@ player setVariable ["ghst_helosup2", 0];
 [player,"RemoteDesignator"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_remotedes", 0];
 
-[player,"Gunship"] call BIS_fnc_addCommMenuItem;
+//[player,"Gunship"] call BIS_fnc_addCommMenuItem;
 };
 _gunshipvar = (player getVariable "ghst_gunship");
 if (isnil "_gunshipvar") then {
@@ -100,7 +100,7 @@ player setVariable ["ghst_remotedes", 0];
 };
 
 if (player iskindof "B_Soldier_SL_F") then {
-[player,"AMMO"] call BIS_fnc_addCommMenuItem;
+//[player,"AMMO"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_ammodrop", 0];
 
 [player,"PUAV"] call BIS_fnc_addCommMenuItem;
@@ -110,7 +110,7 @@ player setVariable ["ghst_puavsup", 0];
 player setVariable ["ghst_respawntent", 0];
 };
 
-[player,"CARGO"] call BIS_fnc_addCommMenuItem;
+//[player,"CARGO"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cargodrop", 0];
 
 [player,"Transport"] call BIS_fnc_addCommMenuItem;
@@ -252,12 +252,12 @@ simulWeatherSync;
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
-ASTvehSpawner addAction ["<t color='#d000ff' size='2.0'> Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
-ASTAirSpawner addAction ["<t color='#d000ff' size='2.0'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
-ASTvehSpawner addAction ["<t color='#6666FF' size='2.0'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
-ASTAirSpawner addAction ["<t color='#6666FF' size='2.0'> Aircraft Refund","ast\fn_air_refund.sqf"];
-player addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
-player addAction ["<t color = '#0080FF' size='2.0'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
+ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
+ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
+ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
+ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","ast\fn_air_refund.sqf"];
+player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
+player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 
 [] execVM "VAM_GUI\VAM_GUI_init.sqf";
 //[] execVM "external\fn_flipVeh.sqf";
