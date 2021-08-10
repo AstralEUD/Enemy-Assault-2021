@@ -6,6 +6,8 @@ _namelist = [];
 _namelist2 = [];
 _namelist3 = [];
 _namelist4 = [];
+_namelist5 = [];
+_heloattacklist = [];
 
 _transhelos = [
 "B_Heli_Transport_01_F",

@@ -1,6 +1,6 @@
-author = "Ghost"; // Author
-onLoadName = "Enemy Assault"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
-onLoadMission = "Awaiting Orders"; // Description
+author = "Testify"; // Author
+onLoadName = "DC_Enemy Assault 2021"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
+onLoadMission = "You can buy your car/aircraft/ship by killing enemy yourself."; // Description
 loadScreen = "pics\ghostadmin_icon.paa"; // Preview picture
 overviewText = "Enemy forces occupy most of the island. Await orders from command and complete all tasks given. Good Luck.";
 //overviewPicture = "pics\overview.paa";
@@ -22,16 +22,6 @@ class Params
 	//#include "\a3\functions_f\Params\paramWeather.hpp"
 
 	#include "ghst_params.hpp"
-	/*
-	class EmtpyLinerevive1 {
-		//--- paramsArray[0]
-		title = ":: Revive Settings ::";
-		values[]={0,0};
-		texts[]={ "",""};
-		default = 0;
-	};
-	#include "\a3\Functions_F\Params\paramRevive.hpp"
-	*/
 
 };
 

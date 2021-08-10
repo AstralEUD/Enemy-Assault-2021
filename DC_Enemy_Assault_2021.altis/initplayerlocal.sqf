@@ -242,8 +242,6 @@ player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
 [] execVM "external\s_Welcome_Rule.sqf";
-//SAKY's Magazine Repack
-[] execVM "external\SAKY_MAGAZINE_REPACK.sqf";
 // auto run
 [] execVM "external\Auto_running.sqf";
 //SAKY's tankboy
