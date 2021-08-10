@@ -18,8 +18,6 @@ if (isnil "_locsel") exitwith {diag_log format ["TASK LOCATIONS EMPTY FOR SIDE O
 //ghst_milarray = ghst_milarray - [-1];
 ghst_milarray deleteAt _idx;
 _locselpos = _locsel select 0;//get position of location
-AST_op_pos = _locselpos;
-publicVariable "AST_op_pos";
 _locselname = _locsel select 1;//get name of location
 Ghst_Current_tasks = [];
 
