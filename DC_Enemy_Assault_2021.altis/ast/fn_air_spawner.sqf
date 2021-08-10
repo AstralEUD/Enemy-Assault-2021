@@ -8,6 +8,7 @@
 
 params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowscore","_caller"];
 [player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
+sleep 0.5;
 hint format ["Now money : %1",AST_kill_score];
 [
 	[
