@@ -57,6 +57,7 @@ switch (worldName) do {
 
 AST_fnc_db_fetch_money = compileFinal preprocessFileLineNumbers "ast\db_fetch_money.sqf";
 AST_fnc_db_save = compileFinal preprocessFileLineNumbers "ast\db_save.sqf";
+[] execVM "VAM_GUI\VAM_GUI_init.sqf";
 
 // Wait until player is initialized
 if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};

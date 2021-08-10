@@ -2,16 +2,14 @@
 "Welcome to DC Vanilla Server!" hintC [
     parseText 
 	"
-	<br/><t align='center' size='1'><a color='#ffd800'>DCinisde Enemy Assault 2021</a></t>
-	<br/><t align='center' size='2'><a color='#ffd800'>디시인사이드 에너미어썰트 2021</a></t>
+	<br/><t align='center' size='1'><a color='#ffd800'>Enemy Assault 2021</a></t>
+	<br/><t align='center' size='2'><a color='#ffd800'>에너미어썰트 2021</a></t>
 	<br/><t align='center'></t>
-	<br/><t align='center'>디씨 아르마 마이너갤 에너미 어썰트 2021에 오신걸 환영합니다</t>
+	<br/><t align='center'>에너미 어썰트 2021에 오신걸 환영합니다</t>
 	<br/><t align='center'></t>
 	<br/><t align='center'>상호존중하여 매너있는 행동 및 대화를 하길바람</t>
 	<br/><t align='center'></t>
 	<br/><t align='center'>막장서버는 아니니까 트롤러, 게임방해, 민폐자는 일가실각, 영구밴 할수 있음<t size='0.9'>
-	<br/><t align='center'></t>
-	<br/><t align='center' size='1.5'><a color='#ff0000'>보병 및 지상장비 위주로 항공장비에만 사람이 많이 몰리면 무작위로 강퇴 하겠음</a></t>
 	<br/><t align='center'></t>
 	<br/><t align='right'><t size='1'>
 	디스코드<a color='#ffd800' href='https://discord.gg/SbAzgYjWqV

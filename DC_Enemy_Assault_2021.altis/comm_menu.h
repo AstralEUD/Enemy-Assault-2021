@@ -52,7 +52,7 @@ class CfgCommunicationMenu
 		expression = ""; // Code executed upon activation (ignored when the submenu is not empty)
 		icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
-		enable = "1"; // Simple expression condition for enabling the item
+		enable = "0"; // Simple expression condition for enabling the item
 	};
 	class CARGO
 	{
@@ -70,7 +70,7 @@ class CfgCommunicationMenu
 		expression = "ghst_puavsupport = [""Land_TentA_F"",5] spawn ghst_fnc_respawntent;"; // Code executed upon activation (ignored when the submenu is not empty)
 		icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "";//"\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
-		enable = "1"; // Simple expression condition for enabling the item
+		enable = "0"; // Simple expression condition for enabling the item
 	};
     class Artillery
     {
@@ -79,7 +79,7 @@ class CfgCommunicationMenu
         expression = "player setVariable ['BIS_SUPP_request', ['Artillery', _pos]];"; // Code executed upon activation
         icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"; // Icon displayed permanently next to the command menu
         cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
-        enable = "1"; // Simple expression condition for enabling the item
+        enable = "0"; // Simple expression condition for enabling the item
         //removeAfterExpressionCall = 1; // 1 to remove the item after calling
     };
     class Transport

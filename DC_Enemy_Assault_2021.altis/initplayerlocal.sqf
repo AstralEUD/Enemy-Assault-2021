@@ -238,7 +238,7 @@ ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","ast\f
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 
-[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
 [] execVM "external\s_Welcome_Rule.sqf";
@@ -257,4 +257,4 @@ player addEventHandler ["Respawn", {
 sleep 30;
 
 // Info text
-[str("DCinside Enemy Assault 2021") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By ArmA Gallery")] spawn BIS_fnc_infoText;
+[str("Enemy Assault 2021") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By ArmA Gallery")] spawn BIS_fnc_infoText;

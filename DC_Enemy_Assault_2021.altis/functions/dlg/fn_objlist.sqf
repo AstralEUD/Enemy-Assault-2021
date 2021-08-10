@@ -70,6 +70,5 @@ DLG_VEH_SELECTED = false;
 if (isnil "ghst_vehsel") exitwith {player groupchat "Nothing Spawned";};
 if (ghst_vehsel != "none" && DLG_VEH_SELECTED) then {
 _cargo_name = (configFile >> "cfgVehicles" >> (_objsel) >> "displayName") call bis_fnc_getcfgdata;
-_output = [_objsel,_cargo_name];
+_output = [_objsel,_cargo_name];};
 
-_output

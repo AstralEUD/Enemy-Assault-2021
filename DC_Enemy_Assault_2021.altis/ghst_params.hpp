@@ -18,14 +18,14 @@ class PARAM_Fog
 	title= "    Fog Setting:";
 	values[]= {1,0,10,20,30,40,50,60,70,80,90,100};
 	texts[]= {"Random Fog","0% Fog","10% Fog","20% Fog","30% Fog","40% Fog","50% Fog","60% Fog","70% Fog","80% Fog","90% Fog","100% Fog"};
-	default= 0;
+	default= 1;
 };
 class PARAM_Overcast
 {
 	title= "    Overcast Setting:";
 	values[]= {1,0,10,20,30,40,50,60,70,80,90,100};
 	texts[]= {"Random Overcast","0% Overcast","10% Overcast","20% Overcast","30% Overcast","40% Overcast","50% Overcast","60% Overcast","70% Overcast","80% Overcast","90% Overcast","100% Overcast"};
-	default= 30;
+	default= 1;
 };
 class PARAM_Teamdead
 {
@@ -63,7 +63,7 @@ class PARAM_Tasks
 	title = "    Number of Tasks:";
 	values[] = {8,7,6,5,4,3,2,1};
 	texts[] = {"8","7","6","5","4","3","2","1"};
-	default = 4;
+	default = 5;
 };
 class PARAM_TASKTYPES
 {
@@ -154,7 +154,7 @@ class PARAM_RHS
 	title = "    USE RHS Escalation:";
 	values[] = {0,1};
 	texts[] = {"No RHS Escalation","USE RHS Escalation"};
-	default = 1;
+	default = 0;
 };
 class PARAM_EnemyTypeRHS
 {
