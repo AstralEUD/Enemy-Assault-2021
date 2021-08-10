@@ -9,7 +9,7 @@
 while {true} do {
 	sleep 900;
 	[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-	private time_kill_score = AST_kill_score + 15;
+	_score = AST_kill_score + 15;
 	systemChat "15분동안 플레이하여 접속 보상이 지급되었습니다.";
-	[player, "kill_score", time_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
+	[player, "kill_score", _score] remoteExec ["AST_fnc_db_save", 2, false];
 };

@@ -168,15 +168,15 @@ if (worldName == "Enoch") then {
 	freedomladder1 addAction ["<t size='1.5' shadow='2' color='#4863A0'>Move to USS Freedom</t>", {player setposasl (getposasl base);}, [], 5, true, true, "","alive _target"];
 
 };
-
+*/
 if (ghst_acemod) then {
 	medic_point addAction ["<t color='#5dff00'>Full ACE Heal</t> <img size='2' color='#5dff00' shadow='2' image='\a3\ui_f\data\IGUI\Cfg\Actions\heal_ca'/>", "call ghst_fnc_aceheal", [], 6, true, true, "","alive _target"];
 } else {
 	private _action = medic_point addAction ["<t color='#5dff00'>Full Heal</t> <img size='2' color='#5dff00' shadow='2' image='\a3\ui_f\data\IGUI\Cfg\Actions\heal_ca'/>", { hint format ["Player damage was %1 Percent", round (damage medic_point * 100)]; player setdamage 0; }, [], 6, true, true, "","alive _target"];
 };
-
+/*
 repair_point addAction ["<t color='#FF0000'>Rearm</t>", "call ghst_fnc_reload",[10], 6, true, true, "","alive _target and !(vehicle _this == _this)"];
-*/
+
 /*
 airspawn1 addAction ["Open Garage",{
 
