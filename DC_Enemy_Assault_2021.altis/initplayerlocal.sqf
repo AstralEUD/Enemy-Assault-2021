@@ -121,6 +121,8 @@ player setVariable ["ghst_airlift", 0];
 [player,"Group"] call BIS_fnc_addCommMenuItem;
 [player,"Settings"] call BIS_fnc_addCommMenuItem;
 
+[player,"Lock"] call BIS_fnc_addCommMenuItem;
+
 waituntil { !(isnil "ghst_carlist")};
 /*
 //addactions for halo and vehspawn. Should ensure them showing even with jip
@@ -231,12 +233,12 @@ if (ghst_acemod) then {
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
-ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
-ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
-ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
-ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","ast\fn_air_refund.sqf"];
-player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
-player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
+ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_vehicle_spawner"];
+ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call ast_fnc_air_spawner"];
+ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_vehicle_refund"];
+ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
+player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
+player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 
 
 //[] execVM "external\fn_flipVeh.sqf";
@@ -248,12 +250,15 @@ player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\
 [] execVM "external\tankboy.sqf";
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
+	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
+	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 }];
 
 //invEH
 [] execVM "ast\fn_invEH.sqf";
-//killEH
-[] execVM "ast\fn_killEH.sqf";
+//Vehicle Lock System
+[] execVM "ast\fn_lock_vehicle.sqf";
+
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
 

@@ -23,8 +23,8 @@ player addEventHandler ["GetOut", {
 	if ((_distance == "1e10") or (_distance <= 1500)) exitWith {diag_log "[EA2021] Debug Code 03d";};
 	if ((_OPdis == "1e10") or (_OPdis >= 800) or (_RTBdis == "1e10") or (_RTBdis >= 300)) exitWith {diag_log "[EA2021] Debug Code 03e";};
 	_driverID = owner _NowDriver;
-	[_NowDriver] remoteExec ["AST_fnc_db_fetch_another", 2, false];
+	[_NowDriver] remoteExec ["AST_fnc_fetch_another", 2, false];
 	private _tobe = AST_ano_score + 20;
-	[_NowDriver, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
+	[_NowDriver, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
 	"[수송보너스] 성공적으로 수송하여 20포인트가 추가되었습니다. 수고하셨습니다!" remoteExec ["systemChat", _driverID];
 }];

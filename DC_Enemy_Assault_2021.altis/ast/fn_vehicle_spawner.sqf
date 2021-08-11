@@ -7,8 +7,8 @@
 └──────────────────────────────────────────────────────*/
 
 params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowscore","_caller"];
-[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-sleep 0.5;
+[player] remoteExec ["AST_fnc_fetch_money", 2, false];
+sleep 0.3;
 hint format ["Now money : %1",AST_kill_score];
 [
 	[
@@ -22,7 +22,6 @@ hint format ["Now money : %1",AST_kill_score];
 		systemchat format["_index: %1",_index];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
-		[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
 		if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
 			_direction = markerDir "Vehicle_Spawn_Marker";
@@ -39,7 +38,7 @@ hint format ["Now money : %1",AST_kill_score];
 			_displayName = getText(configFile >> "CfgVehicles" >> (ASTvehicles select _index) select 0 >> "displayName");
 			_nowscore = AST_kill_score - ((ASTvehicles select _index) select 1);
 			_vehicle setVariable ["spawner",_playeruid];
-			[player, "kill_score", _nowscore] remoteExec ["AST_fnc_db_save", 2, false];
+			[player, "kill_score", _nowscore] remoteExecCall ["AST_fnc_db_save", 2, false];
 			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];
 			} else {
 			hint("You selected nothing!")

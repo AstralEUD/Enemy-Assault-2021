@@ -11,8 +11,8 @@ _CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] selec
 _spCheck = typeOf _CheckAlpha;
 _playerUID = getPlayerUID player;
 _selections = ASTvehiclesR find _spCheck;
-[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-sleep 0.5;
+[player] remoteExec ["AST_fnc_fetch_money", 2, false];
+sleep 0.3;
 if ((isNil "_spCheck") or (isNil "_CheckAlpha")) exitWith {hint "There is no a Car/Aircraft/Ship on the spawn point. Check out!"};
 if (_selections == -1) exitWith {hint format ["This vehicle are not added to Vehicle List %1",_spCheck];};
 if (count(fullCrew [_CheckAlpha, "cargo"]) > 1) exitWith {hint "There is still crew on the vehicle";};
@@ -29,7 +29,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_selections = ASTvehiclesR find _spCheck;
 			_price = (ASTvehiclesRP select _selections) select 1;
 			_tobe = AST_kill_score + _price;
-			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
+			[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
 			deleteVehicle _CheckAlpha;
 		} else {
 			systemchat "You Rejected it";

@@ -122,6 +122,8 @@ class cfgFunctions {
 	#include "ZLoad\functions.hpp"
 	#include "cau\extendedchat\CfgFunctions.cpp"
     #include "cau\userinputmenus\CfgFunctions.cpp"
+	//EA2021
+	#include "ast\CfgFunctions.hpp"
 };
 
 class cfgEmoji {

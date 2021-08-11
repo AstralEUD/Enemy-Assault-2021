@@ -102,3 +102,16 @@ SettingsubMenu =
 ["Set All Tasks Complete Debug", [6], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
 
 ];
+
+LocksubMenu = 
+
+[
+["Own Vehicle Settings",true],
+
+["Own Vehicle Settings", [0],"",-2,[["expression", ""]], "1", "0"], // header text 
+
+["Lock Your Vehicle", [2], "", -5, [["expression", "player setVariable ['AST_LockSet', 1, true];"]], "1", "1"],
+
+["Unlock Your Vehicle", [3], "", -5, [["expression", "player setVariable ['AST_LockSet', 0, true];"]], "1", "1"]
+
+];
