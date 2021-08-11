@@ -4,7 +4,8 @@ diag_log text format["|=============================   %1   ====================
 diag_log text "";
 
 //Detect ACE
-if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
+ghst_acemod = false;
+/*if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 	ghst_acemod = true;
 } else {
 	ghst_acemod = false;
@@ -16,6 +17,7 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 } else {
 	ghst_rhsmod = false;
 };
+*/
 
 enableSaving [false, false];
 
@@ -53,11 +55,14 @@ switch (worldName) do {
 	};
 };
 
+AST_fnc_db_fetch_money = compileFinal preprocessFileLineNumbers "ast\db_fetch_money.sqf";
+AST_fnc_db_save = compileFinal preprocessFileLineNumbers "ast\db_save.sqf";
+AST_fnc_db_another = compileFinal preprocessFileLineNumbers "ast\db_fetch_another.sqf";
+[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+
 // Wait until player is initialized
 if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
 
 tf_no_auto_long_range_radio = true;
 
 //["Preload"] call BIS_fnc_arsenal;
-AST_fnc_db_fetch_money = compileFinal preprocessFileLineNumbers "ast\db_fetch_money.sqf";
-AST_fnc_db_save = compileFinal preprocessFileLineNumbers "ast\db_save.sqf";

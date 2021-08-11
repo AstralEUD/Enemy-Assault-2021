@@ -8,6 +8,7 @@ _mrkr setMarkerColor "ColorBLUE";
 _mrkr setMarkerSize [1, 1];
 _mrkr setMarkerType "empty";
 _mrkr setMarkerText "CENTER";
+
 /*
 //Create Village on SW Area and Ghost Hotel
 ghst_ghost_hotel = createLocation [ "NameLocal" , [21883.5,20980.5,0], 800, 800];

@@ -15,7 +15,7 @@ if (ghst_acemod) then {
 player addaction ["<t size='1.2' shadow='2' color='#FF0000'>Move Unit</t>", { call ghst_fnc_drag; }, [], 1, false, false, "","alive _target and _this == _target and cursorTarget iskindof 'MAN' and cursorTarget distance _this < 2 and alive cursorTarget"];
 
 //this addaction ["Open Virtual Arsenal", { ["Open",true] call BIS_fnc_arsenal; }];  
-player addaction ["<t size='1.4' shadow='2' color='#FF8C00'>Virtual Arsenal</t>", { ["Open",true] call BIS_fnc_arsenal; }, [], 1, false, true, "","((getpos player distance getpos base) < 350 or (getpos player distance getpos liberty) < 250)"];
+/*player addaction ["<t size='1.4' shadow='2' color='#FF8C00'>Virtual Arsenal</t>", { ["Open",true] call BIS_fnc_arsenal; }, [], 1, false, true, "","((getpos player distance getpos base) < 350 or (getpos player distance getpos liberty) < 250)"];*/
 
 player addAction ["<t size='1.5' shadow='2' color='#00ff00'>Open Chute</t> <img size='1.5' color='#00ff00' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", {call ghst_fnc_deploychute; }, [], 6, true, true, "","_target == _this and ((getpos _this select 2) > 100) and (vehicle player == _this)"];
 

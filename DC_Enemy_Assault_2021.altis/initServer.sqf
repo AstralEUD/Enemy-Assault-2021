@@ -79,10 +79,10 @@ if ((worldName == "Enoch") or (worldName == "Tanoa")) then {
 	ghst_opfortent = "CamoNet_OPFOR_big_F";
 };
 if (worldName == "Enoch") then {
-	[[],[],[aa1,aa2],false,WEST] spawn ghst_fnc_basedef;
+	[[],[],[aa1,aa2,aa3,aa4],false,WEST] spawn ghst_fnc_basedef;
 	[getposatl ghst_artillery,ghst_friendlybase_arty,55,[0,-15,+15],false,WEST] spawn ghst_fnc_basearty;
 } else {
-	[[],ghst_friendlybase_def,[art1,art2,aa1,aa2,aa3,aa4,aa5,aa6,aa7,aa8,aa9,aa10],false,WEST] spawn ghst_fnc_basedef;
+	[[],ghst_friendlybase_def,[art1,art2,aa1,aa2,aa3,aa4],false,WEST] spawn ghst_fnc_basedef;
 };
 ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") / 2;
 [(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,3,[true,30],[false,"ColorRed"]] spawn ghst_fnc_eair;
@@ -92,6 +92,14 @@ ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") /
 [] execVM "ast\fn_dbcheck.sqf";
 _PARAM_AISkill = "PARAM_AISkill" call BIS_fnc_getParamValue;
 [[(getmarkerpos "Respawn_West"),1000],[600,600],(4 + round(random 2)),[false,"ColorRed"],(_PARAM_AISkill/10)] spawn ghst_fnc_randespawn;
+
+aa1 setSkill ["spotDistance",0.33];
+aa2 setSkill ["spotDistance",0.33];
+aa3 setSkill ["spotDistance",0.33];
+aa4 setSkill ["spotDistance",0.33];
+
+[] execVM "ast\fn_killEH.sqf";
+
 /*
 //Spawn Base helicopters
 if (true) then {

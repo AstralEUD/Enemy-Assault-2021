@@ -12,6 +12,9 @@ _numobjs = _this select 2;//number of random objectives
 _campmark = _this select 3;//location where camp site is
 _locselname = _this select 4;//name of location
 
+AST_op_pos = _random_pos;
+publicVariable "AST_op_pos";
+
 _commanderlist = ghst_commanderlist;
 _transport_heli_list = ghst_transport_heli_list;
 _ammobox_list = ghst_ammobox_list;

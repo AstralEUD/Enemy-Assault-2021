@@ -8,11 +8,12 @@ if (_player iskindof "VirtualCurator_F") then {
 waituntil {! isnull player};
 
 //Detect ACE
-if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
+ghst_acemod = false;
+/*if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 	ghst_acemod = true;
 } else {
 	ghst_acemod = false;
-};
+};*/
 //RHS Escalation Detect
 _PARAM_RHS = "PARAM_RHS" call BIS_fnc_getParamValue;
 _PARAM_FIRAIR = "PARAM_FIRAIR" call BIS_fnc_getParamValue;
@@ -39,7 +40,7 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 };
 
 	if !(worldName == "Enoch") then {
-		ghst_baseaa = [aa1,aa2,aa3,aa4,aa5,aa6,aa7,aa8,aa9,aa10];
+		ghst_baseaa = [aa1,aa2,aa3,aa4];
 	} else {
 		ghst_baseaa = [];
 	};
@@ -72,7 +73,7 @@ if ghst_rhsmod then {
 #include "addnotes.sqf"
 
 if (player iskindof "B_recon_JTAC_F") then {
-[player,"CAS"] call BIS_fnc_addCommMenuItem;
+//[player,"CAS"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cassup", 0];
 player setVariable ["ghst_helosup", 0];
 player setVariable ["ghst_helosup2", 0];
@@ -80,7 +81,7 @@ player setVariable ["ghst_helosup2", 0];
 [player,"RemoteDesignator"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_remotedes", 0];
 
-[player,"Gunship"] call BIS_fnc_addCommMenuItem;
+//[player,"Gunship"] call BIS_fnc_addCommMenuItem;
 };
 _gunshipvar = (player getVariable "ghst_gunship");
 if (isnil "_gunshipvar") then {
@@ -100,7 +101,7 @@ player setVariable ["ghst_remotedes", 0];
 };
 
 if (player iskindof "B_Soldier_SL_F") then {
-[player,"AMMO"] call BIS_fnc_addCommMenuItem;
+//[player,"AMMO"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_ammodrop", 0];
 
 [player,"PUAV"] call BIS_fnc_addCommMenuItem;
@@ -110,7 +111,7 @@ player setVariable ["ghst_puavsup", 0];
 player setVariable ["ghst_respawntent", 0];
 };
 
-[player,"CARGO"] call BIS_fnc_addCommMenuItem;
+//[player,"CARGO"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cargodrop", 0];
 
 [player,"Transport"] call BIS_fnc_addCommMenuItem;
@@ -121,14 +122,13 @@ player setVariable ["ghst_airlift", 0];
 [player,"Settings"] call BIS_fnc_addCommMenuItem;
 
 waituntil { !(isnil "ghst_carlist")};
-
+/*
 //addactions for halo and vehspawn. Should ensure them showing even with jip
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#FFA000'>Spawn Armor</t> <img size='3' color='#FFA000' shadow='2' image='\A3\armor_f_gamma\MBT_01\Data\UI\Slammer_M2A1_Base_ca.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_armorlist], 6, true, true, "","alive _target"];
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#ff634d'>Spawn Car</t> <img size='3' color='#ff634d' shadow='2' image='\A3\Soft_F_Exp\LSV_01\Data\UI\LSV_01_base_CA.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_carlist], 6, true, true, "","alive _target"];
 airspawn1 addAction ["<t size='1.5' shadow='2' color='#9af2ff'>Spawn Static</t> <img size='3' color='#9af2ff' shadow='2' image='\A3\Static_f_gamma\data\ui\gear_StaticTurret_MG_CA.paa'/>", "call ghst_fnc_spawnveh", [(getposatl air_spawn1),(markerDir "air_spawn1"),ghst_staticvehlist], 6, true, true, "","alive _target"];
-
+*/
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
-
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>Group HALO</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [true,1000,60,false], 4, true, true, "","alive _target and (leader group _this == _this)"];
 
 //halo setObjectTexture [0, "\A3\Characters_F\data\ui\icon_b_parachute_ca.paa"];
@@ -140,7 +140,7 @@ if (player iskindof "B_Soldier_SL_F") then {
 if (player iskindof "B_soldier_UAV_F") then {
 	infostand addaction ["<t size='1.4' shadow='2' color='#FF0000'>Clear Pelter UGVs</t>", "call ghst_fnc_clear_ugv", [], 1, false, false, "","alive _target"];
 };	
-
+/*
 if (worldName == "Enoch") then {
 
 	infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>Spawn Infantry</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
@@ -168,14 +168,15 @@ if (worldName == "Enoch") then {
 	freedomladder1 addAction ["<t size='1.5' shadow='2' color='#4863A0'>Move to USS Freedom</t>", {player setposasl (getposasl base);}, [], 5, true, true, "","alive _target"];
 
 };
-
+*/
 if (ghst_acemod) then {
 	medic_point addAction ["<t color='#5dff00'>Full ACE Heal</t> <img size='2' color='#5dff00' shadow='2' image='\a3\ui_f\data\IGUI\Cfg\Actions\heal_ca'/>", "call ghst_fnc_aceheal", [], 6, true, true, "","alive _target"];
 } else {
 	private _action = medic_point addAction ["<t color='#5dff00'>Full Heal</t> <img size='2' color='#5dff00' shadow='2' image='\a3\ui_f\data\IGUI\Cfg\Actions\heal_ca'/>", { hint format ["Player damage was %1 Percent", round (damage medic_point * 100)]; player setdamage 0; }, [], 6, true, true, "","alive _target"];
 };
-
+/*
 repair_point addAction ["<t color='#FF0000'>Rearm</t>", "call ghst_fnc_reload",[10], 6, true, true, "","alive _target and !(vehicle _this == _this)"];
+
 /*
 airspawn1 addAction ["Open Garage",{
 
@@ -212,7 +213,7 @@ if ("PARAM_PIFF" call BIS_fnc_getParamValue == 1) then {
 };
 //[] call BIS_fnc_groupIndicator;
 
-//disable revive for ace
+
 if (ghst_acemod) then {
 
 	player addEventHandler ["Respawn", {[player] call bis_fnc_disableRevive}]; 
@@ -220,44 +221,47 @@ if (ghst_acemod) then {
 
 };
 
-//player addEventHandler ["Killed", {call ghst_fnc_remrandomspawn}];  
-//call ghst_fnc_remrandomspawn;
-//systemChat "Saving initial loadout";
-
-//call ghst_fnc_setrespawninventory;
-
-//Save loadout whenever player exits arsenal and disable ship defense access
 [ missionNamespace, "arsenalClosed", {
 	systemChat "Arsenal Loadout Saved";
 	player setVariable ["GHST_Current_Gear",getUnitLoadout player];
 	{player disableUAVConnectability [_x,true];} forEach ghst_baseaa;
 }] call BIS_fnc_addScriptedEventHandler;
-
-/*
-//set weather
-_delay = 86400;
-waituntil {! isNil {missionNamespace getvariable "ghst_weather"}};
-
-skipTime -24;
-[_delay] call ghst_fnc_UpdateWeather;
-skipTime 24;
-
-sleep 1;
-
-simulWeatherSync;
-*/
 [] spawn ghst_fnc_vehicle_actioninit;
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
-ASTvehSpawner addAction ["Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
+ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","ast\fn_vehicle_spawner.sqf"];
+ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","ast\fn_air_spawner.sqf"];
+ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","ast\fn_vehicle_refund.sqf"];
+ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","ast\fn_air_refund.sqf"];
+player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
+player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","ast\fn_rearm.sqf",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
+
+
+//[] execVM "external\fn_flipVeh.sqf";
+//notice
+[] execVM "external\s_Welcome_Rule.sqf";
+// auto run
+[] execVM "external\Auto_running.sqf";
+//SAKY's tankboy
+[] execVM "external\tankboy.sqf";
+player addEventHandler ["Respawn", {
+	[] execVM "external\Auto_running.sqf";
+}];
+
+//invEH
+[] execVM "ast\fn_invEH.sqf";
+//killEH
+[] execVM "ast\fn_killEH.sqf";
+//Transport Bonus
+[] execVM "ast\fn_transportbonus.sqf";
+
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
-
 [] spawn ghst_fnc_ptracker;
 
 sleep 30;
 
 // Info text
-[str("Enemy Assault") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By Ghost")] spawn BIS_fnc_infoText;
+[str("Enemy Assault 2021") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By ArmA Gallery")] spawn BIS_fnc_infoText;

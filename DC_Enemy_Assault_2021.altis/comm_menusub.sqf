@@ -63,7 +63,7 @@ TransportsubMenu =
 
 ["Helicopter Airlift", [0],"",-2,[["expression", ""]], "1", "0"], // header text 
 
-["Infantry Transport", [2], "", -5, [["expression", "ghst_transport = [ghst_helotranslist,ghst_heloattacklist,(getposasl helortb),50,PARAM_Cooldowns] spawn ghst_fnc_init_transport;"]], "1", "1"],
+["Infantry Transport", [2], "", -5, [["expression", "ghst_transport = [ghst_helotranslist,ghst_heloattacklist,(getposasl helortb),50,PARAM_Cooldowns] spawn ghst_fnc_init_transport;"]], "1", "0"],
 
 ["Cargo Lift RTB", [4], "", -5, [["expression", "ghst_airlift = [ghst_helotranslist,(getmarkerpos ""ghst_player_support""),(getposasl obj_drop),50,PARAM_Cooldowns,false] spawn ghst_fnc_init_airlift;"]], "1", "1"],
 
