@@ -14,7 +14,7 @@ VAM_check_locality = compileFinal "
 VAM_action = compileFinal "
 	player addAction
 	[
-		'VAM',
+		'차량 외형 관리자',
 		{
 			if (VAM_cursor_condition) then {
 				VAM_targetvehicle = cursorObject;
