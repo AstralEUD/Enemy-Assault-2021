@@ -250,6 +250,13 @@ player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
 }];
 
+//invEH
+[] execVM "ast\fn_invEH.sqf";
+//killEH
+[] execVM "ast\fn_killEH.sqf";
+//Transport Bonus
+[] execVM "ast\fn_transportbonus.sqf";
+
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;

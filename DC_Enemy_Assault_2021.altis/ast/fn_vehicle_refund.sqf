@@ -26,7 +26,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_spCheck = typeOf _CheckAlpha;
 			_selections = ASTvehiclesR find _spCheck;
 			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-			_price = round (((ASTvehicles select _selections) select 1 )*1/2);
+			_price = round (ASTvehiclesRP select _selections) select 1;
 			_tobe = AST_kill_score + _price;
 			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
 			deleteVehicle _CheckAlpha;

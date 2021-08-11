@@ -11,6 +11,7 @@ player addEventHandler ["GetIn",{
 player addEventHandler ["GetOut", {
 	params ["_vehicle", "_role", "_unit", "_turret"];
 	if (_role != "cargo") exitWith {diag_log "[EA2021] Debug Code 03b";};
+	if ((isNil TransDriver) or (isNil TransStartPos)) exitWith {diag_log "[EA2021] Debug Code 03g";};
 	private _NowDriver = driver _vehicle; 
 	if (TransDrvier != _NowDriver) exitWith {diag_log "[EA2021] Debug Code 03c";};
 	private _NowPOS = getPosATL player;
@@ -19,8 +20,8 @@ player addEventHandler ["GetOut", {
 	private _OPdis = _NowPOS distance2D AST_op_pos;
 	private _BasePos = getMarkerPos "AstAirRearm";
 	private _RTBdis = _NowPOS distance2D _BasePos;
-	if (_distance == "1e10" or _distance <= 1500) exitWith {diag_log "[EA2021] Debug Code 03d";};
-	if (_OPdis == "1e10" or _OPdis >= 800 or _RTBdis == "1e10" or _RTBdis >= 300) exitWith {diag_log "[EA2021] Debug Code 03e";};
+	if ((_distance == "1e10") or (_distance <= 1500)) exitWith {diag_log "[EA2021] Debug Code 03d";};
+	if ((_OPdis == "1e10") or (_OPdis >= 800) or (_RTBdis == "1e10") or (_RTBdis >= 300)) exitWith {diag_log "[EA2021] Debug Code 03e";};
 	_driverID = owner _NowDriver;
 	[_NowDriver] remoteExec ["AST_fnc_db_fetch_another", 2, false];
 	private _tobe = AST_ano_score + 20;
