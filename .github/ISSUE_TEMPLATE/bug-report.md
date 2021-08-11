@@ -1,5 +1,5 @@
 ---
-name: Bug Report
+name: 버그 보고서
 about: 버그를 보고해주세요
 title: ''
 labels: ''
