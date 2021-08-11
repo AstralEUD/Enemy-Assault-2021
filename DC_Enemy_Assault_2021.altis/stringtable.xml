@@ -610,6 +610,22 @@
 <!-- PPAP LINE END -->
 	</Package>
 </Project>
+<Project name="AST EA2021">
+	<Package name="AST Error Fix Stringtable">
+		<Key ID="STR_A3_Fighter_03_Canopy_name">
+			<Original>ERROR</Original>
+		</Key>
+		<Key ID="STR_A3_C_CfgVehicles_O_HMG_02_high_weapon_F0">
+			<Original>ERROR</Original>
+		</Key>
+		<Key ID="STR_A3_CfgVehicles_Land_SignWarning_01_generic_F0">
+			<Original>ERROR</Original>
+		</Key>
+		<Key ID="STR_A3_C_CfgVehicles_B_HMG_02_high_weapon_F0">
+			<Original>ERROR</Original>
+		</Key>
+	</Package>
+</Project>
 <Project name="Vehicle Appearance Manager">
 	<Package name="Vehicle Appearance Manager">
 <!-- VAM LINE START -->

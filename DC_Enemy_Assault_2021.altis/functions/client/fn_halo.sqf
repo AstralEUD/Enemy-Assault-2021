@@ -24,7 +24,7 @@ _host removeaction _id;
 			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
 			if (AST_kill_score < 15) exitWith {hint "Not enough minerals";};
 			private _tobe = AST_kill_score - 15;
-			[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
+			[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
 			//save the backpack and its contents, also adds fake pack to front of unit
 			//[_saveLoadOut,_caller] spawn ghst_halo_ventralpack;
 			ghst_halo_ventralpack = {

@@ -1,6 +1,6 @@
 class CfgCommunicationMenu
 {
-	class CAS
+	/*class CAS
 	{
 		text = "Close Air Support"; // Text displayed in the menu and in a notification
 		submenu = "#USER:CASsubMenu";//#USER:CashelosubMenu"; // Submenu opened upon activation
@@ -17,7 +17,7 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\attack_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
 		enable = "1"; // Simple expression condition for enabling the item
-	};
+	};*/
 	class RemoteDesignator
 	{
 		text = "Deploy Remote Designator"; // Text displayed in the menu and in a notification
@@ -45,14 +45,14 @@ class CfgCommunicationMenu
 		cursor = "";//"\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
 		enable = "1"; // Simple expression condition for enabling the item
 	};
-	class AMMO
+	/*class AMMO
 	{
 		text = "Ammo Drop"; // Text displayed in the menu and in a notification
 		submenu = "#USER:AmmodropsubMenu"; // Submenu opened upon activation
 		expression = ""; // Code executed upon activation (ignored when the submenu is not empty)
 		icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
-		enable = "0"; // Simple expression condition for enabling the item
+		enable = "1"; // Simple expression condition for enabling the item
 	};
 	class CARGO
 	{
@@ -62,7 +62,7 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
 		enable = "1"; // Simple expression condition for enabling the item
-	};
+	};*/
 	class RESPAWNTENT
 	{
 		text = "Deploy Respawn Tent"; // Text displayed in the menu and in a notification
@@ -70,7 +70,7 @@ class CfgCommunicationMenu
 		expression = "ghst_puavsupport = [""Land_TentA_F"",5] spawn ghst_fnc_respawntent;"; // Code executed upon activation (ignored when the submenu is not empty)
 		icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "";//"\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
-		enable = "0"; // Simple expression condition for enabling the item
+		enable = "1"; // Simple expression condition for enabling the item
 	};
     class Artillery
     {
@@ -79,7 +79,7 @@ class CfgCommunicationMenu
         expression = "player setVariable ['BIS_SUPP_request', ['Artillery', _pos]];"; // Code executed upon activation
         icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\artillery_ca.paa"; // Icon displayed permanently next to the command menu
         cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
-        enable = "0"; // Simple expression condition for enabling the item
+        enable = "1"; // Simple expression condition for enabling the item
         //removeAfterExpressionCall = 1; // 1 to remove the item after calling
     };
     class Transport
@@ -101,11 +101,11 @@ class CfgCommunicationMenu
         cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
         enable = "1"; // Simple expression condition for enabling the item
         //removeAfterExpressionCall = 1; // 1 to remove the item after calling
-    };	
-    class Group
+    };
+    class Lock
     {
-        text = "Group Management"; // Text displayed in the menu and in a notification
-        submenu = "#USER:GroupsubMenu"; // Submenu opened upon activation (expression is ignored when submenu is not empty.)
+        text = "Own Vehicle Settings"; // Text displayed in the menu and in a notification
+        submenu = "#USER:LocksubMenu"; // Submenu opened upon activation (expression is ignored when submenu is not empty.)
         expression = ""; // Code executed upon activation
         icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"; // Icon displayed permanently next to the command menu
         cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
