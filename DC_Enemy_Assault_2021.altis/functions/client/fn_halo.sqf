@@ -17,14 +17,16 @@ _host removeaction _id;
 };
 
 [
-	["It costs 5pts, Do you want to continue HALO?"],
-	"Information",
+	["HALO에는 15포인트가 소모됩니다. 계속 하시겠습니까? (단, 플레이어 수가 5명 이하일 경우엔 소모되지 않습니다.)"],
+	"HALO",
 	{
 		if _confirmed then {
 			[player] remoteExec ["AST_fnc_db_fetch_money", 2, false];
-			if (AST_kill_score < 15) exitWith {hint "Not enough minerals";};
-			private _tobe = AST_kill_score - 15;
-			[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+			if ((count allPlayers) > 5) then {
+				if (AST_kill_score < 15) exitWith {hint "Not enough minerals";};
+				private _tobe = AST_kill_score - 15;
+				[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+			};
 			//save the backpack and its contents, also adds fake pack to front of unit
 			//[_saveLoadOut,_caller] spawn ghst_halo_ventralpack;
 			ghst_halo_ventralpack = {
