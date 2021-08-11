@@ -4,7 +4,7 @@ player addEventHandler ["GetIn",{
 	_uid = getPlayerUID player;
 	if (_uid == _owneruid) exitWith {diag_log "[EA2021] Debug Code 05a";};
 	_nowowner = _owneruid call BIS_fnc_getUnitByUID;
-	_lockcheck = _nowowner getVariable ["LockSet",0];
+	_lockcheck = _nowowner getVariable ["AST_LockSet",0];
 	if (_lockcheck == 0) exitWith {diag_log "[EA2021] Debug Code 05b";};
 	if ((_lockcheck == 2) and ((group player) == (group _nowowner))) exitWith {diag_log "[EA2021] Debug Code 05c";};
 	doGetOut player;
