@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=441;
+		nextID=445;
 	};
 	class Camera
 	{
-		pos[]={18665.467,48.708405,25372.416};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={23958.184,12.179943,18555.605};
+		dir[]={-0.7747004,-0.51829731,0.36224675};
+		up[]={-0.4695093,0.85519898,0.21954054};
+		aside[]={0.42358074,-1.9685831e-007,0.9058665};
 	};
 };
 binarizationWanted=0;
@@ -953,7 +953,7 @@ class Mission
 				};
 			};
 			id=1508;
-			atlOffset=190.02914;
+			atlOffset=1.1920929e-006;
 		};
 		class Item1
 		{
@@ -3601,7 +3601,7 @@ class Mission
 				};
 			};
 			id=1545;
-			atlOffset=9.3849983;
+			atlOffset=1.974689;
 		};
 		class Item2
 		{
@@ -10398,16 +10398,16 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={23946.84,7.1668053,18559.32};
+				position[]={23946.84,7.1668048,18559.32};
 			};
 			side="Empty";
 			flags=5;
 			class Attributes
 			{
+				name="natoflag";
 			};
 			id=3045;
 			type="Flag_NATO_F";
-			atlOffset=4.7683716e-007;
 			class CustomAttributes
 			{
 				class Attribute0

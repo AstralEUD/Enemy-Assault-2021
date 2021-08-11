@@ -22,4 +22,6 @@ for [{_loop2=0}, {_loop2<1}, {_loop2=_loop2}] do {
 	_ful = (Fuel _vec)*100;
 	hint format["Damage: %1\nFuel: %2",Round _dam,Round _ful];
 };
+_tobe = AST_kill_score - 5;
+[player, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
 _vec setVehicleAmmo 1;	

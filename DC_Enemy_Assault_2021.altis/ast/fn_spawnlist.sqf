@@ -113,6 +113,7 @@ ASTvehiclesSpawnList = [["B_Quadbike_01_F",5],
 publicVariable "ASTvehiclesSpawnList";
 publicVariable "ASTvehicles";
 publicVariable "ASTvehiclesR";
+publicVariable "ASTvehiclesRP";
 publicVariable "ASTAirSpawnList";
 publicVariable "ASTAirList";
 publicVariable "ASTAirListR";
