@@ -593,7 +593,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[GHST] Enemy Assault CO34";
+		briefingName="[EA2021] 자본주의 에너미 어썰트: 돈벌자";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
