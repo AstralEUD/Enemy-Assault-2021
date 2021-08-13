@@ -100,6 +100,8 @@ aa2 setSkill ["spotDistance",0.33];
 aa3 setSkill ["spotDistance",0.33];
 aa4 setSkill ["spotDistance",0.33];
 
+[] execVM "ast\fn_discordStatus.sqf";
+
 /*
 //Spawn Base helicopters
 if (true) then {
