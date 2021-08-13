@@ -240,7 +240,7 @@ ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call 
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
-
+infostand addAction ["<t color='#FA5882' size='1.5'> Enable Infantary Spawner","call ast_fnc_inf_enable"];
 
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
