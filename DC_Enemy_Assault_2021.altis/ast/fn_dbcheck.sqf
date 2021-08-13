@@ -9,6 +9,9 @@ if (!isServer) exitWith {
     hint("Miscalled server-only function");
 };
 
+ASTAirArray = [];
+publicVariable "ASTAirArray";
+
 // inidbi2 variable check
 if (isNil "inidbi") then {
     hint("Exist Failed");

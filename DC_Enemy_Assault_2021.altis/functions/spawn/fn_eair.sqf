@@ -20,10 +20,18 @@ _markunitsarray = _this select 6;
 _ghst_side = [_this, 7, ghst_side,[EAST]] call BIS_fnc_param;//check to see if type is specified otherwise use default unitlist aircraft
 _ghst_patrol_air_list = [_this, 8, ghst_patrol_air_list,[[]]] call BIS_fnc_param;//check to see if type array is specified otherwise use default unitlist type array
 
+waitUntil {
+	if (count ASTAirArray > 1) then {
+		ASTAirArray deleteAt (ASTAirArray findIf {!alive _x});
+		if (count ASTAirArray > 1) then {true} else {sleep 150;};
+	};
+};
+
 _spawnpos = [(_spawnmarker select 0),(_spawnmarker select 1), (_flyheight * 2)];
 _dir = _spawnmarker getdir _centermarker;
 
 _egrp = createGroup _ghst_side;
+
 
 for "_x" from 0 to (_airqty) - 1 do {
 

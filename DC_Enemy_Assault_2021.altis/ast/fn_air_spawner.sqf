@@ -40,6 +40,10 @@ hint format ["Now money : %1",AST_kill_score];
 			_vehicle setVariable ["spawner",_playeruid];
 			[player, "kill_score", _nowscore] remoteExecCall ["AST_fnc_db_save", 2, false];
 			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];
+			if ((typeOf _vehicle == "B_Heli_Attack_01_dynamicLoadout_F") or (typeOf _vehicle == "B_Plane_Fighter_01_F") or (typeOf _vehicle == "B_Plane_CAS_01_dynamicLoadout_F")) then {
+				ASTAirArray pushBack _vehicle;
+				publicVariable "ASTAirArray";
+			}:
 			} else {
 			hint("You selected nothing!")
 		};
