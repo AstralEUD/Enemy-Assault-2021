@@ -90,6 +90,7 @@ ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") /
 [] execVM "ast\fn_killevent.sqf";
 [] execVM "ast\fn_dbcheck.sqf";
 
+ASTAirArray = [];
 [(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,3,[true,30],[false,"ColorRed"]] spawn ghst_fnc_eair;
 [(getmarkerpos "bairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,2,[true,30],[false,"ColorBlue"]] spawn ghst_fnc_bair;
 _PARAM_AISkill = "PARAM_AISkill" call BIS_fnc_getParamValue;
