@@ -11,6 +11,7 @@ if (!isServer) exitWith {
 
 ASTAirArray = [];
 publicVariable "ASTAirArray";
+//Air Array 
 
 // inidbi2 variable check
 if (isNil "inidbi") then {
