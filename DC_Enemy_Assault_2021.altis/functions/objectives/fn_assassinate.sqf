@@ -22,6 +22,18 @@ _leader setVehicleVarName _VarName;
 //_leader Call Compile Format ["%1=_This ;",_VarName];
 missionNamespace setVariable [_VarName,_leader];
 publicVariable _VarName;
+
+_leader addEventHandler ["killed", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	if (vehicle player != player) exitWith {diag_log "[EA2021] Debug Code 10a";};
+	if ((!isPlayer _killer) or (isNull _killer)) exitWith {diag_log "[EA2021] Debug Code 10b";};
+	[_killer] remoteExec ["AST_fnc_fetch_money", 2, false];
+	hint format ["%1님이 보병으로써 적 장교 %2를 사살하셔서 보너스를 획득하셨습니다.",_killer,_killed];
+	sleep 0.3;
+	_tobe = AST_kill_score + 15;
+	[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+}]
+
 _veh_name = name _leader;
 /*
 	//Add custom gear

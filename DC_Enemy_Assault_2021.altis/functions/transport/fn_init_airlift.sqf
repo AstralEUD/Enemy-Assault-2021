@@ -24,7 +24,7 @@ _helocargolist = [];
 
 openMap true;
 mapclick = false;
-hint "Left click on the map where you want sling load";
+hint "슬링할 물체/차량이 있는 곳을 클릭하세요";
 
 _mapEH = addMissionEventHandler ["MapSingleClick", {clickpos = _this select 1; mapclick = true;}];
 waitUntil {!visibleMap or mapclick}; // Wait until map is closed, either by ESC/M or map click
@@ -179,7 +179,7 @@ if (_dest) then {
 	//set destination for cargo lift
 	openMap true;
 	mapclick2 = false;
-	hint "Left click on the map where you want to deliver sling load";
+	hint "목적지를 선택하세요";
 
 	_mapEH = addMissionEventHandler ["MapSingleClick", {clickpos2 = _this select 1; mapclick2 = true;}];
 	waitUntil {!visibleMap or mapclick2}; // Wait until map is closed, either by ESC/M or map click

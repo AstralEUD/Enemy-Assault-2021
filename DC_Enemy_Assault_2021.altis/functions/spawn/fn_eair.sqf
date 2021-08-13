@@ -23,7 +23,7 @@ _ghst_patrol_air_list = [_this, 8, ghst_patrol_air_list,[[]]] call BIS_fnc_param
 waitUntil {
 	if (count ASTAirArray > 1) then {
 		ASTAirArray deleteAt (ASTAirArray findIf {!alive _x});
-		if (count ASTAirArray > 1) then {true} else {sleep 150;};
+		if (count ASTAirArray > 1) exitWith {true} else {false};
 	};
 };
 
