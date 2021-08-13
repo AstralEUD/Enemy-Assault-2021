@@ -1,28 +1,18 @@
-player addEventHandler ["GetIn",{
-	params ["_vehicle","_role","_unit","_turret"];
-	if (_role != "cargo") exitWith {diag_log "[EA2021] Debug Code 03a";};
-	TransDrvier = driver _vehicle;
-	TransStartPos = getPosATL player;
-	_ownerID = owner player;
-	_ownerID publicVariableClient "TransDriver";
-	_ownerID publicVariableClient "TransStartPos";
-}];
-
-player addEventHandler ["GetOut", {
-	params ["_vehicle", "_role", "_unit", "_turret"];
-	if (_role != "cargo") exitWith {diag_log "[EA2021] Debug Code 03b";};
-	if ((isNil TransDriver) or (isNil TransStartPos)) exitWith {diag_log "[EA2021] Debug Code 03g";};
-	private _NowDriver = driver _vehicle; 
-	if (TransDrvier != _NowDriver) exitWith {diag_log "[EA2021] Debug Code 03c";};
-	private _NowPOS = getPosATL player;
-	private _distance = TransStartPos distance2D _NowPOS;
-	if (isNil AST_op_pos) exitWith {diag_log "[EA2021] Debug Code 03f";};
-	private _OPdis = _NowPOS distance2D AST_op_pos;
-	private _BasePos = getMarkerPos "AstAirRearm";
-	private _RTBdis = _NowPOS distance2D _BasePos;
-	if ((_distance == "1e10") or (_distance <= 1500)) exitWith {diag_log "[EA2021] Debug Code 03d";};
-	if ((_OPdis == "1e10") or (_OPdis >= 800) or (_RTBdis == "1e10") or (_RTBdis >= 300)) exitWith {diag_log "[EA2021] Debug Code 03e";};
-	_driverID = owner _NowDriver;
-	[20] remoteExec ["ast_fnc_addMoney", _driverID];
-	"[수송보너스] 성공적으로 수송하여 20포인트가 추가되었습니다. 수고하셨습니다!" remoteExec ["systemChat", _driverID];
+player addEventHandler ["GetInMan",{
+	params ["_unit", "_role", "_vehicle"];
+	if ((_role == "driver") && (!isPlayer (driver _vehicle))) exitWith {};
+	_pos = getPos player;
+	_driver = driver _vehicle;
+	[_vehicle, _driver, _pos] spawn {
+		params ["_vehicle", "_driver", "_pos"];
+		while {(vehicle player == _vehicle)} do {
+			sleep 1;
+		};
+		_distance = _pos distance (getPos player);
+		if ((_distance > 1000) && (vehicle player == player) && (driver _vehicle == _driver)) then {
+			_reward = round (_distance / 500);
+			[_reward] remoteExec ["ast_fnc_addMoney", owner _driver];
+		    ["[수송보너스] 성공적으로 수송하여 " + str _reward + "포인트가 추가되었습니다. 수고하셨습니다!"] remoteExec ["systemChat", owner _driver];
+		};
+	};
 }];
