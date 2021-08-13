@@ -21,7 +21,7 @@ addMissionEventHandler ["EntityKilled",{
 			hint parseText format ["<t size='2.0' color='#ff781f'> Attentions! </t><br/>%1 teamkilled %2",_killer,_killed];
 		};
 	};
-	private _nowscore = (["read", [_killeruid, "kill_score", 0]] call inidbi) + 5;
+	private _nowscore = (["read", [_killeruid, "kill_score", 0]] call inidbi) + 3;
 	["write", [_killeruid, "kill_score", _nowscore]] call inidbi;
 }
 ];
