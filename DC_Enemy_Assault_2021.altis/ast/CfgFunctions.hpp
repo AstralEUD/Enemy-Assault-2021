@@ -12,6 +12,6 @@ class ast
 		class rearm {};
 		class vehicle_refund {};
 		class vehicle_spawner {};
-		class inf_enable {};
+		class missionReward {};
 	};
 };

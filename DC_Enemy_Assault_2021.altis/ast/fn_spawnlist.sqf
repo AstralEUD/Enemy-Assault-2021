@@ -17,6 +17,10 @@ ASTvehiclesRP = [["B_Quadbike_01_F",5],
 	["B_APC_Wheeled_01_cannon_F",30],
 	["B_APC_Tracked_01_rcws_F",40],
 	["B_APC_Tracked_01_AA_F",35],
+	//적성장비 보너스
+	["I_Truck_02_ammo_F",20],
+	["O_Truck_02_Ammo_F",20],
+	["O_Truck_03_ammo_F",20],
 	["B_MBT_01_TUSK_F",60]];
 
 ASTvehiclesR = ["B_Quadbike_01_F",
@@ -27,6 +31,10 @@ ASTvehiclesR = ["B_Quadbike_01_F",
 	"B_APC_Wheeled_01_cannon_F",
 	"B_APC_Tracked_01_rcws_F",
 	"B_APC_Tracked_01_AA_F",
+	//적성장비 보너스
+	"I_Truck_02_ammo_F",
+	"O_Truck_02_Ammo_F",
+	"O_Truck_03_ammo_F",
 	"B_MBT_01_TUSK_F"];
 
 ASTvehicles = [["B_Quadbike_01_F",5],

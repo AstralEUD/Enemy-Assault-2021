@@ -5,9 +5,13 @@
 │   Description: For record Kill / TeamKill by iniDB2   │
 │   Note: Need Optimization                             │
 └──────────────────────────────────────────────────────*/
+ASTAirArray = [];
+publicVariable "ASTAirArray";
+//Air Array
+
 addMissionEventHandler ["EntityKilled",{
 	params ["_killed", "_killer", "_instigator"];
-	if (_killer = _killed) exitWith {diag_log "[EA2021] Debug Code 01a";};
+	if (_killer == _killed) exitWith {diag_log "[EA2021] Debug Code 01a";};
 	if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0};
 	if (isNull _instigator) then {_instigator = _killer};
 	private _nowtime = "getTimeStamp" call inidbi;

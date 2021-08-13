@@ -240,15 +240,13 @@ ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call 
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTAirRearm'",50,false,"",""];
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
-infostand addAction ["<t color='#FA5882' size='1.5'> Enable Infantary Spawner","call ast_fnc_inf_enable"];
+infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
 
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
 [] execVM "external\s_Welcome_Rule.sqf";
 // auto run
 [] execVM "external\Auto_running.sqf";
-//SAKY's tankboy
-[] execVM "external\tankboy.sqf";
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
 	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
@@ -259,6 +257,8 @@ player addEventHandler ["Respawn", {
 [] execVM "ast\fn_invEH.sqf";
 //Vehicle Lock System
 [] execVM "ast\fn_lock_vehicle.sqf";
+
+//[] execVM "external\tankboy.sqf";
 
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";

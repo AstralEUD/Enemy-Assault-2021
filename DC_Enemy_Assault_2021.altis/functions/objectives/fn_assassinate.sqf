@@ -22,6 +22,9 @@ _leader setVehicleVarName _VarName;
 //_leader Call Compile Format ["%1=_This ;",_VarName];
 missionNamespace setVariable [_VarName,_leader];
 publicVariable _VarName;
+
+
+
 _veh_name = name _leader;
 /*
 	//Add custom gear
@@ -35,6 +38,12 @@ _veh_name = name _leader;
 		_leader selectWeapon "LMG_Zafir_F";
 	};
 */
+
+_leader addEventHandler ["Killed", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	[_killer] call ast_fnc_missionReward;
+}];
+
 
 //create task
 _tsk = "tsk_Commander" + _rnum + str round(_position_mark select 0);

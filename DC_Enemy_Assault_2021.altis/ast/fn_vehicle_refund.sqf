@@ -30,6 +30,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_price = (ASTvehiclesRP select _selections) select 1;
 			_tobe = AST_kill_score + _price;
 			[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+			hint format ["%1을 환불하셔서 %2 pts를 획득하셨습니다.",_spCheck, _price];
 			deleteVehicle _CheckAlpha;
 		} else {
 			systemchat "You Rejected it";
