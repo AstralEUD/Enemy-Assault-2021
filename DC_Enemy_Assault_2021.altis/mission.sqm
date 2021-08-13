@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=447;
+		nextID=449;
 	};
 	class Camera
 	{
-		pos[]={23937.598,10.354239,18529.01};
-		dir[]={-0.85860616,-0.44269308,-0.25856617};
-		up[]={-0.42390364,0.89666635,-0.1276571};
-		aside[]={-0.28835917,-3.563473e-007,0.95754051};
+		pos[]={23971.557,6.4900842,18545.877};
+		dir[]={-0.62871313,-0.41185451,0.65962392};
+		up[]={-0.28415865,0.91124815,0.29812947};
+		aside[]={0.7238676,-9.4994903e-008,0.68994474};
 	};
 };
 binarizationWanted=0;
@@ -628,7 +628,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={23843.094,3.1900001,18477.174};
-						angles[]={-0,4.962059,0};
+						angles[]={0,4.962059,0};
 					};
 					side="Empty";
 					flags=4;
@@ -749,7 +749,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={23847.16,3.1900001,18470.318};
-						angles[]={-0,1.8022799,0};
+						angles[]={0,1.8022799,0};
 					};
 					side="Empty";
 					flags=4;
@@ -790,7 +790,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={23849.82,3.1900001,18481.182};
-						angles[]={-0,1.8022799,0};
+						angles[]={0,1.8022799,0};
 					};
 					side="Empty";
 					flags=4;
@@ -831,7 +831,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={23838.895,3.1900001,18484.223};
-						angles[]={-0,1.8022799,0};
+						angles[]={0,1.8022799,0};
 					};
 					side="Empty";
 					flags=4;
@@ -872,7 +872,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={23836.369,3.1900001,18473.188};
-						angles[]={-0,1.8022799,0};
+						angles[]={0,1.8022799,0};
 					};
 					side="Empty";
 					flags=4;
@@ -4483,6 +4483,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="pics\screen.paa";
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
 					class Value
@@ -4500,7 +4519,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item25
@@ -4523,6 +4542,25 @@ class Mission
 			{
 				class Attribute0
 				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="pics\screen.paa";
+						};
+					};
+				};
+				class Attribute1
+				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
 					class Value
@@ -4540,7 +4578,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=1;
+				nAttributes=2;
 			};
 		};
 		class Item26
