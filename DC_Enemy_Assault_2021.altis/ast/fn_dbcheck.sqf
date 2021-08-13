@@ -9,6 +9,10 @@ if (!isServer) exitWith {
     hint("Miscalled server-only function");
 };
 
+ASTAirArray = [];
+publicVariable "ASTAirArray";
+//Air Array 
+
 // inidbi2 variable check
 if (isNil "inidbi") then {
     hint("Exist Failed");
@@ -20,3 +24,9 @@ if (isNil "inidbi") then {
     };
 };
 
+addMissionEventHandler ["PlayerConnected",
+{
+	params ["_id", "_uid", "_name", "_jip", "_owner"];
+    _score = ["read", [_uid, "kill_score", 15]] call inidbi;
+    [_score] remoteExec ["ast_fnc_addMoney", _owner];
+}];
