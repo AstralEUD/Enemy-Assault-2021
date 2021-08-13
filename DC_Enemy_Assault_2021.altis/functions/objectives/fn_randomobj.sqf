@@ -43,9 +43,9 @@ if (isnil "_locselpos") exitwith {finish = true; publicvariable "finish"; diag_l
 	#define _helo_area_size [1000,1000]
 	#define _boat_area_size [600,600]
 	#define _enemy_house [50,40]
-	#define _enemy_patrols (3 + round(random 2))
-	#define _enemy_squadsize (3 + round(random 4))
-	#define _enemy_vehicles (3 + round(random 3))
+	#define _enemy_patrols (3 + round(random 1))
+	#define _enemy_squadsize (3 + round(random 3))
+	#define _enemy_vehicles (3 + round(random 2))
 	#define _enemy_boats (round(random 2))
 
 //random boat patrol
@@ -59,6 +59,7 @@ if (isnil "_locselpos") exitwith {finish = true; publicvariable "finish"; diag_l
 [_locselpos,_area_size,[false,"Colorblack"],_ghst_side,(_PARAM_AISkill/10)] call ghst_fnc_roofmgs2;
 
 [_locselpos,[_area_size,_area_size,(random 360)],_enemy_vehicles,_ghst_side,[false,"ColorRed"],(_PARAM_AISkill/10)] call ghst_fnc_evehsentryspawn;
+
 
 //random enemy helo
 if (round (random 10) > 5) then {

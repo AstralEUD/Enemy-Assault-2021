@@ -1,16 +1,16 @@
 ﻿sleep 0.5;//서버 시작후 몇초뒤에 실행될지 결정
-"Welcome to DC Vanilla Server!" hintC [
+"Welcome to Enemy Assault 2021!" hintC [
     parseText 
 	"
 	<br/><t align='center' size='1'><a color='#ffd800'>Enemy Assault 2021</a></t>
 	<br/><t align='center' size='2'><a color='#ffd800'>에너미어썰트 2021</a></t>
 	<br/><t align='center'></t>
 	<br/><t align='center' size='1.5'>에너미 어썰트 2021에 오신걸 환영합니다</t>
-	<br/><t align='center' size='1'>상호존중하여 매너있는 행동 및 대화를 하길바람</t>
-	<br/><t align='center' size='1'>막장서버는 아니니까 트롤러, 게임방해, 민폐자는 일가실각, 영구밴 할수 있음
+	<br/><t align='center' size='1'>서로간의 예의는 지켜주시기 바랍니다.
 	<br/><t align='center'></t>
-	<br/><t align='center' size='1.5'>1킬당 5포인트를 획득할 수 있으며, 15분마다 15포인트를 획득할 수 있습니다.</t>
+	<br/><t align='center' size='1.5'>1킬당 3포인트를 획득할 수 있으며, 15분마다 15포인트를 획득할 수 있습니다.</t>
 	<br/><t align='center' size='1.5'>얻은 포인트로는 차량을 스폰하거나 여타 서비스를 이용할 수 있습니다.</t>
+	<br/><t align='center' size='1'> 인벤토리를 열었을 때 포인트를 확인할 수 있습니다.
 	<br/><t align='center' size='1'></t>
 	<br/><t align='right'><t size='1'>디스코드<a color='#ffd800' href='https://discord.gg/SbAzgYjWqV'> 접속하기</a>
 	<br/>아르마 마이너갤 <a color='#008cff' href='http://gall.dcinside.com/mgallery/board/lists/?id=arma'> 접속하기</a></t></t><br/>

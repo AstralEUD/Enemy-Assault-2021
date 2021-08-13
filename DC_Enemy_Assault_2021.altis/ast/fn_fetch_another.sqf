@@ -10,5 +10,5 @@
 params ["_player"];
 _id = owner _player;
 _uid = getPlayerUID _player;
-AST_ano_score = ["read", [_uid, "kill_score", 0]] call inidbi;
+AST_ano_score = ["read", [_uid, "kill_score", 15]] call inidbi;
 _id publicVariableClient "AST_ano_score";
