@@ -258,11 +258,18 @@ player addEventHandler ["Respawn", {
 //Vehicle Lock System
 [] execVM "ast\fn_lock_vehicle.sqf";
 
+//killedEH
+
 //[] execVM "external\tankboy.sqf";
 
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
 
+
+//advancedSlingLoad
+[] execVM "external\fn_advancedSlingLoadingInit.sqf";
+
+[] execVM "VAM_GUI\VAM_GUI_init.sqf";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;

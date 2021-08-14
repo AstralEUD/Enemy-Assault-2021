@@ -22,8 +22,8 @@ hint format ["Now money : %1",AST_kill_score];
 		systemchat format["_index: %1",_index];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
-		if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 		if (_confirmed == True) then {
+			if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 			_direction = markerDir "Vehicle_Spawn_Marker";
 			_playeruid = getPlayerUID player;
 			_position = getMarkerPos ["Vehicle_Spawn_Marker",false];

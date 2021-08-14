@@ -22,8 +22,19 @@ if (typeName _air_type == "ARRAY") then {
 	_air_type = selectrandom _air_type;
 };
 
-_paralist = ghst_paralist;
 _ghst_side = ghst_side;
+
+if (count ghst_paralist == 0) then {
+	_paralist = [];
+	if (_ghst_side == OPFOR) then {
+		_paralist pushBack "O_recon_F";
+	} else {
+		_paralist pushBack "I_Soldier_SL_F";
+	};
+} else {
+	_paralist = ghst_paralist;
+};
+
 _flyheight = 200;
 
 _parapos = [_objpos,_radarray] call ghst_fnc_rand_position;
@@ -62,14 +73,14 @@ _air1 setBehaviour "CARELESS";
 
 _paras1 = createGroup _ghst_side;
 _cargoPositions = _air1 emptyPositions "cargo";
-	for "_x" from 0 to (_cargoPositions)-1 do {
 
-		_mansel = selectRandom _paralist;
-		_man = [_spawnpos,_paras1,_mansel,aiSkill] call ghst_fnc_create_unit;
-		_man assignAsCargo _air1;
-		_man moveincargo _air1;
-		//sleep 0.2;
-	};
+for "_x" from 0 to (_cargoPositions)-1 do {
+	_mansel = selectRandom _paralist;
+	_man = [_spawnpos,_paras1,_mansel,aiSkill] call ghst_fnc_create_unit;
+	_man assignAsCargo _air1;
+	_man moveincargo _air1;
+	//sleep 0.2;
+};
 	
 //set combat mode
 _paras1 setCombatMode "RED";
