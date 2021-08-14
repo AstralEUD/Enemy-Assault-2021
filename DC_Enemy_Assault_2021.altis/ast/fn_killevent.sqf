@@ -17,6 +17,10 @@ addMissionEventHandler ["EntityKilled",{
 	private _nowtime = "getTimeStamp" call inidbi;
 	private _killeruid = getPlayerUID _killer;
 	if (_killeruid == "") exitWith {};
+	if (side group _killed == civilian) exitWith {
+		private _nowscore = (["read", [_killeruid, "kill_score", 0]] call inidbi) - 5;
+		["write", [_killeruid, "kill_score", _nowscore]] call inidbi;
+	};
 	if (isPlayer _killed) then {
 		if (_killed isKindOf "CAManBase" && {((side group _killed) == west or (side group _killed) == civilian)}) exitWith {
 			private _tkreport = format ["TEAMKILL REPORT // Time : %1, Killer : %2, Killed : %3, Killer UID : %4",_nowtime,_killer,_killed,_killeruid];
