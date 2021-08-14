@@ -24,8 +24,10 @@ addMissionEventHandler ["EntityKilled",{
 			["write", [_killeruid, "teamkill", _tkreport]] call inidbi;
 			hint parseText format ["<t size='2.0' color='#ff781f'> Attentions! </t><br/>%1 teamkilled %2",_killer,_killed];
 		};
+	if (_killed isKindOf "CManBase") then {
+		private _nowscore = (["read", [_killeruid, "kill_score", 0]] call inidbi) + 3;
+		["write", [_killeruid, "kill_score", _nowscore]] call inidbi;
 	};
-	private _nowscore = (["read", [_killeruid, "kill_score", 0]] call inidbi) + 3;
-	["write", [_killeruid, "kill_score", _nowscore]] call inidbi;
+	};
 }
 ];
