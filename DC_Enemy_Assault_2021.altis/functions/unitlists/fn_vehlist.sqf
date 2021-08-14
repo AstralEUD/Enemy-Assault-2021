@@ -16,6 +16,10 @@ _itankList = [];
 _icarList = [];
 _istaticList = [];
 
+_ltankList = [];
+_lcarList = [];
+_lstaticList = [];
+
 _vehcivList = [];
 _aircivList = [];
 
@@ -116,6 +120,27 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 				_namelist pushback _wCName;
 			};		
 		};
+		if ((_wvehclass == "Armored") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+
+			if !(_wCName in _namelist) then {
+				_ltankList pushback _wCName;
+				_namelist pushback _wCName;
+			};		
+		};
+		if ((_wvehclass == "Car") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+
+			if !(_wCName in _namelist) then {
+				_lcarList pushback _wCName;
+				_namelist pushback _wCName;
+			};		
+		};
+		if ((_wvehclass == "Static") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+
+			if !(_wCName in _namelist) then {
+				_lstaticList pushback _wCName;
+				_namelist pushback _wCName;
+			};		
+		};
 		if ((_wCName iskindof "Car_F") && !(_wCName iskindof "Kart_01_Base_F") && (_wfaction == "CIV_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
 
 			if !(_wCName in _namelist) then {
@@ -148,6 +173,10 @@ ghst_taaList = _taaList;
 ghst_itankList = _itankList;
 ghst_icarList = _icarList;
 ghst_istaticList = _istaticList;
+
+ghst_ltankList = _ltankList;
+ghst_lcarList = _lcarList;
+ghst_lstaticList = _lstaticList;
 
 ghst_civvehList = _vehcivList;
 ghst_aircivList = _aircivList;

@@ -9,6 +9,11 @@ _otreconList = [];
 _ourbanList = [];
 _iList = [];
 
+// LDF
+_lList = [];
+_ldList = [];
+_lplist = [];
+
 _mencivList = [];
 
 _odiverlist = [];
@@ -89,6 +94,20 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 				_namelist pushback _wCName;
 			};			
 		};
+		if ((_wCName isKindOf "Man") && (_wvehclass == "Men") && !(_wCName isKindOf "I_E_survivor_F") && !(_wCName isKindOf "I_E_officer_parade_f") && !(_wCName isKindOf "I_E_officer_veteran_F") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+
+			if (!(_wCName in _namelist) && !(_wCName iskindof "I_E_crew_F") && !(_wCName iskindof "I_E_Pilot_F")) then {
+				_lList pushback _wCName;
+				_namelist pushback _wCName;
+			};
+			if (_wCName isKindOf "I_E_Soldier_F") then {
+				{_lList pushBack _wCName;} forEach [1,2,3,4,5,6];
+			};
+			if (!(_wCName in _namelist) && (_wCName isKindOf "I_E_crew_F")) then {
+				_ldList pushback _wCName;
+				_namelist pushback _wCname;
+			};
+		};
 		if ((_wCName iskindof "O_V_Soldier_base_F") && (_wvehclass == "Men") && (_wfaction == "OPF_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
 
 			if !(_wCName in _namelist) then {
@@ -128,6 +147,13 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 
 			if !(_wCName in _namelist) then {
 				_iplist pushback _wCName;
+				_namelist pushback _wCName;
+			};
+		};
+		if ((_wCName iskindof "I_E_Pilot_F") && (_wvehclass == "Men") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+
+			if !(_wCName in _namelist) then {
+				_lplist pushback _wCName;
 				_namelist pushback _wCName;
 			};
 		};
@@ -174,6 +200,8 @@ ghst_otreconList = _otreconList;
 ghst_ourbanList = _ourbanList;
 ghst_iList = _iList;
 
+ghst_lList = _lList;
+
 ghst_mencivList = _mencivList;
 
 ghst_odiverlist = _odiverlist;
@@ -184,7 +212,11 @@ ghst_odList = _odList;
 ghst_otdList = _otdList;
 ghst_idList = _idList;
 
+ghst_lDlist = _ldList;
+
 ghst_oplist = _oplist;
 ghst_iplist = _iplist;
+
+ghst_lplist = _lplist;
 
 hint "Men list ready";
