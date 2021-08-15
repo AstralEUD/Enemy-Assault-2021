@@ -4,7 +4,5 @@ params ["_caller"];
 _list = _caller nearEntities ["Man", 100];
 _list deleteAt (_list findIf {!isPlayer _x});
 {
-	private _uid = getPlayerUID _caller;
-	ASTRewardArray pushBack _uid;
-	publicVariable ASTRewardArray;
+	[3] remoteExec ["ast_fnc_addMoney", owner _x];
 } forEach _list;

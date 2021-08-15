@@ -9,6 +9,6 @@
 
 params ["_remove"];
 if (isNil "AST_kill_score") then {
-	AST_kill_score = 15;
+	AST_kill_score = 0;
 };
 AST_kill_score = AST_kill_score - _remove;

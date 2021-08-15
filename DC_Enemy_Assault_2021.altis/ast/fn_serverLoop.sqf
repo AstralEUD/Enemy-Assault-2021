@@ -1,6 +1,8 @@
 sleep 60;
 ["serverOn"] call DiscordEmbedBuilder_fnc_buildCfg;
 
+ASTRewardArray = [];
+
 while {true} do {
 	_countAllPlayer = [count allPlayers];
 	if (count allPlayers != 0) then {
