@@ -22,13 +22,13 @@ addMissionEventHandler ["EntityKilled",{
 		["write", [_killeruid, "kill_score", _nowscore]] call inidbi;
 	};
 	if (isPlayer _killed) then {
-		if (_killed isKindOf "CAManBase" && {((side group _killed) == west or (side group _killed) == civilian)}) exitWith {
+		if (_killed isKindOf "Man" && {((side group _killed) == west or (side group _killed) == civilian)}) exitWith {
 			private _tkreport = format ["TEAMKILL REPORT // Time : %1, Killer : %2, Killed : %3, Killer UID : %4",_nowtime,_killer,_killed,_killeruid];
 			["write", ["team_kill_maindb", _nowtime, _tkreport]] call inidbi;
 			["write", [_killeruid, "teamkill", _tkreport]] call inidbi;
 			hint parseText format ["<t size='2.0' color='#ff781f'> Attentions! </t><br/>%1 teamkilled %2",_killer,_killed];
 		};
-	if (_killed isKindOf "CManBase") then {
+	if (_killed isKindOf "Man") then {
 		private _nowscore = (["read", [_killeruid, "kill_score", 0]] call inidbi) + 3;
 		["write", [_killeruid, "kill_score", _nowscore]] call inidbi;
 	};
