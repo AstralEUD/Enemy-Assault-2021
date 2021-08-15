@@ -20,7 +20,7 @@ class ast
 		class rearm {};
 		class serverLoop {};
 		class spawnList {};
-		class transfer {};
+		//class transfer {};
 		class transportbonus {};
 		class vehicle_refund  {};
 		class vehicle_spawner {};

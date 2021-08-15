@@ -38,26 +38,6 @@ _PlayerNameList apply {
 						if (_text == "0") exitWith {systemChat "입력이 잘못되었습니다. 다시 확인하세요."};
 						_Target = _PlayerList select _index;
 						_tobe = AST_kill_score - _Money;
-						[
-							[
-								5,"a3\ui_f\data\gui\cfg\notifications\tridentenemy_ca.paa",
-								true, // Overlay mode
-								stance player,
-								{stance player == _this}, // Abort if player changes stance
-								{systemchat format["onProgress %1",diag_tickTime]}
-							],
-							"진행중, 취소할려면 자세를 바꾸세요",
-							{
-								systemchat (["취소됨","송금 완료"] select _completed)
-								[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
-								[_Target] remoteExec ["AST_fnc_fetch_another", 2, false];
-								_tobe2 = AST_ano_score + _Money;
-								[_Target, "kill_score", _tobe2] remoteExecCall ["AST_fnc_db_save", 2, false];
-
-							},
-							findDisplay 12 // Create this progress bar on the map display
-						] call CAU_UserInputMenus_fnc_progressBar;
-
 					};
 				},
 				"송금"

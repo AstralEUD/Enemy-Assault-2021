@@ -16,6 +16,8 @@ hint "Halo Not Available";
 _host removeaction _id;
 };
 
+if (AST_kill_score < 10) exitWith {hint "Not enough minerals";};
+
 //save the backpack and its contents, also adds fake pack to front of unit
 //[_saveLoadOut,_caller] spawn ghst_halo_ventralpack;
 ghst_halo_ventralpack = {
@@ -168,7 +170,6 @@ if (_typehalo and (leader _grp1 == _caller)) then {
 		openMap false;
 
 		sleep 5;
-		if (AST_kill_score < 10) exitWith {hint "Not enough minerals";};
 		_caller groupchat "Have a nice trip";// and dont forget to open your chute!";
 		AST_kill_score = AST_kill_score - 10;
 		[_caller, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];

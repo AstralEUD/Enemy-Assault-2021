@@ -13,8 +13,8 @@ addMissionEventHandler ["EntityKilled",{
 	params ["_killed", "_killer", "_instigator"];
 	if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0};
 	if (isNull _instigator) then {_instigator = _killer};
+	if (!isPlayer _killer) exitWith {};
 	if (_killer == _killed) exitWith {};
-	if (_killeruid == "") exitWith {};
 	if (side group _killed == civilian) exitWith {
 		[5] remoteExec ["ast_fnc_minusMoney", owner _killer];
 	};
@@ -27,9 +27,9 @@ addMissionEventHandler ["EntityKilled",{
 			["write", [_killeruid, "teamkill", _tkreport]] call inidbi;
 			hint parseText format ["<t size='2.0' color='#ff781f'> Attentions! </t><br/>%1 teamkilled %2",_killer,_killed];
 		};
+	};
 	if (_killed isKindOf "Man") then {
 		[3] remoteExec ["ast_fnc_addMoney", owner _killer];
-	};
 	};
 }
 ];

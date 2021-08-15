@@ -23,7 +23,7 @@ private _escSync = {
         round(_timeStamp - time) <= 0 || {isNull (findDisplay 49)}
     };
 
-    _abortButton ctrlSetText localize "STR_DISP_INT_ABORT";
+    _abortButton ctrlSetText format ["접속 종료"];
     _abortButton ctrlCommit 0;
     _abortButton ctrlEnable true;
 };
@@ -51,11 +51,7 @@ for "_i" from 0 to 1 step 0 do {
     _fieldManual ctrlEnable false; //Never re-enable, blocks an old script executor.
     _fieldManual ctrlShow false;
 
-    if (call _canUseControls) then {
-        [] spawn _escSync;
-    } else {
-        _respawnButton ctrlEnable false;
-    };
+    [] spawn _escSync;
 
     waitUntil {isNull (findDisplay 49) || {!alive player}};
     if (!isNull (findDisplay 49) && {!alive player}) then {
