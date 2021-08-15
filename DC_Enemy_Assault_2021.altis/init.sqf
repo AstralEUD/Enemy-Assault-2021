@@ -55,10 +55,7 @@ switch (worldName) do {
 	};
 };
 
-[] execVM "VAM_GUI\VAM_GUI_init.sqf";
 
-//advancedSlingLoad
-[] execVM "external\fn_advancedSlingLoadingInit.sqf";
 
 // Wait until player is initialized
 if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
