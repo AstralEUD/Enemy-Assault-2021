@@ -16,7 +16,7 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 		_wPic =  getText(configFile >> "cfgvehicles" >> _wCName >> "picture");
 		_wDesc = getText(configFile >> "cfgvehicles" >> _wCName >> "Library" >> "libTextDesc");	
 
-		if (((_wCName iskindof "B_Soldier_F") or (_wCName iskindof "B_Pilot_F") or (_wCName iskindof "B_helicrew_F") or (_wCName iskindof "B_crew_F")) && (_wside == 1) && (_wscope == 2) && ((_wfaction == "BLU_F") or (_wfaction == "BLU_G_F") or (_wfaction == "BLU_CTRG_F") or (_wfaction == "BLU_T_F"))) then {
+		if (((_wCName iskindof "B_Soldier_F") or (_wCName iskindof "B_Pilot_F") or (_wCName iskindof "B_soldier_repair_F") or (_wCName iskindof "B_helicrew_F") or (_wCName iskindof "B_crew_F")) && (_wside == 1) && (_wscope == 2) && ((_wfaction == "BLU_F") or (_wfaction == "BLU_G_F") or (_wfaction == "BLU_CTRG_F") or (_wfaction == "BLU_T_F"))) then {
 			if !(_wDName in _namelist) then {
 				_infantrylist pushback _wCName;
 				_namelist pushback _wDName;

@@ -52,9 +52,10 @@ ASTvehicles = [["B_Quadbike_01_F",5],
 // ASTAirListR = 확인용
 
 ASTAirList = [["B_Heli_Light_01_F",15],
-	["B_Heli_Light_01_armed_F",50],
+	["B_Heli_Light_01_armed_F",40],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
+	["I_Heli_light_03_dynamicLoadout_F",60],
 	["B_Heli_Attack_01_dynamicLoadout_F",150],
 	["B_Plane_Fighter_01_F",180],
 	["B_Plane_CAS_01_dynamicLoadout_F",250]];
@@ -63,6 +64,7 @@ ASTAirListRP = [["B_Heli_Light_01_F",15],
 	["B_Heli_Light_01_armed_F",20],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
+	["	I_Heli_light_03_dynamicLoadout_F",20],
 	["B_Heli_Attack_01_dynamicLoadout_F",50],
 	["B_Plane_Fighter_01_F",60],
 	["B_Plane_CAS_01_dynamicLoadout_F",80]];
@@ -76,10 +78,11 @@ ASTAirListR = ["B_Heli_Light_01_F",
     "B_Plane_CAS_01_dynamicLoadout_F"];
 
 ASTAirSpawnList = [["B_Heli_Light_01_F",15],
-	["B_Heli_Light_01_armed_F",50],
+	["B_Heli_Light_01_armed_F",40],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
 	["B_Heli_Attack_01_dynamicLoadout_F",150],
+	["I_Heli_light_03_dynamicLoadout_F",60],
 	["B_Plane_Fighter_01_F",180],
 	["B_Plane_CAS_01_dynamicLoadout_F",250]
 	] apply {
