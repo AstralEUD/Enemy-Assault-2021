@@ -276,6 +276,11 @@ player addEventHandler ["Respawn", {
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
 
+[] execVM "VAM_GUI\VAM_GUI_init.sqf";
+
+//advancedSlingLoad
+[] execVM "external\fn_advancedSlingLoadingInit.sqf";
+
 [] spawn {
     for "_i" from 0 to 1 step 0 do {
         waitUntil {!isNull (findDisplay 49)}; // Check if ESC dialogs are open
