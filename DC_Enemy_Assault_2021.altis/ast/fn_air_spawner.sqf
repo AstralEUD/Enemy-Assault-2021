@@ -37,7 +37,7 @@ hint format ["Now money : %1",AST_kill_score];
 			AST_kill_score = AST_kill_score - ((ASTairlist select _index) select 1);
 			_vehicle setVariable ["spawner",_playeruid];
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
-			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];
+			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,AST_kill_score];
 			if ((typeOf _vehicle == "B_Heli_Attack_01_dynamicLoadout_F") or (typeOf _vehicle == "B_Plane_Fighter_01_F") or (typeOf _vehicle == "B_Plane_CAS_01_dynamicLoadout_F")) then {
 				ASTAirArray pushBack _vehicle;
 				publicVariable "ASTAirArray";
