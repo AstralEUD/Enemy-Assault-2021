@@ -4,7 +4,7 @@ class ast
 	class script
 	{
 		file = "ast";
-		class fetch_money {};
+		class addMoney {};
 		class fetch_another {};
 		class db_save {};
 		class air_refund {};
@@ -12,6 +12,6 @@ class ast
 		class rearm {};
 		class vehicle_refund {};
 		class vehicle_spawner {};
-		class missionReward {};
+		class inf_enable {};
 	};
 };
