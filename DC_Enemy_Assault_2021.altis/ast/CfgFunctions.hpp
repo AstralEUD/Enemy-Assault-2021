@@ -5,13 +5,24 @@ class ast
 	{
 		file = "ast";
 		class addMoney {};
-		class fetch_another {};
-		class db_save {};
 		class air_refund {};
 		class air_spawner {};
+		class db_save {};
+		class dbcheck {};
+		class escInterupt {};
+		class fetch_another {};
+		class fetch_money {};
+		class invEH {};
+		class killevent {};
+		class lock_vehicle {};
+		class missionReward {};
+		class minusMoney {};
 		class rearm {};
-		class vehicle_refund {};
+		class serverLoop {};
+		class spawnList {};
+		class transfer {};
+		class transportbonus {};
+		class vehicle_refund  {};
 		class vehicle_spawner {};
-		class inf_enable {};
 	};
 };

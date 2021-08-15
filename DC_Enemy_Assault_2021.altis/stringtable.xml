@@ -624,6 +624,9 @@
 		<Key ID="STR_A3_C_CfgVehicles_B_HMG_02_high_weapon_F0">
 			<Original>ERROR</Original>
 		</Key>
+		<Key ID="STR_AST_AbortESC">
+			<Original>%1초 후 가능합니다..</Original>
+		</Key>
 	</Package>
 </Project>
 <Project name="Vehicle Appearance Manager">

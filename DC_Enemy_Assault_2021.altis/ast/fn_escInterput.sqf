@@ -1,4 +1,3 @@
-
 /*
     File: fn_escInterupt.sqf
     Author: Bryan "Tonic" Boardwine
@@ -6,16 +5,18 @@
     Monitors when the ESC menu is pulled up and blocks off
     certain controls when conditions meet.
 */
+
+// Modified : By Astral
 disableSerialization;
 
 private _escSync = { 
     disableSerialization;
     private _abortButton = ((findDisplay 49) displayCtrl 104);
-    private _abortTime = 10;
+    private _abortTime = 5;
     private _timeStamp = time + _abortTime;
 
     waitUntil {
-        _abortButton ctrlSetText format [localize "STR_NOTF_AbortESC",[(_timeStamp - time),"SS.MS"] call BIS_fnc_secondsToString];
+        _abortButton ctrlSetText format [localize "STR_AST_AbortESC",[(_timeStamp - time),"SS.MS"] call BIS_fnc_secondsToString];
         _abortButton ctrlCommit 0;
         if (dialog && {isNull (findDisplay 7300)}) then {closeDialog 0};
 
@@ -31,22 +32,19 @@ private _canUseControls = true;
 
 for "_i" from 0 to 1 step 0 do {
     waitUntil {!isNull (findDisplay 49)};
-    //private _abortButton = CONTROL(49,104);
 	private _abortButton = ((findDisplay 49) displayCtrl 104);
-    _abortButton buttonSetAction "call SOCK_fnc_updateRequest; [player] remoteExec [""TON_fnc_cleanupRequest"",2];";
+    _abortButton buttonSetAction "[player, 'kill_score', AST_kill_score] remoteExec ['AST_fnc_db_save', 2, false];";
     private _respawnButton = ((findDisplay 49) displayCtrl 1010);
     private _fieldManual = ((findDisplay 49) displayCtrl 122);
     private _saveButton = ((findDisplay 49) displayCtrl 103);
     _saveButton ctrlSetText "";
 
     //Extras
-    if (LIFE_SETTINGS(getNumber,"escapeMenu_displayExtras") isEqualTo 1) then {
-        private _topButton = CONTROL(49,2);
-        _topButton ctrlEnable false;
-        _topButton ctrlSetText format ["%1",LIFE_SETTINGS(getText,"escapeMenu_displayText")];
-        _saveButton ctrlEnable false;
-        _saveButton ctrlSetText format ["Player UID: %1",getPlayerUID player];
-    };
+	private _topButton = ((findDisplay 49) displayCtrl 2);
+	_topButton ctrlEnable false;
+	_topButton ctrlSetText format ["discord.gg/SbAzgYjWqV"];
+	_saveButton ctrlEnable false;
+	_saveButton ctrlSetText format ["Player UID: %1",getPlayerUID player];
 
     //Block off our buttons first.
     _abortButton ctrlEnable false;
@@ -64,4 +62,3 @@ for "_i" from 0 to 1 step 0 do {
         (findDisplay 49) closeDisplay 2;
     };
 };
-© 2021 GitHub, Inc.

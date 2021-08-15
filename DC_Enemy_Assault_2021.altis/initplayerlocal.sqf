@@ -223,6 +223,8 @@ if (ghst_acemod) then {
 
 };
 
+[] spawn ast_fnc_escInterupt;
+
 [ missionNamespace, "arsenalClosed", {
 	systemChat "Arsenal Loadout Saved";
 	player setVariable ["GHST_Current_Gear",getUnitLoadout player];
@@ -273,6 +275,13 @@ player addEventHandler ["Respawn", {
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
+
+[] spawn {
+    for "_i" from 0 to 1 step 0 do {
+        waitUntil {!isNull (findDisplay 49)}; // Check if ESC dialogs are open
+        (findDisplay 49) closeDisplay 2; // Close ESC dialog
+    };
+};
 
 sleep 30;
 

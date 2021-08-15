@@ -7,8 +7,8 @@
 │        Use 'AST_kill_score' variable                                │
 └─────────────────────────────────────────────────────────────────────*/
 
-params ["_add"];
+params ["_remove"];
 if (isNil "AST_kill_score") then {
 	AST_kill_score = 15;
 };
-AST_kill_score = AST_kill_score + _add;
+AST_kill_score = AST_kill_score - _remove;

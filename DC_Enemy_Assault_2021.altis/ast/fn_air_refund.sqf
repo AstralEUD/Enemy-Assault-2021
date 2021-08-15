@@ -13,8 +13,6 @@ _spCheck = typeOf _CheckAlpha;
 
 _playerUID = getPlayerUID player;
 _selections = ASTAirListR find _spCheck;
-[player] remoteExec ["AST_fnc_fetch_money", 2, false];
-sleep 0.5;
 if (_selections == -1) exitWith {hint format ["This vehicle are not added to Vehicle List %1",_spCheck];};
 if (count(fullCrew [_CheckAlpha, "cargo"]) > 1) exitWith {hint "There is still crew on the vehicle";};
 if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're not owner/spawner of this Vehicle";};
@@ -29,8 +27,8 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_spCheck = typeOf _CheckAlpha;
 			_selections = ASTAirListR find _spCheck;
 			_price = (ASTAirListRP select _selections) select 1;
-			_tobe = AST_kill_score + _price;
-			[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+			AST_kill_score = AST_kill_score + _price;
+			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 			hint format ["%1을 환불하셔서 %2 pts를 획득하셨습니다.",_spCheck, _price];
 			deleteVehicle _CheckAlpha;
 		} else {

@@ -7,8 +7,6 @@
 └──────────────────────────────────────────────────────*/
 
 params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowscore","_caller"];
-[player] remoteExec ["AST_fnc_fetch_money", 2, false];
-sleep 0.3;
 hint format ["Now money : %1",AST_kill_score];
 [
 	[
@@ -36,10 +34,10 @@ hint format ["Now money : %1",AST_kill_score];
 			_vehicle setDir _direction; //Set the vehicles direction the same as the marker.
 			_vehicle allowDamage true;
 			_displayName = getText(configFile >> "CfgVehicles" >> (ASTvehicles select _index) select 0 >> "displayName");
-			_nowscore = AST_kill_score - ((ASTvehicles select _index) select 1);
+			AST_kill_score = AST_kill_score - ((ASTvehicles select _index) select 1);
+			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 			_vehicle setVariable ["spawner",_playeruid];
-			[player, "kill_score", _nowscore] remoteExecCall ["AST_fnc_db_save", 2, false];
-			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,_nowscore];
+			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,AST_kill_score];
 			} else {
 			hint("You selected nothing!")
 		};
