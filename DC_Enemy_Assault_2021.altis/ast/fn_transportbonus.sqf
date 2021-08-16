@@ -19,7 +19,6 @@ private _transbonus = {
 
 player addEventHandler ["GetInMan",{
 	params ["_unit", "_role", "_vehicle"];
-	scopeName
 	if ((_role == "driver") && (!isPlayer (driver _vehicle))) exitWith {};
 	_pos = getPos player;
 	_driver = driver _vehicle;

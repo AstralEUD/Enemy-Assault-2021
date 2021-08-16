@@ -110,10 +110,10 @@ LocksubMenu =
 
 ["Own Vehicle Settings", [0],"",-2,[["expression", ""]], "1", "0"], // header text 
 
-["Lock Your Vehicle", [2], "", -5, [["expression", "player setVariable ['AST_LockSet', 1, true];"]], "1", "1"],
+["Lock Your Vehicle", [2], "", -5, [["expression", "[1, player] call ast_fnc_lockset;"]], "1", "1"],
 
-["Only Your Squad", [3], "", -5, [["expression", "player setVariable ['AST_LockSet', 2, true];"]], "1", "1"],
+["Only Your Squad", [3], "", -5, [["expression", "[2, player] call ast_fnc_lockset;"]], "1", "1"],
 
-["Unlock Your Vehicle", [4], "", -5, [["expression", "player setVariable ['AST_LockSet', 0, true];"]], "1", "1"]
+["Unlock Your Vehicle", [4], "", -5, [["expression", "[0, player] call ast_fnc_lockset;"]], "1", "1"]
 
 ];

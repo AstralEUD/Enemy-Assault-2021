@@ -73,9 +73,9 @@ ASTAirListR = ["B_Heli_Light_01_F",
     "B_Heli_Light_01_armed_F",
     "B_Heli_Transport_01_F",
     "B_Heli_Transport_03_unarmed_F",
+	"I_Heli_light_03_dynamicLoadout_F",
     "B_Heli_Attack_01_dynamicLoadout_F",
     "B_Plane_Fighter_01_F",
-	"I_Heli_light_03_dynamicLoadout_F",
     "B_Plane_CAS_01_dynamicLoadout_F"];
 
 ASTAirSpawnList = [["B_Heli_Light_01_F",15],

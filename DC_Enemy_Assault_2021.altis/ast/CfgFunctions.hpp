@@ -16,6 +16,7 @@ class ast
 		class invEH {};
 		class killevent {};
 		class lock_vehicle {};
+		class lockset {};
 		class missionReward {};
 		class minusMoney {};
 		class rearm {};

@@ -1,5 +1,4 @@
-﻿private _guide = {
-	sleep 0.5;//서버 시작후 몇초뒤에 실행될지 결정
+﻿_guide = {
 	params ["_actionID"];
 	"Enemy Assault 2021 초보자 가이드" hintC [
 		parseText 
@@ -24,10 +23,11 @@
 		0 = _this spawn {
 			_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EHb];
 			hintSilent "";
+			player removeAction _actionID; 
 		};
 	}];
-	GUIDE_actionID = _actionID;
 };
-player addAction ["<t size='1.5'>초보자 가이드 실행",_guide];
-sleep  300;
-player removeAction GUIDE_actionID; 
+player addAction ["<t size='1.5'>초보자 가이드 실행",{
+	params ["_actionId"];
+	[_actionId] spawn _guide;
+}];
