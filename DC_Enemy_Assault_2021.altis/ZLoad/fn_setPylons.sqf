@@ -6,6 +6,7 @@
 disableSerialization;
 private ["_veh","_magsCurrent","_typeVeh","_allPylonsNames","_counPylons","_equipedMag","_i","_ctrl"];
 waitUntil{!isnull (findDisplay 456963);};
+AST_kill_score = AST_kill_score - 15;
 _veh = zlo_VehicleClass;
 _typeVeh = (typeOf _veh);
 

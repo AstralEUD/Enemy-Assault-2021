@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=449;
+		nextID=453;
 	};
 	class Camera
 	{
-		pos[]={23971.557,6.4900842,18545.877};
-		dir[]={-0.62871313,-0.41185451,0.65962392};
-		up[]={-0.28415865,0.91124815,0.29812947};
-		aside[]={0.7238676,-9.4994903e-008,0.68994474};
+		pos[]={23969.08,6.6732903,18552.906};
+		dir[]={0.58786643,-0.28919432,0.75554061};
+		up[]={0.17761673,0.95725691,0.22827789};
+		aside[]={0.78926378,-4.3734326e-007,-0.61410654};
 	};
 };
 binarizationWanted=0;
@@ -593,7 +593,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.5.1 SbAzgYjWqV";
+		briefingName="[EA2021] v.1.5.3 SbAzgYjWqV";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
@@ -3660,18 +3660,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={23938.006,3.8152041,18472.23};
-				angles[]={0,1.85005,0};
+				position[]={23938.006,3.8153245,18472.23};
+				angles[]={0,1.850049,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
 				name="ASTvehspawner";
+				disableSimulation=1;
 			};
 			id=1771;
 			type="Land_InfoStand_V2_F";
-			atlOffset=0.036879539;
+			atlOffset=0.036999941;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6548,7 +6549,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="[""AmmoboxInit"", [this, true, {true}]] spawn BIS_fnc_arsenal;";
+				name="AmmoBox01";
 			};
 			id=2912;
 			type="Land_PaperBox_open_full_F";
@@ -6589,7 +6590,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="[""AmmoboxInit"", [this, true, {true}]] spawn BIS_fnc_arsenal;";
+				name="AmmoBox02";
 			};
 			id=2913;
 			type="Land_PaperBox_open_full_F";
@@ -10287,6 +10288,7 @@ class Mission
 			class Attributes
 			{
 				name="ASTAirSpawner";
+				disableSimulation=1;
 			};
 			id=3033;
 			type="Land_InfoStand_V2_F";

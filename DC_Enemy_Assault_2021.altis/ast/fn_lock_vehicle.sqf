@@ -1,4 +1,4 @@
-player addEventHandler ["GetIn",{
+player addEventHandler ["GetInMan",{
 	params ["_vehicle","_role","_unit","_turret"];
 	_owneruid = _vehicle getVariable ["spawner",nil];
 	_uid = getPlayerUID player;

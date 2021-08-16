@@ -63,7 +63,7 @@ while {count units _egrp > 0} do {
 		_x setfuel 1;
 		_x setVehicleAmmo 1;
 	};} foreach units _egrp;
-sleep 600;
+sleep 900;
 };
 hint "air dead";
 sleep 30;

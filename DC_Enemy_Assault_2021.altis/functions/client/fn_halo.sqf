@@ -173,7 +173,7 @@ if (_typehalo and (leader _grp1 == _caller)) then {
 		sleep 5;
 		_caller groupchat "Have a nice trip";// and dont forget to open your chute!";
 		AST_kill_score = AST_kill_score - 10;
-		[_caller, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
+		[_caller, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 		//auto open before impact
 		waituntil {(position _caller select 2) <= _altchute + 50};
 
@@ -210,7 +210,7 @@ if (_typehalo and (leader _grp1 == _caller)) then {
 
 		_caller groupchat "Have a nice trip";// and dont forget to open your chute!";	
 		AST_kill_score = AST_kill_score - 10;
-		[_caller, "kill_score", _tobe] remoteExec ["AST_fnc_db_save", 2, false];
+		[_caller, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 
 		//auto open before impact
 		waituntil {(position _caller select 2) <= _altchute};

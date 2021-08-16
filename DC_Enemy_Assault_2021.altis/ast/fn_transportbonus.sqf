@@ -1,10 +1,10 @@
-player addEventHandler ["GetInMan",{
-	params ["_unit", "_role", "_vehicle"];
-	if ((_role == "driver") && (!isPlayer (driver _vehicle))) exitWith {};
-	_pos = getPos player;
-	_driver = driver _vehicle;
-	[_vehicle, _driver, _pos] spawn {
+private _transbonus = {
+	{
 		params ["_vehicle", "_driver", "_pos"];
+		player addEventHandler ["Killed", {
+			terminate _transbonus;
+			player removeEventHandler ["Killed", _thisEventHandler];
+		}];
 		while {(vehicle player == _vehicle)} do {
 			sleep 1;
 		};
@@ -15,4 +15,13 @@ player addEventHandler ["GetInMan",{
 		    ["[수송보너스] 성공적으로 수송하여 " + str _reward + "포인트가 추가되었습니다. 수고하셨습니다!"] remoteExec ["systemChat", owner _driver];
 		};
 	};
+};
+
+player addEventHandler ["GetInMan",{
+	params ["_unit", "_role", "_vehicle"];
+	scopeName
+	if ((_role == "driver") && (!isPlayer (driver _vehicle))) exitWith {};
+	_pos = getPos player;
+	_driver = driver _vehicle;
+	[_vehicle, _driver, _pos] spawn _transbonus;
 }];

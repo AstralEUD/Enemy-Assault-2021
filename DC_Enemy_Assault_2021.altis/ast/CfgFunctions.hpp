@@ -7,6 +7,7 @@ class ast
 		class addMoney {};
 		class air_refund {};
 		class air_spawner {};
+		class arsenal {};
 		class db_save {};
 		class dbcheck {};
 		class escInterupt {};
