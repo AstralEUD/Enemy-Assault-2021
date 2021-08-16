@@ -23,11 +23,8 @@
 		0 = _this spawn {
 			_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EHb];
 			hintSilent "";
-			player removeAction _actionID; 
 		};
 	}];
 };
-player addAction ["<t size='1.5'>초보자 가이드 실행",{
-	params ["_actionId"];
-	[_actionId] spawn _guide;
-}];
+
+player addAction ["<t size='1.5'>초보자 가이드 실행",_guide];
