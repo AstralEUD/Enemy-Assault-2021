@@ -3,7 +3,6 @@
     parseText 
 	"
 	<br/><t align='center' size='1'><a color='#ffd800'>Enemy Assault 2021</a></t>
-	<br/><t align='center' size='2'><a color='#ffd800'>에너미어썰트 2021</a></t>
 	<br/><t align='center'></t>
 	<br/><t align='center' size='1.5'>에너미 어썰트 2021에 오신걸 환영합니다</t>
 	<br/><t align='center' size='1'>서로간의 예의는 지켜주시기 바랍니다.
@@ -16,8 +15,8 @@
 	<br/>아르마 마이너갤 <a color='#008cff' href='http://gall.dcinside.com/mgallery/board/lists/?id=arma'> 접속하기</a></t></t><br/>
 	<br/>
 	<br/><t align='center' size='0.9'>분대창설, 가입은 U키, 그외 마우스휠을 굴려 메뉴를 사용</t>
-	<br/>
-	<br/><t align='center' size='1.5'><a color='#ffd800'>자동달리기 =키</a></t>
+	<br/><t align='center' size='0.9'><a color='#ffd800'>자동달리기 =키</a></t>
+	<br/><t align='center' size='0.9'><a color='#ffd800'>업데이트 로그 / 서버 도움말은 맵을 열어 좌측 상단의 것을 보세요</a></t>
 	<br/><t align='center'></t>
 	<br/>
 	<t size='0.8'><t align='left'> 개발총괄 : Testify </a><br/>

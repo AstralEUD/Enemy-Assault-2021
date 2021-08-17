@@ -8,7 +8,7 @@ class EditorData
 	toggles=105;
 	class ItemIDProvider
 	{
-		nextID=3140;
+		nextID=3144;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=455;
+		nextID=457;
 	};
 	class Camera
 	{
-		pos[]={23969.08,6.6732903,18552.906};
-		dir[]={-0.31233647,-0.23279043,-0.92100745};
-		up[]={-0.074762911,0.97252691,-0.22045839};
-		aside[]={-0.94702512,-7.4505806e-009,0.32115969};
+		pos[]={23933.396,10.607813,18478.309};
+		dir[]={0.28349915,-0.56068265,-0.77803046};
+		up[]={0.19196112,0.82801992,-0.52681899};
+		aside[]={-0.93960136,-9.6973963e-007,-0.34237257};
 	};
 };
 binarizationWanted=0;
@@ -82,7 +82,8 @@ addons[]=
 	"A3_Weapons_F_Items",
 	"A3_Characters_F_Enoch_Vests",
 	"A3_Static_F_Mortar_01",
-	"A3_Structures_F_Exp_Military_Fortifications"
+	"A3_Structures_F_Exp_Military_Fortifications",
+	"A3_Structures_F_Argo_Commercial_Accessories"
 };
 class AddonsMetaData
 {
@@ -593,7 +594,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.5.4 SbAzgYjWqV";
+		briefingName="[EA2021] v.1.2 SbAzgYjWqV";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
@@ -614,7 +615,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=232;
+		items=235;
 		class Item0
 		{
 			dataType="Layer";
@@ -12527,6 +12528,129 @@ class Mission
 			colorName="ColorBlue";
 			id=3139;
 			atlOffset=-2.2901611;
+		};
+		class Item232
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23951.391,4.4761481,18526.355};
+				angles[]={0,1.7976892,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="ATM_01";
+				disableSimulation=1;
+			};
+			id=3141;
+			type="Land_ATM_02_malden_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item233
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23892.145,4.4761481,18561.02};
+				angles[]={0,4.9392819,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="ATM_02";
+				disableSimulation=1;
+			};
+			id=3142;
+			type="Land_ATM_02_malden_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item234
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23937.027,4.4761481,18471.064};
+				angles[]={0,1.8151425,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="ATM_03";
+				disableSimulation=1;
+			};
+			id=3143;
+			type="Land_ATM_02_malden_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
