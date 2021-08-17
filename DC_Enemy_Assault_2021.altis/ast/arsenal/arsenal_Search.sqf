@@ -27,32 +27,64 @@ private _glasses =[];
 	};
 } forEach _faceClasses;
 
+
 [
-	infostand,
+	AmmoBox01,
 	_weapons,
 	TRUE,
 	TRUE
 ] call BIS_fnc_addVirtualWeaponCargo;
 [
-	infostand,
+	AmmoBox01,
 	_vehicles,
 	TRUE,
 	TRUE
 ] call BIS_fnc_addVirtualBackpackCargo;
 [
-	infostand,
+	AmmoBox01,
 	_weapons,
 	TRUE,
 	TRUE
 ] call BIS_fnc_addVirtualItemCargo;
 [
-	infostand,
+	AmmoBox01,
 	_glasses,
 	TRUE,
 	TRUE
 ] call BIS_fnc_addVirtualItemCargo;
 [
-	infostand,
+	AmmoBox01,
+	_weapons,
+	TRUE,
+	TRUE
+] call BIS_fnc_addVirtualMagazineCargo;
+
+[
+	AmmoBox02,
+	_weapons,
+	TRUE,
+	TRUE
+] call BIS_fnc_addVirtualWeaponCargo;
+[
+	AmmoBox02,
+	_vehicles,
+	TRUE,
+	TRUE
+] call BIS_fnc_addVirtualBackpackCargo;
+[
+	AmmoBox02,
+	_weapons,
+	TRUE,
+	TRUE
+] call BIS_fnc_addVirtualItemCargo;
+[
+	AmmoBox02,
+	_glasses,
+	TRUE,
+	TRUE
+] call BIS_fnc_addVirtualItemCargo;
+[
+	AmmoBox02,
 	_weapons,
 	TRUE,
 	TRUE
