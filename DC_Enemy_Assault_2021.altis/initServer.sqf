@@ -104,7 +104,6 @@ aa4 setSkill ["spotDistance",0.33];
 
 [] execVM "ast\fn_serverLoop.sqf";
 
-[infostand, "weapon"] call HALs_store_fnc_addTrader;
 
 /*
 //Spawn Base helicopters
