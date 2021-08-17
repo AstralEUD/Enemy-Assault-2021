@@ -1,6 +1,6 @@
 params ["_PlayerList","_PlayerNameList","_TransferList","_Money","_value"];
 PlayerList = call BIS_fnc_listPlayers;
-_PlayerNameList = _PlayerList apply {
+_PlayerNameList = PlayerList apply {
 	[
 		[name _x],
 		[],
@@ -24,7 +24,6 @@ _PlayerNameList = _PlayerList apply {
 		systemchat format["_value: %1",_value];*/
 		if (_confirmed == True) then {
 			AST_selected = PlayerList select _index;
-			// Disable cancel option
 			[
 				[false,""],
 				"얼마를 송금하시겠습니까?",
@@ -37,7 +36,8 @@ _PlayerNameList = _PlayerList apply {
 						AST_kill_score = AST_kill_score - _Money;
 						[_Money] remoteExec ["ast_fnc_addMoney",AST_selected];
 						[player, 'kill_score', AST_kill_score] remoteExec ['AST_fnc_db_save', 2, false];
-						["[송금알림]" + str (name player) + " 님이 "+ str _Money + "포인트를 송금하셨습니다."] remoteExec ["systemChat", AST_selected];
+						_sendername = name player;
+						["[송금알림]" + str _sendername + " 님이 "+ str _Money + "포인트를 송금하셨습니다."] remoteExec ["systemChat", AST_selected];
 						systemChat "송금 완료!";
 					};
 				},
