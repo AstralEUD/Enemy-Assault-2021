@@ -89,6 +89,7 @@ ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") /
 [] execVM "ast\fn_spawnlist.sqf";
 [] execVM "ast\fn_killevent.sqf";
 [] execVM "ast\fn_dbcheck.sqf";
+[] execVM "ast\arsenal\arsenal_list.sqf";
 
 ASTAirArray = [];
 [(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,3,[true,30],[false,"ColorRed"]] spawn ghst_fnc_eair;
@@ -102,6 +103,8 @@ aa3 setSkill ["spotDistance",0.33];
 aa4 setSkill ["spotDistance",0.33];
 
 [] execVM "ast\fn_serverLoop.sqf";
+
+[infostand, "weapon"] call HALs_store_fnc_addTrader;
 
 /*
 //Spawn Base helicopters

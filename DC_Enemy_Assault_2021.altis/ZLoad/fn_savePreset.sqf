@@ -27,6 +27,7 @@ if(_saveName isEqualTo "")then
 	profileNamespace setVariable [_UID,zlo_VehicleSavedPresets];
 	saveProfileNamespace;
 	hint parseText format["<br /><img image='ZLoad\img\wr.jpg' /><br />%1 '<t color='#1f8636'>%2</t>' %3<br /> <br />",localize "zlo_pres1_text",_saveName,localize "zlo_saved_text"];
+	AST_kill_score = AST_kill_score - 30;
 };
 
 //CBA_fnc_removePlayerAction

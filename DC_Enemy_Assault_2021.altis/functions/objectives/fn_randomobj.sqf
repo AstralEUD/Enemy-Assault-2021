@@ -67,7 +67,7 @@ if (round (random 10) > 5) then {
 	[_locselpos,_locselpos,_helo_area_size,300,1,[false,20],[false,"ColorRed"],_ghst_side,_attack_heli_list] spawn ghst_fnc_eair;
 } else {
 	//random enemy airplanes
-	[_locselpos,_locselpos,[3000,3000],600,1,[false,20],[false,"ColorRed"],_ghst_side] spawn ghst_fnc_eair;
+	[_locselpos,_locselpos,[3000,3000],600,1,[false,15],[false,"ColorRed"],_ghst_side] spawn ghst_fnc_eair;
 };
 
 [_locselpos,_area_size,18,true,false,WEST] call ghst_fnc_civcars;

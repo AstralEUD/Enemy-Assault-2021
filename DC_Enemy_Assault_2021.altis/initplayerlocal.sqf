@@ -91,7 +91,7 @@ if (isnil "_gunshipvar") then {
 };
 
 if (player iskindof "B_soldier_UAV_F") then {
-[player,"UAV"] call BIS_fnc_addCommMenuItem;
+//[player,"UAV"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_uavsup", 0];
 player setVariable ["ghst_ugvsup", [0,0]];
 player setVariable ["ghst_puavsup", 0];
@@ -232,6 +232,8 @@ if (ghst_acemod) then {
 }] call BIS_fnc_addScriptedEventHandler;
 [] spawn ghst_fnc_vehicle_actioninit;
 
+
+[] execVM "ast\arsenal\arsenal_Search.sqf";
 gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	_handled = FALSE;
 	if (_this select 1 == 207) then {
@@ -261,7 +263,7 @@ ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call
 ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_vehicle_refund"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
 
-[] execVM "ast\fn_arsenal.sqf";
+//[] execVM "ast\fn_arsenal.sqf";
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
 infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
@@ -275,12 +277,12 @@ infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 
 [] execVM "external\Auto_running.sqf";
 
 //Rearm for Aircraft
-[player,"marker46",250] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
+[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
 	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
-	[player,"marker46",100] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
+	[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 }];
 
 //invEH

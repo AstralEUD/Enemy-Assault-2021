@@ -6,7 +6,6 @@
 disableSerialization;
 private ["_veh","_magsCurrent","_typeVeh","_allPylonsNames","_counPylons","_equipedMag","_i","_ctrl"];
 waitUntil{!isnull (findDisplay 456963);};
-AST_kill_score = AST_kill_score - 15;
 _veh = zlo_VehicleClass;
 _typeVeh = (typeOf _veh);
 
@@ -172,6 +171,8 @@ if((alive _veh) isEqualTo true)then
 	//maitenance on start
 	hint parseText format["<br /><img image='ZLoad\img\wr.jpg' /><br />%1 :<t color='#FF0000'>%2</t> %3<br /> <br /> ",localize "zlo_wait_text",_tTime,localize"zlo_sec_text"];	
 	uiSleep _tTime;
+	AST_kill_score = AST_kill_score - 30;
+	hint format ["현재 포인트 : %1",AST_kill_score];
 	hint parseText format["<br /><img image='ZLoad\img\wr.jpg' /><br /><t color='#1f8636'>%1</t><br /> <br /> ",localize "zlo_serviceeeady_text"];
 	if((alive _veh) isEqualTo true)then
 	{

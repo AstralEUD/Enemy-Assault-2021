@@ -32,7 +32,7 @@ if (isText(configFile >> "CfgVehicles" >> _typeVeh >> "Components" >> "Transport
 	_textIMG = getText(configFile >> "CfgVehicles" >> _typeVeh >> "Components" >> "TransportPylonsComponent" >> "uiPicture");
 	_ctrl ctrlSetText _textIMG;
 	_ctrl = (findDisplay 456963) displayCtrl (1003);
-	_ctrl ctrlSetText format ["%2 by armafront.com : %1", _vehName,localize "zlo_windowName_text"];
+	_ctrl ctrlSetText format ["%2 // 적용시 '30포인트' 소모 : %1", _vehName,localize "zlo_windowName_text"];
 };
 
 
