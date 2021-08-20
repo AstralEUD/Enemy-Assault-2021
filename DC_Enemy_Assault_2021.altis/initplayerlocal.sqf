@@ -263,6 +263,11 @@ ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call
 ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_vehicle_refund"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
 
+infostand addAction ["<t color='#33CCFF' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
+FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
+ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
+ASTfobSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_fob_spawner"];
+
 ATM_01 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
 ATM_02 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
 ATM_03 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
@@ -270,6 +275,8 @@ ATM_03 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
 infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
+
+
 
 //[] execVM "external\fn_flipVeh.sqf";
 //notice

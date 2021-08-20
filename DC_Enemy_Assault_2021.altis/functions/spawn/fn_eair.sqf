@@ -48,6 +48,13 @@ for "_x" from 0 to (_airqty) - 1 do {
 	//sleep 1;
 	_air1 flyinheight _flyheight;
 	_air1 setSpeedMode "NORMAL";
+
+	_air1 addEventHandler ["Killed", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		if (isNull _killer) exitWith {};
+		if (!isPlayer _killer) exitWith {};
+		[12,_killer] call ast_fnc_vehicleKill;
+	}];
 	
 	sleep 1;
 };

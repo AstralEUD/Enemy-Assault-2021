@@ -140,7 +140,7 @@ class PARAM_Cooldowns
 	title = "    Support Cooldown Timers in Minutes:";
 	values[] = {2,5,10,15,20,25,30};
 	texts[] = {"2","5","10","15","20","25","30"};
-	default = 2;
+	default = 10;
 };
 class EmtpyLine3
 {

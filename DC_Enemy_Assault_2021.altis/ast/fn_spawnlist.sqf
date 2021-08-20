@@ -18,9 +18,9 @@ ASTvehiclesRP = [["B_Quadbike_01_F",5],
 	["B_APC_Tracked_01_rcws_F",40],
 	["B_APC_Tracked_01_AA_F",35],
 	//적성장비 보너스
-	["I_Truck_02_ammo_F",20],
-	["O_Truck_02_Ammo_F",20],
-	["O_Truck_03_ammo_F",20],
+	["I_Truck_02_ammo_F",30],
+	["O_Truck_02_Ammo_F",30],
+	["O_Truck_03_ammo_F",30],
 	["B_MBT_01_TUSK_F",60]];
 
 ASTvehiclesR = ["B_Quadbike_01_F",
@@ -52,40 +52,36 @@ ASTvehicles = [["B_Quadbike_01_F",5],
 // ASTAirListR = 확인용
 
 ASTAirList = [["B_Heli_Light_01_F",15],
-	["B_Heli_Light_01_armed_F",60],
+	["B_Heli_Light_01_dynamicLoadout_F",60],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",90],
-	["B_Heli_Attack_01_dynamicLoadout_F",300],
-	["B_Plane_Fighter_01_F",360],
-	["B_Plane_CAS_01_dynamicLoadout_F",500]];
+	["B_Plane_Fighter_01_F",280],
+	["B_Plane_CAS_01_dynamicLoadout_F",320]];
 
 ASTAirListRP = [["B_Heli_Light_01_F",15],
-	["B_Heli_Light_01_armed_F",20],
+	["B_Heli_Light_01_dynamicLoadout_F",20],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",20],
-	["B_Heli_Attack_01_dynamicLoadout_F",50],
-	["B_Plane_Fighter_01_F",60],
-	["B_Plane_CAS_01_dynamicLoadout_F",80]];
+	["B_Plane_Fighter_01_F",140],
+	["B_Plane_CAS_01_dynamicLoadout_F",160]];
 
 ASTAirListR = ["B_Heli_Light_01_F",
-    "B_Heli_Light_01_armed_F",
+    "B_Heli_Light_01_dynamicLoadout_F",
     "B_Heli_Transport_01_F",
     "B_Heli_Transport_03_unarmed_F",
 	"I_Heli_light_03_dynamicLoadout_F",
-    "B_Heli_Attack_01_dynamicLoadout_F",
     "B_Plane_Fighter_01_F",
     "B_Plane_CAS_01_dynamicLoadout_F"];
 
 ASTAirSpawnList = [["B_Heli_Light_01_F",15],
-	["B_Heli_Light_01_armed_F",60],
+	["B_Heli_Light_01_dynamicLoadout_F",60],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",90],
-	["B_Heli_Attack_01_dynamicLoadout_F",300],
-	["B_Plane_Fighter_01_F",360],
-	["B_Plane_CAS_01_dynamicLoadout_F",500]
+	["B_Plane_Fighter_01_F",280],
+	["B_Plane_CAS_01_dynamicLoadout_F",320]
 	] apply {
 	[
 		[getText(configFile >> "CfgVehicles" >> _x select 0 >> "displayName")],

@@ -27,4 +27,4 @@
 	}];
 };
 
-player addAction ["<t size='1.5'>초보자 가이드 실행",_guide];
+player addAction ["<t size='1.5'>초보자 가이드 실행",_guide,nil,1.5,true,true,"","player inArea 'VAM_service_area_0'"];

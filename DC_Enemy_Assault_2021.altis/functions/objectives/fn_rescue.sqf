@@ -23,6 +23,14 @@ if !(isnil "AGM_Interaction_fnc_setCaptivityStatus") then {
 } else {
 	_pow setCaptive true;
 };
+
+_pow addEventHandler ["Killed", {
+    params ["_unit", "_killer", "_instigator", "_useEffects"];
+    if (isPlayer _killer) then {
+        "아군 인질을 사살하여 약간의 패널티를 받습니다.." remoteExec ["systemChat", _killer];
+        [15] remoteExec ["ast_fnc_minusMoney", _killer];
+    };
+}];
 _VarName = "ghst_pow" + _rnum + str round(_position_mark select 0);
 _pow setVehicleVarName _VarName;
 //_pow Call Compile Format ["%1=_This ;",_VarName];

@@ -22,9 +22,9 @@ hint format ["Now money : %1",AST_kill_score];
 		systemchat format["_value: %1",_value];*/
 		if (_confirmed == True) then {
 			if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
-			_direction = markerDir "Vehicle_Spawn_Marker";
+			_direction = markerDir "FOB_Spawn_Marker";
 			_playeruid = getPlayerUID player;
-			_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
+			_position = getMarkerPos ["FOB_Spawn_Marker",false];
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?"};
 			_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
 			if(!isNil "_spCheck") exitWith {hint "There is a Car/Aircraft/Ship on the spawn point. Check out!"};

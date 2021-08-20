@@ -12,6 +12,7 @@ class ast
 		class escInterupt {};
 		class fetch_another {};
 		class fetch_money {};
+		class fobTeleport {};
 		class invEH {};
 		class killevent {};
 		class lock_vehicle {};
@@ -25,5 +26,8 @@ class ast
 		class transportbonus {};
 		class vehicle_refund  {};
 		class vehicle_spawner {};
+		class vehicleKill;
+		class fob_refund {};
+		class fob_spawner {};
 	};
 };
