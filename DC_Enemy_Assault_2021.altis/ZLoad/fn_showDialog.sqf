@@ -21,6 +21,10 @@ _vehName = getText (configfile >> "CfgVehicles" >> _typeVeh>> "displayName");
 _veh setFuel 0;
 _magsCurrent = getPylonMagazines (_veh);
 _allPylonsNames = (configProperties [configFile >> "CfgVehicles" >> _typeVeh >> "Components" >> "TransportPylonsComponent" >> "Pylons"]) apply {configName _x};
+
+_bannedPylons = ['4Rnd_BombCluster_01_F','PylonMissile_1Rnd_BombCluster_01_F','PylonRack_2Rnd_BombCluster_01_F','4Rnd_BombCluster_02_F','4Rnd_BombCluster_03_F','PylonMissile_1Rnd_BombCluster_02_F',
+'PylonMissile_1Rnd_BombCluster_02_cap_F','PylonMissile_1Rnd_BombCluster_03_F','PylonRack_2Rnd_BombCluster_03_F'];
+
 _counPylons = count _allPylonsNames;
 _equipedMag = getPylonMagazines _veh;
 _i = 0;
@@ -62,6 +66,7 @@ while{_i < _counPylons} do
 {
 
 	_avaiableMags = _veh getCompatiblePylonMagazines format ["%1",_allPylonsNames select _i];
+	_avaiableMags deleteAt (_avaiableMags find (_bannedPylons select _x) > 0);
 	_ctrl = (findDisplay 456963) displayCtrl (_i+2101);
 	_ctrl lbadd format [">%1<",localize "zlo_empty_text"];
 	_c = 1;
@@ -137,6 +142,7 @@ while{_i < _counPylons} do
 	_i = _i + 1;
 };
 
+// 텍스쳐
 _camoCountSources = "true" configClasses (configfile >> "CfgVehicles" >> _typeVeh >> "textureSources");
 _camoTextures = [""];
 _camoNames = [""];
@@ -151,6 +157,7 @@ if(count _camoCountSources > 0) then
 		_camoTextures pushback (getArray (configfile >> "CfgVehicles" >> _typeVeh >> "textureSources" >> configName _x >> "textures"))
 	}forEach _camoCountSources;
 };
+
 if(count _camoCountSources == 0)then
 {
 	_ctrl lbAdd format ["%1",localize "zlo_camo_empty_text"];
@@ -167,6 +174,7 @@ _ctrl ctrlSetText format["%3 : %1%2",[(getDammage _veh)*100,0] call BIS_fnc_cutD
 //####Presets
 //####
 
+//파일런사전설정 
 _ctrl = (findDisplay 456963) displayCtrl 2115;
 _presetsCFG = "true" configClasses (configfile >> "CfgVehicles" >> _typeVeh >> "Components" >> "TransportPylonsComponent" >> "presets");
 _ctrl ctrlRemoveAllEventHandlers "LBSelChanged";
@@ -184,6 +192,7 @@ _countMirrorsPylon = 0;
 	};
 	_mirrorPos pushBack (getNumber (configfile >> "CfgVehicles" >> _typeVeh >> "Components" >> "TransportPylonsComponent" >> "Pylons">> _x >> "mirroredMissilePos"));
 }forEach _allPylonsNames;
+
 {
 	if(_mirrorPos select _i == 0)then{
 		_ctrl = (findDisplay 456963) displayCtrl (_i+2101);

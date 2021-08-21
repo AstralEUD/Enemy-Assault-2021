@@ -6,7 +6,7 @@
 └──────────────────────────────────────────────────────*/
 
 params["_spCheck","_selections","_price","_tobe","_playerUID","_position"];
-_position = getPos FOB_Spawn;
+_position = getMarkerPos ["FOB_Spawn_Marker",false];
 _CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
 if (isNil "_CheckAlpha") exitWith {hint "There is no a Car/Aircraft/Ship on the spawn point. Check out!"};
 _spCheck = typeOf _CheckAlpha;

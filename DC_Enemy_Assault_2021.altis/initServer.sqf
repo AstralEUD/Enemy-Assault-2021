@@ -92,7 +92,7 @@ ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") /
 [] execVM "ast\arsenal\arsenal_list.sqf";
 
 ASTAirArray = [];
-[(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,1,[true,15],[false,"ColorRed"]] spawn ghst_fnc_eair;
+[(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,2,[true,15],[false,"ColorRed"]] spawn ghst_fnc_eair;
 //[(getmarkerpos "bairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,2,[true,30],[false,"ColorBlue"]] spawn ghst_fnc_bair;
 _PARAM_AISkill = "PARAM_AISkill" call BIS_fnc_getParamValue;
 [[(getmarkerpos "Respawn_West"),1000],[600,600],(4 + round(random 2)),[false,"ColorRed"],(_PARAM_AISkill/10)] spawn ghst_fnc_randespawn;

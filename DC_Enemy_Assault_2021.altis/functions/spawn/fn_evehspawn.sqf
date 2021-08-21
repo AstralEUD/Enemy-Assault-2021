@@ -33,6 +33,13 @@ for "_x" from 0 to (_grpnum)-1 do {
 		if (!isPlayer _killer) exitWith {};
 		[5,_killer] call ast_fnc_vehicleKill;
 	}];
+
+	if ((random 1) > 0.5) then { 
+		_armor1 allowCrewInImmobile true;
+	} else {
+		_armor1 allowCrewInImmobile false;
+	};
+
 	//sleep 1;
 	_eGrp = createGroup _sideguards;
 

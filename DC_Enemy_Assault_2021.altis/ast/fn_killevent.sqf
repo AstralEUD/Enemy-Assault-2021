@@ -11,8 +11,6 @@ publicVariable "ASTAirArray";
 
 addMissionEventHandler ["EntityKilled",{
 	params ["_killed", "_killer", "_instigator"];
-	if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0};
-	if (isNull _instigator) then {_instigator = _killer};
 	if (!isPlayer _killer) exitWith {};
 	if (_killer == _killed) exitWith {};
 	if (side group _killed == civilian) exitWith {

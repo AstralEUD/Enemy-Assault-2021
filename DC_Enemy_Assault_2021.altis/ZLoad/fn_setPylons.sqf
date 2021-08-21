@@ -9,6 +9,9 @@ waitUntil{!isnull (findDisplay 456963);};
 _veh = zlo_VehicleClass;
 _typeVeh = (typeOf _veh);
 
+_bannedPylons = ['4Rnd_BombCluster_01_F','PylonMissile_1Rnd_BombCluster_01_F','PylonRack_2Rnd_BombCluster_01_F','4Rnd_BombCluster_02_F','4Rnd_BombCluster_03_F','PylonMissile_1Rnd_BombCluster_02_F',
+'PylonMissile_1Rnd_BombCluster_02_cap_F','PylonMissile_1Rnd_BombCluster_03_F','PylonRack_2Rnd_BombCluster_03_F'];
+
 _magsCurrent = getPylonMagazines (_veh);
 _allPylonsNames = (configProperties [configFile >> "CfgVehicles" >> _typeVeh >> "Components" >> "TransportPylonsComponent" >> "Pylons"]) apply {configName _x};
 _counPylons = count _allPylonsNames;
@@ -41,9 +44,8 @@ while{_i < _counPylons} do
 	        //configfile >> "CfgVehicles" >> "CUP_O_SU34_RU" >> "Components" >> "TransportPylonsComponent" >> "pylons" >> "pylons1" >> "turret"
     	    if(_indexPylon == _c+1) then
     		{
-				if!(getText(configFile >> "CfgMagazines" >> _magsCurrent select _i >> "displayName") isEqualTo (_ctrl lbText _c+1))then
+				if(!(getText(configFile >> "CfgMagazines" >> _magsCurrent select _i >> "displayName") isEqualTo (_ctrl lbText _c+1)) && ((_bannedPylons find _x) == 0)) then
 				{
-					
 					_veh setPylonLoadOut [_allPylonsNames select _i,_x,false,_magTurret select _i];
 					_veh setAmmoOnPylon [_i-1,getNumber (configfile >> "CfgMagazines" >> _x >> "count")];
 					_needChange = _needChange + 1;
@@ -172,7 +174,7 @@ if((alive _veh) isEqualTo true)then
 	hint parseText format["<br /><img image='ZLoad\img\wr.jpg' /><br />%1 :<t color='#FF0000'>%2</t> %3<br /> <br /> ",localize "zlo_wait_text",_tTime,localize"zlo_sec_text"];	
 	uiSleep _tTime;
 	AST_kill_score = AST_kill_score - 15;
-	hint format ["현재 포인트 : %1",AST_kill_score];
+	systemChat format ["현재 포인트 : %1",AST_kill_score];
 	hint parseText format["<br /><img image='ZLoad\img\wr.jpg' /><br /><t color='#1f8636'>%1</t><br /> <br /> ",localize "zlo_serviceeeady_text"];
 	if((alive _veh) isEqualTo true)then
 	{
