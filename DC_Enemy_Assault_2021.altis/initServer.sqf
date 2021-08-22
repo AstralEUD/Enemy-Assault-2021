@@ -90,6 +90,7 @@ ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") /
 [] execVM "ast\fn_killevent.sqf";
 [] execVM "ast\fn_dbcheck.sqf";
 [] execVM "ast\arsenal\arsenal_list.sqf";
+[] execVM "ast\build_invincible.sqf";
 
 ASTAirArray = [];
 [(getmarkerpos "eairspawn"),(getmarkerpos "center"),[ghst_mapsize,ghst_mapsize],600,2,[true,15],[false,"ColorRed"]] spawn ghst_fnc_eair;

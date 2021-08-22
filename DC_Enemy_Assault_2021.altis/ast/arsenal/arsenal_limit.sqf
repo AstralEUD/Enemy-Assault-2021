@@ -71,10 +71,12 @@ while {true} do {
 	if (count _blockedItemsAll != 0)
 		then {
 			_blockedItemsAllText = ""; {
-				_blockedItemsAllText = _blockedItemsAllText + _x + "\n";
+				_cfgName = configName (_x);
+				_name = getText (_x >> _cfgName >> "displayName");
+				_blockedItemsAllText = _name + " , " + _blockedItemsAllText;
 			}
 			foreach _blockedItemsAll;
-			hint format["아래의 항목들이 인벤토리에서 삭제되었습니다.\n%1", _blockedItemsAllText];
+			["아래의 항목들은 승인되지 않았거나 구매하지 않은 물품이기에 삭제되었습니다.", _blockedItemsAllText] spawn BIS_fnc_showSubtitle;
 		};
 	sleep 0.5;
 };

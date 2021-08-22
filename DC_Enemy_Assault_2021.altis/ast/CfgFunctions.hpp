@@ -7,6 +7,7 @@ class ast
 		class addMoney {};
 		class air_refund {};
 		class air_spawner {};
+		class build_invincible {};
 		class db_save {};
 		class dbcheck {};
 		class escInterupt {};
@@ -29,5 +30,11 @@ class ast
 		class vehicleKill;
 		class fob_refund {};
 		class fob_spawner {};
+	};
+	class arsenal 
+	{
+		file = "ast\arsenal";
+		class arsenal_init {};
+		class getConfigClass {};
 	};
 };

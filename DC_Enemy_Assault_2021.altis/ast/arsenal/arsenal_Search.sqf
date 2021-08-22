@@ -31,62 +31,64 @@ private _glasses =[];
 [
 	AmmoBox01,
 	_weapons,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualWeaponCargo;
 [
 	AmmoBox01,
 	_vehicles,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualBackpackCargo;
 [
 	AmmoBox01,
 	_weapons,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualItemCargo;
 [
 	AmmoBox01,
 	_glasses,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualItemCargo;
 [
 	AmmoBox01,
 	_weapons,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualMagazineCargo;
+
+// AmmoBox02
 
 [
 	AmmoBox02,
 	_weapons,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualWeaponCargo;
 [
 	AmmoBox02,
 	_vehicles,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualBackpackCargo;
 [
 	AmmoBox02,
 	_weapons,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualItemCargo;
 [
 	AmmoBox02,
 	_glasses,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualItemCargo;
 [
 	AmmoBox02,
 	_weapons,
-	TRUE,
+	FALSE,
 	TRUE
 ] call BIS_fnc_addVirtualMagazineCargo;
 

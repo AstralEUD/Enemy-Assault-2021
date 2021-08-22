@@ -66,7 +66,7 @@ while{_i < _counPylons} do
 {
 
 	_avaiableMags = _veh getCompatiblePylonMagazines format ["%1",_allPylonsNames select _i];
-	_avaiableMags deleteAt (_avaiableMags find (_bannedPylons select _x) > 0);
+	_avaiableMags deleteAt (_avaiableMags find (_bannedPylons find _x) > 0);
 	_ctrl = (findDisplay 456963) displayCtrl (_i+2101);
 	_ctrl lbadd format [">%1<",localize "zlo_empty_text"];
 	_c = 1;
