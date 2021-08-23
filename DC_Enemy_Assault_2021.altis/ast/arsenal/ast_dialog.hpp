@@ -4,8 +4,8 @@ class AST_arsenal_GUI
 	OnLoad = "[] spawn AST_fnc_arsenal_init;";
 	//OnUnload = "";
 	movingEnable = false;
-	controls[] = {"Background","AST_STORE_LIST","AST_STORE_TEXT1","AST_STORE_TEXT2","AST_STORE_PICTURE","AST_STORE_NAMETEXT","AST_STORE_DESCTEXT","AST_STORE_BUTTON","AST_CLOSEBUTTON"};
-	objects[] = {};
+	//controls[] = {"Background","AST_STORE_LIST","AST_STORE_TEXT1","AST_STORE_TEXT2","AST_STORE_PICTURE","AST_STORE_NAMETEXT","AST_STORE_DESCTEXT","AST_STORE_BUTTON","AST_CLOSEBUTTON"};
+	//objects[] = {};
 	class ControlsBackground
 	{
 		class Background
@@ -146,13 +146,13 @@ class AST_arsenal_GUI
 		class AST_STORE_BUTTON
 		{
 			type = 1;
-			idc = -1;
+			idc = 11187;
 			x = safeZoneX + safeZoneW * 0.66015625;
 			y = safeZoneY + safeZoneH * 0.63888889;
 			w = safeZoneW * 0.04589844;
 			h = safeZoneH * 0.08680556;
 			style = 0;
-			text = "";
+			text = "구매";
 			borderSize = 0;
 			colorBackground[] = {0.4,0.4,0.4,1};
 			colorBackgroundActive[] = {1,1,1,1};
@@ -172,19 +172,19 @@ class AST_arsenal_GUI
 			soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1.0};
 			soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1.0};
 			soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1.0};
-			onButtonClick = "call AST_fnc_arsenalClicked;";
+			onButtonClick = "call AST_fnc_arsenal_Clicked;";
 			
 		};
 		class AST_CLOSEBUTTON
 		{
 			type = 16;
-			idc = -1;
+			idc = 11188;
 			x = safeZoneX + safeZoneW * 0.66875;
 			y = safeZoneY + safeZoneH * 0.24888889;
 			w = safeZoneW * 0.0375;
 			h = safeZoneH * 0.03777778;
 			style = 0;
-			text = "";
+			text = "[ X ]";
 			animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
 			animTextureDisabled = "#(argb,8,8,3)color(0.2,0.2,0.2,1)";
 			animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
@@ -231,9 +231,6 @@ class AST_arsenal_GUI
 				left = 0.25 * (((safezoneW / safezoneH) min 1.2) / 40);
 				
 			};
-			
 		};
-		
 	};
-	
 };

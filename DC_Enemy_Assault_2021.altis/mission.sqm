@@ -6560,7 +6560,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="[""Open"", [true]] call BIS_fnc_arsenal;";
 				name="AmmoBox01";
 			};
 			id=2912;
@@ -6602,7 +6601,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="[""AmmoboxInit"", [this, true, {true}]] spawn BIS_fnc_arsenal";
 				name="AmmoBox02";
 			};
 			id=2913;

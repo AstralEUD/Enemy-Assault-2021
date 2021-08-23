@@ -35,6 +35,7 @@ class ast
 	{
 		file = "ast\arsenal";
 		class arsenal_init {};
+		class arsenal_clicked {};
 		class getConfigClass {};
 	};
 };

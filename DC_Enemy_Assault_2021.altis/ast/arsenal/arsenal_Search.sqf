@@ -1,5 +1,3 @@
-waitUntil {count AST_limitedItems > 0};
-
 private _configClasses = "(getNumber (_x >> 'scope') >= 2)" configClasses (configFile >> "CfgWeapons");
 private _vehClasses = "(getNumber (_x >> 'scope') >= 2)" configClasses (configFile >> "CfgVehicles");
 private _faceClasses = "(getNumber (_x >> 'scope') >= 2)" configClasses (configFile >> "cfgGlasses");
@@ -26,7 +24,6 @@ private _glasses =[];
 		_glasses pushBack (configName _x);
 	};
 } forEach _faceClasses;
-
 
 [
 	AmmoBox01,
@@ -92,5 +89,5 @@ private _glasses =[];
 	TRUE
 ] call BIS_fnc_addVirtualMagazineCargo;
 
-[] execVM "ast\arsenal\arsenal_limit.sqf";
+
 //[] execVM "arsenal_Shop.sqf";

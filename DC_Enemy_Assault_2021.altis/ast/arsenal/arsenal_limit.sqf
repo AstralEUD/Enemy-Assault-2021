@@ -27,11 +27,36 @@ while {true} do {
 			};
 	}
 	foreach backpackItems player;
-	_blockedItemsAll = _blockedAssignedItems + _blockedUniformItems + _blockedVestItems + _blockedBackpackItems; {
+	_blockedPrimaryItems = [];
+	{
+		if (_x in AST_limitedItems)
+			then {
+				_blockedPrimaryItems pushBack _x;
+			};
+	}
+	foreach primaryWeaponItems player;
+	_blockedSecondaryItems = [];
+	{
+		if (_x in AST_limitedItems)
+			then {
+				_blockedSecondaryItems pushBack _x;
+			};
+	}
+	foreach secondaryWeaponItems player;
+	_blockedItemsAll = _blockedAssignedItems + _blockedUniformItems + _blockedVestItems + _blockedBackpackItems + _blockedPrimaryItems + _blockedSecondaryItems;
+	{
 		player unassignItem _x;
 		player removeItem _x;
 	}
 	foreach _blockedAssignedItems;
+	{
+		player removePrimaryWeaponItem _x;
+	}
+	foreach _blockedPrimaryItems;
+	{
+		player removeSecondaryWeaponItem _x;
+	}
+	foreach _blockedSecondaryItems;
 
 	if (uniform player in AST_limitedItems)
 		then {
@@ -65,18 +90,18 @@ while {true} do {
 		}
 		foreach _blockedBackpackItems;
 	};
-
 	_blockedItemsAll sort true;
 
 	if (count _blockedItemsAll != 0)
 		then {
 			_blockedItemsAllText = ""; {
-				_cfgName = configName (_x);
-				_name = getText (_x >> _cfgName >> "displayName");
+				//_cfgName = configName (_x);
+				_cfgName = _x call AST_fnc_getConfigClass;
+				_name = getText (_cfgName >> "displayName");
 				_blockedItemsAllText = _name + " , " + _blockedItemsAllText;
 			}
 			foreach _blockedItemsAll;
-			["아래의 항목들은 승인되지 않았거나 구매하지 않은 물품이기에 삭제되었습니다.", _blockedItemsAllText] spawn BIS_fnc_showSubtitle;
+			["아래의 항목들은 승인되지 않았거나 구매하지 않은 물품이기에 삭제되었습니다", _blockedItemsAllText] spawn BIS_fnc_showSubtitle;
 		};
 	sleep 0.5;
 };

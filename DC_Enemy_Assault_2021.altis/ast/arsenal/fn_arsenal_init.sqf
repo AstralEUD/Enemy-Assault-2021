@@ -1,4 +1,3 @@
-waitUntil {count AST_remain > 0};
 disableSerialization;
 _AST_display = findDisplay 1118;
 _ctrlList = _AST_display displayCtrl 11181; 
@@ -8,8 +7,9 @@ _ctrlList = _AST_display displayCtrl 11181;
 	_ctrlList lbAdd _displayName;
 	_ctrlList lbSetToolTip [_foreachindex, _x];
 	_ctrlList lbSetPicture [_foreachindex, getText (_cfgName >> "picture")];
-	_price = (AST_weaponPrice find _x) select 1;
-	_ctrlList lbSetTextRight [_foreachindex,_price];
+	_index = AST_weaponlist find _x;
+	_price = (AST_weaponPrice select _index) select 1;
+	_ctrlList lbSetTextRight [_foreachindex,str _price];
 	if (_price > AST_kill_score) then {
 		_ctrlList lbSetSelectColorRight [_foreachindex, [186, 13, 13, 1]];
 	} else {
@@ -28,18 +28,39 @@ _ctrlPtsTitle ctrlSetStructuredText formatText ["%1 pts",AST_kill_score];
 _ctrlSelectedName = _AST_display displayCtrl 11185;
 _ctrlSelectedPic = _AST_display displayCtrl 11184;
 _ctrlSelecetedDesc = _AST_display displayCtrl 11186;
+_ctrlButton = _AST_display displayCtrl 11187;
+
+_ctrlButton ctrlEnable false;
 
 addMissionEventHandler ["EachFrame", {
-	_listSelected = lbSelection _ctrlList;
+	_AST_display = findDisplay 1118;
+	_ctrlSelectedName = _AST_display displayCtrl 11185;
+	_ctrlSelectedPic = _AST_display displayCtrl 11184;
+	_ctrlSelecetedDesc = _AST_display displayCtrl 11186;
+	_ctrlButton = _AST_display displayCtrl 11187;
+	_ctrlList = _AST_display displayCtrl 11181; 
+	//_tempSelected = (lbSelection _ctrlList) select 0;
+	if (isNull _listSelected) then {
+		_ctrlButton ctrlSetTooltip "선택 전에는 구매할 수 없습니다.";
+	};
+	_listSelected = (lbSelection _ctrlList) select 0;
 	_listSelectedClass = AST_remain select _listSelected;
-	_selectedPrice = (AST_weaponPrice find _listSelectedClass) select 1;
+	player setVariable ["ast_listselected", _listSelectedClass, false];
+	_selectedindex = AST_weaponlist find _listSelectedClass;
+	_selectedPrice = (AST_weaponPrice select _selectedindex) select 1;
 	_SelectedcfgName = _listSelectedClass call AST_fnc_getConfigClass;
 	_SelecteddisplayName = getText (_SelectedcfgName >> "displayName");
 	_SelectedPicture = getText (_SelectedcfgName >> "picture");
 	_ctrlSelectedName ctrlSetText format ["%1 [%2 Points]",_SelecteddisplayName,_SelectedPrice];
 	_ctrlSelectedPic ctrlSetText _SelectedPicture;
-	if (!dialog) then {
-		removeMissionEventHandler ["EachFame", _thisEventHandler];
+	if (_selectedPrice < AST_kill_score) then {
+		_ctrlButton ctrlEnable true;
+		_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
+	} else {
+		_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
 	};
+	/*if (!dialog) then {
+		removeMissionEventHandler ["EachFrame", _thisEventHandler];
+	};*/
 }];
 

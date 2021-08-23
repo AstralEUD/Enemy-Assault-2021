@@ -225,6 +225,8 @@ if (ghst_acemod) then {
 
 [] spawn ast_fnc_escInterupt;
 
+
+
 [ missionNamespace, "arsenalClosed", {
 	systemChat "Arsenal Loadout Saved";
 	player setVariable ["GHST_Current_Gear",getUnitLoadout player];
@@ -233,7 +235,6 @@ if (ghst_acemod) then {
 [] spawn ghst_fnc_vehicle_actioninit;
 
 
-[] execVM "ast\arsenal\arsenal_Search.sqf";
 gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	_handled = FALSE;
 	if (_this select 1 == 207) then {
@@ -263,6 +264,8 @@ ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call
 ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_vehicle_refund"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
 
+infostand addAction ["총기 구매자","0 = createDialog 'AST_arsenal_GUI'"];
+
 infostand addAction ["<t color='#33CCFF' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
 FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
 ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
@@ -285,6 +288,9 @@ infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 
 [] execVM "external\s_Chobo_Guide.sqf";
 // auto run
 [] execVM "external\Auto_running.sqf";
+
+[] execVM "ast\arsenal\arsenal_Search.sqf";
+[] execVM "ast\arsenal\arsenal_limit.sqf";
 
 //Rearm for Aircraft
 [player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
@@ -319,6 +325,8 @@ player addEventHandler ["Respawn", {
         (findDisplay 49) closeDisplay 2; // Close ESC dialog
     };
 };
+
+
 
 sleep 30;
 
