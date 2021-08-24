@@ -112,6 +112,8 @@ class RscTitles
 #include "VAM_GUI\defines.hpp"
 #include "VAM_GUI\VAM_GUI_controls.hpp"
 #include "VAM_GUI\VAM_GUI_classes.hpp"
+// EA2021 (ast)
+#include "ast\arsenal\ast_dialog.hpp"
 
 class cfgFunctions {
 	

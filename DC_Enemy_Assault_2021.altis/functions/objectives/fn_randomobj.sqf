@@ -45,7 +45,7 @@ if (isnil "_locselpos") exitwith {finish = true; publicvariable "finish"; diag_l
 	#define _enemy_house [50,40]
 	#define _enemy_patrols (3 + round(random 1))
 	#define _enemy_squadsize (3 + round(random 3))
-	#define _enemy_vehicles (3 + round(random 2))
+	#define _enemy_vehicles (4 + round(random 3))
 	#define _enemy_boats (round(random 2))
 
 //random boat patrol

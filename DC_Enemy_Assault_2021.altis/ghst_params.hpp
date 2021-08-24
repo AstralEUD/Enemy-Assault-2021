@@ -63,7 +63,7 @@ class PARAM_Tasks
 	title = "    Number of Tasks:";
 	values[] = {8,7,6,5,4,3,2,1};
 	texts[] = {"8","7","6","5","4","3","2","1"};
-	default = 5;
+	default = 8;
 };
 class PARAM_TASKTYPES
 {
@@ -140,7 +140,7 @@ class PARAM_Cooldowns
 	title = "    Support Cooldown Timers in Minutes:";
 	values[] = {2,5,10,15,20,25,30};
 	texts[] = {"2","5","10","15","20","25","30"};
-	default = 2;
+	default = 10;
 };
 class EmtpyLine3
 {

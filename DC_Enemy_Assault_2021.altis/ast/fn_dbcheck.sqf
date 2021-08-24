@@ -24,3 +24,9 @@ if (isNil "inidbi") then {
     };
 };
 
+addMissionEventHandler ["PlayerConnected",
+{
+	params ["_id", "_uid", "_name", "_jip", "_owner"];
+    _score = ["read", [_uid, "kill_score", 30]] call inidbi;
+    [_score] remoteExec ["ast_fnc_addMoney", _owner];
+}];

@@ -12,8 +12,6 @@ _spawn = _vararray select 0;
 _Max_grpnum = _vararray select 1;
 
 _grpnbr = count units _caller;
-[player] remoteExec ["AST_fnc_fetch_money", 2, false];
-sleep 0.2;
 if (AST_kill_score < 5) exitWith {hint "Not enough minerals.";};
 if (_grpnbr > _Max_grpnum) exitwith {_caller sidechat format ["%1 you cannot command %2 units, only %3 units", name _caller, _grpnbr, _Max_grpnum];};
 
@@ -81,7 +79,7 @@ if ((isnil "ghst_vehsel") or ! DLG_USE_SELECTED) exitwith {hint "Nothing Selecte
 _veh_name = (configFile >> "cfgVehicles" >> _objselected >> "displayName") call bis_fnc_getcfgdata;
 
 _westgrp = group _caller;
-_tobe = AST_kill_score - 5;
+AST_kill_score = AST_kill_score - 5;
 [player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];	
 _man = _westgrp createUnit [_objselected,_spawn, [], 0, "NONE"];
 _caller groupchat format ["%1 Spawned", _veh_name];

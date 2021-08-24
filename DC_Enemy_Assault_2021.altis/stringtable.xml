@@ -59,14 +59,14 @@
 <Project name="ZeroAinzLoadOut">
 	<Package name="ZeroAinzLoadOut">   
 				<Key ID="zlo_service_name">
-					<Original>Service</Original>
-					<English>Service</English>
+					<Original>항공기 무장 관리자</Original>
+					<English>항공기 무장 관리자</English>
 					<Italian>Servizio</Italian>
 					<Russian>Cервис</Russian>
 				</Key>
 				<Key ID="zlo_apply_text">
-					<Original>Apply</Original>
-					<English>Apply</English>
+					<Original>적용</Original>
+					<English>적용</English>
 					<Italian>Aplica</Italian>
 					<Russian>Применить</Russian>
 				</Key>
@@ -624,6 +624,9 @@
 		<Key ID="STR_A3_C_CfgVehicles_B_HMG_02_high_weapon_F0">
 			<Original>ERROR</Original>
 		</Key>
+		<Key ID="STR_AST_AbortESC">
+			<Original>%1초 후 가능합니다..</Original>
+		</Key>
 	</Package>
 </Project>
 <Project name="Vehicle Appearance Manager">
@@ -702,3 +705,4 @@
 <!-- VAM LINE END -->
 	</Package>
 </Project>
+<?xml version="1.0" encoding="UTF-8"?>

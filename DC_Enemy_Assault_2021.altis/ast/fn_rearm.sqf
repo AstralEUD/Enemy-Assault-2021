@@ -6,10 +6,12 @@
 └──────────────────────────────────────────────────────*/
 
 params ["_playerVehicle","_nowmoney","_tobe","_playerUID"];
-[player] remoteExec ["AST_fnc_fetch_money", 2, false];
 if (AST_kill_score < 5) exitWith {hint "Not enough Minerals!";};
 if (vehicle player == player) exitWith {hint "Rearm can be used while you're in a vehicle!";};
 _vec = (vehicle player);
+_selections = ASTAirListR find _vec;
+_selections2 = ASTvehiclesR find _vec;
+if ((_selections == -1) or (_selections2 == -1)) exitWith {hint "This vehicle cannot be repaired!";};
 _type = typeOf vehicle player;
 titleText [localize "STR_M04t83", "PLAIN DOWN",0.3];
 for [{_loop2=0}, {_loop2<1}, {_loop2=_loop2}] do {
@@ -22,6 +24,6 @@ for [{_loop2=0}, {_loop2<1}, {_loop2=_loop2}] do {
 	_ful = (Fuel _vec)*100;
 	hint format["Damage: %1\nFuel: %2",Round _dam,Round _ful];
 };
-_tobe = AST_kill_score - 5;
-[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+AST_kill_score = AST_kill_score - 5;
+[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 _vec setVehicleAmmo 1;	

@@ -26,6 +26,20 @@ for "_x" from 0 to (_grpnum)-1 do {
 
 	_veh = selectRandom _vehlist;
 	_armor1 = createVehicle [_veh,_marker, [], 0, "NONE"];
+
+	_armor1 addEventHandler ["Killed", {
+		params ["_unit", "_killer", "_instigator", "_useEffects"];
+		if (isNull _killer) exitWith {};
+		if (!isPlayer _killer) exitWith {};
+		[5,_killer] call ast_fnc_vehicleKill;
+	}];
+
+	if ((random 1) > 0.5) then { 
+		_armor1 allowCrewInImmobile true;
+	} else {
+		_armor1 allowCrewInImmobile false;
+	};
+
 	//sleep 1;
 	_eGrp = createGroup _sideguards;
 

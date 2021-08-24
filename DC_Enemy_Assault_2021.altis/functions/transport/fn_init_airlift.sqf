@@ -35,6 +35,9 @@ if (!visibleMap) exitwith {
 	};
 	
 _liftpos = [clickpos select 0, clickpos select 1, 0];//(getposatl player) select 2];
+_ASTplayerpos = getPosATL player;
+
+if ((_ASTplayerPos distance2D _liftpos) > 250) exitWith {hint "대상과 본인과의 거리가 너무 멉니다.";};
 
 sleep 1;
 

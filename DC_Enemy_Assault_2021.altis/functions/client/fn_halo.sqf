@@ -16,6 +16,9 @@ hint "Halo Not Available";
 _host removeaction _id;
 };
 
+if (AST_kill_score < 10) exitWith {hint "Not enough minerals";};
+sleep 0.3;
+
 //save the backpack and its contents, also adds fake pack to front of unit
 //[_saveLoadOut,_caller] spawn ghst_halo_ventralpack;
 ghst_halo_ventralpack = {
@@ -168,13 +171,9 @@ if (_typehalo and (leader _grp1 == _caller)) then {
 		openMap false;
 
 		sleep 5;
-
 		_caller groupchat "Have a nice trip";// and dont forget to open your chute!";
-		[_caller] remoteExec ["AST_fnc_fetch_money", 2, false];
-		sleep 0.3;
-		if (AST_kill_score < 10) exitWith {hint "Not enough minerals";};
-		private _tobe = AST_kill_score - 10;
-		[_caller, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+		AST_kill_score = AST_kill_score - 10;
+		[_caller, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 		//auto open before impact
 		waituntil {(position _caller select 2) <= _altchute + 50};
 
@@ -209,12 +208,9 @@ if (_typehalo and (leader _grp1 == _caller)) then {
 
 		sleep 5;
 
-		_caller groupchat "Have a nice trip";// and dont forget to open your chute!";
-		[_caller] remoteExec ["AST_fnc_fetch_money", 2, false];
-		sleep 0.3;
-		if (AST_kill_score < 10) exitWith {hint "Not enough minerals";};
-		private _tobe = AST_kill_score - 10;
-		[_caller, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];
+		_caller groupchat "Have a nice trip";// and dont forget to open your chute!";	
+		AST_kill_score = AST_kill_score - 10;
+		[_caller, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 
 		//auto open before impact
 		waituntil {(position _caller select 2) <= _altchute};

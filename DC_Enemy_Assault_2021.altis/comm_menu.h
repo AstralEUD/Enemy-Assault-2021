@@ -8,16 +8,16 @@ class CfgCommunicationMenu
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\cas_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
 		enable = "1"; // Simple expression condition for enabling the item
-	};
-	class Gunship
+	};*/
+	class Group
 	{
-		text = "Gunship Support"; // Text displayed in the menu and in a notification
-		submenu = "";//#USER:CasplanesubMenu"; // Submenu opened upon activation
-		expression = "ghst_gunshipsup = [(getmarkerpos ""ghst_player_support""),ghst_gunship,60,[1500, 1000],PARAM_Cooldowns,""ghst_gunship"",player,true] spawn ghst_fnc_gunship;"; // Code executed upon activation (ignored when the submenu is not empty)
+		text = "Group Settings"; // Text displayed in the menu and in a notification
+		submenu = "#USER:Groupsubmenu";//#USER:CasplanesubMenu"; // Submenu opened upon activation
+		expression = ""; // Code executed upon activation (ignored when the submenu is not empty)
 		icon = "\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\attack_ca.paa"; // Icon displayed permanently next to the command menu
 		cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
 		enable = "1"; // Simple expression condition for enabling the item
-	};*/
+	};
 	class RemoteDesignator
 	{
 		text = "Deploy Remote Designator"; // Text displayed in the menu and in a notification

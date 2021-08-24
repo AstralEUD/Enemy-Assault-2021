@@ -196,7 +196,7 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 	ghst_civlist = ghst_mencivList;	
 
 	_PARAM_Enemy = switch _PARAM_EnemyType do {
-		case 99: {floor(random 3)};
+		case 99: {floor(random 4)};
 		Default {_PARAM_EnemyType;};
 	};
 	
@@ -343,6 +343,53 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 		ghst_aa_list = ghst_taaList + ["O_Radar_System_02_F","O_SAM_System_04_F"];//["O_T_APC_Tracked_02_AA_ghex_F"];
 		
 		ghst_arty_list = ghst_tartyList;//["O_T_MBT_02_arty_ghex_F"];
+		
+		};
+	case 3: {
+
+		///////////
+		// LDF UNITS
+		///////////
+		
+		ghst_side = independent;
+
+		ghst_menlist = ghst_lList;
+
+		ghst_menhouselist = ghst_lList;		
+
+		ghst_paralist = ghst_lList;
+		
+		ghst_diverlist = ghst_idiverlist;
+		
+		ghst_specopslist = ghst_lList;
+
+		ghst_crewmenlist = ghst_ldList;
+		
+		ghst_patrolvehlist = ghst_ltankList + ["I_mbt_03_cannon_F"];
+
+		ghst_convoyvehlist = ghst_lcarList;
+
+		ghst_staticlist = ["I_E_HMG_01_high_F","I_E_GMG_01_high_F","I_E_static_AT_F","I_E_static_AA_F"];
+		
+		ghst_patrolboatlist = ["I_Boat_Armed_01_minigun_F"];
+		
+		ghst_transport_heli_list = ["I_E_Heli_light_03_unarmed_F"];
+
+		ghst_attack_heli_list = ["I_E_Heli_light_03_dynamicLoadout_F"];
+		
+		if (_PARAM_FIRAIR == 1) then {
+			ghst_patrol_air_list = ["I_Plane_Fighter_04_F","I_Plane_Fighter_03_dynamicLoadout_F","FIR_F16C_ENEMY_TYPE_A"];
+		} else {
+			ghst_patrol_air_list = ["I_Plane_Fighter_03_dynamicLoadout_F","I_Plane_Fighter_04_F"];
+		};
+		
+		ghst_commanderlist = ["I_E_officer_F","I_E_officer_parade_F"];
+		
+		ghst_ammobox_list = ["Box_IED_Exp_F","Box_IND_Grenades_F","Box_IND_AmmoOrd_F","Box_AAF_Equip_F","Box_IND_Wps_F"];
+		
+		ghst_aa_list = ghst_taaList + ["I_E_Radar_System_01_F","I_E_SAM_System_03_F"];//["O_T_APC_Tracked_02_AA_ghex_F"];
+		
+		ghst_arty_list = ghst_tartyList + ["I_E_Truck_02_MRL_F"];//["O_T_MBT_02_arty_ghex_F"];
 		
 		};
 		
