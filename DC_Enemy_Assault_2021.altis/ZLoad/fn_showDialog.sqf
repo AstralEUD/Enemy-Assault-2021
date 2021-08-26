@@ -22,9 +22,6 @@ _veh setFuel 0;
 _magsCurrent = getPylonMagazines (_veh);
 _allPylonsNames = (configProperties [configFile >> "CfgVehicles" >> _typeVeh >> "Components" >> "TransportPylonsComponent" >> "Pylons"]) apply {configName _x};
 
-_bannedPylons = ['4Rnd_BombCluster_01_F','PylonMissile_1Rnd_BombCluster_01_F','PylonRack_2Rnd_BombCluster_01_F','4Rnd_BombCluster_02_F','4Rnd_BombCluster_03_F','PylonMissile_1Rnd_BombCluster_02_F',
-'PylonMissile_1Rnd_BombCluster_02_cap_F','PylonMissile_1Rnd_BombCluster_03_F','PylonRack_2Rnd_BombCluster_03_F'];
-
 _counPylons = count _allPylonsNames;
 _equipedMag = getPylonMagazines _veh;
 _i = 0;
@@ -66,7 +63,6 @@ while{_i < _counPylons} do
 {
 
 	_avaiableMags = _veh getCompatiblePylonMagazines format ["%1",_allPylonsNames select _i];
-	_avaiableMags deleteAt (_avaiableMags find (_bannedPylons find _x) > 0);
 	_ctrl = (findDisplay 456963) displayCtrl (_i+2101);
 	_ctrl lbadd format [">%1<",localize "zlo_empty_text"];
 	_c = 1;
