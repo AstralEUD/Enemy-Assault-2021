@@ -43,7 +43,15 @@ while {true} do {
 			};
 	}
 	foreach secondaryWeaponItems player;
-	_blockedItemsAll = _blockedAssignedItems + _blockedUniformItems + _blockedVestItems + _blockedBackpackItems + _blockedPrimaryItems + _blockedSecondaryItems;
+	_blockedWeapons = [];
+	{
+		if (_x in AST_limitedItems)
+			then {
+				_blockedWeapons pushBack _x;
+			};
+	}
+	foreach weapons player;
+	_blockedItemsAll = _blockedAssignedItems + _blockedUniformItems + _blockedVestItems + _blockedBackpackItems + _blockedPrimaryItems + _blockedSecondaryItems + _blockedWeapons;
 	{
 		player unassignItem _x;
 		player removeItem _x;
@@ -57,7 +65,10 @@ while {true} do {
 		player removeSecondaryWeaponItem _x;
 	}
 	foreach _blockedSecondaryItems;
-
+	{
+		player removeWeapon _x;
+	}
+	foreach _blockedWeapons;
 	if (uniform player in AST_limitedItems)
 		then {
 			_blockedItemsAll pushBack uniform player;
@@ -68,7 +79,6 @@ while {true} do {
 		}
 		foreach _blockedUniformItems;
 	};
-
 	if (vest player in AST_limitedItems)
 		then {
 			_blockedItemsAll pushBack vest player;
