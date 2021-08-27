@@ -1,4 +1,3 @@
-waitUntil {CHECK_ARSENAL == true};
 private _configClasses = "(getNumber (_x >> 'scope') >= 2)" configClasses (configFile >> "CfgWeapons");
 private _vehClasses = "(getNumber (_x >> 'scope') >= 2)" configClasses (configFile >> "CfgVehicles");
 private _faceClasses = "(getNumber (_x >> 'scope') >= 2)" configClasses (configFile >> "cfgGlasses");
