@@ -6,7 +6,6 @@ if (_player iskindof "VirtualCurator_F") then {
 };
 */
 waituntil {! isnull player};
-
 //Detect ACE
 ghst_acemod = false;
 /*if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
@@ -271,9 +270,9 @@ FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player 
 ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
 ASTfobSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_fob_spawner"];
 
-/*ATM_01 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
+ATM_01 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
 ATM_02 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
-ATM_03 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];*/
+ATM_03 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
 
 player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
@@ -289,9 +288,6 @@ infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 
 // auto run
 [] execVM "external\Auto_running.sqf";
 
-[] execVM "ast\arsenal\arsenal_Search.sqf";
-[] execVM "ast\arsenal\arsenal_limit.sqf";
-
 //Rearm for Aircraft
 [player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
@@ -303,18 +299,18 @@ player addEventHandler ["Respawn", {
 
 //invEH
 [] execVM "ast\fn_invEH.sqf";
-//Vehicle Lock System
-[] execVM "ast\fn_lock_vehicle.sqf";
 
+//Vehicle Lock System
+//[] execVM "ast\fn_lock_vehicle.sqf";
 //playerMarker
 0 = [] execVM "external\player_markers.sqf";
 
-
-
 //[] execVM "external\tankboy.sqf";
-
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
+[] execVM "ast\arsenal\arsenal_limit.sqf";
+[] execVM "ast\arsenal\arsenal_Search.sqf";
+diag_log "EA2021 Loading Completed!!";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
@@ -325,7 +321,6 @@ player addEventHandler ["Respawn", {
         (findDisplay 49) closeDisplay 2; // Close ESC dialog
     };
 };
-
 
 
 sleep 30;

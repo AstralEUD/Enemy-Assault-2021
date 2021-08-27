@@ -16,8 +16,7 @@ _ctrlList = _AST_display displayCtrl 11181;
 		_ctrlList lbSetSelectColorRight [_foreachindex, [82, 242, 64, 1]];
 	};
 	_ctrlList lbSetValue [_foreachindex, _price];
-	lbSortByValue _ctrlList;
-} forEach AST_remain;
+} forEach AST_weaponlist;
 
 _ctrlMainTitle = _AST_display displayCtrl 11182;
 _ctrlMainTitle ctrlSetStructuredText parseText
@@ -44,7 +43,7 @@ addMissionEventHandler ["EachFrame", {
 		_ctrlButton ctrlSetTooltip "선택 전에는 구매할 수 없습니다.";
 	};
 	_listSelected = (lbSelection _ctrlList) select 0;
-	_listSelectedClass = AST_remain select _listSelected;
+	_listSelectedClass = AST_weaponlist select _listSelected;
 	player setVariable ["ast_listselected", _listSelectedClass, false];
 	_selectedindex = AST_weaponlist find _listSelectedClass;
 	_selectedPrice = (AST_weaponPrice select _selectedindex) select 1;
@@ -53,14 +52,19 @@ addMissionEventHandler ["EachFrame", {
 	_SelectedPicture = getText (_SelectedcfgName >> "picture");
 	_ctrlSelectedName ctrlSetText format ["%1 [%2 Points]",_SelecteddisplayName,_SelectedPrice];
 	_ctrlSelectedPic ctrlSetText _SelectedPicture;
-	if (_selectedPrice < AST_kill_score) then {
-		_ctrlButton ctrlEnable true;
-		_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
+	if ((AST_purchased find _listSelectedClass) > 0) then {
+		_ctrlButton ctrlEnable false;
+		_ctrlButton ctrlSetTooltip "이미 구매한 무기입니다.";
 	} else {
-		_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
+		if (_selectedPrice < AST_kill_score) then {
+			_ctrlButton ctrlEnable true;
+			_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
+		} else {
+			_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
+		};
 	};
-	/*if (!dialog) then {
+	if (!dialog) then {
 		removeMissionEventHandler ["EachFrame", _thisEventHandler];
-	};*/
+	};
 }];
 
