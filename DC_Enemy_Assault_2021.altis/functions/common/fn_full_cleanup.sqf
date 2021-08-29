@@ -50,6 +50,7 @@ _PARAM_CONVOYTASK = "PARAM_CONVOYTASK" call BIS_fnc_getParamValue;
 switch (_missiontype) do {
 	case 1: {
 			//launch next objective area
+			[] remoteExecCall ["ast_fnc_rtbReward",0];
 			call ghst_fnc_randomobj;
 		};
 	case 2: {
@@ -62,6 +63,7 @@ switch (_missiontype) do {
 		};
 	default {
 			//launch next objective area
+			[] remoteExecCall ["ast_fnc_rtbReward",0];
 			call ghst_fnc_randomobj;
 		};
 };

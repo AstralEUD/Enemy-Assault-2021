@@ -44,7 +44,7 @@ while{_i < _counPylons} do
 	        //configfile >> "CfgVehicles" >> "CUP_O_SU34_RU" >> "Components" >> "TransportPylonsComponent" >> "pylons" >> "pylons1" >> "turret"
     	    if(_indexPylon == _c+1) then
     		{
-				if(!(getText(configFile >> "CfgMagazines" >> _magsCurrent select _i >> "displayName") isEqualTo (_ctrl lbText _c+1)) && ((_bannedPylons find _x) == 0)) then
+				if(!(getText(configFile >> "CfgMagazines" >> _magsCurrent select _i >> "displayName") isEqualTo (_ctrl lbText _c+1)) && ((_bannedPylons find _x) == -1)) then
 				{
 					_veh setPylonLoadOut [_allPylonsNames select _i,_x,false,_magTurret select _i];
 					_veh setAmmoOnPylon [_i-1,getNumber (configfile >> "CfgMagazines" >> _x >> "count")];

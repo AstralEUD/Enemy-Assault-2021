@@ -301,15 +301,15 @@ player addEventHandler ["Respawn", {
 [] execVM "ast\fn_invEH.sqf";
 
 //Vehicle Lock System
-//[] execVM "ast\fn_lock_vehicle.sqf";
+[] execVM "ast\fn_lock_vehicle.sqf";
 //playerMarker
 0 = [] execVM "external\player_markers.sqf";
 
 //[] execVM "external\tankboy.sqf";
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
-[] execVM "ast\arsenal\arsenal_limit.sqf";
-[] execVM "ast\arsenal\arsenal_Search.sqf";
+[] execVM "ast\arsenal\fn_arsenal_limit.sqf";
+
 diag_log "EA2021 Loading Completed!!";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";

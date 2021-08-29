@@ -12,7 +12,10 @@ _host removeaction _id;
 //_caller sidechat "I found the terminal. Disabling terminal link.";
 ["Data download completed.", _caller] remoteExec ["ghst_fnc_global_sidechat"];
 
-[_caller] call ast_fnc_missionReward;
+_callerpos = getPosATL _caller;
+[_callerpos] remoteExecCall ["ast_fnc_missionReward",0];
+diag_log _callerpos;
+diag_log "[]디버그 DisableTerminal"
 
 [_host,0] call BIS_fnc_dataTerminalAnimate;
 

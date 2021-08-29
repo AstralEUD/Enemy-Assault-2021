@@ -27,6 +27,7 @@ if (_PARAM_Overcast == 1) then {
 } else {
 	[_PARAM_Overcast * 0.01] call bis_fnc_setOvercast;
 };
+[] execVM "ast\arsenal\fn_arsenal_list.sqf";
 
 //Deletes players body on disconnect so AI wont be left everywhere
 addMissionEventHandler ["HandleDisconnect",{
@@ -89,7 +90,6 @@ ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") /
 [] execVM "ast\fn_spawnlist.sqf";
 [] execVM "ast\fn_killevent.sqf";
 [] execVM "ast\fn_dbcheck.sqf";
-[] execVM "ast\arsenal\arsenal_list.sqf";
 [] execVM "ast\build_invincible.sqf";
 
 ASTAirArray = [];
