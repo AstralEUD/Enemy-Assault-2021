@@ -705,4 +705,206 @@
 <!-- VAM LINE END -->
 	</Package>
 </Project>
+<Project name="Trait Changer">
+	<Package name="Trait Changer">
+<!-- TC LINE START -->
+<!-- Function/기능부 -->
+			<Key ID="STR_TC_INITIALIZED">
+				<Original>Trait Changer initialized</Original>
+				<Korean>특기 변경기 불러오기 및 초기화 완료</Korean>
+			</Key>
+			<Key ID="STR_TC_MAIN_MENU_NAME">
+				<Original>Trait Changer</Original>
+				<Korean>특기 변경기</Korean>
+			</Key>
+			<Key ID="STR_TC_CLOSE_MENU">
+				<Original>Close</Original>
+				<Korean>닫기</Korean>
+			</Key>
+			<Key ID="STR_TC_CURRENT_TRAIT">
+				<Original>Current Trait :</Original>
+				<Korean>현  재    특  기 :</Korean>
+			</Key>
+			<Key ID="STR_TC_APPLY">
+				<Original>Apply</Original>
+				<Korean>적용</Korean>
+			</Key>
+			<Key ID="STR_TC_TRAIT">
+				<Original>Trait</Original>
+				<Korean>특기</Korean>
+			</Key>
+			<Key ID="STR_TC_NO_TRAIT">
+				<Original>Rifleman</Original>
+				<Korean>소총수</Korean>
+			</Key>
+			<Key ID="STR_TC_NO_TRAIT_INFO">
+				<Original>
+					Rifleman
+					&lt;br/&gt;&lt;br/&gt;
+					Rifleman is basic role.
+				</Original>
+				<Korean>
+					소총수
+					&lt;br/&gt;&lt;br/&gt;
+					소총수는 기본적인 보직입니다.</Korean>
+			</Key>
+			<Key ID="STR_TC_MEDIC">
+				<Original>Combat Life Saver</Original>
+				<Korean>전투의무병</Korean>
+			</Key>
+			<Key ID="STR_TC_MEDIC_INFO">
+				<Original>
+					Combat Life Saver
+					&lt;br/&gt;&lt;br/&gt;
+					Combat Life Saver is specialized in treating wounded soldier in field.
+				</Original>
+				<Korean>
+					전투의무병
+					&lt;br/&gt;&lt;br/&gt;
+					전투의무병은 야전에서 부상당한 군인을 치료하는 것에 특화되어있습니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_REPAIR_SPECIALIST">
+				<Original>Repair Specialist</Original>
+				<Korean>정비 전문가</Korean>
+			</Key>
+			<Key ID="STR_TC_REPAIR_SPECIALIST_INFO">
+				<Original>
+					Repair Specialist
+					&lt;br/&gt;&lt;br/&gt;
+					Repair Specialist is specialized in fixing damaged vehicles in field.
+				</Original>
+				<Korean>
+					정비 전문가
+					&lt;br/&gt;&lt;br/&gt;
+					정비 전문가는 야전에서 피해를 입은 차량들을 고치는데 특화되어있습니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_EXPLOSIVE_SPECIALIST">
+				<Original>Explosive Specialist</Original>
+				<Korean>폭발물 전문가</Korean>
+			</Key>
+			<Key ID="STR_TC_EXPLOSIVE_SPECIALIST_INFO">
+				<Original>
+					Explosive Specialist
+					&lt;br/&gt;&lt;br/&gt;
+					Explosive Specialist is specialized in using explosive especially demining.
+				</Original>
+				<Korean>
+					폭발물 전문가
+					&lt;br/&gt;&lt;br/&gt;
+					폭발물 전문가는 폭발물을 다루는 것, 특히 지뢰제거에 특화되어있습니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_UAV_OPERATOR">
+				<Original>UAV Operator</Original>
+				<Korean>UAV 운용자</Korean>
+			</Key>
+			<Key ID="STR_TC_UAV_OPERATOR_INFO">
+				<Original>
+					UAV Operator
+					&lt;br/&gt;&lt;br/&gt;
+					UAV Operator is specialized in operating UAVs and UGVs.
+					&lt;br/&gt;
+					He is also good at hacking drones.
+				</Original>
+				<Korean>
+					UAV 운용자
+					&lt;br/&gt;&lt;br/&gt;
+					UAV 운용자는 UAV와 UGV를 운용하는데 특화되어있습니다.
+					&lt;br/&gt;
+					드론 해킹에도 능합니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_SNIPER">
+				<Original>Sniper</Original>
+				<Korean>저격수</Korean>
+			</Key>
+			<Key ID="STR_TC_SNIPER_INFO">
+				<Original>
+					Sniper
+					&lt;br/&gt;&lt;br/&gt;
+					Sniper is specialized in long-range shot.
+					&lt;br/&gt;
+					He is good at hiding from enemy.
+				</Original>
+				<Korean>
+					저격수
+					&lt;br/&gt;&lt;br/&gt;
+					저격수는 장거리 사격에 특화되어있습니다.
+					&lt;br/&gt;
+					적으로부터 잘 숨습니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_MARKSMAN">
+				<Original>Marksman</Original>
+				<Korean>지정사수</Korean>
+			</Key>
+			<Key ID="STR_TC_MARKSMAN_INFO">
+				<Original>
+					Marksman
+					&lt;br/&gt;&lt;br/&gt;
+					In a nutshell, Marksman is rifleman with good shooting skill.
+					&lt;br/&gt;
+					He is not good as sniper but better than rifleman.
+				</Original>
+				<Korean>
+					지정사수
+					&lt;br/&gt;&lt;br/&gt;
+					간단하게 보자면, 지정사수는 총을 잘 쏘는 소총수입니다.
+					&lt;br/&gt;
+					저격수보다는 못하지만 소총수보다는 낫습니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_INFILTRATOR">
+				<Original>Infiltrator</Original>
+				<Korean>잠입자</Korean>
+			</Key>
+			<Key ID="STR_TC_INFILTRATOR_INFO">
+				<Original>
+					Infiltrator
+					&lt;br/&gt;&lt;br/&gt;
+					Infiltrator is specialized in sabotage and infiltrating.
+					&lt;br/&gt;
+					He is very good at hiding from enemy and makes less noise when he is moving.
+				</Original>
+				<Korean>
+					잠입자
+					&lt;br/&gt;&lt;br/&gt;
+					잠입자는 사보타주와 잠입에 특화되어있습니다.
+					&lt;br/&gt;
+					이동 시에 소음을 적게 내고 적으로부터 매우 잘 숨습니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_PILOT">
+				<Original>Pilot</Original>
+				<Korean>조종사</Korean>
+			</Key>
+			<Key ID="STR_TC_PILOT_INFO">
+				<Original>
+					Pilot
+					&lt;br/&gt;&lt;br/&gt;
+					Pilot is trained personal to use every kind of plane.
+				</Original>
+				<Korean>
+					조종사
+					&lt;br/&gt;&lt;br/&gt;
+					조종사는 모든 종류의 항공기를 사용하기 위해 훈련받은 인원입니다.
+				</Korean>
+			</Key>
+			<Key ID="STR_TC_DONE">
+				<Original>You are now %1.</Original>
+				<Korean>%1이(가) 되었습니다.</Korean>
+			</Key>
+			<Key ID="STR_TC_DONE_ALREADY">
+				<Original>You are already %1.</Original>
+				<Korean>이미 %1 입니다.</Korean>
+			</Key>
+			<Key ID="STR_TC_LIMIT">
+				<Original>You cannot change\nyour trait to %1.\nTotal %2 players are\nallowed to have this trait.</Original>
+				<Korean>현재 특기를 %1로\n변경할 수 없습니다.\n총 %2명의 플레이어가\n이 특기를 가질 수 있습니다.</Korean>
+			</Key>
+<!-- TC LINE END -->
+	</Package>
+</Project>
 <?xml version="1.0" encoding="UTF-8"?>

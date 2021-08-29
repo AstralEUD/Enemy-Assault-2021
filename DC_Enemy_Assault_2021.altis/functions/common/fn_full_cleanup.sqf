@@ -20,6 +20,8 @@ _curtasks = Ghst_Current_tasks;
 
 {deletevehicle _x;} foreach ghst_animal_array;
 
+{deletevehicle _x;} foreach AST_money_array;
+
 //AC-130 LDL_cam_rotating_center relocate
 if !(isnil "LDL_cam_rotating_center") then {
 	LDL_cam_rotating_center setpos (getmarkerpos "center");

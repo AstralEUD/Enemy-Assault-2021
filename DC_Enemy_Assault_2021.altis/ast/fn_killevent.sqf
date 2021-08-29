@@ -6,6 +6,7 @@
 │   Note: Need Optimization                             │
 └──────────────────────────────────────────────────────*/
 ASTAirArray = [];
+AST_money_list = [];
 publicVariable "ASTAirArray";
 //Air Array
 
@@ -28,6 +29,11 @@ addMissionEventHandler ["EntityKilled",{
 	};
 	if (_killed isKindOf "Man") exitWith {
 		[3] remoteExec ["ast_fnc_addMoney", owner _killer];
+		_randomNum = random 1;
+		if (_randomNum > 0.7) then {
+			_killedpos = getPosATL _killed;
+			[_killedpos] call AST_fnc_randomMoney;
+		};
 	};
 	if (_killed isKindOf "Tank") exitWith {
 		["tank"] remoteExec ["ast_fnc_killalert", owner _killer];

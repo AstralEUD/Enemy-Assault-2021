@@ -29,6 +29,8 @@ if (_PARAM_Overcast == 1) then {
 };
 [] execVM "ast\arsenal\fn_arsenal_list.sqf";
 
+AST_money_list = [];
+
 //Deletes players body on disconnect so AI wont be left everywhere
 addMissionEventHandler ["HandleDisconnect",{
 	params ["_unit", "_id", "_uid", "_name"];
