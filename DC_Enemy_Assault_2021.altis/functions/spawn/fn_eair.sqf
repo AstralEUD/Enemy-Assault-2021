@@ -48,25 +48,6 @@ for "_x" from 0 to (_airqty) - 1 do {
 	//sleep 1;
 	_air1 flyinheight _flyheight;
 	_air1 setSpeedMode "NORMAL";
-
-	_air1 addEventHandler ["Killed", {
-		params ["_unit", "_killer", "_instigator", "_useEffects"];
-		if (isNull _killer) exitWith {};
-		if !(_killer == vehicle _killer) then {
-			_killer = crew _killer;
-			{
-				if !(isPlayer _x) exitWith {};
-				_owner = owner _x;
-				if (_owner == 0) exitWith {};
-				[10] remoteExecCall ["ast_fnc_vehicleKill",_owner];
-			} forEach _killer;
-		} else {
-			if (!isPlayer _killer) exitWith {};
-			_owner = owner _killer;
-			if (_owner == 0) exitWith {};
-			[10] remoteExecCall ["ast_fnc_vehicleKill",_owner];
-		};
-	}];
 	
 	sleep 1;
 };
