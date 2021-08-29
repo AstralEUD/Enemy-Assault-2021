@@ -41,7 +41,8 @@ _veh_name = name _leader;
 
 _leader addEventHandler ["Killed", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
-	[_killer] call ast_fnc_missionReward;
+	_callerpos = getPosATL _killer;
+	[_callerpos] remoteExecCall ["ast_fnc_missionReward",0];
 }];
 
 

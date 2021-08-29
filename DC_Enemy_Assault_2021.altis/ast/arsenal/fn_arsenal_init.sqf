@@ -39,8 +39,8 @@ addMissionEventHandler ["EachFrame", {
 	_ctrlButton = _AST_display displayCtrl 11187;
 	_ctrlList = _AST_display displayCtrl 11181; 
 	//_tempSelected = (lbSelection _ctrlList) select 0;
-	if (isNull _listSelected) then {
-		_ctrlButton ctrlSetTooltip "선택 전에는 구매할 수 없습니다.";
+	if (count (lbSelection _ctrlList) == 0) then {
+		_listSelected = 0;
 	};
 	_listSelected = (lbSelection _ctrlList) select 0;
 	_listSelectedClass = AST_weaponlist select _listSelected;

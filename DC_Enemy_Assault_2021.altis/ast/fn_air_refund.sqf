@@ -10,7 +10,6 @@ _position = getPos ASTAir_Spawn;
 _CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
 if (isNil "_CheckAlpha") exitWith {hint "There is no a Car/Aircraft/Ship on the spawn point. Check out!"};
 _spCheck = typeOf _CheckAlpha;
-
 _playerUID = getPlayerUID player;
 _selections = ASTAirListR find _spCheck;
 if (_selections == -1) exitWith {hint format ["This vehicle are not added to Vehicle List %1",_spCheck];};

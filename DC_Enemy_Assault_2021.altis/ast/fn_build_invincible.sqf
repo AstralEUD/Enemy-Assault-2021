@@ -1,4 +1,4 @@
-_list = FOB_RTB nearObjects ["Building",30000];
+_list = FOB_RTB nearObjects ["House",30000];
 {
 	_x allowDamage false;
 	_x addEventHandler["Hit",{_this select 0 setdamage 0}];

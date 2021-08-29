@@ -21,6 +21,7 @@ class ast
 		class missionReward {};
 		class minusMoney {};
 		class rearm {};
+		class rtbReward {};
 		class serverLoop {};
 		class spawnList {};
 		class transfer {};
@@ -37,5 +38,8 @@ class ast
 		class arsenal_init {};
 		class arsenal_clicked {};
 		class getConfigClass {};
+		class arsenal_limit {};
+		class arsenal_search {};
+		class arsenal_list {};
 	};
 };
