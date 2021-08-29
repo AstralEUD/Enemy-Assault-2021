@@ -6,7 +6,7 @@
 │   Note: Need Optimization                             │
 └──────────────────────────────────────────────────────*/
 ASTAirArray = [];
-AST_money_list = [];
+AST_money_array = [];
 publicVariable "ASTAirArray";
 //Air Array
 
