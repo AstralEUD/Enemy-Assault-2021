@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=463;
+		nextID=465;
 	};
 	class Camera
 	{
-		pos[]={23969.238,8.7706928,18554.838};
-		dir[]={0.74021912,-0.42304713,-0.52261633};
-		up[]={0.34560555,0.90609926,-0.24400772};
-		aside[]={-0.57676977,3.0233059e-007,-0.81692171};
+		pos[]={23935.975,22.800968,18592.709};
+		dir[]={0.97579968,-0.0081124799,-0.21866268};
+		up[]={0.0079647554,0.99996513,-0.0017849861};
+		aside[]={-0.21866982,-4.8649963e-007,-0.97583443};
 	};
 };
 binarizationWanted=0;
@@ -595,7 +595,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.8 SbAzgYjWqV";
+		briefingName="[EA2021] v.1.8.1 SbAzgYjWqV";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
@@ -607,7 +607,7 @@ class Mission
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
 		year=2035;
-		month=6;
+		month=8;
 		day=24;
 		hour=12;
 		minute=0;

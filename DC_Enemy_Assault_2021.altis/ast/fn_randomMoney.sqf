@@ -7,5 +7,6 @@ _money addAction ["시체에서 나온 돈 루팅",{
 	AST_kill_score = AST_kill_score + _randomMoney;
 	_subtext = format ["%1원을 획득하였습니다.",_randomMoney];
 	[_subtext] spawn BIS_fnc_showSubtitle;
+	deleteVehicle _this;
 },[_randomMoney]];
 AST_money_array pushBack _money;
