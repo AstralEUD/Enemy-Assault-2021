@@ -264,9 +264,8 @@ ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call a
 ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
 
 infostand addAction ["<t color='#33CCFF' size='1.0'>총기 구매기</t>","0 = createDialog 'AST_arsenal_GUI'"];
-infostand addAction ["<t color='#33CCFF' size='1.0'> 보직 변경 시스템</t>","0 = this execVM 'Trait_Changer\functions\fnc_TC_object.sqf';"];
 
-infostand addAction ["<t color='#33CCFF' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
+infostand addAction ["<t color='#01DF3A' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
 FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
 ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
 ASTfobSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_fob_spawner"];
@@ -291,9 +290,12 @@ infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 
 //Rearm for Aircraft
 [player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
+player addAction ["<t size='1.8'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 25"];
+
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
 	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
+	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 10"];
 	[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 }];
 

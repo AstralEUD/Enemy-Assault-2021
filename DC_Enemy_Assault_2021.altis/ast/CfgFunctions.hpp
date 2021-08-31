@@ -20,7 +20,7 @@ class ast
 		class lock_vehicle {};
 		class lockset {};
 		class missionReward {};
-		class randomMoney {};
+		class moneyget {};
 		class minusMoney {};
 		class rearm {};
 		class rtbReward {};

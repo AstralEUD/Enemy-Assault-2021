@@ -27,12 +27,15 @@ addMissionEventHandler ["EntityKilled",{
 			["teamkill",_killer] remoteExec ["ast_fnc_killalert",0];
 		};
 	};
-	if (_killed isKindOf "Man") exitWith {
+	if (((_killed isKindOf "Man") && (side group _killed == east)) or ((_killed isKindOf "Man") && (side group _killed == east)))  exitWith {
 		[3] remoteExec ["ast_fnc_addMoney", owner _killer];
 		_randomNum = random 1;
 		if (_randomNum > 0.7) then {
 			_killedpos = getPosATL _killed;
-			[_killedpos] call AST_fnc_randomMoney;
+			_randomMoney = selectRandom [1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3,3,3,5,5,5,8,15];
+			_money = "Land_money_F" createVehicle _killedpos;
+			_money setvariable ["randomMoney", _randomMoney, true];
+			AST_money_array pushBack _money;
 		};
 	};
 	if (_killed isKindOf "Tank") exitWith {

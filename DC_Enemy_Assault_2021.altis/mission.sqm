@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=465;
+		nextID=467;
 	};
 	class Camera
 	{
-		pos[]={23935.975,22.800968,18592.709};
-		dir[]={0.97579968,-0.0081124799,-0.21866268};
-		up[]={0.0079647554,0.99996513,-0.0017849861};
-		aside[]={-0.21866982,-4.8649963e-007,-0.97583443};
+		pos[]={23971.15,7.0371175,18545.311};
+		dir[]={0.25178006,-0.49556759,0.83135128};
+		up[]={0.14365098,0.86855042,0.47431886};
+		aside[]={0.95713216,-8.7078661e-008,-0.28987414};
 	};
 };
 binarizationWanted=0;
@@ -4478,6 +4478,7 @@ class Mission
 			class Attributes
 			{
 				name="Halo";
+				disableSimulation=1;
 			};
 			id=2824;
 			type="Land_BriefingRoomScreen_01_F";
@@ -4537,7 +4538,9 @@ class Mission
 			flags=4;
 			class Attributes
 			{
+				init="0 = this execVM ""Trait_Changer\functions\fnc_TC_object.sqf"";";
 				name="infostand";
+				disableSimulation=1;
 			};
 			id=2825;
 			type="Land_BriefingRoomDesk_01_F";
@@ -6552,6 +6555,7 @@ class Mission
 			class Attributes
 			{
 				name="AmmoBox01";
+				disableSimulation=1;
 			};
 			id=2912;
 			type="Land_PaperBox_open_full_F";
@@ -6593,6 +6597,7 @@ class Mission
 			class Attributes
 			{
 				name="AmmoBox02";
+				disableSimulation=1;
 			};
 			id=2913;
 			type="Land_PaperBox_open_full_F";
