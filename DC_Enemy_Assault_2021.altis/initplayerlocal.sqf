@@ -214,7 +214,6 @@ if ("PARAM_PIFF" call BIS_fnc_getParamValue == 1) then {
 };
 //[] call BIS_fnc_groupIndicator;
 
-
 if (ghst_acemod) then {
 
 	player addEventHandler ["Respawn", {[player] call bis_fnc_disableRevive}]; 
@@ -279,18 +278,17 @@ halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img
 infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
 
 
+[] execVM "Trait_Changer\TC_init.sqf";
+
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
-[] execVM "external\s_Welcome_Rule.sqf";
-//notice
-[] execVM "external\s_Chobo_Guide.sqf";
 // auto run
 [] execVM "external\Auto_running.sqf";
 
 //Rearm for Aircraft
 [player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
-player addAction ["<t size='1.8'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 25"];
+player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 10"];
 
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
@@ -306,11 +304,14 @@ player addEventHandler ["Respawn", {
 [] execVM "ast\fn_lock_vehicle.sqf";
 //playerMarker
 0 = [] execVM "external\player_markers.sqf";
-
 //[] execVM "external\tankboy.sqf";
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
 [] execVM "ast\arsenal\fn_arsenal_limit.sqf";
+
+[] execVM "external\s_Welcome_Rule.sqf";
+//notice
+[] execVM "external\s_Chobo_Guide.sqf";
 
 diag_log "EA2021 Loading Completed!!";
 
