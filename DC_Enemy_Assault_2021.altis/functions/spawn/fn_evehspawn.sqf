@@ -27,25 +27,6 @@ for "_x" from 0 to (_grpnum)-1 do {
 	_veh = selectRandom _vehlist;
 	_armor1 = createVehicle [_veh,_marker, [], 0, "NONE"];
 
-	_armor1 addEventHandler ["Killed", {
-		params ["_unit", "_killer", "_instigator", "_useEffects"];
-		if (isNull _killer) exitWith {};
-		if !(_killer == vehicle _killer) then {
-			_killer = crew _killer;
-			{
-				if !(isPlayer _x) exitWith {};
-				_owner = owner _x;
-				if (_owner == 0) exitWith {};
-				[5] remoteExecCall ["ast_fnc_vehicleKill",_owner];
-			} forEach _killer;
-		} else {
-			if (!isPlayer _killer) exitWith {};
-			_owner = owner _killer;
-			if (_owner == 0) exitWith {};
-			[5] remoteExecCall ["ast_fnc_vehicleKill",_owner];
-		};
-	}];
-
 	if ((random 1) > 0.5) then { 
 		_armor1 allowCrewInImmobile true;
 	} else {

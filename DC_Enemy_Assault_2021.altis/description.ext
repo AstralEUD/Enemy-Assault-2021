@@ -75,6 +75,7 @@ wreckManagerMode = 1; //Type of removed wrecks: 0 - none, 1 - all, 2 - only resp
 wreckLimit = 20; //Max number of wrecks which can be available at the same time. When exceeded, start deleting immediately. 
 wreckRemovalMinTime = 120; //Minimal time in seconds a wreck stays in the scene (can't be removed sooner). 
 wreckRemovalMaxTime = 240; //Maximal time in seconds after which a wreck is removed (can't stay longer)
+skipLobby = 1;
 
 class RscTitles
 {
@@ -114,6 +115,10 @@ class RscTitles
 #include "VAM_GUI\VAM_GUI_classes.hpp"
 // EA2021 (ast)
 #include "ast\arsenal\ast_dialog.hpp"
+// Trait Changer
+#include "Trait_Changer\defines.hpp"
+#include "Trait_Changer\TC_GUI_controls.hpp"
+#include "Trait_Changer\TC_GUI_classes.hpp"
 
 class cfgFunctions {
 	

@@ -14,8 +14,6 @@ _host removeaction _id;
 
 _callerpos = getPosATL _caller;
 [_callerpos] remoteExecCall ["ast_fnc_missionReward",0];
-diag_log _callerpos;
-diag_log "[]디버그 DisableTerminal"
 
 [_host,0] call BIS_fnc_dataTerminalAnimate;
 

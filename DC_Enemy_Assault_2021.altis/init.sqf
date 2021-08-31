@@ -57,6 +57,7 @@ switch (worldName) do {
 
 
 [] execVM "VAM_GUI\VAM_GUI_init.sqf";
+[] execVM "Trait_Changer\TC_init.sqf";
 
 //advancedSlingLoad
 [] execVM "external\fn_advancedSlingLoadingInit.sqf";

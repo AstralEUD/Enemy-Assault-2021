@@ -15,10 +15,12 @@ class ast
 		class fetch_money {};
 		class fobTeleport {};
 		class invEH {};
+		class killalert {};
 		class killevent {};
 		class lock_vehicle {};
 		class lockset {};
 		class missionReward {};
+		class moneyget {};
 		class minusMoney {};
 		class rearm {};
 		class rtbReward {};

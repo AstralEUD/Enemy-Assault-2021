@@ -16,7 +16,7 @@
 	<br/>
 	<br/><t align='center' size='0.9'>분대창설, 가입은 U키, 그외 마우스휠을 굴려 메뉴를 사용</t>
 	<br/><t align='center' size='0.9'><a color='#ffd800'>자동달리기 =키</a></t>
-	<br/><t align='center' size='0.9'><a color='#ffd800'>업데이트 로그 / 서버 도움말은 맵을 열어 좌측 상단의 것을 보세요</a></t>
+	<br/><t align='center' size='1.1'><a color='#ffd800'>!! 업데이트 로그를 반드시 확인하세요 !! (맵열어서 확인)</a></t>
 	<br/><t align='center'></t>
 	<br/>
 	<t size='0.8'><t align='left'> 개발총괄 : Testify </a><br/>
