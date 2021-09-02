@@ -23,6 +23,7 @@ class ast
 		class moneyget {};
 		class minusMoney {};
 		class rearm {};
+		class report {};
 		class rtbReward {};
 		class serverLoop {};
 		class spawnList {};

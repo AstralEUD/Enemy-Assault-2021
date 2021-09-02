@@ -99,7 +99,9 @@ SettingsubMenu =
 
 ["Count Unit Numbers", [5], "", -5, [["expression", "call ghst_fnc_countai"]], "1", "1"],
 
-["Set All Tasks Complete Debug", [6], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
+["Report to Admin", [6], "", -5, [["expression", "call ast_fnc_report"]], "1", "1"],
+
+["Set All Tasks Complete Debug", [7], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
 
 ];
 
