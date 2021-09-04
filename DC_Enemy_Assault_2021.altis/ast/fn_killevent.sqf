@@ -24,7 +24,7 @@ addMissionEventHandler ["EntityKilled",{
 			private _tkreport = format ["TEAMKILL REPORT // Time : %1, Killer : %2, Killed : %3, Killer UID : %4",_nowtime,name _killer,name _killed,_killeruid];
 			["write", ["team_kill_maindb", _nowtime, _tkreport]] call inidbi;
 			["write", [_killeruid, "teamkill", _tkreport]] call inidbi;
-			["teamkill",_killer] remoteExec ["ast_fnc_killalert",0];
+			["teamkill",_killer] remoteExec ["ast_fnc_killalert",owner _killer];
 		};
 	};
 	if ((side group _killed == east) or (side group _killed == independent)) then {

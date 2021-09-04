@@ -24,6 +24,7 @@ class ast
 		class minusMoney {};
 		class rearm {};
 		class report {};
+		class rescueReward {};
 		class rtbReward {};
 		class serverLoop {};
 		class spawnList {};

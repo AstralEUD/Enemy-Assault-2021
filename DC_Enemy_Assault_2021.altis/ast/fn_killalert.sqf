@@ -4,7 +4,8 @@ if (_reason == "civ") exitWith {
 	AST_kill_score = AST_kill_score - 5;
 };
 if (_reason == "teamkill") exitWith {
-	hint format ["%1님이 아군을 사살하셨습니다. 주의하세요!",name _killer];
+	private _fo = format ["%1님이 아군을 사살하셨습니다. 주의하세요!",name _killer];
+	[_fo] remoteExec ["hint",0];
 	AST_kill_score = AST_kill_score - 7;
 };
 if (_reason == "tank") exitWith {
@@ -19,4 +20,9 @@ if (_reason == "plane") exitWith {
 	systemChat "적 항공기를 파괴시켜 추가 포인트를 획득하였습니다!";
 	AST_kill_score = AST_kill_score + 9;
 };
+if (_reason == "rescue") exitWith {
+	systemChat "아군 인질을 무사히 후송하여 포인트를 획득하였습니다!";
+	AST_kill_score = AST_kill_score + 15;
+};
+
 

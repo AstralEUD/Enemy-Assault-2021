@@ -101,7 +101,7 @@ if (surfaceIsWater _campmark) then {
 } else {
 	_trig1cond = "this and ((getposatl (thislist select 0)) select 2 < 1)";
 };
-_trig1act = format ["deleteVehicle thistrigger; [%1] joinsilent grpNull; ['%2','succeeded'] call BIS_fnc_taskSetState; if (vehicle %1 != %1) then {unassignVehicle (%1); (%1) action ['EJECT', vehicle %1]; [%1] allowGetin false; dostop %1; %1 setCaptive true;}; [playableunits,5000,100] remoteExec ['ghst_fnc_addscore'];", _pow, _tsk];
+_trig1act = format ["[%1] call AST_fnc_rescueReward; deleteVehicle thistrigger; [%1] joinsilent grpNull; ['%2','succeeded'] call BIS_fnc_taskSetState; if (vehicle %1 != %1) then {unassignVehicle (%1); (%1) action ['EJECT', vehicle %1]; [%1] allowGetin false; dostop %1; %1 setCaptive true;}; [playableunits,5000,100] remoteExec ['ghst_fnc_addscore'];", _pow, _tsk];
 _trg1 = createTrigger["EmptyDetector", _campmark];
 _trg1 setTriggerArea[10,10,0,false];
 _trg1 setTriggerActivation["VEHICLE","PRESENT",false];

@@ -15,6 +15,14 @@ _locselname = _this select 4;//name of location
 AST_op_pos = _random_pos;
 publicVariable "AST_op_pos";
 
+_list = AST_op_pos nearObjects ["House",750];
+{
+	_x allowDamage false;
+	_x addEventHandler["Hit",{_this select 0 setdamage 0}];
+	_x addEventHandler["Dammaged",{_this select 0 setdamage 0}];
+} forEach _list;
+diag_log "서버 건물 무적 스크립트 성공";
+
 _commanderlist = ghst_commanderlist;
 _transport_heli_list = ghst_transport_heli_list;
 _ammobox_list = ghst_ammobox_list;
@@ -28,9 +36,9 @@ _PARAM_TASKTYPES = "PARAM_TASKTYPES" call BIS_fnc_getParamValue;
 //list of objectives
 //["leader","rescue","ARTY","ammo","intel","crash","ZSU_AA2","comtower","leader2","intel2","rescue2","ZSU_AA","tower","ammo2","intel3","leader3","ammo3","Bombtruck","leader4","ARTY2"];
 if (_PARAM_TASKTYPES == 1) then {
-	_objlist = ["ARTY","ZSU_AA2","ZSU_AA","Acquireobj","ARTY2","Bombtruck","ARTY3"];
+	_objlist = ["ARTY","ZSU_AA2","ZSU_AA","ARTY2","Bombtruck","ARTY3"];
 } else {
-	_objlist = ["leader","rescue","ARTY","dataterminal","intel","ZSU_AA2","leader2","dataterminal2","Acquireobj","intel2","rescue2","ARTY2","ZSU_AA","intel3","leader3","Bombtruck","dataterminal3","leader4","ARTY3"];//"leader","rescue","ARTY","ammo","intel","ZSU_AA2","leader2","Acquireobj","intel2","rescue2","ZSU_AA","ammo2","intel3","leader3","ammo3","Bombtruck","leader4","ARTY2"
+	_objlist = ["leader","rescue","ARTY","dataterminal","intel","ZSU_AA2","leader2","dataterminal2","intel2","rescue2","ARTY2","ZSU_AA","intel3","leader3","Bombtruck","dataterminal3","leader4","ARTY3"];//"leader","rescue","ARTY","ammo","intel","ZSU_AA2","leader2","Acquireobj","intel2","rescue2","ZSU_AA","ammo2","intel3","leader3","ammo3","Bombtruck","leader4","ARTY2"
 };
 
 //empty array for objects to be put into for script later on
