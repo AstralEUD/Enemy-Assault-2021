@@ -29,6 +29,9 @@ _PlayerNameList = PlayerList apply {
 				"얼마를 송금하시겠습니까?",
 				{
 					if _confirmed then {
+						_Moneycheck1 = [".", _Money, false] call BIS_fnc_inString;
+						_Moneycheck2 = ["-", _Money, false] call BIS_fnc_inString;
+						if ((_Moneycheck1 == true) or (_Moneycheck2 == true)) exitWith {systemChat "취약점 방지";};
 						_Money = parseNumber _text;
 						if (AST_kill_score < _Money) exitWith {systemchat "송금할려는 돈이 가지고 있는 돈보다 많습니다. 다시 확인하세요.";};
 						if (_Money < 0) exitWith {systemChat "입력이 잘못되었습니다. 다시 확인하세요.";};
@@ -37,7 +40,8 @@ _PlayerNameList = PlayerList apply {
 						[_Money] remoteExec ["ast_fnc_addMoney",AST_selected];
 						[player, 'kill_score', AST_kill_score] remoteExec ['AST_fnc_db_save', 2, false];
 						_sendername = name player;
-						["[송금알림]" + str _sendername + " 님이 "+ str _Money + "포인트를 송금하셨습니다."] remoteExec ["systemChat", AST_selected];
+						_textformat = format ["[송금알림]%1 님이 %2 포인트를 송금하셨습니다.",str _sendername, str _Money];
+						[_textformat] remoteExec ["systemChat", AST_selected];
 						systemChat "송금 완료!";
 					};
 				},
