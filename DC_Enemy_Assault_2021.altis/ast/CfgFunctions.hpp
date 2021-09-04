@@ -21,6 +21,7 @@ class ast
 		class lockset {};
 		class missionReward {};
 		class moneyget {};
+		class probonus {};
 		class minusMoney {};
 		class rearm {};
 		class report {};
