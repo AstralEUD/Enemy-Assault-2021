@@ -53,7 +53,7 @@ for "_x" from 0 to (_airqty) - 1 do {
 };
 //set combat mode
 _eGrp setCombatMode "RED";
-
+["적 항공기가 출현했습니다."] remoteExec ["hint",0];
 [_eGrp,_centermarker,_radarray,_markunitsarray,["AWARE", "NORMAL", "WEDGE"]] call ghst_fnc_waypoints;
 
 sleep 5;
