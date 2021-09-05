@@ -4,6 +4,7 @@ AST_HUD_INFO = AST_HUD displayCtrl 110181;
 AST_HUD_ALERT = AST_HUD displayCtrl 110182;
 AST_HUD_ALERT ctrlSetFade 1;
 [] spawn {
+	disableSerialization;
 	while {true} do {
 		AST_HUD_INFO ctrlSetStructuredText formatText ["<t align='center'>%1</t>",AST_kill_score];
 		if (isNull AST_HUD_STATUS) then {

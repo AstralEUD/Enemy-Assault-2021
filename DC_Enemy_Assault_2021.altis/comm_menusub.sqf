@@ -99,25 +99,36 @@ SettingsubMenu =
 
 ["Count Unit Numbers", [5], "", -5, [["expression", "call ghst_fnc_countai"]], "1", "1"],
 
-["Report to Admin", [6], "", -5, [["expression", "call ast_fnc_report"]], "1", "1"],
-
-["Transfer (송금)", [7], "", -5, [["expression", "call ast_fnc_transfer"]], "1", "1"],
-
-["Set All Tasks Complete Debug", [8], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
+["Set All Tasks Complete Debug", [6], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
 
 ];
 
 LocksubMenu = 
 
 [
-["Own Vehicle Settings",true],
+["차량 잠금 설정",true],
 
-["Own Vehicle Settings", [0],"",-2,[["expression", ""]], "1", "0"], // header text 
+["차량 잠금 설정", [0],"",-2,[["expression", ""]], "1", "0"], // header text 
 
-["Lock Your Vehicle", [2], "", -5, [["expression", "[1, player] call ast_fnc_lockset;"]], "1", "1"],
+["차량 잠그기", [2], "", -5, [["expression", "[1, player] call ast_fnc_lockset;"]], "1", "1"],
 
-["Only Your Squad", [3], "", -5, [["expression", "[2, player] call ast_fnc_lockset;"]], "1", "1"],
+["분대원만 탈수있게 설정", [3], "", -5, [["expression", "[2, player] call ast_fnc_lockset;"]], "1", "1"],
 
-["Unlock Your Vehicle", [4], "", -5, [["expression", "[0, player] call ast_fnc_lockset;"]], "1", "1"]
+["차량 잠금 해제", [4], "", -5, [["expression", "[0, player] call ast_fnc_lockset;"]], "1", "1"]
+
+];
+
+ETCsubMenu = 
+
+[
+["기타 기능",true],
+
+["기타 유용한 기능", [0],"",-2,[["expression", ""]], "1", "0"], // header text 
+
+["어드민에게 제보/신고", [2], "", -5, [["expression", "call ast_fnc_report"]], "1", "1"],
+
+["송금 기능", [3], "", -5, [["expression", "call ast_fnc_transfer"]], "1", "1"],
+
+["스스로에게 정지 명령 [VTOL]", [4], "", -5, [["expression", "commandStop player"]], "1", "1"]
 
 ];

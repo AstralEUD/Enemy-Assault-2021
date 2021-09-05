@@ -104,8 +104,18 @@ class CfgCommunicationMenu
     };
     class Lock
     {
-        text = "Own Vehicle Settings"; // Text displayed in the menu and in a notification
+        text = "차량 잠금 설정"; // Text displayed in the menu and in a notification
         submenu = "#USER:LocksubMenu"; // Submenu opened upon activation (expression is ignored when submenu is not empty.)
+        expression = ""; // Code executed upon activation
+        icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"; // Icon displayed permanently next to the command menu
+        cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
+        enable = "1"; // Simple expression condition for enabling the item
+        //removeAfterExpressionCall = 1; // 1 to remove the item after calling
+    };	
+    class ETC
+    {
+        text = "기타 기능"; // Text displayed in the menu and in a notification
+        submenu = "#USER:ETCsubMenu"; // Submenu opened upon activation (expression is ignored when submenu is not empty.)
         expression = ""; // Code executed upon activation
         icon = "";//"\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\transport_ca.paa"; // Icon displayed permanently next to the command menu
         cursor = "\a3\Ui_f\data\IGUI\Cfg\Cursors\iconCursorSupport_ca.paa"; // Custom cursor displayed when the item is selected
