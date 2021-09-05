@@ -78,7 +78,6 @@ player createDiaryRecord ["MissionFeatures", ["업데이트 로그", "
 - 우측하단 HUD 추가<br/>
 - 플레이어 10명 이상시 적 스폰 숫자 증강<br/>
 - 차량에 있는 AI 하차 명령 추가<br/>
-
 <br/>
 ...<br/>
 그 전의 것은 디스코드나 깃허브를 참조해 주세요.<br/>

@@ -1,27 +1,29 @@
 disableSerialization;
-AST_HUD = findDisplay 11018;
-AST_HUD_INFO = AST_HUD displayCtrl 110181;
-AST_HUD_ALERT = AST_HUD displayCtrl 110182;
-AST_HUD_ALERT ctrlSetFade 1;
+_AST_HUD = uiNamespace getVariable ["AST_HUD_GUI", displayNull];
+_AST_HUD_INFO = _AST_HUD displayCtrl 110181;
+_AST_HUD_ALERT = _AST_HUD displayCtrl 110182;
+_AST_HUD_ALERT ctrlSetFont "LCD14";
+_AST_HUD_INFO ctrlSetFont "LCD14";
 [] spawn {
-	disableSerialization;
 	while {true} do {
-		AST_HUD_INFO ctrlSetStructuredText formatText ["<t align='center'>%1</t>",AST_kill_score];
-		if (isNull AST_HUD_STATUS) then {
-			_first = AST_HUD_STATUS + str(accTime);
-			if ((parseNumber AST_HUD_STATUS) > 0) then {
-				AST_HUD_ALERT ctrlSetStructuredText formatText ["<t align='center' color='#009900' shadow='1'>%1</t>",AST_HUD_STATUS];
-			} else {
-				AST_HUD_ALERT ctrlSetStructuredText formatText ["<t align='center' color='#d51d36' shadow='1'>%1</t>",AST_HUD_STATUS];
-			};
-			AST_HUD_ALERT ctrlSetFade 0.1;
-			AST_HUD_ALERT ctrlShow true;
-			sleep 1;
-			_now = AST_HUD_STATUS + str(accTime);
-			if (_now == _first) then {
-				AST_HUD_ALERT ctrlSetFade 1.5;
-				AST_HUD_ALERT ctrlShow false;
-			};
+		disableSerialization;
+		_AST_GUI_WAIT = 0;
+		_AST_HUD = uiNamespace getVariable ["AST_HUD_GUI", displayNull];
+		_AST_HUD_INFO = _AST_HUD displayCtrl 110181;
+		_AST_HUD_ALERT = _AST_HUD displayCtrl 110182;
+		_AST_HUD_ALERT ctrlShow true;
+		_AST_HUD_INFO ctrlSetStructuredText parseText format ["<t align='center' shadow='2'>%1 $</t>",AST_kill_score];
+		_first = AST_HUD_STATUS;
+		if ((parseNumber AST_HUD_STATUS) > 0) then {
+			_AST_HUD_ALERT ctrlSetStructuredText parseText format ["<t align='center' color='#009900' shadow='2'>%1 $</t>",AST_HUD_STATUS];
+		} else {
+			_AST_HUD_ALERT ctrlSetStructuredText parseText format ["<t align='center' color='#d51d36' shadow='2'>%1 $</t>",AST_HUD_STATUS];
+		};
+		waitUntil {
+			sleep 0.1;
+			_AST_GUI_WAIT = _AST_GUI_WAIT + 1;
+			if (_AST_GUI_WAIT == 5) then {_AST_HUD_ALERT ctrlShow false; AST_HUD_STATUS = "";};
+			((_first != AST_HUD_STATUS) && (AST_HUD_STATUS != ""))
 		};
 	};
 };

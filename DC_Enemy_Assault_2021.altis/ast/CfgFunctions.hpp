@@ -5,6 +5,7 @@ class ast
 	{
 		file = "ast";
 		class addMoney {};
+		class aiGetOut {};
 		class air_refund {};
 		class air_spawner {};
 		class build_invincible {};

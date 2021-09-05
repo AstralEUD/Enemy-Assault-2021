@@ -123,6 +123,8 @@ player setVariable ["ghst_airlift", 0];
 
 [player,"Lock"] call BIS_fnc_addCommMenuItem;
 
+[player,"ETC"] call BIS_fnc_addCommMenuItem;
+
 waituntil { !(isnil "ghst_carlist")};
 /*
 //addactions for halo and vehspawn. Should ensure them showing even with jip
@@ -258,7 +260,7 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
-cutRsc ["AST_HUD_GUI","PLAIN"];
+"AST_LAYER1" cutRsc ["AST_HUD_GUI","PLAIN"];
 
 ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_vehicle_spawner"];
 ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call ast_fnc_air_spawner"];
@@ -320,6 +322,8 @@ player addEventHandler ["Respawn", {
 //notice
 [] execVM "external\s_Chobo_Guide.sqf";
 
+[] call ast_fnc_hud_init;
+
 diag_log "EA2021 Loading Completed!!";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
@@ -331,7 +335,6 @@ diag_log "EA2021 Loading Completed!!";
         (findDisplay 49) closeDisplay 2; // Close ESC dialog
     };
 };
-
 
 sleep 30;
 

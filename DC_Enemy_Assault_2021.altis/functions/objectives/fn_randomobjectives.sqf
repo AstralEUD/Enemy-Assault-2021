@@ -190,6 +190,9 @@ for "_o" from 1 to (_numobjs) do {
 			private ["_towers","_towersel"];
 			_towers = ["Land_Communication_F","Land_TTowerSmall_1_F"];
 			_towersel = selectRandom _towers;
+			_towersel allowDamage true;
+			_towersel removeAllEventHandlers "Hit";
+			_towersel removeAllEventHandlers "Dammaged";
 			[_random_pos,_radarray,_towersel,true,(_PARAM_AISkill/10),_locselname,[true,"ColorRed",[200,200]],_ghst_side] call ghst_fnc_randomloc;
 			};
 			case "Bombtruck":
@@ -208,11 +211,11 @@ for "_o" from 1 to (_numobjs) do {
 		};
 	sleep 3;
 };
-
+/*
 //check for towers around objective area and if so spawn task
 _buildarray = ["CUP_A2_oil_pump_ep1","CUP_A2_oil_tower_ep1","Land_TTowerBig_2_F","Land_TTowerBig_1_F","Land_Communication_F","Land_TTowerSmall_2_F","Land_dp_transformer_F","Land_TTowerSmall_1_F"];
 [_random_pos,1000,_buildarray,[200,200],[2,3],_ghst_side,(_PARAM_AISkill/10),[true, _transport_heli_list]] call ghst_fnc_randombuild;
-
+*/
 diag_log text ""; 
 diag_log text format["|=============================   %1 %2   =============================|", _locselname, "Put In Buildings"];
 diag_log text "";
