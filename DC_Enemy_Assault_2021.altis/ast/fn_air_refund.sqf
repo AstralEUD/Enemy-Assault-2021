@@ -27,6 +27,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_selections = ASTAirListR find _spCheck;
 			_price = (ASTAirListRP select _selections) select 1;
 			AST_kill_score = AST_kill_score + _price;
+			[_price] call AST_fnc_hud_plus;
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 			hint format ["%1을 환불하셔서 %2 pts를 획득하셨습니다.",_spCheck, _price];
 			deleteVehicle _CheckAlpha;

@@ -11,4 +11,5 @@ params ["_add"];
 if (isNil "AST_kill_score") then {
 	AST_kill_score = 0;
 };
+[_add] call AST_fnc_hud_plus;
 AST_kill_score = AST_kill_score + _add;

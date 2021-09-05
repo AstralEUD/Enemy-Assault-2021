@@ -25,5 +25,6 @@ for [{_loop2=0}, {_loop2<1}, {_loop2=_loop2}] do {
 	hint format["Damage: %1\nFuel: %2",Round _dam,Round _ful];
 };
 AST_kill_score = AST_kill_score - 5;
+[5] call AST_fnc_hud_minus;
 [player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 _vec setVehicleAmmo 1;	

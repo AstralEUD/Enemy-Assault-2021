@@ -51,5 +51,7 @@ class ast
 	{
 		file = "ast\hud";
 		class hud_init {};
+		class hud_plus {};
+		class hud_minus {};
 	};
 };

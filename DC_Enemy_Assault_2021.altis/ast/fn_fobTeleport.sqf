@@ -6,6 +6,7 @@
 			if (AST_kill_score < 10) exitWith {systemchat "돈 부족";};
 			AST_kill_score = AST_kill_score - 10;
 			player setPos getMarkerPos "FOBmarker";
+			[10] call AST_fnc_hud_minus;
 		} else {
 			systemchat "#";
 		};

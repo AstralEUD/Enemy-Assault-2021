@@ -1,4 +1,4 @@
-/*────────────────────────────────────────────────────────────────────┐
+ /*────────────────────────────────────────────────────────────────────┐
 │   Author: lululala22                                                │
 │                                                                     │
 │   Description: For read money from DB                               │
@@ -11,4 +11,5 @@ params ["_remove"];
 if (isNil "AST_kill_score") then {
 	AST_kill_score = 0;
 };
+[_remove] call AST_fnc_hud_plus;
 AST_kill_score = AST_kill_score - _remove;

@@ -39,7 +39,7 @@ While {_loop} do {
 
 if (isnil "_locselpos") exitwith {finish = true; publicvariable "finish"; diag_log format ["TASK LOCATIONS END PAST LOOP %1", ghst_objarray];};
 
-if ((count allPlayers) < 10) then {
+if ((count allPlayers) < 15) then {
 	#define _area_size 800
 	#define _helo_area_size [1000,1000]
 	#define _boat_area_size [600,600]
