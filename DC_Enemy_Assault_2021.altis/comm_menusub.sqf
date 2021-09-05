@@ -101,7 +101,9 @@ SettingsubMenu =
 
 ["Report to Admin", [6], "", -5, [["expression", "call ast_fnc_report"]], "1", "1"],
 
-["Set All Tasks Complete Debug", [7], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
+["Transfer (송금)", [7], "", -5, [["expression", "call ast_fnc_transfer"]], "1", "1"],
+
+["Set All Tasks Complete Debug", [8], "", -5, [["expression", "[player] remoteExec ['ghst_fnc_debugtasks',2];"]], "1", "1"]
 
 ];
 

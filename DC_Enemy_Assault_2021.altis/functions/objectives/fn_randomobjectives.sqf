@@ -15,7 +15,7 @@ _locselname = _this select 4;//name of location
 AST_op_pos = _random_pos;
 publicVariable "AST_op_pos";
 
-_list = AST_op_pos nearObjects ["House",1500];
+_list = AST_op_pos nearObjects ["House",1000];
 {
 	_x allowDamage false;
 	_x addEventHandler["Hit",{_this select 0 setdamage 0}];

@@ -282,6 +282,7 @@ player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
 infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
 
+player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call ast_fnc_aiGetOut",nil,1.5,true,true,"","((vehicle player) != player) && ((driver (vehicle player)) == player)"];
 
 [] execVM "Trait_Changer\TC_init.sqf";
 
@@ -299,6 +300,7 @@ player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
 	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
 	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 10"];
+	player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call ast_fnc_aiGetOut",nil,1.5,true,true,"","((vehicle player) != player) && ((driver (vehicle player)) == player)"];
 	[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 }];
 

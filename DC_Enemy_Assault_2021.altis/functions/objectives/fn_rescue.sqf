@@ -27,8 +27,9 @@ if !(isnil "AGM_Interaction_fnc_setCaptivityStatus") then {
 _pow addEventHandler ["Killed", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
     if (isPlayer _killer) then {
-        "아군 인질을 사살하여 약간의 패널티를 받습니다.." remoteExec ["systemChat", _killer];
-        [15] remoteExec ["ast_fnc_minusMoney", _killer];
+        _asttext = format ["%1님이 인질을 사살하였습니다! 반복될 경우 처벌될 수 있습니다.",name _killer];
+        _asttext remoteExec ["hint",0];
+        [30] remoteExec ["ast_fnc_minusMoney", _killer];
     };
 }];
 
