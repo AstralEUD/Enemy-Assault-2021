@@ -71,6 +71,7 @@ if ghst_rhsmod then {
 
 #include "addnotes.sqf"
 
+AST_HUD_LIST = [];
 if (player iskindof "B_recon_JTAC_F") then {
 //[player,"CAS"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cassup", 0];
@@ -256,6 +257,8 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
+
+cutRsc ["AST_HUD_GUI","PLAIN"];
 
 ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_vehicle_spawner"];
 ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call ast_fnc_air_spawner"];

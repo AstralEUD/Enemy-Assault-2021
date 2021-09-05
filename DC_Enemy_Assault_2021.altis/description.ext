@@ -80,6 +80,7 @@ skipLobby = 1;
 class RscTitles
 {
 	#include "cau\extendedchat\RscTitles.cpp"
+	#include "ast\hud\ast_hud_dialog.hpp"
 };
 
 #include "functions\dlg\Spawnveh.hpp"

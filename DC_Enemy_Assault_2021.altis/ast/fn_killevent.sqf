@@ -35,7 +35,7 @@ addMissionEventHandler ["EntityKilled",{
 			[_killedpos] remoteExec ["ast_fnc_probonus", owner _killer];
 			_randomNum = random 1;
 			if (_randomNum > 0.7) then {
-				_randomMoney = selectRandom [1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3,3,3,5,5,5,8,15];
+				_randomMoney = selectRandom [1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3,3,3,5,5,5,8,15];
 				_money = "Land_money_F" createVehicle _killedpos;
 				_money setvariable ["randomMoney", _randomMoney, true];
 				AST_money_array pushBack _money;

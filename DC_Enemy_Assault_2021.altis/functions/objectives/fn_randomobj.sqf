@@ -39,6 +39,7 @@ While {_loop} do {
 
 if (isnil "_locselpos") exitwith {finish = true; publicvariable "finish"; diag_log format ["TASK LOCATIONS END PAST LOOP %1", ghst_objarray];};
 
+if ((count allPlayers) < 10) then {
 	#define _area_size 800
 	#define _helo_area_size [1000,1000]
 	#define _boat_area_size [600,600]
@@ -47,6 +48,16 @@ if (isnil "_locselpos") exitwith {finish = true; publicvariable "finish"; diag_l
 	#define _enemy_squadsize (3 + round(random 3))
 	#define _enemy_vehicles (4 + round(random 3))
 	#define _enemy_boats (round(random 2))
+} else {
+	#define _area_size 800
+	#define _helo_area_size [1000,1000]
+	#define _boat_area_size [600,600]
+	#define _enemy_house [50,40]
+	#define _enemy_patrols (4 + round(random 3))
+	#define _enemy_squadsize (4 + round(random 5))
+	#define _enemy_vehicles (5 + round(random 5))
+	#define _enemy_boats (round(random 3))
+};
 
 //random boat patrol
 [_locselpos,_boat_area_size,_enemy_boats,_ghst_side,[false,"ColorRed"],(_PARAM_AISkill/10)] call ghst_fnc_eboatspawn;	

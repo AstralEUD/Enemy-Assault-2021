@@ -47,4 +47,9 @@ class ast
 		class arsenal_search {};
 		class arsenal_list {};
 	};
+	class hud
+	{
+		file = "ast\hud";
+		class hud_init {};
+	};
 };
