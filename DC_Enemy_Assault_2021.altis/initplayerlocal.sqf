@@ -313,7 +313,7 @@ player addEventHandler ["Respawn", {
 //Vehicle Lock System
 [] execVM "ast\fn_lock_vehicle.sqf";
 //playerMarker
-0 = [] execVM "external\player_markers.sqf";
+//0 = [] execVM "external\player_markers.sqf";
 //[] execVM "external\tankboy.sqf";
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
@@ -330,13 +330,14 @@ diag_log "EA2021 Loading Completed!!";
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
 
+/*
 [] spawn {
     for "_i" from 0 to 1 step 0 do {
         waitUntil {!isNull (findDisplay 49)}; // Check if ESC dialogs are open
         (findDisplay 49) closeDisplay 2; // Close ESC dialog
     };
 };
-
+*/
 sleep 30;
 
 // Info text

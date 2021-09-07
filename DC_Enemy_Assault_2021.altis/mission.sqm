@@ -595,7 +595,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.8.3 SbAzgYjWqV";
+		briefingName="[EA2021] v.1.8.4 SbAzgYjWqV";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
