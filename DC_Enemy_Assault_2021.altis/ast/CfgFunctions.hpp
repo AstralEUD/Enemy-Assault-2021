@@ -11,6 +11,7 @@ class ast
 		class build_invincible {};
 		class db_save {};
 		class dbcheck {};
+		class destroyHack {};
 		class escInterupt {};
 		class fetch_another {};
 		class fetch_money {};
