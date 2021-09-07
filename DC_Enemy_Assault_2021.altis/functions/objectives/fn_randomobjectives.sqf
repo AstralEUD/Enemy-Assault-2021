@@ -40,6 +40,7 @@ if (_PARAM_TASKTYPES == 1) then {
 };
 
 //empty array for objects to be put into for script later on
+AST_destroy_missions = [];
 ghst_Build_objs = [];
 Ghst_Current_tasks = [];
 if (_numobjs > count _objlist) then {_numobjs = count _objlist;};

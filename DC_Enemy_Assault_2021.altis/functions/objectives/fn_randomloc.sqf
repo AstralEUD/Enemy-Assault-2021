@@ -111,16 +111,17 @@ _veh setposatl _vehpos;
 
 //create task
 _tsk = "tsk_randloc" + _rnum + str(_position_mark);
-_tskrandom = random 1;
 Ghst_Current_tasks pushback _tsk;
-if (_tskrandom > 0.5) then {
+if ((random 1) > 0.5) then {
 	_taskmark = format ["%1", _veh_name];
 	_tasktopic = format ["Hack and Destroy %1", _veh_name];
 	//_taskdesc = format ["Locate the enemy %1 in %2 and blow it up. <br/><img image='%3' widwidth='64' height='64'/>", _veh_name,_locselname,_veh_pic];
 	_taskdesc = format ["Hack %1 and Destroy %1: Before hack it, It is invincible!", _veh_name,_locselname];
 	_veh setVariable ["notfound",true, true];
 	_veh allowDamage false;
-	[_veh,["<t size='1.5' shadow='2' color='#437299'>Hack the Vehicle's System</t>", "call ast_fnc_destroyHack", _tsk, 6, true, true, "(_target getVariable 'notfound')",""]] remoteExec ["ghst_fnc_addaction",0,true];
+	_vehname = _tsk + "veh";
+	missionNameSpace setVariable [_vehname, _veh];
+	[_veh,["<t size='1.5' shadow='2' color='#437299'>Hack the Vehicle's System</t>", "call ast_fnc_destroyHack", _vehname, 6, true, true, "(_target getVariable 'notfound')",""]] remoteExec ["ghst_fnc_addaction",0,true];
 	[true,[_tsk],[_taskdesc,_tasktopic,_taskmark],_pos,0,2,true,"documents"] call BIS_fnc_taskCreate;
 } else {
 	_taskmark = format ["%1", _veh_name];

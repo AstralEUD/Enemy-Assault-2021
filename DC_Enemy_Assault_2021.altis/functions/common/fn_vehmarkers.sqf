@@ -1,6 +1,6 @@
 private ["_veh","_marker","_x","_markertext"];
 {
-	_veh = missionNamespace getVariable _x;
+	_veh = missionNamespace getVariable [_x, objNull];
 	_marker = _x;
 	_markertext = "";
 	_mark_color = "ColorGrey";

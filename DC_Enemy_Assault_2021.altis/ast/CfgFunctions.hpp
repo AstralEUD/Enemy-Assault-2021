@@ -9,6 +9,7 @@ class ast
 		class air_refund {};
 		class air_spawner {};
 		class build_invincible {};
+		class damageControl {};
 		class db_save {};
 		class dbcheck {};
 		class destroyHack {};
@@ -55,10 +56,11 @@ class ast
 		class hud_init {};
 		class hud_plus {};
 		class hud_minus {};
+		class hud_update {};
 	};
 	class spectrum
 	{
 		file = "ast\spectrum";
-		class spec_init {};
+		//class spec_init {};
 	};
 };

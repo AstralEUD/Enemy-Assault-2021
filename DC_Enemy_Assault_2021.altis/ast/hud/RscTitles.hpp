@@ -12,12 +12,12 @@ class AST_HUD_GUI
 			type = 13;
 			idc = 110181;
 			x = safeZoneX + safeZoneW * 0.87625;
-			y = safeZoneY + safeZoneH * 0.91444445;
+			y = safeZoneY + safeZoneH * 0.89444445;
 			w = safeZoneW * 0.11625;
 			h = safeZoneH * 0.07444445;
 			style = 0;
 			text = "";
-			size = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 3);
+			size = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 2);
 			colorBackground[] = {1,1,1,0};
 		};
 		class AST_HUD_ALERT
@@ -30,7 +30,7 @@ class AST_HUD_GUI
 			h = safeZoneH * 0.07444445;
 			style = 0;
 			text = "";
-			size = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 3);
+			size = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 2);
 			colorBackground[] = {1,1,1,0};
 		};	
 	};

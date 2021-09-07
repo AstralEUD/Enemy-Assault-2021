@@ -7,4 +7,5 @@ _tsk = _this select 3;
 _host removeaction _id;
 ["폭파 미션을 해킹하였습니다! 이제 파괴가 가능합니다.",_caller] remoteExec ["ghst_fnc_global_sidechat"];
 _callerpos = getPosATL _caller;
-[_callerpos, "DESTROY", _host] remoteExeccall ["ast_fnc_missionReward",0];
+[_callerpos] remoteExeccall ["ast_fnc_missionReward",0];
+[_tsk] remoteExecCall ["ast_fnc_damageControl",2];

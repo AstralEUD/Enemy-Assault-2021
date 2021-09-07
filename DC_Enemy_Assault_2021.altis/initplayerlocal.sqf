@@ -311,7 +311,7 @@ player addEventHandler ["Respawn", {
 [] execVM "ast\fn_invEH.sqf";
 
 //Vehicle Lock System
-[] execVM "ast\fn_lock_vehicle.sqf";
+[] execVM "ast\fn_lock_vehicle.sqf";                                       
 //playerMarker
 //0 = [] execVM "external\player_markers.sqf";
 //[] execVM "external\tankboy.sqf";

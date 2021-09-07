@@ -39,6 +39,7 @@ hint format ["Now money : %1",AST_kill_score];
 			[_price] call AST_fnc_hud_minus;
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 			_vehicle setVariable ["spawner",_playeruid,true];
+			ghst_vehicles pushBackUnique _vehicle;
 			hint parseText format["You have spawned a %1<br/>Now money: %2",_displayName,AST_kill_score];
 			} else {
 			hint("You selected nothing!")
