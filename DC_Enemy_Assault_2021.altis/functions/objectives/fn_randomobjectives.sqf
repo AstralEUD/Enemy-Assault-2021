@@ -36,7 +36,7 @@ _PARAM_TASKTYPES = "PARAM_TASKTYPES" call BIS_fnc_getParamValue;
 if (_PARAM_TASKTYPES == 1) then {
 	_objlist = ["ARTY","ZSU_AA2","ZSU_AA","ARTY2","Bombtruck","ARTY3"];
 } else {
-	_objlist = ["leader","rescue","ARTY","dataterminal","crash","intel","ZSU_AA2","leader2","dataterminal2","intel2","rescue2","ARTY2","ZSU_AA","intel3","leader3","Bombtruck","dataterminal3","leader4","ARTY3"];//"leader","rescue","ARTY","ammo","intel","ZSU_AA2","leader2","Acquireobj","intel2","rescue2","ZSU_AA","ammo2","intel3","leader3","ammo3","Bombtruck","leader4","ARTY2"
+	_objlist = ["leader","rescue","ARTY","dataterminal","intel","ZSU_AA2","leader2","dataterminal2","intel2","rescue2","ARTY2","ZSU_AA","intel3","leader3","Bombtruck","dataterminal3","leader4","ARTY3"];//"leader","rescue","ARTY","ammo","intel","ZSU_AA2","leader2","Acquireobj","intel2","rescue2","ZSU_AA","ammo2","intel3","leader3","ammo3","Bombtruck","leader4","ARTY2"
 };
 
 //empty array for objects to be put into for script later on

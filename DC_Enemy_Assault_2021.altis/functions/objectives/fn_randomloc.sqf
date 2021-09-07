@@ -111,7 +111,7 @@ _veh setposatl _vehpos;
 
 //create task
 _tsk = "tsk_randloc" + _rnum + str(_position_mark);
-_tskrandom = random(1);
+_tskrandom = random 1;
 Ghst_Current_tasks pushback _tsk;
 if (_tskrandom > 0.5) then {
 	_taskmark = format ["%1", _veh_name];

@@ -56,4 +56,9 @@ class ast
 		class hud_plus {};
 		class hud_minus {};
 	};
+	class spectrum
+	{
+		file = "ast\spectrum";
+		class spec_init {};
+	};
 };
