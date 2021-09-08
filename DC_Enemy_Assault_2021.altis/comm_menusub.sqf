@@ -129,6 +129,8 @@ ETCsubMenu =
 
 ["송금 기능", [3], "", -5, [["expression", "call ast_fnc_transfer"]], "1", "1"],
 
-["스스로에게 정지 명령 [VTOL]", [4], "", -5, [["expression", "commandStop player"]], "1", "1"]
+["미션 스킵 (코드 필요)", [4], "", -5, [["expression", "call ast_fnc_debuginput"]], "1", "1"],
+
+["스스로에게 정지 명령 [VTOL]", [5], "", -5, [["expression", "commandStop player"]], "1", "1"]
 
 ];

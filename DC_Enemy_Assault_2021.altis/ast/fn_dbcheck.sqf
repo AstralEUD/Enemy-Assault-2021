@@ -30,3 +30,6 @@ addMissionEventHandler ["PlayerConnected",
     _score = ["read", [_uid, "kill_score", 30]] call inidbi;
     [_score] remoteExec ["ast_fnc_addMoney", _owner];
 }];
+
+AST_debugKey = ["read", ["SERVER_KEY", "debug", []]] call inidbi;
+publicVariableServer "AST_debugKey";

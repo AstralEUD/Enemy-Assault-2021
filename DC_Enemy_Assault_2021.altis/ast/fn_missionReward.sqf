@@ -1,11 +1,11 @@
 // [_killer] call ast_fnc_missionReward;
 
-params ["_callerpos","_destroy"];
+params ["_callerpos","_point"];
 if (isServer) exitWith {};
 _mypos = getPosATL player;
 _distance = _callerpos distance2D _mypos;
 if (_distance < 200) then {
-	AST_kill_score = AST_kill_score + 30;
+	AST_kill_score = AST_kill_score + _point;
 	systemChat "미션 수행 보상이 지급되었습니다!";
-	[30] call AST_fnc_hud_plus;
+	[_point] call AST_fnc_hud_plus;
 };

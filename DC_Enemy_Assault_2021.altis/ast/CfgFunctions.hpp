@@ -6,12 +6,12 @@ class ast
 		file = "ast";
 		class addMoney {};
 		class aiGetOut {};
-		class air_refund {};
-		class air_spawner {};
 		class build_invincible {};
 		class damageControl {};
 		class db_save {};
 		class dbcheck {};
+		class debugcheck {};
+		class debuginput {};
 		class destroyHack {};
 		class escInterupt {};
 		class fetch_another {};
@@ -31,14 +31,9 @@ class ast
 		class rescueReward {};
 		class rtbReward {};
 		class serverLoop {};
-		class spawnList {};
 		class transfer {};
 		class transportbonus {};
-		class vehicle_refund  {};
-		class vehicle_spawner {};
 		class vehicleKill;
-		class fob_refund {};
-		class fob_spawner {};
 	};
 	class arsenal 
 	{
@@ -62,5 +57,16 @@ class ast
 	{
 		file = "ast\spectrum";
 		//class spec_init {};
+	};
+	class spawner
+	{
+		file = "ast\spawner";
+		class air_refund {};
+		class air_spawner {};
+		class fob_refund {};
+		class fob_spawner {};
+		class spawnList {};
+		class vehicle_refund  {};
+		class vehicle_spawner {};
 	};
 };

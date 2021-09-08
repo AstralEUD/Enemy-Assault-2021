@@ -6,7 +6,7 @@ _ctrlList = _AST_display displayCtrl 11181;
 	_displayName = getText (_cfgName >> "displayName");
 	_ctrlList lbAdd _displayName;
 	_ctrlList lbSetToolTip [_foreachindex, _x];
-	_ctrlList lbSetPicture [_foreachindex, getText (_cfgName >> "picture")];
+	_ctrlList lbSetPicture [_foreachindex, getText (_cfgName >> "editorPreview")];
 	_index = AST_weaponlist find _x;
 	_price = (AST_weaponPrice select _index) select 1;
 	_ctrlList lbSetTextRight [_foreachindex,str _price];
