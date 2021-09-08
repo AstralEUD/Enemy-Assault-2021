@@ -297,12 +297,12 @@ player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call as
 //Rearm for Aircraft
 [player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
-player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 10"];
+player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
 
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
 	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
-	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 10"];
+	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
 	player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call ast_fnc_aiGetOut",nil,1.5,true,true,"","((vehicle player) != player) && ((driver (vehicle player)) == player)"];
 	[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 }];

@@ -5,4 +5,4 @@ if (AST_HUD_ongoing == true) then {
 	AST_wait_UPDATE = true;
 	if (canSuspend == true) then {sleep 0.11;};
 };
-[] call ast_fnc_hud_update;
+//[] call ast_fnc_hud_update;

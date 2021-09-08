@@ -33,6 +33,7 @@ _pow addEventHandler ["Killed", {
     };
 }];
 
+_pow setVariable ["rescue",1,true];
 _VarName = "ghst_pow" + _rnum + str round(_position_mark select 0);
 _pow setVehicleVarName _VarName;
 //_pow Call Compile Format ["%1=_This ;",_VarName];
