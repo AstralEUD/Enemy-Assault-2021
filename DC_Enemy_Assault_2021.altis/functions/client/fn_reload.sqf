@@ -7,6 +7,8 @@ _reload_time = [_params, 0, 10,[0]] call BIS_fnc_param;//how long it takes to re
 
 _type = typeof _object;
 
+AST_kill_score = AST_kill_score - 5;
+
 if ((_object isKindOf "ParachuteBase") or (_object isKindOf "Man")) exitWith {};
 
 _fuelstore = fuel _object;

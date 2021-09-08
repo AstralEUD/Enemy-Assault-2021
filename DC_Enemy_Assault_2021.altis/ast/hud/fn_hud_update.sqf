@@ -2,6 +2,7 @@ _update = [] spawn {
 	disableSerialization;
 	AST_wait_UPDATE = false;
 	AST_HUD_ongoing = true; 
+	_first = AST_HUD_STATUS;
 	_AST_GUI_WAIT = 0;
 	_AST_HUD = uiNamespace getVariable ["AST_HUD_GUI", displayNull];
 	_AST_HUD_ALERT = _AST_HUD displayCtrl 110182;
@@ -15,7 +16,7 @@ _update = [] spawn {
 	while {AST_HUD_ongoing == true} do {
 		sleep 0.1;
 		_update = _update + 0.1;
-		if (AST_wait_UPDATE == true) then {terminate _update};
+		if (AST_HUD_STATUS != _first) then {_AST_HUD_ALERT ctrlShow false; AST_HUD_ongoing = false;};
 		if (_update == 0.8) then {_AST_HUD_ALERT ctrlShow false; AST_HUD_ongoing = false;};
 	};
 };
