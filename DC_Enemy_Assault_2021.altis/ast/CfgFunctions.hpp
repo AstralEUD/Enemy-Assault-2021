@@ -26,7 +26,6 @@ class ast
 		class moneyget {};
 		class probonus {};
 		class minusMoney {};
-		class rearm {};
 		class report {};
 		class rescueReward {};
 		class rtbReward {};
@@ -65,7 +64,7 @@ class ast
 		class air_spawner {};
 		class fob_refund {};
 		class fob_spawner {};
-		class spawnList {};
+		class spawnlist {};
 		class vehicle_refund  {};
 		class vehicle_spawner {};
 	};
