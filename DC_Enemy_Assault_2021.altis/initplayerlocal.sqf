@@ -225,7 +225,7 @@ if (ghst_acemod) then {
 };
 
 [] spawn ast_fnc_escInterupt;
-[] call ast_fnc_spawnlist;
+//[] call ast_fnc_spawnlist;
 
 
 
