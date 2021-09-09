@@ -1,4 +1,5 @@
 _update = [] spawn {
+	waitUntil {AST_HUD_ongoing == false};
 	disableSerialization;
 	AST_wait_UPDATE = false;
 	AST_HUD_ongoing = true; 

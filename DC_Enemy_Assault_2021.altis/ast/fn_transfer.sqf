@@ -44,6 +44,8 @@ _PlayerNameList = PlayerList apply {
 						_textformat = format ["[송금알림]%1 님이 %2 포인트를 송금하셨습니다.",str _sendername, str _Money];
 						[_Money] remoteExecCall ["AST_fnc_hud_plus",AST_selected];
 						[_textformat] remoteExec ["systemChat", AST_selected];
+						_arraytext = [_sendername, _Money,name AST_selected];
+						["transfer",_arraytext] remoteExecCall ["DiscordEmbedBuilder_fnc_buildCfg",2];
 						systemChat "송금 완료!";
 					};
 				},
