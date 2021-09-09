@@ -72,6 +72,7 @@ if ghst_rhsmod then {
 #include "addnotes.sqf"
 
 AST_HUD_LIST = [];
+AST_HUD_ongoing = false;
 if (player iskindof "B_recon_JTAC_F") then {
 //[player,"CAS"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cassup", 0];
