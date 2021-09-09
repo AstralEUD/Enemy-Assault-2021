@@ -115,7 +115,7 @@ if (vehicle _caller == _caller) then {
 		_caller groupchat "Im too scared to jump";
 	};
 	_pos = clickpos;
-
+	if ((AST_op_pos distance2D _pos) < 350) exitWith {_caller groupchat "너무 작전지와 가깝습니다."};
 	if (_typehalo and (leader _grp1 == _caller)) then {
 		private ["_sp"];
 		_dir = getDir _caller;

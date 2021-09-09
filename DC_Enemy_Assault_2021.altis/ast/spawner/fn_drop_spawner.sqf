@@ -22,7 +22,6 @@ hint format ["Now money : %1",AST_kill_score];
 		systemchat format["_value: %1",_value];*/
 		if (_confirmed == True) then {
 			if (AST_kill_score < ((ASTDropVehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
-			_playeruid = getPlayerUID player;
 			_displayName = getText(configFile >> "CfgVehicles" >> (ASTDropVehicles select _index) select 0 >> "displayName");
 			AST_kill_score = AST_kill_score - ((ASTDropVehicles select _index) select 1);
 			_price = (ASTDropVehicles select _index) select 1;
@@ -107,6 +106,7 @@ hint format ["Now money : %1",AST_kill_score];
 									_cargo setVectorUP (surfaceNormal [_cargopos select 0,_cargopos select 1]);
 									//[_cargo, "ColorGrey", "mil_DOT", _cargo_name] spawn ghst_fnc_tracker;
 									_VarName = "ghst_cargo" + str((count ghst_vehicles) + 1);
+									_playeruid = getPlayerUID player;
 									_cargo setVariable ["spawner",_playeruid,true];
 									missionNamespace setVariable [_VarName,_cargo];
 									ghst_vehicles pushBack _VarName;

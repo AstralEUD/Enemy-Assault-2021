@@ -80,7 +80,7 @@ _veh_name = (configFile >> "cfgVehicles" >> _objselected >> "displayName") call 
 
 _westgrp = group _caller;
 AST_kill_score = AST_kill_score - 5;
-[player, "kill_score", _tobe] remoteExecCall ["AST_fnc_db_save", 2, false];	
+[player, "kill_score", AST_kill_score] remoteExecCall ["AST_fnc_db_save", 2, false];	
 _man = _westgrp createUnit [_objselected,_spawn, [], 0, "NONE"];
 _caller groupchat format ["%1 Spawned", _veh_name];
 doStop _man;
