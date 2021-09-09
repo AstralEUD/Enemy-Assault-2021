@@ -67,5 +67,6 @@ class ast
 		class spawnlist {};
 		class vehicle_refund  {};
 		class vehicle_spawner {};
+		class drop_spawner {};
 	};
 };
