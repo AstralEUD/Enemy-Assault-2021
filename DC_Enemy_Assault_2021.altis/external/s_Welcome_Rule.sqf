@@ -5,11 +5,11 @@
 	<br/><t align='center' size='1'><a color='#ffd800'>Enemy Assault 2021</a></t>
 	<br/><t align='center'></t>
 	<br/><t align='center' size='1'>에너미 어썰트 2021에 오신걸 환영합니다</t>
-	<br/><t align='center' size='1.5'> [공지사항 (v.1.8.6)]
+	<br/><t align='center' size='1.5'> [공지사항 (v.1.8.6)] (필독) </t>
 	<br/><t align='center'></t>
-	<br/><t align='center' size='1.5'><서버 밸런스 패치를 위해서 NAVID, LYNX 등을 환불처리했습니다.</t>
-	<br/><t align='center' size='1.5'>기존 가격의 1.2배로 환불처리하였으며, 유저분들의 양해를 구합니다 >.</t>
-	<br/><t align='center' size='1'> - 초보자는 초보자 가이드를 참고하세요 -
+	<br/><t align='center' size='1.5'>서버 밸런스 패치를 위해서 NAVID, LYNX 등을 환불처리했습니다.</t>
+	<br/><t align='center' size='1.5'>기존 가격의 1.2배로 환불처리하였으며, 유저분들의 양해를 구합니다. 죄송합니다.</t>
+	<br/><t align='center' size='1'> - 초보자는 초보자 가이드를 참고하세요 -</t>
 	<br/><t align='center' size='1'></t>
 	<br/><t align='right'><t size='1'>디스코드<a color='#ffd800' href='https://discord.gg/SbAzgYjWqV'> 접속하기</a>
 	<br/>아르마 마이너갤 <a color='#008cff' href='http://gall.dcinside.com/mgallery/board/lists/?id=arma'> 접속하기</a></t></t><br/>

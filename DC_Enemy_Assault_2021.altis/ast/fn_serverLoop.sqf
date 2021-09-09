@@ -8,7 +8,7 @@ while {true} do {
 	if ((_hours > 6) && (_hours < 18)) then {
 		setTimeMultiplier 4;
 	} else {
-		setTimeMultiplier 8;
+		setTimeMultiplier 12;
 	};
 	if (count allPlayers != 0) then {
 		["Player",_countAllPlayer] call DiscordEmbedBuilder_fnc_buildCfg;

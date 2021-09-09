@@ -28,10 +28,15 @@ hint format ["Now money : %1",AST_kill_score];
 			_price = (ASTDropVehicles select _index) select 1;
 			[_price] call AST_fnc_hud_minus;
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
-			_cargosel = (ASTDropVehicles select _index) select 0;
-			[_cargosel] spawn {
-				params ["_cargosel"];
-				_cargo_name = (configFile >> "cfgVehicles" >> (_cargosel) >> "displayName") call bis_fnc_getcfgdata;
+			_cargo = (ASTDropVehicles select _index) select 0;
+			ghst_drop = [player,(getmarkerpos "ghst_player_support"),_cargo,ghst_carlist,200,6] spawn {
+				_host = _this select 0;
+				_spawnmark = _this select 1;
+				_airtype = "B_T_VTOL_01_vehicle_F";
+				_cargosel = _this select 2;
+				_flyheight = _this select 4;
+				_delay = (_this select 5) * 60;// time before cargo drop support can be called again
+				_cargo_name = getText(configFile >> "CfgVehicles" >> _cargosel >> "displayName");
 				openMap true;
 				_host groupchat format ["%1을 공수받기 원하는 자리에 클릭하세요.", _cargo_name];
 				mapclick = false;

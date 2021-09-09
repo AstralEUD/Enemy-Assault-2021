@@ -39,9 +39,13 @@ ASTvehicles = [["B_Quadbike_01_F",5],
 	["B_APC_Tracked_01_AA_F",100],
 	["B_MBT_01_TUSK_F",180]];
 
-ASTDropVehicles = ASTvehicles apply {
-	[_x select 0,(_x select 1) + 30]
-};
+ASTDropVehicles = [["B_Quadbike_01_F",25],
+	["B_MRAP_01_F",45],
+	["B_MRAP_01_hmg_F",80],
+	["B_G_Offroad_01_armed_F",60],
+	["B_G_Offroad_01_AT_F",90],
+	["B_APC_Wheeled_01_cannon_F",140],
+	["B_APC_Tracked_01_rcws_F",170]];
 
 
 ASTvehiclesR = ASTvehicles apply {_x select 0};
