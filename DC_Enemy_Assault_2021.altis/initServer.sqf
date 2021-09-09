@@ -87,7 +87,7 @@ if (worldName == "Enoch") then {
 };
 ghst_mapsize = getNumber (configfile >> "CfgWorlds" >> worldName >> "mapSize") / 2;
 
-[] execVM "ast\fn_spawnlist.sqf";
+[] execVM "ast\spawner\fn_spawnlist.sqf";
 [] execVM "ast\fn_killevent.sqf";
 [] execVM "ast\fn_dbcheck.sqf";
 //[] execVM "ast\fn_build_invincible.sqf";
