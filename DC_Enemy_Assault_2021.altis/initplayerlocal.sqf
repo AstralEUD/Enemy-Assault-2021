@@ -225,6 +225,7 @@ if (ghst_acemod) then {
 };
 
 [] spawn ast_fnc_escInterupt;
+[] call ast_fnc_spawnlist;
 
 
 
@@ -237,6 +238,7 @@ if (ghst_acemod) then {
 
 
 gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+	_handled = FALSE;
 	if (_this select 1 == 207) then {
 		if (soundVolume <= 0.5) then {
 			0.5 fadeSound 1;
@@ -246,7 +248,14 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 			0.5 fadeSound 0.1;
 			hint "귀마개 착용!";
 		};
+	}
+	else {
+		if (_this select 1 == 21) then {
+			closedialog 0;
+			_nul = createDialog "NATO_player";
+		};
 	};
+	_handled
 }];
 
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
@@ -259,7 +268,7 @@ ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call
 ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_vehicle_refund"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
 
-infostand addAction ["<t color='#33CCFF' size='1.5'>아스널 언락 관리자</t>","0 = createDialog 'AST_arsenal_GUI'"];
+infostand addAction ["<t color='#33CCFF' size='1.0'>총기 구매기</t>","0 = createDialog 'AST_arsenal_GUI'"];
 
 infostand addAction ["<t color='#000080' size='1.0'> 관리자에게 제보/신고/건의","call ast_fnc_report"];
 
