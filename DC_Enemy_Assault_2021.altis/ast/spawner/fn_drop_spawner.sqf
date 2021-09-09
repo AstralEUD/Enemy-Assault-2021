@@ -24,7 +24,7 @@ hint format ["Now money : %1",AST_kill_score];
 			if (AST_kill_score < ((ASTDropVehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 			_playeruid = getPlayerUID player;
 			_displayName = getText(configFile >> "CfgVehicles" >> (ASTDropVehicles select _index) select 0 >> "displayName");
-			//AST_kill_score = AST_kill_score - ((ASTDropVehicles select _index) select 1);
+			AST_kill_score = AST_kill_score - ((ASTDropVehicles select _index) select 1);
 			_price = (ASTDropVehicles select _index) select 1;
 			[_price] call AST_fnc_hud_minus;
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
