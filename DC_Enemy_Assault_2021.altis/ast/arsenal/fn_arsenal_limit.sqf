@@ -100,6 +100,16 @@ while {true} do {
 		}
 		foreach _blockedBackpackItems;
 	};
+	if (headgear player in AST_limitedItems)
+		then {
+			_blockedItemsAll pushBack headgear player;
+			removeHeadgear player;
+		}
+	else { {
+			player removeItemFromBackpack _x;
+		}
+		foreach _blockedBackpackItems;
+	};
 	_blockedItemsAll sort true;
 
 	if (count _blockedItemsAll != 0)

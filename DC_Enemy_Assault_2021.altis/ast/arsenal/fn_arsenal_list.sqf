@@ -27,11 +27,11 @@ AST_weaponPrice = [["optic_tws_mg",2000],
 ["arifle_SPAR_03_blk_F",2250],["arifle_SPAR_03_khk_F",2250],["arifle_SPAR_03_snd_F",2250],
 ["srifle_EBR_F",1800],
 ["srifle_DMR_06_camo_F",1900],["srifle_DMR_06_olive_F",1900],["srifle_DMR_06_hunter_F",1900],
-["srifle_GM6_F",5500],["srifle_GM6_camo_F",5500],["srifle_GM6_ghex_F",5500],
+["srifle_GM6_F",4500],["srifle_GM6_camo_F",4500],["srifle_GM6_ghex_F",4500],
 ["srifle_LRR_F",4000],["srifle_LRR_camo_F",4000],["srifle_LRR_tna_F",4000],
 ["MMG_01_hex_F",8500],["MMG_01_tan_F",8500],
 ["MMG_02_camo_F",8500],["MMG_02_black_F",8500],["MMG_02_sand_F",8500],
-["5Rnd_127x108_APDS_Mag",5000],
+["5Rnd_127x108_APDS_Mag",2500],
 ["H_HelmetO_ViperSP_hex_F",3000],["H_HelmetO_ViperSP_ghex_F",3000]];
 
 publicVariable "AST_weaponPrice";
