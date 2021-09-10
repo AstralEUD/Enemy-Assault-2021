@@ -43,7 +43,7 @@ hint format ["Now money : %1",AST_kill_score];
 			_VarName = "ghst_air" + str((count ghst_vehicles) + 1);
 			missionNamespace setVariable [_VarName,_vehicle];
 			ghst_vehicles pushBack _VarName;
-			if ((typeOf _vehicle == "B_Heli_Attack_01_dynamicLoadout_F") or (typeOf _vehicle == "B_Plane_Fighter_01_F") or (typeOf _vehicle == "B_Plane_CAS_01_dynamicLoadout_F")) then {
+			if ((typeOf _vehicle == "B_Plane_Fighter_01_Stealth_F") or (typeOf _vehicle == "I_Plane_Fighter_03_dynamicLoadout_F") or (typeOf _vehicle == "B_Plane_CAS_01_dynamicLoadout_F")) then {
 				ASTAirArray pushBack _vehicle;
 				publicVariable "ASTAirArray";
 			};
