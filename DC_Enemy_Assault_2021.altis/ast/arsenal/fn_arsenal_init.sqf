@@ -62,7 +62,7 @@ addMissionEventHandler ["EachFrame", {
 				_ctrlButton ctrlSetToolTip "8개 이상의 아이템을 언락해야 구매할 수 있는 고급 아이템입니다.";
 			} else {
 				if (_selectedPrice < AST_kill_score) then {
-					ctrlButton ctrlEnable true;
+					_ctrlButton ctrlEnable true;
 					_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
 				} else {
 					_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
