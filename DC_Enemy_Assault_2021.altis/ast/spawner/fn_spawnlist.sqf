@@ -62,8 +62,8 @@ ASTAirList = [["B_Heli_Light_01_F",15],
 	["I_Heli_light_03_dynamicLoadout_F",90],
 	["B_T_VTOL_01_vehicle_F",100],
 	["B_T_VTOL_01_infantry_F",100],
-	["B_Plane_Fighter_01_F",280],
-	["B_Plane_CAS_01_dynamicLoadout_F",320]];
+	["B_Plane_Fighter_01_Stealth_F",280],
+	["I_Plane_Fighter_03_CAS_F",320]];
 
 ASTAirListRP = [["B_Heli_Light_01_F",15],
 	["B_Heli_Light_01_dynamicLoadout_F",20],
@@ -72,8 +72,8 @@ ASTAirListRP = [["B_Heli_Light_01_F",15],
 	["I_Heli_light_03_dynamicLoadout_F",20],
 	["B_T_VTOL_01_vehicle_F",80],
 	["B_T_VTOL_01_infantry_F",100],
-	["B_Plane_Fighter_01_F",140],
-	["B_Plane_CAS_01_dynamicLoadout_F",160]];
+	["B_Plane_Fighter_01_Stealth_F",140],
+	["I_Plane_Fighter_03_CAS_F",160]];
 
 ASTAirListR = ASTairlist apply {_x select 0};
 

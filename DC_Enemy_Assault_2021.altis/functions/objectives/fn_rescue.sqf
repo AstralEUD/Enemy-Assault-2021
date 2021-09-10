@@ -29,7 +29,8 @@ _pow addEventHandler ["Killed", {
     if (isPlayer _killer) then {
         _asttext = format ["%1님이 인질을 사살하였습니다! 반복될 경우 처벌될 수 있습니다.",name _killer];
         _asttext remoteExec ["hint",0];
-        [50] remoteExec ["ast_fnc_minusMoney", _killer];
+        ["rescue",[name _killer]] call DiscordEmbedBuilder_fnc_buildCfg;
+        [50] remoteExec ["ast_fnc_minusMoney", owner _killer];
     };
 }];
 

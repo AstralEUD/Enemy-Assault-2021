@@ -7,7 +7,8 @@ _reload_time = 5;//how long it takes to rearm
 
 _type = typeof _object;
 
-AST_kill_score = AST_kill_score - 5;
+AST_kill_score = AST_kill_score - 10;
+[10] call AST_fnc_hud_minus;
 
 if ((_object isKindOf "ParachuteBase") or (_object isKindOf "Man")) exitWith {};
 
