@@ -1,16 +1,18 @@
 //V2 by Ghost, rearm vehicle
 private ["_object","_reload_time","_type","_Object_name","_fuelstore","_removed","_f"];
 
-_object = vehicle (vehicle player);//object to rearm
+_object = vehicle player;//object to rearm
 //_params = _this select 3;
 _reload_time = 5;//how long it takes to rearm
 
 _type = typeof _object;
 
-AST_kill_score = AST_kill_score - 10;
-[10] call AST_fnc_hud_minus;
 
 if ((_object isKindOf "ParachuteBase") or (_object isKindOf "Man")) exitWith {};
+
+
+AST_kill_score = AST_kill_score - 10;
+[10] call AST_fnc_hud_minus;
 
 _fuelstore = fuel _object;
 _object setFuel 0;
