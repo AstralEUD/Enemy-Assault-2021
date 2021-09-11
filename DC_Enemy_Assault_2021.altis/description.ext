@@ -201,3 +201,93 @@ CAU_xChat_MOTD[]={
 
 
 
+// SAKY EM_DEVICE SCRIPT
+class CfgHints
+{
+	class SpectrumDevice
+	{
+		displayName = "스펙트럼 장치";
+		
+		class SpectrumDeviceMain6
+		{
+			displayName = "SIGINT 정보";
+			displayNameShort = "아는 것이 힘이다.";
+			description = "특정 전파 발신원들의 주파수는 아래와 같이 알려져있습니다.%1%2[78-89MHz] 군용 무선 통신 및 차량 위치 발신기%1%2[390-500MHz] 임무 목표 추적용 미약 전계 발생기(+약간의 주파수 떨림) %1%2[431MHz] 일반 지뢰류%1%2[433MHz] 원격 기폭 가능한 폭발물%1%2[435MHz] IED(대형 IED의 경우 더 큰 주파수 떨림)%1%2[79.3,81.2,84.6,85.5MHz] 일부 군용 통신 시설";			
+			tip = "군용 및 민간 통신시설은 스펙트럼 장치가 탐지할 수 있는 모든 주파수 대역을 사용합니다.";
+			image = "\a3\ui_f\data\gui\cfg\hints\Direction_ca.paa";
+			noImage = false;
+			dlc = 1.02179e+006;
+		};
+		
+		class SpectrumDeviceMain5
+		{
+			displayName = "강력한 전파 발생원";
+			description = "라디오 타워나 레이돔과 같은 구조물에서는 강력한 전계가 방출되어 먼 거리에서도 스펙트럼 장비에 감지됩니다.%1일부 시설은 [%11]에 감지되는 주파수가 아닌, [%12]에서 감지되는 군용 주파수를 사용해 위치 추적에 혼란을 줄 수 도 있습니다.";
+			tip = "%2강력한 전파 발생원의 주파수는 지도상에 작게 표기되어있습니다.%1%2해당 구조물을 파괴하는 것도 전략적 선택이 될 수 있지만, 그러한 발생원을 등지고 전파를 추적하는 것이 더욱 쉽습니다.";
+			arguments[] = {
+				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_02_f' >> 'displayName');",				
+				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_01_f' >> 'displayName');"
+			};
+			image = "\a3\ui_f\data\gui\cfg\hints\Voice_ca.paa";
+			noImage = false;
+			dlc = 1.02179e+006;
+		};
+		
+		class SpectrumDeviceMain4
+		{
+			displayName = "%11";
+			displayNameShort = "안테나 선택";
+			description = "[%11]는 지뢰와 폭발물을 제어하기 위해 사용되는 전파 신호를 감지합니다.%1지뢰와 폭발물을 기폭하기 위해서는 주파수를 맞추어 최소 -40dbm 이상의 신호를 전송해주어야 합니다.";
+			tip = "%2폭발물 기폭을 위해서는 안테나를 정확히 지향해야 합니다. %1%2대형 IED와 도약지뢰와 같은 위험한 폭발물을 제거할때는 신중하게 사용하세요.";
+			arguments[] = {
+				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_03_f' >> 'displayName');"
+			};
+			image = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
+			noImage = false;
+			dlc = 1.02179e+006;
+		};		
+		
+		class SpectrumDeviceMain3
+		{
+			displayName = "%11";
+			displayNameShort = "안테나 선택";
+			description = "[%11]는 넓은 주파수 범위에서 전파의 발생원을 추적합니다. 임무를 위해 회수해야 하는 물체는 대부분 추적을 위해 특별한 미약 전계 발생기가 장착되어 있습니다.%1폭발물에서 발생하는 433Mhz 대역의 주파수와 맵 전역의 강력한 전파 발생원의 신호에 주의하세요.";
+			tip = "%2회수대상 물체의 미약 전계 발생기는 의도적으로 주파수가 흔들리도록 설계되었습니다.%1%2이 차이를 이용해 강력한 전파 발생원과 구분할 수 있습니다.";
+			arguments[] = {
+				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_02_f' >> 'displayName');"
+			};
+			image = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_02_ca.paa";
+			noImage = false;
+			dlc = 1.02179e+006;
+		};		
+		
+		class SpectrumDeviceMain2
+		{
+			displayName = "%11";
+			displayNameShort = "안테나 선택";
+			description = "[%11]는 좁은 군용 주파수 대역에서 분대 지휘를 위해 사용되는 분대장들의 무전기에서 발생하는 전파를 감지하거나, 차량과 같은 장비에서 사용되는 통신 장비의 전파를 감지합니다.";
+			tip = "%2보병 분대장은 최대 1km, 차량은 3km 밖에서도 감지될 수 있습니다.%1%2군용 주파수를 사용하는 강력한 전파 발생원에 주의하세요.";
+			arguments[] = {
+				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_01_f' >> 'displayName');"
+			};
+			image = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_01_ca.paa";
+			noImage = false;
+			dlc = 1.02179e+006;
+		};
+		
+		class SpectrumDeviceMain1
+		{
+			displayName = "스펙트럼 장치";
+			description = "스펙트럼 장치를 활용하면 주변의 적군이나 장비, 혹은 찾기 어려운 소형 컨테이너와 같은 장비를 찾아내거나, 심지어 지뢰와 같은 폭발물을 찾고 미리 격발시킬 수 있습니다.%1스펙트럼 기기를 사용하기 위해서는 안테나를 추가로 장착해야 하며, 각 안테나마다 수색하는 주파수 범위와 용도가 다릅니다.";
+			tip = "스펙트럼 장치는 작은 신호를 찾아내기 위해 지향성이 좋도록 설계되었기 때문에, 목표물의 정확한 위치를 찾기 위해서는 목표물에 정확히 조준되어야 합니다.";
+			arguments[] = {
+				{{"getOver"}}, // Double nested array means assigned key (will be specially formatted)
+				{"name"}, // Nested array means element (specially formatted part of text)
+				"name player" // Simple string will be simply compiled and called, String can also link to localization database in case it starts by str_
+			};
+			image = "\a3\data_f_enoch\logos\arma3_enoch_hint_icon_ca.paa";
+			noImage = false;
+			dlc = 1.02179e+006;
+		};
+	};
+};
