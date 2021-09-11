@@ -1,23 +1,22 @@
 //V2 by Ghost, rearm vehicle
 private ["_object","_reload_time","_type","_Object_name","_fuelstore","_removed","_f"];
 
-_object = vehicle player;//object to rearm
-//_params = _this select 3;
-_reload_time = 5;//how long it takes to rearm
+[] spawn {
+	_object = vehicle player;//object to rearm
+	//_params = _this select 3;
+	_reload_time = 5;//how long it takes to rearm
 
-_type = typeof _object;
+	_type = typeof _object;
 
 
-if ((_object isKindOf "ParachuteBase") or (_object isKindOf "Man")) exitWith {};
+	if ((_object isKindOf "ParachuteBase") or (_object isKindOf "Man")) exitWith {};
 
-_fuelstore = fuel _object;
-_object setFuel 0;
+	_fuelstore = fuel _object;
+	_object setFuel 0;
 
-_Object_name = (configFile >> "cfgVehicles" >> (_type) >> "displayName") call bis_fnc_getcfgdata;
+	_Object_name = (configFile >> "cfgVehicles" >> (_type) >> "displayName") call bis_fnc_getcfgdata;
 
-_object vehicleChat format ["Servicing %1... Please stand by...", _Object_name];
-[_object] spawn {
-	params ["_object"];
+	_object vehicleChat format ["Servicing %1... Please stand by...", _Object_name];
 	While {alive _object} do {
 		_object vehicleChat "Rearming...";
 		sleep _reload_time;
