@@ -15,7 +15,12 @@ _rnum = str(round (random 999));
 //_wside =  (configFile >> "cfgvehicles" >> (_unit_type) >> "side") call bis_fnc_getcfgdata;
 //if (_wside == 1) then {_wside = west;} else {_wside = civilian;};
 _wGrp = createGroup CIVILIAN;//_wside;
-_pow = [[_position_mark select 0, _position_mark select 1, 0.2],_wGrp,_unit_type,0.8] call ghst_fnc_create_unit;
+//_pow = [[_position_mark select 0, _position_mark select 1, 0.2],_wGrp,_unit_type,0.8] call ghst_fnc_create_unit;
+
+_pow = createAgent [_unit_type, [_position_mark select 0, _position_mark select 1, 0.2],[], 0, "NONE"];
+[_pow,0.2] call ghst_fnc_aiskill;
+[_pow] join _wGrp;
+
 _pow allowdamage false;
 if !(isnil "AGM_Interaction_fnc_setCaptivityStatus") then {
 	//FOR AGM Mod
@@ -27,11 +32,14 @@ if !(isnil "AGM_Interaction_fnc_setCaptivityStatus") then {
 _pow addEventHandler ["Killed", {
     params ["_unit", "_killer", "_instigator", "_useEffects"];
     if (isPlayer _killer) then {
-        "아군 인질을 사살하여 약간의 패널티를 받습니다.." remoteExec ["systemChat", _killer];
-        [15] remoteExec ["ast_fnc_minusMoney", _killer];
+        _asttext = format ["%1님이 인질을 사살하였습니다! 반복될 경우 처벌될 수 있습니다.",name _killer];
+        _asttext remoteExec ["hint",0];
+        ["rescue",[name _killer]] call DiscordEmbedBuilder_fnc_buildCfg;
+        [50] remoteExec ["ast_fnc_minusMoney", owner _killer];
     };
 }];
 
+_pow setVariable ["rescue",1,true];
 _VarName = "ghst_pow" + _rnum + str round(_position_mark select 0);
 _pow setVehicleVarName _VarName;
 //_pow Call Compile Format ["%1=_This ;",_VarName];
@@ -101,7 +109,7 @@ if (surfaceIsWater _campmark) then {
 } else {
 	_trig1cond = "this and ((getposatl (thislist select 0)) select 2 < 1)";
 };
-_trig1act = format ["deleteVehicle thistrigger; [%1] joinsilent grpNull; ['%2','succeeded'] call BIS_fnc_taskSetState; if (vehicle %1 != %1) then {unassignVehicle (%1); (%1) action ['EJECT', vehicle %1]; [%1] allowGetin false; dostop %1; %1 setCaptive true;}; [playableunits,5000,100] remoteExec ['ghst_fnc_addscore'];", _pow, _tsk];
+_trig1act = format ["[%1] call AST_fnc_rescueReward; deleteVehicle thistrigger; [%1] joinsilent grpNull; ['%2','succeeded'] call BIS_fnc_taskSetState; if (vehicle %1 != %1) then {unassignVehicle (%1); (%1) action ['EJECT', vehicle %1]; [%1] allowGetin false; dostop %1; %1 setCaptive true;}; [playableunits,5000,100] remoteExec ['ghst_fnc_addscore'];", _pow, _tsk];
 _trg1 = createTrigger["EmptyDetector", _campmark];
 _trg1 setTriggerArea[10,10,0,false];
 _trg1 setTriggerActivation["VEHICLE","PRESENT",false];

@@ -71,6 +71,8 @@ if ghst_rhsmod then {
 
 #include "addnotes.sqf"
 
+AST_HUD_LIST = [];
+AST_HUD_ongoing = false;
 if (player iskindof "B_recon_JTAC_F") then {
 //[player,"CAS"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cassup", 0];
@@ -121,6 +123,8 @@ player setVariable ["ghst_airlift", 0];
 [player,"Settings"] call BIS_fnc_addCommMenuItem;
 
 [player,"Lock"] call BIS_fnc_addCommMenuItem;
+
+[player,"ETC"] call BIS_fnc_addCommMenuItem;
 
 waituntil { !(isnil "ghst_carlist")};
 /*
@@ -196,7 +200,7 @@ if (ghst_rhsmod) then {
 */
 ghst_local_vehicles = [];
 ghst_players = ["p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11","p12","p13","p14","p15","p16","p17","p18","p19","p20","p21","p22","p23","p24","p25","p26","p27","p28","p29","p30","p31","p32","p33","p34"];
-ghst_vehicles = ["vas1","vas2"];
+ghst_vehicles = [];
 
 player addEventHandler ["Respawn", {call ghst_fnc_playeraddactions}];  
 call ghst_fnc_playeraddactions;
@@ -214,7 +218,6 @@ if ("PARAM_PIFF" call BIS_fnc_getParamValue == 1) then {
 };
 //[] call BIS_fnc_groupIndicator;
 
-
 if (ghst_acemod) then {
 
 	player addEventHandler ["Respawn", {[player] call bis_fnc_disableRevive}]; 
@@ -223,6 +226,7 @@ if (ghst_acemod) then {
 };
 
 [] spawn ast_fnc_escInterupt;
+//[] call ast_fnc_spawnlist;
 
 
 
@@ -258,12 +262,16 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
+"AST_LAYER1" cutRsc ["AST_HUD_GUI","PLAIN"];
+
 ASTvehSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_vehicle_spawner"];
 ASTAirSpawner addAction ["<t color='#d000ff' size='1.5'> Aircraft Spawner","call ast_fnc_air_spawner"];
 ASTvehSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_vehicle_refund"];
 ASTAirSpawner addAction ["<t color='#6666FF' size='1.5'> Aircraft Refund","call ast_fnc_air_refund"];
 
 infostand addAction ["<t color='#33CCFF' size='1.0'>총기 구매기</t>","0 = createDialog 'AST_arsenal_GUI'"];
+
+infostand addAction ["<t color='#000080' size='1.0'> 관리자에게 제보/신고/건의","call ast_fnc_report"];
 
 infostand addAction ["<t color='#01DF3A' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
 FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
@@ -274,57 +282,64 @@ ATM_01 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer
 ATM_02 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
 ATM_03 addAction ["<t color='#E8C25D' size='1.5'> 송금","call ast_fnc_transfer"];
 
-player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm;",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
+player addAction ["<t color = '#0080FF' size='1.5'> 재정비 </t>","call ast_fnc_reloadCheck;",nil,1.5,true,true,"","player inArea 'VAM_service_area_0' && vehicle player != player",50,false,"",""];
 halo addAction ["<t size='1.5' shadow='2' color='#00ffff'>HALO (10 PTS)</t> <img size='3' color='#00ffff' shadow='2' image='\A3\Air_F_Beta\Parachute_01\Data\UI\Portrait_Parachute_01_CA.paa'/>", "call ghst_fnc_halo", [false,1000,60,false], 5, true, true, "","alive _target"];
 infostand addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getpos base),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
+FOB_RTB addaction ["<t size='1.4' shadow='2' color='#00FF00'>아군 AI 보병 스폰 (5pts)</t>", "call ghst_fnc_spawninf", [(getMarkerpos "FOB_spawn_marker"),PARAM_MAX_GRP_NUM], 1, false, false, "","alive _target and (leader group _this == _this)"];
 
+player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call ast_fnc_aiGetOut",nil,1.5,true,true,"","((vehicle player) != player) && ((driver (vehicle player)) == player)"];
+
+[] execVM "Trait_Changer\TC_init.sqf";
 
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
-[] execVM "external\s_Welcome_Rule.sqf";
-//notice
-[] execVM "external\s_Chobo_Guide.sqf";
 // auto run
 [] execVM "external\Auto_running.sqf";
 
 //Rearm for Aircraft
-[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
+//[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
-player addAction ["<t size='1.8'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 25"];
+player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
 
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
-	player addAction ["<t color = '#0080FF' size='1.5'> Rearm (COST 5 points)","call ast_fnc_rearm",nil,1.5,true,true,"","player inArea 'ASTRearmArea'",50,false,"",""];
-	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","(player distance2D (nearestObject [position player, 'Land_money_F'])) < 10"];
-	[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
+	player addAction ["<t color = '#0080FF' size='1.5'> 재정비 </t>","call ast_fnc_reloadCheck;",nil,1.5,true,true,"","player inArea 'VAM_service_area_0' && vehicle player != player",50,false,"",""];
+	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
+	player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call ast_fnc_aiGetOut",nil,1.5,true,true,"","((vehicle player) != player) && ((driver (vehicle player)) == player)"];
+	//[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 }];
 
 //invEH
 [] execVM "ast\fn_invEH.sqf";
 
 //Vehicle Lock System
-[] execVM "ast\fn_lock_vehicle.sqf";
+[] execVM "ast\fn_lock_vehicle.sqf";                                       
 //playerMarker
-0 = [] execVM "external\player_markers.sqf";
-
+//0 = [] execVM "external\player_markers.sqf";
 //[] execVM "external\tankboy.sqf";
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
 [] execVM "ast\arsenal\fn_arsenal_limit.sqf";
+
+[] execVM "external\s_Welcome_Rule.sqf";
+//notice
+[] execVM "external\s_Chobo_Guide.sqf";
+
+[] call ast_fnc_hud_init;
 
 diag_log "EA2021 Loading Completed!!";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
 
+/*
 [] spawn {
     for "_i" from 0 to 1 step 0 do {
         waitUntil {!isNull (findDisplay 49)}; // Check if ESC dialogs are open
         (findDisplay 49) closeDisplay 2; // Close ESC dialog
     };
 };
-
-
+*/
 sleep 30;
 
 // Info text

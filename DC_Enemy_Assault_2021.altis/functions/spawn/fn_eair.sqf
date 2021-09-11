@@ -22,6 +22,8 @@ _ghst_patrol_air_list = [_this, 8, ghst_patrol_air_list,[[]]] call BIS_fnc_param
 
 waitUntil {count ASTAirArray > 1};
 
+_sleeptime = selectRandom [30, 60, 90, 120];
+sleep _sleeptime;
 /*
 	if (count ASTAirArray > 1) then {
 		ASTAirArray deleteAt (ASTAirArray findIf {!alive _x});
@@ -53,7 +55,7 @@ for "_x" from 0 to (_airqty) - 1 do {
 };
 //set combat mode
 _eGrp setCombatMode "RED";
-
+["적 항공기가 출현했습니다."] remoteExec ["hint",0];
 [_eGrp,_centermarker,_radarray,_markunitsarray,["AWARE", "NORMAL", "WEDGE"]] call ghst_fnc_waypoints;
 
 sleep 5;

@@ -10,7 +10,7 @@ _args = _this select 3;
 _unit = _args select 0;
 _carryunit = _args select 1;
 _vehseat = _args select 2;//what position in vehicle (driver,cargo,gunner)
-
+_getVa = _unit getVariable ["rescue",0];
 _nearvehs = nearestObjects [_caller, ["air","car","truck","tank","StaticWeapon"], 10];
 if (isnil "_nearvehs") exitwith {hint "No vehicles near by";};
 _nearveh = _nearvehs select 0;

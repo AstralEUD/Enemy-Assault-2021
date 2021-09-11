@@ -6,7 +6,7 @@
 └──────────────────────────────────────────────────────*/
 
 params["_spCheck","_selections","_price","_tobe","_playerUID","_position"];
-_position = getMarkerPos ["FOB_Spawn_Marker",false];
+_position = getPos Vehicle_Spawn;
 _CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
 if (isNil "_CheckAlpha") exitWith {hint "There is no a Car/Aircraft/Ship on the spawn point. Check out!"};
 _spCheck = typeOf _CheckAlpha;
@@ -21,7 +21,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 	{
 		if _confirmed then {
 			//systemchat "You accepted the T&C's";
-			_position = getMarkerPos ["FOB_Spawn_Marker",false];
+			_position = getMarkerPos ["Vehicle_Spawn_Marker",false];
 			_CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
 			_spCheck = typeOf _CheckAlpha;
 			_selections = ASTvehiclesR find _spCheck;
@@ -30,6 +30,7 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
 			hint format ["%1을 환불하셔서 %2 pts를 획득하셨습니다.",_spCheck, _price];
 			deleteVehicle _CheckAlpha;
+			[_price] call AST_fnc_hud_plus;
 		} else {
 			systemchat "You Rejected it";
 		};

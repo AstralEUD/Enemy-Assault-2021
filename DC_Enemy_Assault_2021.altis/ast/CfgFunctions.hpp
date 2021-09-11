@@ -5,11 +5,14 @@ class ast
 	{
 		file = "ast";
 		class addMoney {};
-		class air_refund {};
-		class air_spawner {};
+		class aiGetOut {};
 		class build_invincible {};
+		class damageControl {};
 		class db_save {};
 		class dbcheck {};
+		class debugcheck {};
+		class debuginput {};
+		class destroyHack {};
 		class escInterupt {};
 		class fetch_another {};
 		class fetch_money {};
@@ -21,18 +24,16 @@ class ast
 		class lockset {};
 		class missionReward {};
 		class moneyget {};
+		class probonus {};
 		class minusMoney {};
-		class rearm {};
+		class reloadCheck {};
+		class report {};
+		class rescueReward {};
 		class rtbReward {};
 		class serverLoop {};
-		class spawnList {};
 		class transfer {};
 		class transportbonus {};
-		class vehicle_refund  {};
-		class vehicle_spawner {};
 		class vehicleKill;
-		class fob_refund {};
-		class fob_spawner {};
 	};
 	class arsenal 
 	{
@@ -43,5 +44,31 @@ class ast
 		class arsenal_limit {};
 		class arsenal_search {};
 		class arsenal_list {};
+	};
+	class hud
+	{
+		file = "ast\hud";
+		class hud_init {};
+		class hud_plus {};
+		class hud_minus {};
+		class hud_update {};
+	};
+	class spectrum
+	{
+		file = "ast\spectrum";
+		//class spec_init {};
+	};
+	class spawner
+	{
+		file = "ast\spawner";
+		class air_refund {};
+		class air_spawner {};
+		class fob_refund {};
+		class fob_spawner {};
+		class inair {};
+		class spawnlist {};
+		class vehicle_refund  {};
+		class vehicle_spawner {};
+		class drop_spawner {};
 	};
 };

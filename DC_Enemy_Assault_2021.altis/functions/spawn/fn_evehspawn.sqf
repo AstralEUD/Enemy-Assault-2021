@@ -27,7 +27,7 @@ for "_x" from 0 to (_grpnum)-1 do {
 	_veh = selectRandom _vehlist;
 	_armor1 = createVehicle [_veh,_marker, [], 0, "NONE"];
 
-	if ((random 1) > 0.5) then { 
+	if ((random 1) > 0.8) then { 
 		_armor1 allowCrewInImmobile true;
 	} else {
 		_armor1 allowCrewInImmobile false;

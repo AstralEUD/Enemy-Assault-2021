@@ -46,7 +46,7 @@ class AST_arsenal_GUI
 			font = "PuristaMedium";
 			maxHistoryDelay = 0;
 			rowHeight = 0;
-			sizeEx = (((((safezoneW / safezoneH) min 1.4) / 1.2) / 25) * 1.25);
+			sizeEx = (((((safezoneW / safezoneH) min 1.4) / 1.2) / 25) * 1);
 			soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1.0};
 			class ListScrollBar
 			{

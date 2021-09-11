@@ -23,28 +23,32 @@ addMissionEventHandler ["EntityKilled",{
 			private _nowtime = "getTimeStamp" call inidbi;
 			private _tkreport = format ["TEAMKILL REPORT // Time : %1, Killer : %2, Killed : %3, Killer UID : %4",_nowtime,name _killer,name _killed,_killeruid];
 			["write", ["team_kill_maindb", _nowtime, _tkreport]] call inidbi;
-			["write", [_killeruid, "teamkill", _tkreport]] call inidbi;
-			["teamkill",_killer] remoteExec ["ast_fnc_killalert",0];
+			private _tkarray = [name _killer, name _killed, _killeruid];
+			["teamkill",_tkarray] call DiscordEmbedBuilder_fnc_buildCfg;
+			["teamkill",_killer] remoteExec ["ast_fnc_killalert",owner _killer];
 		};
 	};
-	if (((_killed isKindOf "Man") && (side group _killed == east)) or ((_killed isKindOf "Man") && (side group _killed == east)))  exitWith {
-		[3] remoteExec ["ast_fnc_addMoney", owner _killer];
-		_randomNum = random 1;
-		if (_randomNum > 0.7) then {
+	if ((side group _killed == east) or (side group _killed == independent)) then {
+		if (_killed isKindOf "Man") exitWith {
+			[2] remoteExec ["ast_fnc_addMoney", owner _killer];
 			_killedpos = getPosATL _killed;
-			_randomMoney = selectRandom [1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3,3,3,5,5,5,8,15];
-			_money = "Land_money_F" createVehicle _killedpos;
-			_money setvariable ["randomMoney", _randomMoney, true];
-			AST_money_array pushBack _money;
+			[_killedpos] remoteExec ["ast_fnc_probonus", owner _killer];
+			_randomNum = random 1;
+			if (_randomNum > 0.5) then {
+				_randomMoney = selectRandom [1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,3,3,3,3,3,3,5,5,5,8,15];
+				_money = "Land_money_F" createVehicle _killedpos;
+				_money setvariable ["randomMoney", _randomMoney, true];
+				AST_money_array pushBack _money;
+			};
 		};
-	};
-	if (_killed isKindOf "Tank") exitWith {
-		["tank"] remoteExec ["ast_fnc_killalert", owner _killer];
-	};
-	if (_killed isKindOf "Helicopter") exitWith {
-		["helicopter"] remoteExec ["ast_fnc_killalert", owner _killer];
-	};
-	if (_killed isKindOf "Plane") then {
-		["plane"] remoteExec ["ast_fnc_killalert", owner _killer];
+		if (_killed isKindOf "Tank") exitWith {
+			["tank"] remoteExec ["ast_fnc_killalert", owner _killer];
+		};
+		if (_killed isKindOf "Helicopter") exitWith {
+			["helicopter"] remoteExec ["ast_fnc_killalert", owner _killer];
+		};
+		if (_killed isKindOf "Plane") then {
+			["plane"] remoteExec ["ast_fnc_killalert", owner _killer];
+		};
 	};
 }];

@@ -11,6 +11,7 @@ if (AST_kill_score > _price) then {
 	AST_purchased pushBackUnique _listselected;
 	[player, "weaponlist", AST_purchased] remoteExec ['AST_fnc_db_save', 2, false];
 	AST_limitedItems = AST_limitedItems - [_listselected];
+	[_price] call AST_fnc_hud_minus;
 	[] execVM "ast\arsenal\arsenal_Search.sqf";
 } else {
 	systemchat "Some error occured: Report to admin";

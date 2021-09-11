@@ -6,7 +6,7 @@ _ctrlList = _AST_display displayCtrl 11181;
 	_displayName = getText (_cfgName >> "displayName");
 	_ctrlList lbAdd _displayName;
 	_ctrlList lbSetToolTip [_foreachindex, _x];
-	_ctrlList lbSetPicture [_foreachindex, getText (_cfgName >> "picture")];
+	_ctrlList lbSetPicture [_foreachindex, getText (_cfgName >> "editorPreview")];
 	_index = AST_weaponlist find _x;
 	_price = (AST_weaponPrice select _index) select 1;
 	_ctrlList lbSetTextRight [_foreachindex,str _price];
@@ -44,6 +44,7 @@ addMissionEventHandler ["EachFrame", {
 	};
 	_listSelected = (lbSelection _ctrlList) select 0;
 	_listSelectedClass = AST_weaponlist select _listSelected;
+	_Higherclass = ["srifle_GM6_F","srifle_GM6_camo_F","srifle_GM6_ghex_F","srifle_LRR_F","srifle_LRR_camo_F","srifle_LRR_tna_F","MMG_01_hex_F","MMG_01_tan_F","MMG_02_camo_F","MMG_02_black_F","MMG_02_sand_F"];
 	player setVariable ["ast_listselected", _listSelectedClass, false];
 	_selectedindex = AST_weaponlist find _listSelectedClass;
 	_selectedPrice = (AST_weaponPrice select _selectedindex) select 1;
@@ -56,11 +57,24 @@ addMissionEventHandler ["EachFrame", {
 		_ctrlButton ctrlEnable false;
 		_ctrlButton ctrlSetTooltip "이미 구매한 무기입니다.";
 	} else {
-		if (_selectedPrice < AST_kill_score) then {
-			_ctrlButton ctrlEnable true;
-			_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
+		if ((_Higherclass find _listSelectedClass) != -1) then{
+			if (count AST_purchased < 8) then {
+				_ctrlButton ctrlSetToolTip "8개 이상의 아이템을 언락해야 구매할 수 있는 고급 아이템입니다.";
+			} else {
+				if (_selectedPrice < AST_kill_score) then {
+					_ctrlButton ctrlEnable true;
+					_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
+				} else {
+					_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
+				};
+			};
 		} else {
-			_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
+			if (_selectedPrice < AST_kill_score) then {
+				_ctrlButton ctrlEnable true;
+				_ctrlButton ctrlSetTooltip "구매 버튼입니다.";
+			} else {
+				_ctrlButton ctrlSetToolTip "판매 가격이 현재 플레이어의 가격보다 비싸 구매할 수 없습니다.";
+			};
 		};
 	};
 	if (!dialog) then {

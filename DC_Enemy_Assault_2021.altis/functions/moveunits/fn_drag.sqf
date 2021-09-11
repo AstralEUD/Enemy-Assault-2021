@@ -27,7 +27,10 @@ ghst_dragunit = true;
 
 // Attach player to injured
 if (_carryunit) then {
-	[_unit] joinsilent (group _player);
+	_getVa = _unit getVariable ["rescue",0];
+	if (_getVa == 1) then {
+		[_unit] joinsilent (group _player);
+	};
 	_unit attachTo [_player, [-0.3,0.5,0]];
 } else {
 	_unit attachTo [_player, [0, 1.1, 0.092]];
