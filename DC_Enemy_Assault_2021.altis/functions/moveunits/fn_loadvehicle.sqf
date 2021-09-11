@@ -15,7 +15,6 @@ _nearvehs = nearestObjects [_caller, ["air","car","truck","tank","StaticWeapon"]
 if (isnil "_nearvehs") exitwith {hint "No vehicles near by";};
 _nearveh = _nearvehs select 0;
 if (isnil "_nearveh") exitwith {hint "No vehicles near by";};
-if (_getVa == 0) exitWith {hint "인질이 아닌 경우엔 강제로 탑승시킬 수 없습니다";};
 switch (_vehseat) do {
 		case "cargo": {
 		if (_nearveh emptyPositions "Cargo" > 0) then {

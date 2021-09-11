@@ -106,7 +106,7 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 				_namelist pushback _wCName;
 			};		
 		};
-		if ((_wvehclass == "Car") && (_wfaction == "IND_F") && !(_wCName != "I_Truck_02_MRL_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+		if ((_wvehclass == "Car") && (_wfaction == "IND_F") && (_wCName != "I_Truck_02_MRL_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
 
 			if !(_wCName in _namelist) then {
 				_icarList pushback _wCName;

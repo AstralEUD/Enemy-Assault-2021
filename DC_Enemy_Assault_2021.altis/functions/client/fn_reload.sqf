@@ -10,15 +10,6 @@ _type = typeof _object;
 
 if ((_object isKindOf "ParachuteBase") or (_object isKindOf "Man")) exitWith {};
 
-if (vehicle player == player) exitWith {hint "Rearm can be used while you're in a vehicle!";};
-_vec = (vehicle player);
-_selections = ASTAirListR find _vec;
-_selections2 = ASTvehiclesR find _vec;
-if ((_selections == -1) or (_selections2 == -1)) exitWith {hint "This vehicle cannot be repaired!";};
-
-AST_kill_score = AST_kill_score - 10;
-[10] call AST_fnc_hud_minus;
-
 _fuelstore = fuel _object;
 _object setFuel 0;
 

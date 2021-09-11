@@ -62,8 +62,8 @@ ASTAirList = [["B_Heli_Light_01_F",15],
 	["I_Heli_light_03_dynamicLoadout_F",90],
 	["B_T_VTOL_01_vehicle_F",100],
 	["B_T_VTOL_01_infantry_F",100],
-	["B_Plane_Fighter_01_Stealth_F",280],
-	["I_Plane_Fighter_03_dynamicLoadout_F",200]];
+	["B_Plane_Fighter_01_Stealth_F",240],
+	["I_Plane_Fighter_03_dynamicLoadout_F",280]];
 
 ASTAirListRP = [["B_Heli_Light_01_F",15],
 	["B_Heli_Light_01_dynamicLoadout_F",20],

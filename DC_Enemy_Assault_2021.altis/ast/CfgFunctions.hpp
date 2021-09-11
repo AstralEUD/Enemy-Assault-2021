@@ -26,6 +26,7 @@ class ast
 		class moneyget {};
 		class probonus {};
 		class minusMoney {};
+		class reloadCheck {};
 		class report {};
 		class rescueReward {};
 		class rtbReward {};
