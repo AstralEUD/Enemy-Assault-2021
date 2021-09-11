@@ -112,7 +112,7 @@ _veh setposatl _vehpos;
 //create task
 _tsk = "tsk_randloc" + _rnum + str(_position_mark);
 Ghst_Current_tasks pushback _tsk;
-if ((random 1) > 0.7) then {
+if ((random 1) > 0.4) then {
 	_taskmark = format ["%1", _veh_name];
 	_tasktopic = format ["Hack and Destroy %1", _veh_name];
 	//_taskdesc = format ["Locate the enemy %1 in %2 and blow it up. <br/><img image='%3' widwidth='64' height='64'/>", _veh_name,_locselname,_veh_pic];

@@ -1,6 +1,7 @@
-_vec = (vehicle player);
-_selections = ASTAirListR find _vec;
-_selections2 = ASTvehiclesR find _vec;
+_veclass = typeOf (vehicle player);
+_vec = vehicle player;
+_selections = ASTAirListR find _veclass;
+_selections2 = ASTvehiclesR find _veclass;
 if ((_selections == -1) and (_selections2 == -1)) exitWith {hint "This vehicle cannot be repaired!";};
 if ((vehicle player) isKindOf "Helicopter") then {
 	[

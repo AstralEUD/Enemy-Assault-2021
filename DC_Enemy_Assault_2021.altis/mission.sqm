@@ -8,7 +8,7 @@ class EditorData
 	toggles=617;
 	class ItemIDProvider
 	{
-		nextID=3220;
+		nextID=3221;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=467;
+		nextID=469;
 	};
 	class Camera
 	{
-		pos[]={23971.15,7.0371175,18545.311};
-		dir[]={0.25178006,-0.49556759,0.83135128};
-		up[]={0.14365098,0.86855042,0.47431886};
-		aside[]={0.95713216,-8.7078661e-008,-0.28987414};
+		pos[]={23965.098,13.365874,18543.328};
+		dir[]={-0.91071004,-0.41062939,-0.046219077};
+		up[]={-0.41014442,0.91178161,-0.020813975};
+		aside[]={-0.050688669,-5.7385478e-008,0.9987914};
 	};
 };
 binarizationWanted=0;
@@ -595,7 +595,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.8.6 SbAzgYjWqV";
+		briefingName="[EA2021] v.1.9 SbAzgYjWqV";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
@@ -962,7 +962,7 @@ class Mission
 			name="baseLayer  2";
 			class Entities
 			{
-				items=27;
+				items=28;
 				class Item0
 				{
 					dataType="Logic";
@@ -3600,9 +3600,22 @@ class Mission
 						nAttributes=1;
 					};
 				};
+				class Item27
+				{
+					dataType="Marker";
+					position[]={16333.343,-70.821999,30685.662};
+					name="bairspawn2";
+					type="Empty";
+					colorName="ColorWEST";
+					a=0.5;
+					b=0.5;
+					angle=359.27097;
+					id=3220;
+					atlOffset=115.148;
+				};
 			};
 			id=1545;
-			atlOffset=1.974689;
+			atlOffset=153.14134;
 		};
 		class Item2
 		{

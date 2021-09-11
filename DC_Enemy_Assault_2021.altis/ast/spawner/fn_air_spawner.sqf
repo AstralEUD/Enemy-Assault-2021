@@ -32,7 +32,7 @@ hint format ["Now money : %1",AST_kill_score];
 			_price = (ASTairlist select _index) select 1;
 			[_price] call AST_fnc_hud_minus;
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];
-			if ((typeOf _airclass == "B_Plane_Fighter_01_Stealth_F") or (typeOf _airclass == "I_Plane_Fighter_03_dynamicLoadout_F") or (typeOf _airclass == "B_Plane_CAS_01_dynamicLoadout_F")) then {
+			if ((_airclass == "B_Plane_Fighter_01_Stealth_F") or (_airclass == "I_Plane_Fighter_03_dynamicLoadout_F") or (_airclass == "B_Plane_CAS_01_dynamicLoadout_F")) then {
 				[_airclass, player] spawn AST_fnc_inair;
 			} else {
 				if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?"};
