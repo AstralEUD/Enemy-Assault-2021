@@ -65,6 +65,7 @@ class ast
 		class air_spawner {};
 		class fob_refund {};
 		class fob_spawner {};
+		class inair {};
 		class spawnlist {};
 		class vehicle_refund  {};
 		class vehicle_spawner {};

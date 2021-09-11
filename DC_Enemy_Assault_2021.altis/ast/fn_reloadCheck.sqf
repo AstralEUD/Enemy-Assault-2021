@@ -1,7 +1,7 @@
 _vec = (vehicle player);
 _selections = ASTAirListR find _vec;
 _selections2 = ASTvehiclesR find _vec;
-if ((_selections == -1) or (_selections2 == -1)) exitWith {hint "This vehicle cannot be repaired!";};
+if ((_selections == -1) and (_selections2 == -1)) exitWith {hint "This vehicle cannot be repaired!";};
 if ((vehicle player) isKindOf "Helicopter") then {
 	[
 		["15포인트가 소모됩니다. 계속 하시겠습니까?"],
