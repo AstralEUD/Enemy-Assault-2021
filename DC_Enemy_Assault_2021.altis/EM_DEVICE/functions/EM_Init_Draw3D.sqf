@@ -5,23 +5,21 @@ addMissionEventHandler ["Draw3D", {
 		_gunPosASL = player modelToWorldVisualWorld (player selectionPosition "proxy:\a3\characters_f\proxies\pistol.001");
 		_weaponDir = vectorNormalized(player weaponDirection "hgun_esd_01_F");
 		{	
-			if (formationLeader _x == _x) then {
-				_f=(group _x) getVariable ["EM_FREQ",0];
-				if (_f==0) then{
-					(group _x) setVariable ["EM_FREQ", 78+(random 1)*11, true];
-				};						
-				_targetDir = vectorNormalized(_gunPosASL vectorFromTo(AGLToASL unitAimPosition _x));
-				_distance = player distance _x;
-				_cosine = (_weaponDir vectorDotProduct _targetDir);
-				_signalPowerLog = ([ _distance, EM_Power_Inf, _cosine ] call EM_CalcPower) call EM_Log;				
-				_EM_Signal_Inf append [((group _x) getVariable "EM_FREQ"), _signalPowerLog];				
-				if(EM_Debug)then{
-					_cosine = (_cosine call EM_Gain) / EM_Gain_Max;
-					drawLine3D[ASLToAGL _gunPosASL, unitAimPositionVisual _x, [ _cosine, 1 - _cosine, 0, 1 ]];
-					drawIcon3D["", [ _cosine, 1 - _cosine, 0, 1 ], unitAimPositionVisual _x, 0, 0, 0, str round(_signalPowerLog), 1, 0.05, "PuristaMedium"];
-				};			
-			};			
-		}forEach((player nearEntities["CAManBase", 1000]) - [player]);
+			_f=(_x) getVariable ["EM_FREQ",0];
+			if (_f==0) then{
+				(_x) setVariable ["EM_FREQ", 78+(random 1)*11, true];
+			};						
+			_targetDir = vectorNormalized(_gunPosASL vectorFromTo(AGLToASL unitAimPosition _x));
+			_distance = player distance _x;
+			_cosine = (_weaponDir vectorDotProduct _targetDir);
+			_signalPowerLog = ([ _distance, EM_Power_Inf, _cosine ] call EM_CalcPower) call EM_Log;				
+			_EM_Signal_Inf append [((_x) getVariable "EM_FREQ"), _signalPowerLog];				
+			if(EM_Debug)then{
+				_cosine = (_cosine call EM_Gain) / EM_Gain_Max;
+				drawLine3D[ASLToAGL _gunPosASL, unitAimPositionVisual _x, [ _cosine, 1 - _cosine, 0, 1 ]];
+				drawIcon3D["", [ _cosine, 1 - _cosine, 0, 1 ], unitAimPositionVisual _x, 0, 0, 0, str round(_signalPowerLog), 1, 0.05, "PuristaMedium"];
+			};		
+		}forEach(ASLToAGL getPosASL player nearEntities [["Civilian_F"]+EM_Infantry_List, 1000]);
 		EM_Signal_Inf = _EM_Signal_Inf;
 	};
 }];
