@@ -264,7 +264,7 @@ class CfgHints
 		{
 			displayName = "%11";
 			displayNameShort = "안테나 선택";
-			description = "[%11]는 좁은 대역에서 지휘를 장교 혹은 시민 및 인질들의 휴대전화에서 발생하는 전파를 감지하거나, 차량과 같은 장비에서 사용되는 통신 장비의 전파를 감지합니다.";
+			description = "[%11]는 좁은 대역에서 지휘를 장교 혹은 인질들의 휴대전화에서 발생하는 전파를 감지하거나, 차량과 같은 장비에서 사용되는 통신 장비의 전파를 감지합니다.";
 			tip = "%2시민의 휴대전화는 최대 1km, 차량은 3km 내에서 감지될 수 있습니다.%1%2통신용 주파수를 사용하는 강력한 전파 발생원에 주의하세요.";
 			arguments[] = {
 				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_01_f' >> 'displayName');"
