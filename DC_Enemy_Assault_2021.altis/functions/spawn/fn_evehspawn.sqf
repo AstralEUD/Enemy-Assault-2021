@@ -27,10 +27,21 @@ for "_x" from 0 to (_grpnum)-1 do {
 	_veh = selectRandom _vehlist;
 	_armor1 = createVehicle [_veh,_marker, [], 0, "NONE"];
 
+	_tanklist = ["I_MBT_03_cannon_F","O_MBT_02_cannon_F","O_T_MBT_02_cannon_ghex_F","O_MBT_04_cannon_F","O_T_MBT_04_cannon_F","O_MBT_04_command_F","O_T_MBT_04_command_F"];
 	if ((random 1) > 0.8) then { 
 		_armor1 allowCrewInImmobile true;
-	} else {
-		_armor1 allowCrewInImmobile false;
+	};
+
+	if (((random 1) > 0.95) && ((_tanklist find _veh) != 1)) then {
+		[_armor1] spawn {
+			params ["_armor1"];
+			while {alive _armor1} do {
+				if ((count (crew _armor1)) == 0) then {
+					_armor1 setDamage 1;
+				};
+				sleep 3;
+			};
+		};
 	};
 
 	//sleep 1;

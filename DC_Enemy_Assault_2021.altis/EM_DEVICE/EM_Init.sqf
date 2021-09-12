@@ -1,3 +1,5 @@
+// MADE BY : SAKY 
+// This script is DC-Server only
 EM_Infantry_List=[
 "C_scientist_F",
 "B_Helipilot_F",
