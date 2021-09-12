@@ -19,7 +19,7 @@ addMissionEventHandler ["Draw3D", {
 				drawLine3D[ASLToAGL _gunPosASL, unitAimPositionVisual _x, [ _cosine, 1 - _cosine, 0, 1 ]];
 				drawIcon3D["", [ _cosine, 1 - _cosine, 0, 1 ], unitAimPositionVisual _x, 0, 0, 0, str round(_signalPowerLog), 1, 0.05, "PuristaMedium"];
 			};		
-		}forEach(ASLToAGL getPosASL player nearEntities [["Civilian_F"]+EM_Infantry_List, 1000]);
+		}forEach(ASLToAGL getPosASL player nearEntities [EM_Infantry_List, 1000]);
 		EM_Signal_Inf = _EM_Signal_Inf;
 	};
 }];
