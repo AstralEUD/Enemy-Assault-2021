@@ -1,3 +1,15 @@
+EM_Infantry_List=[
+"C_scientist_F",
+"B_Helipilot_F",
+"B_officer_F",
+"I_officer_F",
+"I_Story_Colonel_F",
+"I_E_officer_F",
+"I_E_officer_parade_F",
+"O_Story_Colonel_F",
+"O_Story_CEO_F",
+"O_officer_F"];
+
 EM_Object_List = [
 "Land_DataTerminal_01_F",
 "Land_Suitcase_F",

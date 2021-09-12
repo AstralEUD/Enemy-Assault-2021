@@ -200,7 +200,6 @@ CAU_xChat_MOTD[]={
 };
 
 
-
 // SAKY EM_DEVICE SCRIPT
 class CfgHints
 {
@@ -212,11 +211,11 @@ class CfgHints
 		{
 			displayName = "SIGINT 정보";
 			displayNameShort = "아는 것이 힘이다.";
-			description = "특정 전파 발신원들의 주파수는 아래와 같이 알려져있습니다.%1%2[78-89MHz] 군용 무선 통신 및 차량 위치 발신기%1%2[390-500MHz] 임무 목표 추적용 미약 전계 발생기(+약간의 주파수 떨림) %1%2[431MHz] 일반 지뢰류%1%2[433MHz] 원격 기폭 가능한 폭발물%1%2[435MHz] IED(대형 IED의 경우 더 큰 주파수 떨림)%1%2[79.3,81.2,84.6,85.5MHz] 일부 군용 통신 시설";			
+			description = "특정 전파 발신원들의 주파수는 아래와 같이 알려져있습니다.%1%2[78-89MHz] 장교 및 시민용 스마트폰 전파%1%2[390-500MHz] 임무 목표 추적용 미약 전계 발생기(+약간의 주파수 떨림) %1%2[431MHz] 일반 지뢰류%1%2[433MHz] 원격 기폭 가능한 폭발물%1%2[435MHz] IED(대형 IED의 경우 더 큰 주파수 떨림)%1%2[79.3,81.2,84.6,85.5MHz] 일부 군용 통신 시설";			
 			tip = "군용 및 민간 통신시설은 스펙트럼 장치가 탐지할 수 있는 모든 주파수 대역을 사용합니다.";
 			image = "\a3\ui_f\data\gui\cfg\hints\Direction_ca.paa";
 			noImage = false;
-			dlc = 1.02179e+006;
+			//dlc = -1;
 		};
 		
 		class SpectrumDeviceMain5
@@ -230,7 +229,7 @@ class CfgHints
 			};
 			image = "\a3\ui_f\data\gui\cfg\hints\Voice_ca.paa";
 			noImage = false;
-			dlc = 1.02179e+006;
+			//dlc = -1;
 		};
 		
 		class SpectrumDeviceMain4
@@ -244,7 +243,7 @@ class CfgHints
 			};
 			image = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_03_ca.paa";
 			noImage = false;
-			dlc = 1.02179e+006;
+			//dlc = -1;
 		};		
 		
 		class SpectrumDeviceMain3
@@ -258,21 +257,21 @@ class CfgHints
 			};
 			image = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_02_ca.paa";
 			noImage = false;
-			dlc = 1.02179e+006;
+			//dlc = -1;
 		};		
 		
 		class SpectrumDeviceMain2
 		{
 			displayName = "%11";
 			displayNameShort = "안테나 선택";
-			description = "[%11]는 좁은 군용 주파수 대역에서 분대 지휘를 위해 사용되는 분대장들의 무전기에서 발생하는 전파를 감지하거나, 차량과 같은 장비에서 사용되는 통신 장비의 전파를 감지합니다.";
-			tip = "%2보병 분대장은 최대 1km, 차량은 3km 밖에서도 감지될 수 있습니다.%1%2군용 주파수를 사용하는 강력한 전파 발생원에 주의하세요.";
+			description = "[%11]는 좁은 대역에서 지휘를 장교 혹은 시민 및 인질들의 휴대전화에서 발생하는 전파를 감지하거나, 차량과 같은 장비에서 사용되는 통신 장비의 전파를 감지합니다.";
+			tip = "%2시민의 휴대전화는 최대 1km, 차량은 3km 내에서 감지될 수 있습니다.%1%2통신용 주파수를 사용하는 강력한 전파 발생원에 주의하세요.";
 			arguments[] = {
 				"getText (configfile >> 'CfgWeapons' >> 'muzzle_antenna_01_f' >> 'displayName');"
 			};
 			image = "\a3\Weapons_F_Enoch\Pistols\ESD_01\data\ui\gear_muzzle_antenna_01_ca.paa";
 			noImage = false;
-			dlc = 1.02179e+006;
+			//dlc = -1;
 		};
 		
 		class SpectrumDeviceMain1
@@ -287,7 +286,7 @@ class CfgHints
 			};
 			image = "\a3\data_f_enoch\logos\arma3_enoch_hint_icon_ca.paa";
 			noImage = false;
-			dlc = 1.02179e+006;
+			//dlc = -1;
 		};
 	};
 };
