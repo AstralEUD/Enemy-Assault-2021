@@ -42,14 +42,14 @@ for "_i" from 0 to 1 step 0 do {
     //Extras
 	private _topButton = ((findDisplay 49) displayCtrl 2);
 	_topButton ctrlEnable false;
-	_topButton ctrlSetText format ["discord.gg/SbAzgYjWqV"];
+	_topButton ctrlSetText format ["ENEMY ASSAULT 2021"];
 	_saveButton ctrlEnable false;
 	_saveButton ctrlSetText format ["Player UID: %1",getPlayerUID player];
 
     //Block off our buttons first.
     _abortButton ctrlEnable false;
-    _fieldManual ctrlEnable false; //Never re-enable, blocks an old script executor.
-    _fieldManual ctrlShow false;
+    //_fieldManual ctrlEnable false; //Never re-enable, blocks an old script executor.
+    //_fieldManual ctrlShow false;
 
     [] spawn _escSync;
 
