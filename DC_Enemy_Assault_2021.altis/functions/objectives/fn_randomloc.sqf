@@ -38,7 +38,8 @@ _veh = createVehicle [_obj,_spawnpos, [], 0, "NONE"];
 if (_veh iskindof "StaticWeapon") then {
 	createVehicleCrew _veh;
 };
-_veh lock true;
+_veh lock 2;
+_veh setVehicleLock "LOCKED";
 _veh_name = (configFile >> "cfgVehicles" >> (_obj) >> "displayName") call bis_fnc_getcfgdata;
 //_veh_pic =  (configFile >> "cfgvehicles" >> (_obj) >> "picture") call bis_fnc_getcfgdata;
 _VarName = ("ghst_" + _obj + _rnum + str round(_spawnpos select 0));

@@ -1,4 +1,5 @@
 params ["_reason","_killer"];
+if (isServer) exitWith {};
 if (_reason == "civ") exitWith {
 	systemChat "시민을 사살하여 패널티가 주어졌습니다. 주의하세요!";
 	AST_kill_score = AST_kill_score - 10;

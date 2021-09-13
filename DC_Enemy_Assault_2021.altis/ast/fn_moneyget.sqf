@@ -1,4 +1,5 @@
 private ["_money", "_randomMoney", "_subtext"];
+if (isServer) exitWith {};
 _money = nearestObject [position player, 'Land_money_F'];
 _randomMoney = _money getVariable ["randomMoney", 1];
 AST_kill_score = AST_kill_score + _randomMoney;

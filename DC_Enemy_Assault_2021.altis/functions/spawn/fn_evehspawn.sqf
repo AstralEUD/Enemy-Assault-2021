@@ -32,7 +32,7 @@ for "_x" from 0 to (_grpnum)-1 do {
 		_armor1 allowCrewInImmobile true;
 	};
 
-	if (((random 1) > 0.95) && ((_tanklist find _veh) != 1)) then {
+	if (((random 1) > 0.1) && ((_tanklist find _veh) != 1)) then {
 		[_armor1] spawn {
 			params ["_armor1"];
 			while {alive _armor1} do {
