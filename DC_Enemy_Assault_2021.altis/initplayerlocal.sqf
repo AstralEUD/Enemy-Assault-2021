@@ -249,12 +249,6 @@ gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 			0.5 fadeSound 0.1;
 			hint "귀마개 착용!";
 		};
-	}
-	else {
-		if (_this select 1 == 21) then {
-			closedialog 0;
-			_nul = createDialog "NATO_player";
-		};
 	};
 	_handled
 }];

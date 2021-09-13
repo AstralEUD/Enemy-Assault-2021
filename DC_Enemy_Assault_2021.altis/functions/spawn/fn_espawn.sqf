@@ -40,6 +40,10 @@ _eGrp = createGroup _sideguards;
 //set combat mode
 _eGrp setCombatMode "RED";
 
+if ((random 1) > 0.7) then {
+	_eGrp enableIRLasers true;
+};
+
 [_eGrp,_patrol_mark,_radarray,_markunitsarray,["SAFE", "NORMAL", "STAG COLUMN"]] call ghst_fnc_waypoints;
 	
 	//repspawn groups when all untis are dead
