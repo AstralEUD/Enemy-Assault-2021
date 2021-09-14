@@ -17,9 +17,12 @@ _rnum = str(round (random 999));
 _wGrp = createGroup CIVILIAN;//_wside;
 //_pow = [[_position_mark select 0, _position_mark select 1, 0.2],_wGrp,_unit_type,0.8] call ghst_fnc_create_unit;
 
-_pow = createAgent [_unit_type, [_position_mark select 0, _position_mark select 1, 0.2],[], 0, "NONE"];
+_pow = _wGrp createUnit [_unit_type, [_position_mark select 0, _position_mark select 1, 0.2],[], 0, "NONE"];
 [_pow,0.2] call ghst_fnc_aiskill;
-[_pow] join _wGrp;
+_pow disableAI "AUTOCOMBAT";
+_pow disableAI "FSM";
+_pow disableAI "WEAPONAIM";
+_pow disableAI "TARGET";
 
 _pow allowdamage false;
 if !(isnil "AGM_Interaction_fnc_setCaptivityStatus") then {

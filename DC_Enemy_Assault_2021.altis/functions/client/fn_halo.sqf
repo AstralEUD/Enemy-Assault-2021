@@ -120,6 +120,11 @@ if (vehicle _caller == _caller) then {
 		clickpos = nil;
 		mapclick = false;
 		};
+	if (AST_missionMaking == true) exitWith {
+	_caller groupchat "현재 작전지가 생성되고 있습니다. 잠시 기다려 주세요.";
+	clickpos = nil;
+	mapclick = false;
+		};
 	if (_typehalo and (leader _grp1 == _caller)) then {
 		private ["_sp"];
 		_dir = getDir _caller;

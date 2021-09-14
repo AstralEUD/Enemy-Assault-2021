@@ -1,4 +1,5 @@
 params ["_killedpos"];
+if (isServer) exitWith {};
 private _mypos = position player;
 private _dist = _killedpos distance2D _mypos;
 if (_dist < 200) then {

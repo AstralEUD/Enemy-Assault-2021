@@ -53,11 +53,6 @@ class ast
 		class hud_minus {};
 		class hud_update {};
 	};
-	class spectrum
-	{
-		file = "ast\spectrum";
-		//class spec_init {};
-	};
 	class spawner
 	{
 		file = "ast\spawner";

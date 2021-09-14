@@ -184,7 +184,7 @@ if ((isClass(configFile >> "CfgPatches" >> "rhs_main")) and (_PARAM_RHS == 1)) t
 
 	ghst_attackplane = ["B_Plane_CAS_01_F","B_Plane_CAS_01_F","B_Plane_Fighter_01_F","B_Plane_Fighter_01_Stealth_F"];
 	
-	ghst_powarray = ["C_scientist_F","B_Helipilot_F","B_officer_F","B_Pilot_F"];
+	ghst_powarray = ["C_scientist_F","B_Helipilot_F","B_officer_F"];
 	
 	ghst_vehcivlist = ghst_civvehList;
 	

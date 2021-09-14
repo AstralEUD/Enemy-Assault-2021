@@ -1,4 +1,6 @@
 _paramDaytimeHour = "paramDaytimeHour" call BIS_fnc_getParamValue;
+AST_missionMaking = false;
+publicVariable 'AST_missionMaking';
 if (_paramDaytimeHour == 0) then {
 setDate [2024, 3, 1, (round(random 24)), (round(random 55))];//(round(random 1440))
 } else {

@@ -22,12 +22,12 @@ if ((vehicle player) isKindOf "Helicopter") then {
 } else {
 	if ((vehicle player) isKindOf "Plane") then {
 		[
-			["25포인트가 소모됩니다. 계속 하시겠습니까?"],
+			["20포인트가 소모됩니다. 계속 하시겠습니까?"],
 			"차량 재무장 및 수리",
 			{
 				if _confirmed then {
-					AST_kill_score = AST_kill_score - 25;
-					[25] call AST_fnc_hud_minus;
+					AST_kill_score = AST_kill_score - 20;
+					[20] call AST_fnc_hud_minus;
 					call ghst_fnc_reload;
 				} else {
 					systemchat "취소하셨습니다.";

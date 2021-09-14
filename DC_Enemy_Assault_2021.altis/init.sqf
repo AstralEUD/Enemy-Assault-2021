@@ -69,3 +69,8 @@ if (!isDedicated) then {waitUntil {!isNull player && isPlayer player};};
 tf_no_auto_long_range_radio = true;
 
 //["Preload"] call BIS_fnc_arsenal;
+
+// SAKY EM_DEVICE SCRIPT
+if(!isDedicated && hasInterface) then {
+	[] execVM "EM_DEVICE\EM_Init.sqf";
+};
