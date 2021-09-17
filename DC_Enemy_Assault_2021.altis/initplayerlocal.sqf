@@ -287,9 +287,7 @@ player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call as
 
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
-// auto run
 [] execVM "external\Auto_running.sqf";
-
 
 [] execVM "ast\fn_rtbReward.sqf";
 //Rearm for Aircraft

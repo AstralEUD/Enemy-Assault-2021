@@ -5,9 +5,9 @@ SAKY_RTBReward_GiveReward = {
 		if(SAKY_Reward > 0 && (vehicle player == player)) then {
 			_player = player;
 			_increase = SAKY_Reward;
-			gamelogic globalChat format ["성공적으로 복귀하여 %1의 자원을 추가로 획득하였습니다.",_increase*15];
+			gamelogic globalChat format ["성공적으로 복귀하여 %1의 자원을 추가로 획득하였습니다.",_increase*30];
 			AST_kill_score = AST_kill_score + (_increase * 15);
-			[_increase * 15] call AST_fnc_hud_plus;
+			[_increase * 30] call AST_fnc_hud_plus;
 			SAKY_Reward = 0;
 		};
 	};
