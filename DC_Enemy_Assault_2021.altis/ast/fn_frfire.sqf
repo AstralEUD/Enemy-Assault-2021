@@ -1,4 +1,4 @@
-[] spawn {
+/*[] spawn {
 	private _hc = entities "HeadlessClient_F";
 	private _vPlayers = allPlayers - _hc;
 	private _firearray = [];
@@ -21,4 +21,4 @@
 			};
 		} forEach _Players;
 	};
-};
+};*/
