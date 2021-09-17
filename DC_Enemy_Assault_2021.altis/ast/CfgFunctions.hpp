@@ -18,6 +18,7 @@ class ast
 		class fetch_money {};
 		class fobTeleport {};
 		class invEH {};
+		class Ihatefog {};
 		class killalert {};
 		class killevent {};
 		class lock_vehicle {};

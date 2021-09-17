@@ -267,6 +267,8 @@ infostand addAction ["<t color='#33CCFF' size='1.0'>총기 구매기</t>","0 = c
 
 infostand addAction ["<t color='#000080' size='1.0'> 관리자에게 제보/신고/건의","call ast_fnc_report"];
 
+infostand addAction ["<t color='#6937a1' size='1.0'> 안개 제거 (30pts)","call ast_fnc_Ihatefog"];
+
 infostand addAction ["<t color='#01DF3A' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
 FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
 ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
