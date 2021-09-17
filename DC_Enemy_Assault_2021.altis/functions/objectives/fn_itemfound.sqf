@@ -17,7 +17,7 @@ _host setVariable ["notfound", false, true];
 ["I found the intel", _caller] remoteExec ["ghst_fnc_global_sidechat"];
 
 _callerpos = getPosATL _caller;
-[_callerpos, 30] remoteExecCall ["ast_fnc_missionReward",0];
+[_callerpos, 20] remoteExecCall ["ast_fnc_missionReward",0];
 
 [playableunits,5000,100] remoteExec ["ghst_fnc_addscore"];
 

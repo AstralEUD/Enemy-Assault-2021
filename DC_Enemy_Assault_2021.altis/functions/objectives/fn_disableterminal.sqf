@@ -13,7 +13,7 @@ _host removeaction _id;
 ["Data download completed.", _caller] remoteExec ["ghst_fnc_global_sidechat"];
 
 _callerpos = getPosATL _caller;
-[_callerpos, 30] remoteExecCall ["ast_fnc_missionReward",0];
+[_callerpos, 20] remoteExecCall ["ast_fnc_missionReward",0];
 
 [_host,0] call BIS_fnc_dataTerminalAnimate;
 

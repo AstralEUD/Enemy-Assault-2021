@@ -31,6 +31,7 @@ class ast
 		class rescueReward {};
 		class rtbReward {};
 		class serverLoop {};
+		class serbonus {};
 		class transfer {};
 		class transportbonus {};
 		class vehicleKill;
