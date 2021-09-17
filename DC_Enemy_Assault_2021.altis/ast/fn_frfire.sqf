@@ -8,6 +8,7 @@
 		if (!(_check2 isKindOf "Plane") or !(_check2 isKindOf "Helicopter")) then 
 		{
 			_Players pushBackUnique _x;
+			
 		};
 	} forEach _vPlayers;
 	[[blufor, "HQ"], "작전지를 정리하겠다. 아군들은 베이스로 빠른 대피바란다."] remoteExec ["sideChat"];
