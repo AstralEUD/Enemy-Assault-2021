@@ -7,8 +7,8 @@ _rad = _this select 1;//radius around position
 [playableunits,5000,100] remoteExec ["ghst_fnc_addscore"];
 
 while {true} do {
-	//if ({ isPlayer _x and _x distance _objmark > (_rad + 500) } count playableunits == count playableunits) exitwith {};
-	if ({ isPlayer _x and (position _x) in "AST_basePositions"} count playableunits == count playableunits) exitwith {};
+	//if ({ isPlayer _x and _x distance _objmark > (_rad + 1000) } count playableunits == count playableunits) exitwith {};
+	if ({ isPlayer _x and ((position _x) inArea "AST_basePositions")} count playableunits == count playableunits) exitwith {};
 	sleep 10;
 };
 //deletes current tasks including map task icons
