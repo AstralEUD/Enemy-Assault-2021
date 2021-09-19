@@ -321,6 +321,8 @@ player addEventHandler ["Respawn", {
 //notice
 [] execVM "external\s_Chobo_Guide.sqf";
 
+[] execVM "ast\repack\fn_init.sqf";
+
 [] call ast_fnc_hud_init;
 
 diag_log "EA2021 Loading Completed!!";

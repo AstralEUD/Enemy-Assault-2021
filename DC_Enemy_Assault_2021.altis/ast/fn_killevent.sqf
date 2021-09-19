@@ -25,7 +25,7 @@ addMissionEventHandler ["EntityKilled",{
 			["write", ["team_kill_maindb", _nowtime, _tkreport]] call inidbi;
 			private _tkarray = [name _killer, name _killed, _killeruid];
 			["teamkill",_tkarray] call DiscordEmbedBuilder_fnc_buildCfg;
-			["teamkill",_killer] remoteExec ["ast_fnc_killalert",owner _killer];
+			["teamkill"] remoteExec ["ast_fnc_killalert",owner _killer];
 		};
 	};
 	if ((side group _killed == east) or (side group _killed == independent)) then {

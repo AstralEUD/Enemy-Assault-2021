@@ -69,3 +69,15 @@ class ast
 		class drop_spawner {};
 	};
 };
+class MRS 
+{
+	tag="MRS";
+	class script
+	{
+		file = "ast\repack";
+		class addselected {};
+		class init_gui {};
+		class init_listfrom {};
+		class init {};
+	};
+};
