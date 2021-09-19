@@ -47,3 +47,5 @@ _MRS_GUI_BtnInfo ctrlSetPosition [0.716563 * safezoneW + safezoneX,0.764 * safez
 _MRS_GUI_BtnInfo ctrlSetText "[ ? ]";
 _MRS_GUI_BtnInfo ctrlEnable true;
 _MRS_GUI_BtnInfo ctrlCommit 0;	
+
+true;
