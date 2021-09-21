@@ -105,6 +105,3 @@ if (_PARAM_Kavala isEqualTo 1) then {
 	_transport_heli_list = ghst_transport_heli_list;
 	[_locselpos,[_area_size,_area_size],_transport_heli_list,true,[false,"ColorRed"],(_PARAM_AISkill/10)] spawn ghst_fnc_eparadrop;
 };
-
-AST_missionMaking = false;
-publicVariable "AST_missionMaking";

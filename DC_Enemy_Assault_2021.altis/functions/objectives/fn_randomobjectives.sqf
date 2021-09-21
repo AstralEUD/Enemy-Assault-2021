@@ -210,6 +210,10 @@ for "_o" from 1 to (_numobjs) do {
 		};
 	sleep 3;
 };
+
+AST_missionMaking = false;
+publicVariable "AST_missionMaking";
+
 /*
 //check for towers around objective area and if so spawn task
 _buildarray = ["CUP_A2_oil_pump_ep1","CUP_A2_oil_tower_ep1","Land_TTowerBig_2_F","Land_TTowerBig_1_F","Land_Communication_F","Land_TTowerSmall_2_F","Land_dp_transformer_F","Land_TTowerSmall_1_F"];
