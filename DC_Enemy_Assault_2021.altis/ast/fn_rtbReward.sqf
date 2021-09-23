@@ -1,9 +1,29 @@
-if (isServer) exitWith {};
-_mypos = getPosATL player;
-_mkrpos = getMarkerPos base;
-_distance = _mypos distance2D _mkrpos;
-if (_mkrpos > 300) then {
-	systemChat "미션을 성공적으로 완수하여 보상이 지급되었습니다. 베이스로 복귀하세요!";
-	AST_kill_score = AST_kill_score + 30;
-	[30] call AST_fnc_hud_plus;
+SAKY_Reward = 0;
+
+SAKY_RTBReward_GiveReward = {
+	if((position player) inArea "AST_basePositions") then {
+		if(SAKY_Reward > 0 && (vehicle player == player)) then {
+			_player = player;
+			_increase = SAKY_Reward;
+			systemChat format ["성공적으로 복귀하여 %1의 자원을 추가로 획득하였습니다.",_increase*30];
+			AST_kill_score = AST_kill_score + (_increase * 30);
+			[_increase * 30] call AST_fnc_hud_plus;
+			SAKY_Reward = 0;
+		};
+	};
+};
+
+if (hasInterface) then {
+	[] spawn {
+		while {true} do {
+			sleep 10;
+			call SAKY_RTBreward_GiveReward;
+		};
+	};
+	player addEventHandler ["Killed", {
+		if (SAKY_Reward > 0) then {
+			systemChat ("사망으로 인해 복귀 보너스가 초기화되었습니다.");
+			SAKY_Reward = 0;
+		};
+	}];
 };

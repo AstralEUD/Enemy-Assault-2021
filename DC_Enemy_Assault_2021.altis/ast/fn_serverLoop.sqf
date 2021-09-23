@@ -2,6 +2,7 @@ sleep 60;
 ["serverOn"] call DiscordEmbedBuilder_fnc_buildCfg;
 
 while {true} do {
+	sleep 450;
 	_countAllPlayer = [count allPlayers];
 	_nowtime = dayTime;
 	_hours = floor _nowtime;
@@ -16,5 +17,6 @@ while {true} do {
 			ASTAirArray deleteAt (ASTAirArray findIf {!alive _x});
 		};
 	};
-	sleep 900;
+	sleep 450;
+	{ deleteVehicle _x } forEach allDead;
 };

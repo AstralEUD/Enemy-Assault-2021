@@ -94,16 +94,16 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 				_namelist pushback _wCName;
 			};			
 		};
-		if ((_wCName isKindOf "Man") && (_wvehclass == "Men") && !(_wCName isKindOf "I_E_survivor_F") && !(_wCName isKindOf "I_E_officer_parade_f") && !(_wCName isKindOf "I_E_officer_veteran_F") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
+		if ((_wCName isKindOf "Man") && (_wvehclass == "Men") && !(_wCName isKindOf "I_E_Scientist_Unarmed_F") && !(_wCName isKindOf "I_E_Survivor_F") && !(_wCName isKindOf "I_E_officer_Parade_f") && !(_wCName isKindOf "I_E_officer_Parade_veteran_F") && (_wfaction == "IND_E_F") && (_wDName!="") && (_wModel!="") && (_wscope==2)) then {
 
-			if (!(_wCName in _namelist) && !(_wCName iskindof "I_E_crew_F") && !(_wCName iskindof "I_E_Pilot_F")) then {
+			if (!(_wCName in _namelist) && !(_wCName iskindof "I_E_Crew_F") && !(_wCName iskindof "I_E_Pilot_F")) then {
 				_lList pushback _wCName;
 				_namelist pushback _wCName;
 			};
 			if (_wCName isKindOf "I_E_Soldier_F") then {
 				{_lList pushBack _wCName;} forEach [1,2,3,4,5,6];
 			};
-			if (!(_wCName in _namelist) && (_wCName isKindOf "I_E_crew_F")) then {
+			if (!(_wCName in _namelist) && (_wCName isKindOf "I_E_Crew_F")) then {
 				_ldList pushback _wCName;
 				_namelist pushback _wCname;
 			};

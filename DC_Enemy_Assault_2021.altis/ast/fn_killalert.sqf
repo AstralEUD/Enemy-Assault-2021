@@ -1,4 +1,4 @@
-params ["_reason","_killer"];
+params ["_reason"];
 if (isServer) exitWith {};
 if (_reason == "civ") exitWith {
 	systemChat "시민을 사살하여 패널티가 주어졌습니다. 주의하세요!";
@@ -6,7 +6,7 @@ if (_reason == "civ") exitWith {
 	[10] call AST_fnc_hud_minus;
 };
 if (_reason == "teamkill") exitWith {
-	private _fo = format ["%1님이 아군을 사살하셨습니다. 주의하세요!",name _killer];
+	private _fo = format ["%1님이 아군을 사살하셨습니다. 주의하세요!",name player];
 	[_fo] remoteExec ["hint",0];
 	AST_kill_score = AST_kill_score - 7;
 	[7] call AST_fnc_hud_minus;

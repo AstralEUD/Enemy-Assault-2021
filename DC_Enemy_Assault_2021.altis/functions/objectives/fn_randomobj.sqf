@@ -9,8 +9,6 @@ private ["_ghst_side","_ghst_patrol_air_list","_transport_heli_list","_attack_he
 //_sizey_inc = _this select 1;//size to increase objective area
 
 if (count ghst_objarray isEqualTo 0) exitwith {finish = true; publicvariable "finish"; diag_log format ["TASK LOCATIONS END %1", ghst_objarray];};
-AST_missionMaking = true;
-publicVariable "AST_missionMaking";
 
 _ghst_side = ghst_side;
 _PARAM_AISkill = "PARAM_AISkill" call BIS_fnc_getParamValue;
@@ -107,6 +105,3 @@ if (_PARAM_Kavala isEqualTo 1) then {
 	_transport_heli_list = ghst_transport_heli_list;
 	[_locselpos,[_area_size,_area_size],_transport_heli_list,true,[false,"ColorRed"],(_PARAM_AISkill/10)] spawn ghst_fnc_eparadrop;
 };
-
-AST_missionMaking = false;
-publicVariable "AST_missionMaking";

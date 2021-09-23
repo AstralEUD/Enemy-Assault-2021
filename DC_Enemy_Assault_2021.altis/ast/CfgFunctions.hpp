@@ -18,6 +18,7 @@ class ast
 		class fetch_money {};
 		class fobTeleport {};
 		class invEH {};
+		class Ihatefog {};
 		class killalert {};
 		class killevent {};
 		class lock_vehicle {};
@@ -31,6 +32,7 @@ class ast
 		class rescueReward {};
 		class rtbReward {};
 		class serverLoop {};
+		class serbonus {};
 		class transfer {};
 		class transportbonus {};
 		class vehicleKill;
@@ -65,5 +67,17 @@ class ast
 		class vehicle_refund  {};
 		class vehicle_spawner {};
 		class drop_spawner {};
+	};
+};
+class MRS 
+{
+	tag="MRS";
+	class script
+	{
+		file = "ast\repack";
+		class addselected {};
+		class init_gui {};
+		class init_listfrom {};
+		class init {};
 	};
 };

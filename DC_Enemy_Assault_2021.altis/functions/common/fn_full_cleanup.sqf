@@ -7,9 +7,14 @@ _rad = _this select 1;//radius around position
 [playableunits,5000,100] remoteExec ["ghst_fnc_addscore"];
 
 while {true} do {
-	if ({ isPlayer _x and _x distance _objmark > (_rad + 500) } count playableunits == count playableunits) exitwith {};
+	//if ({ isPlayer _x and _x distance _objmark > (_rad + 1000) } count playableunits == count playableunits) exitwith {};
+	if ({ isPlayer _x and ((position _x) inArea "AST_basePositions")} count playableunits == count playableunits) exitwith {};
 	sleep 10;
 };
+
+AST_missionMaking = true;
+publicVariable "AST_missionMaking";
+
 //deletes current tasks including map task icons
 _curtasks = Ghst_Current_tasks;
 {_x call BIS_fnc_deleteTask} foreach _curtasks;
@@ -52,7 +57,7 @@ _PARAM_CONVOYTASK = "PARAM_CONVOYTASK" call BIS_fnc_getParamValue;
 switch (_missiontype) do {
 	case 1: {
 			//launch next objective area
-			[] remoteExecCall ["ast_fnc_rtbReward",0];
+			//[] remoteExecCall ["ast_fnc_rtbReward",0];
 			call ghst_fnc_randomobj;
 		};
 	case 2: {

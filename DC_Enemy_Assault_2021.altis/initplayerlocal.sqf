@@ -267,6 +267,8 @@ infostand addAction ["<t color='#33CCFF' size='1.0'>총기 구매기</t>","0 = c
 
 infostand addAction ["<t color='#000080' size='1.0'> 관리자에게 제보/신고/건의","call ast_fnc_report"];
 
+infostand addAction ["<t color='#6937a1' size='1.0'> 안개 제거 (30pts)","call ast_fnc_Ihatefog"];
+
 infostand addAction ["<t color='#01DF3A' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
 FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
 ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
@@ -287,9 +289,9 @@ player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call as
 
 //[] execVM "external\fn_flipVeh.sqf";
 //notice
-// auto run
 [] execVM "external\Auto_running.sqf";
 
+[] execVM "ast\fn_rtbReward.sqf";
 //Rearm for Aircraft
 //[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
 
@@ -318,6 +320,8 @@ player addEventHandler ["Respawn", {
 [] execVM "external\s_Welcome_Rule.sqf";
 //notice
 [] execVM "external\s_Chobo_Guide.sqf";
+
+[] execVM "ast\repack\fn_init.sqf";
 
 [] call ast_fnc_hud_init;
 
