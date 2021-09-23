@@ -132,6 +132,8 @@ class cfgFunctions {
     #include "cau\userinputmenus\CfgFunctions.cpp"
 	//EA2021
 	#include "ast\CfgFunctions.hpp"
+	//SAKY's window mneu
+	#include "SakyContextMenu\functions.hpp" 
 };
 
 class cfgEmoji {
