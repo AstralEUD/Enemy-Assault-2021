@@ -40,7 +40,9 @@ _SCM_VehicleEventHandler={
 	}];
 };
 
-waitUntil{!isNull findDisplay 46};
-call _SCM_OpenEventHandler;
-call _SCM_VehicleEventHandler;
-systemChat "CTME Init";
+[] spawn {
+	waitUntil{!isNull findDisplay 46};
+	call _SCM_OpenEventHandler;
+	call _SCM_VehicleEventHandler;
+	systemChat "CTME Init";
+};
