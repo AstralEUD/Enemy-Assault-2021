@@ -3,12 +3,16 @@ private["_x","_objmark","_rad","_PARAM_Enemy","_curtasks","_missiontype","_mapsi
 _objmark = _this select 0;//position
 _rad = _this select 1;//radius around position
 
-["All Tasks Complete, RTB for new tasking"]remoteExec ["ghst_fnc_global_sidechat"];
+
+[player, "미션이 종료되었습니다. RTB 시간 (12분) 안에 복귀하지 않으면 새 미션이 생성됩니다."] remoteExec ["sideChat", 0];
 [playableunits,5000,100] remoteExec ["ghst_fnc_addscore"];
+private _AST_sleeptime = 0;
 
 while {true} do {
 	//if ({ isPlayer _x and _x distance _objmark > (_rad + 1000) } count playableunits == count playableunits) exitwith {};
+	_AST_sleeptime = _AST_sleeptime + 10;
 	if ({ isPlayer _x and ((position _x) inArea "AST_basePositions")} count playableunits == count playableunits) exitwith {};
+	if (_AST_sleeptime == 720) exitwith {};
 	sleep 10;
 };
 

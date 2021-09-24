@@ -12,7 +12,6 @@ class Header
 };
 
 enableDebugConsole = 1;
-
 ShowGPS = 1;
 showSquadRadar = 0;
 
@@ -83,9 +82,13 @@ class RscTitles
 	#include "ast\hud\RscTitles.hpp"
 };
 
+//SAKY's window menu
+#include "SakyContextMenu\dialog.hpp"
+
 #include "functions\dlg\Spawnveh.hpp"
 #include "functions\dlg\objlist.hpp"
 #include "CHVD\dialog.hpp"
+
 //zloadout
 #include "zload\defines.hpp"//можно и нет она уже должна быть в сервере 
 #include "zload\dialogLoadout.hpp"
@@ -120,11 +123,7 @@ class RscTitles
 #include "Trait_Changer\defines.hpp"
 #include "Trait_Changer\TC_GUI_controls.hpp"
 #include "Trait_Changer\TC_GUI_classes.hpp"
-//SAKY's window menu
-#include "SakyContextMenu\dialog.hpp"
-
 class cfgFunctions {
-	
 	//ghst functions
 	#include "functions\cfgfunctions.hpp"
 	#include "CHVD\CfgFunctions.hpp"
