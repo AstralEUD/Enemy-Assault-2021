@@ -120,6 +120,8 @@ class RscTitles
 #include "Trait_Changer\defines.hpp"
 #include "Trait_Changer\TC_GUI_controls.hpp"
 #include "Trait_Changer\TC_GUI_classes.hpp"
+//SAKY's window menu
+#include "SakyContextMenu\dialog.hpp"
 
 class cfgFunctions {
 	
