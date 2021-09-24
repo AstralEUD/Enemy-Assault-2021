@@ -237,22 +237,6 @@ if (ghst_acemod) then {
 }] call BIS_fnc_addScriptedEventHandler;
 [] spawn ghst_fnc_vehicle_actioninit;
 
-
-gameMenu = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-	_handled = FALSE;
-	if (_this select 1 == 207) then {
-		if (soundVolume <= 0.5) then {
-			0.5 fadeSound 1;
-			hint "귀마개 해제!"
-		}
-		else {
-			0.5 fadeSound 0.1;
-			hint "귀마개 착용!";
-		};
-	};
-	_handled
-}];
-
 ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 ["RegisterGroup", [group player,leader group player,[nil, "Skull Squad", false]]] call BIS_fnc_dynamicGroups;
 
