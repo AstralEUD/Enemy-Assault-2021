@@ -121,6 +121,8 @@ class RscTitles
 #include "Trait_Changer\defines.hpp"
 #include "Trait_Changer\TC_GUI_controls.hpp"
 #include "Trait_Changer\TC_GUI_classes.hpp"
+// SCM
+#include "SakyContextMenu\dialog.hpp"
 
 class cfgFunctions {
 	//ghst functions
@@ -132,6 +134,8 @@ class cfgFunctions {
     #include "cau\userinputmenus\CfgFunctions.cpp"
 	//EA2021
 	#include "ast\CfgFunctions.hpp"
+	//SCM	
+	#include "SakyContextMenu\functions.hpp"
 };
 
 class cfgEmoji {
