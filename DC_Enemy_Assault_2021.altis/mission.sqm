@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=473;
+		nextID=483;
 	};
 	class Camera
 	{
-		pos[]={24151.805,643.29425,18486.291};
-		dir[]={0.29026371,-0.89047623,-0.35061306};
-		up[]={0.56788599,0.45493591,-0.6859563};
-		aside[]={-0.77033472,1.2306846e-006,-0.63773537};
+		pos[]={24258.961,1193.647,18391.85};
+		dir[]={-0.21671082,-0.96178752,0.16734816};
+		up[]={-0.761244,0.27375254,0.58784729};
+		aside[]={0.61119652,8.9406967e-008,0.79147971};
 	};
 };
 binarizationWanted=0;
-sourceName="DCtemp";
+sourceName="DC_Enemy_Assault_2021";
 addons[]=
 {
 	"A3_Structures_F_Mil_Helipads",
@@ -3609,7 +3609,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.2709;
+					angle=359.27081;
 					id=3220;
 					atlOffset=115.148;
 				};
@@ -3622,7 +3622,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3223;
 					atlOffset=114.962;
 				};
@@ -3635,7 +3635,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3224;
 					atlOffset=114.962;
 				};
@@ -3648,7 +3648,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3225;
 					atlOffset=114.962;
 				};
@@ -3661,7 +3661,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3226;
 					atlOffset=114.962;
 				};
@@ -3674,7 +3674,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3227;
 					atlOffset=114.962;
 				};
@@ -3687,7 +3687,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3228;
 					atlOffset=114.962;
 				};
@@ -3700,7 +3700,7 @@ class Mission
 					colorName="ColorWEST";
 					a=0.5;
 					b=0.5;
-					angle=359.27097;
+					angle=359.27081;
 					id=3229;
 					atlOffset=114.962;
 				};
