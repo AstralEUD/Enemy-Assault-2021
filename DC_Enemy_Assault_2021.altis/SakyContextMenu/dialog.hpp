@@ -254,11 +254,11 @@ class RscXSliderHSS
 {
 	deletable = 0;
 	fade = 0;
-	type = CT_XSLIDER;
+	type = 43;
 	color[] = {1,1,1,0.6};
 	colorActive[] = {1,1,1,1};
 	colorDisable[] = {1,1,1,0.4};
-	style = SL_TEXTURES + SL_HORZ;
+	style = 0x10 + 0x400;
 	shadow = 0;
 	x = 0;
 	y = 0;

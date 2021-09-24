@@ -82,8 +82,6 @@ class RscTitles
 	#include "ast\hud\RscTitles.hpp"
 };
 
-//SAKY's window menu
-#include "SakyContextMenu\dialog.hpp"
 
 #include "functions\dlg\Spawnveh.hpp"
 #include "functions\dlg\objlist.hpp"
@@ -123,6 +121,10 @@ class RscTitles
 #include "Trait_Changer\defines.hpp"
 #include "Trait_Changer\TC_GUI_controls.hpp"
 #include "Trait_Changer\TC_GUI_classes.hpp"
+
+//SAKY's window menu
+//#include "SakyContextMenu\dialog.hpp"
+
 class cfgFunctions {
 	//ghst functions
 	#include "functions\cfgfunctions.hpp"
@@ -134,7 +136,7 @@ class cfgFunctions {
 	//EA2021
 	#include "ast\CfgFunctions.hpp"
 	//SAKY's window mneu
-	#include "SakyContextMenu\functions.hpp" 
+	//#include "SakyContextMenu\functions.hpp" 
 };
 
 class cfgEmoji {
