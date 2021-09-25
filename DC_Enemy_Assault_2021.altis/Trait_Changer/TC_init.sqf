@@ -97,4 +97,4 @@ if (TC_trait_limit) then {
 	};
 };
 
-systemChat localize "STR_TC_INITIALIZED";
+systemChat "서버 스크립트 로드 성공! Windows 키를 눌러보세요.";

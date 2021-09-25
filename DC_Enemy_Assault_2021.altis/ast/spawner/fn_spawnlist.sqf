@@ -56,15 +56,15 @@ ASTvehiclesR append ["I_Truck_02_ammo_F","O_Truck_02_Ammo_F","O_Truck_03_ammo_F"
 // ASTAirListR = 확인용
 
 ASTAirList = [["B_Heli_Light_01_F",15],
-	["B_Heli_Light_01_dynamicLoadout_F",60],
+	["B_Heli_Light_01_dynamicLoadout_F",50],
 	["B_Heli_Transport_01_F",25],
 	["B_Heli_Transport_03_unarmed_F",40],
-	["I_Heli_light_03_dynamicLoadout_F",90],
+	["I_Heli_light_03_dynamicLoadout_F",60],
 	["B_T_VTOL_01_vehicle_F",100],
-	["B_T_VTOL_01_infantry_F",100],
-	["B_Plane_Fighter_01_Stealth_F",240],
-	["I_Plane_Fighter_04_F",280],
-	["I_Plane_Fighter_03_dynamicLoadout_F",240]];
+	["B_T_VTOL_01_infantry_F",100]];
+	//["B_Plane_Fighter_01_Stealth_F",240],
+	//["I_Plane_Fighter_04_F",280],
+	//["I_Plane_Fighter_03_dynamicLoadout_F",240]];
 
 ASTAirListRP = [["B_Heli_Light_01_F",15],
 	["B_Heli_Light_01_dynamicLoadout_F",20],
@@ -72,10 +72,10 @@ ASTAirListRP = [["B_Heli_Light_01_F",15],
 	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",20],
 	["B_T_VTOL_01_vehicle_F",80],
-	["B_T_VTOL_01_infantry_F",100],
-	["B_Plane_Fighter_01_Stealth_F",140],
-	["I_Plane_Fighter_04_F",140],
-	["I_Plane_Fighter_03_dynamicLoadout_F",140]];
+	["B_T_VTOL_01_infantry_F",100]];
+	//["B_Plane_Fighter_01_Stealth_F",140],
+	//["I_Plane_Fighter_04_F",140],
+	//["I_Plane_Fighter_03_dynamicLoadout_F",140]
 
 ASTAirListR = ASTairlist apply {_x select 0};
 

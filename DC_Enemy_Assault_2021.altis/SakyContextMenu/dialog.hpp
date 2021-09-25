@@ -1,9 +1,37 @@
 #include "\a3\ui_f\hpp\definecommoncolors.inc"
 
 import ContextMenu from Display3DEN;
-import RscText;
-import RscButtonMenuOK;
-import RscXSliderH;
+/*
+import RscText from missionconfigfil;
+import RscButtonMenuOK from missionconfigfil;
+import RscXSliderH from missionconfigfil;
+
+class RscTextSCM
+{
+	deletable = 0;
+	fade = 0;
+	access = 0;
+	type = CT_STATIC;
+	idc = -1;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	text = "";
+	fixedWidth = 0;
+	x = 0;
+	y = 0;
+	h = 0.037;
+	w = 0.3;
+	style = ST_LEFT;
+	shadow = 1;
+	colorShadow[] = {0,0,0,0.5};
+	font = "RobotoCondensed";
+	SizeEx = GUI_TEXT_SIZE_MEDIUM;
+	linespacing = 1;
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {1,1,1,1};
+	tooltipColorShade[] = {0,0,0,0.65};
+};
+*/
 
 class SakyContextMenuBase{
 	idd=10001;	
@@ -203,7 +231,7 @@ class SakyContextMenuBase{
 
 class SakyEarplugSettingGUI{
 	idd=10002;	
-	movingEnable=1;
+	//movingEnable=1;
 	controls[]=
 	{
 		RscText_1000,
@@ -229,7 +257,6 @@ class SakyEarplugSettingGUI{
 		w = 0.233333 * safezoneW;
 		h = 0.025 * safezoneH;
 		colorBackground[] = GUI_BCG_COLOR;
-		style = ST_TITLE_BAR;
 	};
 	class RscSlider_1900: RscXSliderH
 	{
