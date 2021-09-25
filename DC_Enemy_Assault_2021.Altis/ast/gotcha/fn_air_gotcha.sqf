@@ -4,7 +4,7 @@ _spawnmark = getMarkerPos "gotcha_spawn";
 
 _airtype = "B_T_VTOL_01_vehicle_F";
 
-_flyheight = 400;
+_flyheight = 200;
 
 _destiselect = selectRandom ["gotcha_lz1","gotcha_lz2","gotcha_lz3","gotcha_lz4","gotcha_lz5","gotcha_lz6"];
 _destpos = getMarkerPos _destiselect;
@@ -60,11 +60,12 @@ _chute setpos [(getpos _air select 0) - 20 * sin(_dir),(getpos _air select 1) - 
 _ghst_drop = createVehicle [_crate,position _chute, [], 0, "none"];
 _ghst_drop attachTo [_chute,[0,0,0]];
 
-[_ghst_drop,"B_supplyCrate_F",_chute] spawn {
+[_ghst_drop,"B_supplyCrate_F",_chute, player] spawn {
 	private ["_crate","_crateammo","_chem","_crate_name","_smoke","_chute"];
 	_crate = _this select 0;
 	_crateammo = _this select 1;
 	_chute = _this select 2;
+	_player = _this select 3;
 	
 	waituntil {(getpos _crate select 2) < 2 or isNull _chute}; 
 	detach _crate;
@@ -75,25 +76,27 @@ _ghst_drop attachTo [_chute,[0,0,0]];
 	_crate setVectorUP (surfaceNormal [_cratepos select 0,_cratepos select 1]);
 	//_crate_name = "Ammo Box";//getText (configFile >> "cfgVehicles" >> (_droptype) >> "displayName");
 	//[_crate, "ColorBlack", "mil_box", _crate_name] spawn ghst_fnc_tracker;
-	_VarName = "ghst_ammo" + str((count ghst_vehicles) + 1);
-	missionNamespace setVariable [_VarName,_crate];
-	ghst_vehicles pushBack _VarName;
+	//_VarName = "ghst_ammo" + str((count ghst_vehicles) + 1);
+	//missionNamespace setVariable [_VarName,_crate];
+	//ghst_vehicles pushBack _VarName;
 	//_crate call ghst_fnc_magazines;
 	_chem = createMine ["placed_chemlight_green", (position _crate), [], 0];
 	sleep 3;
 	_chem attachto [_crate,[0,0,0.1]];
 	_smoke = "SmokeShellPurple" createVehicle (getPosatl _crate);
-	_crate call _crateammo;
+	[_crate,"갓챠 오픈!","\a3\missions_f_oldman\data\img\holdactions\holdAction_box_ca.paa","\a3\missions_f_oldman\data\img\holdactions\holdAction_box_ca.paa","_this distance _target <3", "_caller distance _target < 3", {}, {}, {
+		params ["_target, _caller, _actionId", "_a0"];
+		[_target, _caller, _actionId, _a0] call ast_fnc_open_gotcha;		
+	},{}, [_player], 5, 0, true, false] call BIS_fnc_holdActionAdd;
 	/*
 	switch (_crateammo) do {
 		case "mags": {_crate call ghst_fnc_mags;};
 		//case "meds": {_crate call ghst_fnc_meds;};
 		default {_crate call ghst_fnc_arsenal;};
 	};*/
-			
 };
 
-_air sidechat "Ammo drop complete heading home";
+_air sidechat "Gotcha drop complete heading home";
 
 //sleep 120;
 waituntil {(_air distance2D _pos) >= 1500 or (_air distance2D _spawnmark) <= 500};

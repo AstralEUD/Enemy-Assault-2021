@@ -55,6 +55,14 @@ class ast
 		class hud_minus {};
 		class hud_update {};
 	};
+	class gotcha
+	{
+		file = "ast\gotcha";
+		class air_gotcha {};
+		class open_gotcha {};
+		class request_gotcha {};
+		class unlock_gotcha {};
+	};
 	class spawner
 	{
 		file = "ast\spawner";

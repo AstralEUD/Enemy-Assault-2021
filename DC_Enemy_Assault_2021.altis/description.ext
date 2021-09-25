@@ -1,6 +1,6 @@
 author = "Testify"; // Author
-onLoadName = "DC_Enemy Assault 2021"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
-onLoadMission = "You can buy your car/aircraft/ship by killing enemy yourself."; // Description
+onLoadName = "[자본주의] Enemy Assault 2021"; // Mission name (temporary solution; actual name set in editor will be used later in the alpha)
+onLoadMission = "스스로 돈을 벌어서 필요한 장비를 구매하세요! // 로딩시간이 약간 길 수 있으니 잠시만 기다려 주세요!"; // Description
 loadScreen = "pics\ghostadmin_icon.paa"; // Preview picture
 overviewText = "Enemy forces occupy most of the island. Await orders from command and complete all tasks given. Good Luck.";
 //overviewPicture = "pics\overview.paa";

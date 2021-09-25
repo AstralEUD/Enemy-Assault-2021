@@ -254,6 +254,9 @@ infostand addAction ["<t color='#000080' size='1.0'> 관리자에게 제보/신�
 infostand addAction ["<t color='#6937a1' size='1.0'> 안개 제거 (30pts)","call ast_fnc_Ihatefog"];
 
 infostand addAction ["<t color='#01DF3A' size='1.0'> FOB로 이동","call ast_fnc_fobTeleport"];
+
+gotcha_board addAction ["<t color='#ffb229' size='2.0'> 무기 갓챠","call ast_fnc_request_gotcha"];
+
 FOB_RTB addAction ["<t color='#33CCFF' size='1.0'> 베이스로 이동","player setPos getMarkerPos 'Respawn_west';"];
 ASTfobSpawner addAction ["<t color='#6666FF' size='1.5'> Vehicle Refund","call ast_fnc_fob_refund"];
 ASTfobSpawner addAction ["<t color='#d000ff' size='1.5'> Vehicle Spawner","call ast_fnc_fob_spawner"];
@@ -278,6 +281,8 @@ player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call as
 [] execVM "ast\fn_rtbReward.sqf";
 //Rearm for Aircraft
 //[player,"marker_46",500] spawn zlo_fnc_CreateZone;//[PLAYER,MARKERNAME,RADIUS]
+
+AST_gotcha_ticket = 0;
 
 player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
 
