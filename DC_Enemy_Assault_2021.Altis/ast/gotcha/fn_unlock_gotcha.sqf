@@ -36,9 +36,9 @@ switch _result do
 	};
 	case "MAAWS": {
 		if ((AST_purchased find "launch_MRAWS_green_rail_F") == -1) then {
-			_hintformat = format ["%1님이 MAAWS (기본형) 뽑기에 성공하셨습니다!",name player];
+			_hintformat = format ["%1님이 MAAWS (Mod 1) 뽑기에 성공하셨습니다!",name player];
 			["아스널 언락 축하 알림",_hintformat] remoteExec ["BIS_fnc_showSubtitle",0];
-			private _toget = ["launch_MRAWS_green_rail_F","launch_MRAWS_olive_rail_F","launch_MRAWS_sand_rail_F"];
+			private _toget = ["launch_MRAWS_green_F","launch_MRAWS_olive_F","launch_MRAWS_sand_F"];
 			{
 				AST_purchased pushBackUnique _x;
 				AST_limitedItems = AST_limitedItems - _x;
@@ -46,7 +46,7 @@ switch _result do
 			[player, "weaponlist", AST_purchased] remoteExec ['AST_fnc_db_save', 2, false];
 			call ast_fnc_arsenal_search;
 		} else {
-			["뽑기 알림","이미 구매하신 아이템 (MAAWS 기본형)를 뽑으셔서 뽑기 돈의 절반을 돌려드립니다."] spawn BIS_fnc_showSubtitle;
+			["뽑기 알림","이미 구매하신 아이템 (MAAWS Mod 1)를 뽑으셔서 뽑기 돈의 절반을 돌려드립니다."] spawn BIS_fnc_showSubtitle;
 			[250] call AST_fnc_hud_plus;
 			AST_kill_score = AST_kill_score + 250;
 		};
