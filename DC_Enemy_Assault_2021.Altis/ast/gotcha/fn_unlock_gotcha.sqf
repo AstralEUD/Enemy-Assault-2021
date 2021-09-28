@@ -35,7 +35,7 @@ switch _result do
 		};
 	};
 	case "MAAWS": {
-		if ((AST_purchased find "launch_MRAWS_green_rail_F") == -1) then {
+		if ((AST_purchased find "launch_MRAWS_green_F") == -1) then {
 			_hintformat = format ["%1님이 MAAWS (Mod 1) 뽑기에 성공하셨습니다!",name player];
 			["아스널 언락 축하 알림",_hintformat] remoteExec ["BIS_fnc_showSubtitle",0];
 			private _toget = ["launch_MRAWS_green_F","launch_MRAWS_olive_F","launch_MRAWS_sand_F"];
