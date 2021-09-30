@@ -66,7 +66,7 @@ _ghst_drop attachTo [_chute,[0,0,0]];
 	_crateammo = _this select 1;
 	_chute = _this select 2;
 	_player = _this select 3;
-	_crate setDamage false;
+	_crate allowDamage false;
 	
 	waituntil {(getpos _crate select 2) < 2 or isNull _chute}; 
 	detach _crate;

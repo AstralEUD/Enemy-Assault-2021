@@ -10,5 +10,5 @@ if ((random 1) < 0.3) then {
 } else {
 	private _text = format ["%1원을 획득하였습니다.",_randomMoney];
 };
-["전리품 알림",_text] spawn BIS_fnc_showSubtitle;
+//["전리품 알림",_text] spawn BIS_fnc_showSubtitle;
 deleteVehicle _money;
