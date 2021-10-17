@@ -12,7 +12,7 @@ if (AST_kill_score < 500) exitWith {systemChat "돈이 부족합니다."};
 			[player,"갓챠 오픈!","\a3\missions_f_oldman\data\img\holdactions\holdAction_box_ca.paa","\a3\missions_f_oldman\data\img\holdactions\holdAction_box_ca.paa","_this distance _target <3", "_caller distance _target < 3", {}, {}, {
 				params ["_target, _caller, _actionId", "_a0"];
 				[_target, _caller, _actionId, _a0] call ast_fnc_open_gotcha;		
-			},{}, [_player], 5, 0, false, false] call BIS_fnc_holdActionAdd;
+			},{}, [_player], 5, 0, true, false] call BIS_fnc_holdActionAdd;
 		} else {
 			systemchat "#";
 		};

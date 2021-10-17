@@ -65,7 +65,7 @@ ASTFOBvehicles = [["B_Quadbike_01_F",5],
 	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",60]];
 
-ASTvehiclesRP = [["B_Quadbike_01_F",5],
+ASTFOBvehiclesRP = [["B_Quadbike_01_F",5],
 	["B_Truck_01_mover_F",15],
 	["B_MRAP_01_F",15],
 	["B_MRAP_01_hmg_F",15],
