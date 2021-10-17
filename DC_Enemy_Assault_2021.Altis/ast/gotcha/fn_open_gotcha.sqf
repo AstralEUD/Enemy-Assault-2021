@@ -1,5 +1,4 @@
 params ["_target","_caller","_actionId","_a0"];
-if (_caller != _a0) exitWith {systemChat "자신의 것이 아닙니다!"};
 _randomn = random [0, 50, 100];
 if (_randomn > 97) then {
 	["vorona"] call ast_fnc_unlock_gotcha;
