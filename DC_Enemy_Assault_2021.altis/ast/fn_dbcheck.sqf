@@ -29,6 +29,9 @@ addMissionEventHandler ["PlayerConnected",
 	params ["_id", "_uid", "_name", "_jip", "_owner"];
     _score = ["read", [_uid, "kill_score", 30]] call inidbi;
     [_score] remoteExec ["ast_fnc_addMoney", _owner];
+    _time = "getTimeStamp" call inidbi;
+    _time pushBack _name;
+    _lastconnect = ["write", [_uid, "last_connect",_time]] call inidbi;
 }];
 
 AST_debugKey = ["read", ["SERVER_KEY", "debug", []]] call inidbi;
