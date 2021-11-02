@@ -66,6 +66,7 @@ _ghst_drop attachTo [_chute,[0,0,0]];
 	_crateammo = _this select 1;
 	_chute = _this select 2;
 	_player = _this select 3;
+	_crate allowDamage false;
 	
 	waituntil {(getpos _crate select 2) < 2 or isNull _chute}; 
 	detach _crate;
@@ -87,7 +88,7 @@ _ghst_drop attachTo [_chute,[0,0,0]];
 	[_crate,"갓챠 오픈!","\a3\missions_f_oldman\data\img\holdactions\holdAction_box_ca.paa","\a3\missions_f_oldman\data\img\holdactions\holdAction_box_ca.paa","_this distance _target <3", "_caller distance _target < 3", {}, {}, {
 		params ["_target, _caller, _actionId", "_a0"];
 		[_target, _caller, _actionId, _a0] call ast_fnc_open_gotcha;		
-	},{}, [_player], 5, 0, true, false] call BIS_fnc_holdActionAdd;
+	},{}, [_player], 5, 0, false, false] call BIS_fnc_holdActionAdd;
 	/*
 	switch (_crateammo) do {
 		case "mags": {_crate call ghst_fnc_mags;};

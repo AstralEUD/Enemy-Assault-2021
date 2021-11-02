@@ -35,7 +35,7 @@ class ast
 		class serbonus {};
 		class transfer {};
 		class transportbonus {};
-		class vehicleKill;
+		class vehicleKill {};
 	};
 	class arsenal 
 	{

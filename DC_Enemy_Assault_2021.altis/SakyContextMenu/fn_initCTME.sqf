@@ -35,10 +35,6 @@ SCM_EarPlugVolume=0;
 			params ["_unit", "_corpse"];
 			SCM_FlagTexture="";		
 		}];
-		addMissionEventHandler ["HandleChatMessage", {
-			params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType"];	
-			if ((_person distance player)<30) then {[_person, _text] spawn SCM_fnc_playGestureRemote};
-		}];
 	};
 
 	waitUntil{!isNull findDisplay 46};

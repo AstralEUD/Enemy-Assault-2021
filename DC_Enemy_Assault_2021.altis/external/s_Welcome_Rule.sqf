@@ -11,7 +11,7 @@
 	<br/><t align='center' size='1.5'>기존 가격의 1.2배로 환불처리하였으며, 유저분들의 양해를 구합니다. 죄송합니다.</t>
 	<br/><t align='center' size='1'> - 초보자는 초보자 가이드를 참고하세요 -</t>
 	<br/><t align='center' size='1'></t>
-	<br/><t align='right'><t size='1'>디스코드<a color='#ffd800' href='https://discord.gg/SbAzgYjWqV'> 접속하기</a>
+	<br/><t align='right'><t size='1'>디스코드<a color='#ffd800' href='https://discord.gg/WSR9NZZPXC'> 접속하기</a>
 	<br/>아르마 마이너갤 <a color='#008cff' href='http://gall.dcinside.com/mgallery/board/lists/?id=arma'> 접속하기</a></t></t><br/>
 	<br/>
 	<br/><t align='center' size='0.9'>분대창설, 가입은 U키, 그외 마우스휠을 굴려 메뉴를 사용</t>

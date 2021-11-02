@@ -11,7 +11,7 @@ _CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] selec
 if (isNil "_CheckAlpha") exitWith {hint "There is no a Car/Aircraft/Ship on the spawn point. Check out!"};
 _spCheck = typeOf _CheckAlpha;
 _playerUID = getPlayerUID player;
-_selections = ASTvehiclesR find _spCheck;
+_selections = ASTFOBvehiclesR find _spCheck;
 if (_selections == -1) exitWith {hint format ["This vehicle are not added to Vehicle List %1",_spCheck];};
 if (count(fullCrew [_CheckAlpha, "cargo"]) > 1) exitWith {hint "There is still crew on the vehicle";};
 if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're not owner/spawner of this Vehicle";};
@@ -24,8 +24,8 @@ if (_CheckAlpha getVariable ["spawner",""] != _playerUID) exitWith {hint "You're
 			_position = getMarkerPos ["FOB_Spawn_Marker",false];
 			_CheckAlpha = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0; 
 			_spCheck = typeOf _CheckAlpha;
-			_selections = ASTvehiclesR find _spCheck;
-			_price = (ASTvehiclesRP select _selections) select 1;
+			_selections = ASTFOBvehiclesR find _spCheck;
+			_price = (ASTFOBvehiclesRP select _selections) select 1;
 			AST_kill_score = AST_kill_score + _price;
 			//ghst_vehicles = ghst_vehicles - _CheckAlpha;
 			[player, "kill_score", AST_kill_score] remoteExec ["AST_fnc_db_save", 2, false];

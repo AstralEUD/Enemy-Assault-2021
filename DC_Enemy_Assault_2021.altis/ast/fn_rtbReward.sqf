@@ -5,8 +5,8 @@ SAKY_RTBReward_GiveReward = {
 		if(SAKY_Reward > 0 && (vehicle player == player)) then {
 			_player = player;
 			_increase = SAKY_Reward;
-			AST_gotcha_ticket = AST_gotcha_ticket + _increase;
-			systemChat format ["성공적으로 복귀하여 %1의 자원과 %2개의 뽑기 티켓을 추가로 획득하였습니다.",_increase*30,_increase];
+			//AST_gotcha_ticket = AST_gotcha_ticket + _increase;
+			systemChat format ["성공적으로 복귀하여 %1의 자원을 획득하였습니다.",_increase*30];
 			AST_kill_score = AST_kill_score + (_increase * 30);
 			[_increase * 30] call AST_fnc_hud_plus;
 			SAKY_Reward = 0;

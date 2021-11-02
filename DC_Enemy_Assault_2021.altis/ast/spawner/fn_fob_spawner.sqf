@@ -10,7 +10,7 @@ params["_spCheck","_position","_direction","_vehicle","_playeruid","_nowscore","
 hint format ["Now money : %1",AST_kill_score];
 [
 	[
-		ASTvehiclesSpawnList,
+		ASTFOBSpawnList,
 		4, // Selects the quadbike by default
 		false // Multi select disabled
 	],
@@ -21,21 +21,21 @@ hint format ["Now money : %1",AST_kill_score];
 		systemchat format["_data: %1",_data];
 		systemchat format["_value: %1",_value];*/
 		if (_confirmed == True) then {
-			if (AST_kill_score < ((ASTvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
+			if (AST_kill_score < ((ASTFOBvehicles select _index) select 1)) exitWith {hint "Not enough minerals.";};
 			_direction = markerDir "FOB_Spawn_Marker";
 			_playeruid = getPlayerUID player;
 			_position = getMarkerPos ["FOB_Spawn_Marker",false];
 			if(isNil "_position") exitWith {hint "The spawn point marker doesn't exist?"};
 			_spCheck = nearestObjects [_position, ["landVehicle","Air","Ship"], 12] select 0;
 			if(!isNil "_spCheck") exitWith {hint "There is a Car/Aircraft/Ship on the spawn point. Check out!"};
-			_vehicle = ((ASTvehicles select _index) select 0) createVehicle _position;
+			_vehicle = ((ASTFOBvehicles select _index) select 0) createVehicle _position;
 			_vehicle allowDamage false;
 			_vehicle setPos _position; //Make sure it gets set onto the position.
 			_vehicle setDir _direction; //Set the vehicles direction the same as the marker.
 			_vehicle allowDamage true;
-			_displayName = getText(configFile >> "CfgVehicles" >> (ASTvehicles select _index) select 0 >> "displayName");
-			AST_kill_score = AST_kill_score - ((ASTvehicles select _index) select 1);
-			_price = (ASTvehicles select _index) select 1;
+			_displayName = getText(configFile >> "CfgVehicles" >> (ASTFOBvehicles select _index) select 0 >> "displayName");
+			AST_kill_score = AST_kill_score - ((ASTFOBvehicles select _index) select 1);
+			_price = (ASTFOBvehicles select _index) select 1;
 			[_price] call AST_fnc_hud_minus;
 			_VarName = "ghst_veh" + str((count ghst_vehicles) + 1);
 			missionNamespace setVariable [_VarName,_vehicle];
