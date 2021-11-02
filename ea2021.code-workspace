@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "..\\Arkov2022"
 		}
 	],
 	"settings": {}
