@@ -12,7 +12,12 @@ while {true} do {
 		setTimeMultiplier 12;
 	};
 	if (count allPlayers != 0) then {
-		["Player",_countAllPlayer] call DiscordEmbedBuilder_fnc_buildCfg;
+		_nameAllPlayer = "";
+		{
+			_nameAllPlayer = (name _x) + " , "+ _nameAllPlayer;
+		} forEach allPlayers;
+		_AllPlayer = _countAllPlayer + [_nameAllPlayer];
+		["Player",_AllPlayer] call DiscordEmbedBuilder_fnc_buildCfg;
 		if (count ASTAirArray > 1) then {
 			ASTAirArray deleteAt (ASTAirArray findIf {!alive _x});
 		};
