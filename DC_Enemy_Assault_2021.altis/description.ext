@@ -136,6 +136,15 @@ class cfgFunctions {
 	#include "ast\CfgFunctions.hpp"
 	//SCM	
 	#include "SakyContextMenu\functions.hpp"
+	class KS
+	{	
+		class normalFunctions
+		{
+			file = "external\flip";	// Folder where all functions are.
+			class unflipVehicle {};
+			class unflipVehicleAddAction {};
+		};
+	};	
 };
 
 class cfgEmoji {
