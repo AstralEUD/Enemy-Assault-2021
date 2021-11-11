@@ -285,9 +285,12 @@ player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call as
 AST_gotcha_ticket = 0;
 
 player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
+// Spawn the Vehicle Unflip Script Loop.
+[] spawn KS_fnc_unflipVehicleAddAction;
 
 player addEventHandler ["Respawn", {
 	[] execVM "external\Auto_running.sqf";
+	[] spawn KS_fnc_unflipVehicleAddAction;
 	player addAction ["<t color = '#0080FF' size='1.5'> 재정비 </t>","call ast_fnc_reloadCheck;",nil,1.5,true,true,"","player inArea 'VAM_service_area_0' && driver (vehicle player) == player",50,false,"",""];
 	player addAction ["<t size='1.2'> 전리품 획득","call ast_fnc_moneyget",nil,1.5,true,true,"","((player distance2D (nearestObject [position player, 'Land_money_F'])) < 10) && (vehicle player == player)"];
 	player addAction ["<t color='#f89b00'>차량에 있는 AI 하차명령","call ast_fnc_aiGetOut",nil,1.5,true,true,"","((vehicle player) != player) && ((driver (vehicle player)) == player)"];
