@@ -26,3 +26,6 @@ Abuse: please use Issue Tab of Github.
 
     APL-SA : https://www.bohemia.net/community/licenses/arma-public-license-share-alike
     APL-ND : https://www.bohemia.net/community/licenses/arma-public-license-nd
+
+    METHODS of ATTRIBUTION: 
+    USING DISCORD SERVER: should be contained this github repo on Announcement channel AND do not delete any 'EA2021' text on any source. 
