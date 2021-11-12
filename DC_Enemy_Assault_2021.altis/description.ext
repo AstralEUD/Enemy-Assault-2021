@@ -209,7 +209,7 @@ CAU_xChat_whisperCommand = 1; // 0 - disabled, 1 - enabled (default)
 // System logs printed to chat when the player loads into the mission
 CAU_xChat_MOTD[]={
 //  {delay before printing,message}
-    {2,"Welcome To DCinisde Captalist's Enemy Assault !!"}
+    {2,"Welcome To Enemy Assault 2021 !!"}
 };
 
 
