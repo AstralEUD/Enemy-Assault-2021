@@ -25,17 +25,20 @@ AST_weaponPrice = [["optic_tws_mg",2000],
 ["optic_Nightstalker",2500],
 ["srifle_DMR_02_F",2750],["srifle_DMR_02_camo_F",2750],["srifle_DMR_02_sniper_F",2750],
 ["srifle_DMR_05_blk_F",2750],["srifle_DMR_05_hex_F",2750],
-["srifle_DMR_04_F",1250],["srifle_DMR_04_Tan_F",1250],
 ["srifle_DMR_03_F",2250],["srifle_DMR_03_khaki_F",2250],["srifle_DMR_03_tan_F",2250],["srifle_DMR_03_multicam_F",2250],["srifle_DMR_03_woodland_F",2250],
 ["arifle_SPAR_03_blk_F",2250],["arifle_SPAR_03_khk_F",2250],["arifle_SPAR_03_snd_F",2250],
-["srifle_EBR_F",1800],
-["srifle_DMR_06_camo_F",1900],["srifle_DMR_06_olive_F",1900],["srifle_DMR_06_hunter_F",1900],
 ["srifle_GM6_F",4500],["srifle_GM6_camo_F",4500],["srifle_GM6_ghex_F",4500],
 ["srifle_LRR_F",4000],["srifle_LRR_camo_F",4000],["srifle_LRR_tna_F",4000],
 ["MMG_01_hex_F",8500],["MMG_01_tan_F",8500],
 ["MMG_02_camo_F",8500],["MMG_02_black_F",8500],["MMG_02_sand_F",8500],
 ["5Rnd_127x108_APDS_Mag",2500],
-["H_HelmetO_ViperSP_hex_F",3000],["H_HelmetO_ViperSP_ghex_F",3000]];
+["H_HelmetO_ViperSP_hex_F",3000],["H_HelmetO_ViperSP_ghex_F",3000]
+["NVGogglesB_gry_F",2000],["NVGogglesB_grn_F",2000],["NVGogglesB_blk_F",2000],
+["arifle_AK12_F",500],["arifle_AK12_arid_F",500],["arifle_AK12_rush_F",500],
+["arifle_AK12_GL_F",500],["arifle_AK12_GL_arid_F",500],["arifle_AK12_GL_rush_F",500]
+["arifle_AK12U_F",500],["arifle_AK12U_arid_F",500],["arifle_AK12U_rush_F",500],
+["arifle_RPK12_F",750],["arifle_RPK12_arid_F",750],["arifle_RPK12_rush_F",750]
+["B_Bergen_dgtl_F",1000],["B_Bergen_hex_F",1000],["B_Bergen_mcamo_F",1000],["B_Bergen_tna_F",1000]];
 
 publicVariable "AST_weaponPrice";
 // Server-side Function to get Specific Weapon / Attachment's purchased information

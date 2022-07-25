@@ -10,10 +10,12 @@
 		<br/><t align='left'></t>
 		<br/><t align='left' size='1'>1킬당 3포인트를 획득할 수 있으며, 15분마다 15포인트를 획득할 수 있습니다.</t>
 		<br/><t align='left' size='1'>얻은 포인트로는 차량을 스폰하거나 항공기를 스폰할 수 있습니다..</t>
+		<br/><t align='left' size='1'>적 항공기나 차량을 부술 경우 추가 포인트를 획득합니다.</t>
+		<br/><t align='left' size='1'>적 보병의 주변에 현금이 드랍될떄도 있습니다....</t>
 		<br/><t align='left' size='1'> 인벤토리를 열었을 때 포인트를 확인할 수 있습니다.</t>
 		<br/><t align='left' size='1'></t>
 		<br/><t align='left' size='1'> 맵을 연 후 좌측 상단 '서버 가이드' 를 눌러 더 자세한 가이드를 확인할 수 있습니다.</t>
-		<br/><t align='left' size='1'> 디스코드나 아르마 갤러리를 이용하여 도움을 얻거나 질문할 수 있습니다.</t>
+		<br/><t align='left' size='1'> 디스코드를 이용하여 도움을 얻거나 질문할 수 있습니다.</t>
 		<br/>
 		<br/><t align='left' size='1'> 상호간의 예의와 질서를 지켜 주세요.</t>
 		<br/><t align='left' size='1'> 잘못에는 사과를, 모범에는 칭찬을 부탁드립니다.</t>

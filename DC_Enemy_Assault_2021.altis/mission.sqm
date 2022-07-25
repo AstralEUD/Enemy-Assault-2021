@@ -595,7 +595,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.9.8 SbAzgYjWqV";
+		briefingName="[EA2021] v.1.9.9 https://discord.gg/WSR9NZZPXC";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
