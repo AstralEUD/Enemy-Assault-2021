@@ -8,7 +8,7 @@ SCM_EarPlugVolume=0;
 	_SCM_OpenEventHandler = {   
 		_keyInputEH = findDisplay 46 displayaddEventHandler ["KeyDown", {   
 			params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];   
-			if(_key==0xDB) then {   
+			if((_key==0xDB) or (inputAction "User15" > 0)) then {   
 				/*
 			if(isNull(findDisplay SCM_DisplayIDD))then{   
 				if(!visibleMap)then{setMousePosition [0.5,0.5]};   

@@ -39,7 +39,7 @@ class SakyContextMenuBase{
 	{
 		SakyContextMenu
 	};
-	onKeyUp="params ['_displayOrControl', '_key', '_shift', '_ctrl', '_alt']; if(_key==0xDB) then {_displayOrControl closeDisplay 1};";
+	onKeyUp="params ['_displayOrControl', '_key', '_shift', '_ctrl', '_alt']; if((_key==0xDB) or (inputAction 'User15' > 0) then {_displayOrControl closeDisplay 1};";
 	
 	class SakyContextMenu:ContextMenu{
 		x=getMousePosition#0;
