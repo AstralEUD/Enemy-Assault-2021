@@ -7,8 +7,8 @@ private ["_pos"];
 _args = _this select 3;
 _air1 = _args select 0;
 _flyheight = _args select 1;
-_escortgrp = _args select 2;
-_pname = _args select 3;//player that called it
+//_escortgrp = _args select 2;
+_pname = _args select 2;//player that called it
 
 openMap true;
 
@@ -33,4 +33,4 @@ sleep 1;
 
 openMap false;
 
-[_pos,_air1,_flyheight,_escortgrp,_pname] remoteExec ["ghst_fnc_dest_transport",2];
+[_pos,_air1,_flyheight,_pname] remoteExec ["ghst_fnc_dest_transport",2];

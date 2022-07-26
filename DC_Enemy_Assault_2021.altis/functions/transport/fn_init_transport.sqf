@@ -13,7 +13,7 @@ _delay = (_this select 4) * 60;// time before Transport can be called again
 _timedelay = (player getVariable "ghst_transport");
 if (Time < _timedelay) exitwith {hint format ["Transport Helicopter will be available in %1",((_timedelay - Time) call ghst_fnc_timer)];};
 
-hint "Choose type of Transport";
+/*hint "Choose type of Transport";
 
 #ifndef VBS
  disableSerialization;
@@ -85,9 +85,9 @@ DLG_VEH_SELECTED = false;
 	if (_lstidx == _index) exitWith {};
 	_airtype=(_airtypelist select _cargoidx) select 0;
 
-if ((isnil "ghst_vehsel") or ! DLG_VEH_SELECTED) exitwith {hint "Nothing Selected Helicopter Transport Ready";};
+if ((isnil "ghst_vehsel") or ! DLG_VEH_SELECTED) exitwith {hint "Nothing Selected Helicopter Transport Ready";};*/
 
-hint "Choose type of Escort";
+/*hint "Choose type of Escort";
 //select escort type
 // fill dialog with vehicle names
 createDialog "Selectvehicle";
@@ -155,12 +155,12 @@ DLG_VEH_SELECTED = false;
 	_escorttype=(_escortlist select _cargoidx) select 0;
 
 if ((isnil "ghst_vehsel") or ! DLG_VEH_SELECTED) exitwith {hint "Nothing Selected Helicopter Transport Ready";};
-
+*/
 private ["_lzpad","_lzpad2","_lzpad_mark","_lzpad2_mark","_wpgetout","_destact","_destrtb"];
 
 openMap true;
 
-hint "Left click on the map where you want pick up";
+hint "탑승하실 장소를 선택하세요";
 
 mapclick = false;
 
@@ -168,7 +168,7 @@ onMapSingleClick "clickpos = _pos; mapclick = true; onMapSingleClick """";true;"
 
 waituntil {mapclick or !(visiblemap)};
 if (!visibleMap) exitwith {
-	hint "Helicopter Transport Ready";
+	hint "수송 헬리콥터 대기중";
 	};
 _pos = [clickpos select 0, clickpos select 1, (getposatl player) select 2];
 if (surfaceiswater clickpos) then {
@@ -186,5 +186,8 @@ openMap false;
 //if (surfaceiswater _pos) exitwith {hint "Helicopter cannot land in water";};
 
 player setVariable ["ghst_transport", Time + _delay];
+
+_airtype = "B_Heli_Light_01_F";
+_escorttype = "B_Heli_Light_01_dynamicLoadout_F";
 
 [_spawnmark,_pos,_airtype,_flyheight,_escorttype,player] remoteExec ["ghst_fnc_transportserver",2];

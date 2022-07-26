@@ -11,7 +11,7 @@ private _AST_sleeptime = 0;
 while {true} do {
 	//if ({ isPlayer _x and _x distance _objmark > (_rad + 1000) } count playableunits == count playableunits) exitwith {};
 	_AST_sleeptime = _AST_sleeptime + 10;
-	if ({ isPlayer _x and ((position _x) inArea "AST_basePositions")} count playableunits == count playableunits) exitwith {};
+	if ((({ isPlayer _x and ((position _x) inArea "AST_basePositions")} count playableunits) + ({ isPlayer _x and ((position _x) inArea "FOBrange")} count playableunits)) == count playableunits) exitwith {};
 	if (_AST_sleeptime == 720) exitwith {};
 	sleep 10;
 };

@@ -14,7 +14,7 @@ _heloarray = [];//spawned helicopter array
 _escount = [100];//escort spacing for each spawned as well as how many [100,150] 2 at 100 and then 150 spacing
 
 _transportgrp = createGroup (side _p);
-_escortgrp = createGroup (side _p);
+//_escortgrp = createGroup (side _p);
 
 _dir = _spawnmark getdir _pos;
 
@@ -38,7 +38,7 @@ _heloarray pushBack _air1;
 	};
 
 //escort helicopter
-{
+/*{
 	//_airtypesel = _escortarray call BIS_fnc_selectRandom;  
 	_air2_array = [[(_spawnmark select 0) + (cos _dir * _x), (_spawnmark select 1) - (sin _dir * _x), _flyheight + 100], _dir, _airtypesel, _escortgrp] call BIS_fnc_spawnVehicle;
 	_air2 = _air2_array select 0;
@@ -53,13 +53,13 @@ _heloarray pushBack _air1;
 			true
 		] call BIS_fnc_initVehicle;
 	};
-} forEach _escount;
+} forEach _escount;*/
 
 _transportgrp setBehaviour "CARELESS";
-_escortgrp setBehaviour "COMBAT";
+//_escortgrp setBehaviour "COMBAT";
 
 _transportgrp move _pos;
-_escortgrp move [(_pos select 0) + (cos _dir * 150), (_pos select 1) - (sin _dir * 150), _flyheight + 100];
+//_escortgrp move [(_pos select 0) + (cos _dir * 150), (_pos select 1) - (sin _dir * 150), _flyheight + 100];
 
 _msg = format ["%1 transport inbound to your location", _pname];
 [_air1, _msg] remoteExec ["sideChat"];
@@ -89,11 +89,11 @@ _smoke = "SmokeShellGreen" createVehicle _pos;
 		_air1 flyInHeight 0;
 		_air1 setDamage 0;
 		
-		ghst_dest_transport = [_air1,["<t size='1.5' shadow='2' color='#00FF00'>Helicopter Destination</t>", "call ghst_fnc_mappos", [_air1,_flyheight,_escortgrp,_pname], 5, false, true, "","alive _target"]] remoteExec ["addAction"]; 
+		ghst_dest_transport = [_air1,["<t size='1.5' shadow='2' color='#00FF00'>Helicopter Destination</t>", "call ghst_fnc_mappos", [_air1,_flyheight,_pname], 5, false, true, "","alive _target"]] remoteExec ["addAction"]; 
 		
 		ghst_rtb_transport = [_air1,["<t size='1.5' shadow='2' color='#00FFFF'>Helicopter RTB</t>", {
 			_this remoteExec ["ghst_fnc_rtb_transport",2];
-		}, [_air1,_flyheight,_spawnmark,_escortgrp,_heloarray,_pname], 5, false, true, "","alive _target"]] remoteExec ["addAction"];
+		}, [_air1,_flyheight,_spawnmark,_heloarray,_pname], 5, false, true, "","alive _target"]] remoteExec ["addAction"];
 	};
 
 waituntil { !(unitReady _air1) or {!(alive _air1)} or {!(canmove _air1)} or {!(alive (driver _air1))}};
@@ -104,8 +104,8 @@ deletemarker _lzpad_mark;
 		_msg = format ["We lost %1 transport helicopter.", _pname];
 		[[WEST,"AirBase"], _msg] remoteExec ["sideChat"];
 		{if !(isnil "_x") then {deletevehicle _x;};} foreach units _transportgrp;
-		{if !(isnil "_x") then {deletevehicle _x;};} foreach units _escortgrp;
+		//{if !(isnil "_x") then {deletevehicle _x;};} foreach units _escortgrp;
 		{if !(isnil "_x") then {deletevehicle _x;};} foreach _heloarray;
 		_transportgrp deleteGroupWhenEmpty true;
-		_escortgrp deleteGroupWhenEmpty true;
+		//_escortgrp deleteGroupWhenEmpty true;
 	};

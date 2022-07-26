@@ -101,7 +101,7 @@ player setVariable ["ghst_puavsup", 0];
 player setVariable ["ghst_remotedes", 0];
 };
 
-if (player iskindof "B_Soldier_SL_F") then {
+/*if (player iskindof "B_Soldier_SL_F") then {
 //[player,"AMMO"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_ammodrop", 0];
 
@@ -110,7 +110,7 @@ player setVariable ["ghst_puavsup", 0];
 
 [player,"RESPAWNTENT"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_respawntent", 0];
-};
+};*/
 
 //[player,"CARGO"] call BIS_fnc_addCommMenuItem;
 player setVariable ["ghst_cargodrop", 0];

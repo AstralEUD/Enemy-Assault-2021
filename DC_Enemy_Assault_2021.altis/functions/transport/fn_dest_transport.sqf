@@ -6,8 +6,8 @@ ghst_dest_transport = _air1 addAction ["<t size='1.5' shadow='2' color='#00FF00'
 _pos = _this select 0;
 _air1 = _this select 1;
 _flyheight = _this select 2;
-_escortgrp = _this select 3;
-_pname = _this select 4;//player name that called it
+//_escortgrp = _this select 3;
+_pname = _this select 3;//player name that called it
 _transportgrp = group _air1;
 
 if (fuel _air1 < 0.25) exitwith {
@@ -24,7 +24,7 @@ _lzpad_mark = [_pos,"ColorGreen","Drop Off","mil_end"] call ghst_fnc_mark_point;
 //_escortgrp setGroupOwner clientOwner;
 
 _transportgrp move _pos;
-_escortgrp move [(_pos select 0) + 150, (_pos select 1) - 150, _flyheight + 100];
+//_escortgrp move [(_pos select 0) + 150, (_pos select 1) - 150, _flyheight + 100];
 
 _air1 flyInHeight _flyheight;
 
@@ -47,7 +47,7 @@ deletemarker _lzpad_mark;
 		[[WEST,"AirBase"], _msg] remoteExec ["sideChat"];
 
 		{if !(isnil "_x") then {deletevehicle _x;};} foreach units _transportgrp;
-		{if !(isnil "_x") then {_x setfuel 0.2;};} foreach units _escortgrp;
+		//{if !(isnil "_x") then {_x setfuel 0.2;};} foreach units _escortgrp;
 		deletevehicle _air1;
 		_transportgrp deleteGroupWhenEmpty true;
 	} else {

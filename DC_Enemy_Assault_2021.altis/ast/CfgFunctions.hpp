@@ -76,6 +76,11 @@ class ast
 		class vehicle_spawner {};
 		class drop_spawner {};
 	};
+class support
+	{
+		file = "ast\support";
+		class transportcheck {};
+	};
 };
 class MRS 
 {
