@@ -8,9 +8,7 @@
 * 개인별로 보상과 지불을 할 수 있는 개인 포인트 형태 (Personal Points System)
 * 유저들간의 자연스러운 조화, 협력 (Natural Co-op with Users) <br>
     
-본 Enemy Assault 2021은 [Ghost의 CO34 버전 Enemy Assault](https://steamcommunity.com/sharedfiles/filedetails/?id=187361579&searchtext=) 를 바탕으로,<br>
-[아르마 마이너 갤러리](https://gall.dcinside.com/mgallery/board/lists/?id=arma, "아르마 마이너 갤러리") 구성원의 협력, 개발과 함께 제작되었습니다.<br>
-v.1.9.8 이후로 추가 업데이트를 하지 않습니다. 유지보수는 아르마 마이너 갤러리 디스코드로 문의해 주시기 바랍니다. 
+본 Enemy Assault 2021은 [Ghost의 CO34 버전 Enemy Assault](https://steamcommunity.com/sharedfiles/filedetails/?id=187361579&searchtext=) 를 바탕으로 제작되었습니다<br>
     </center>
 ***
 <center>
