@@ -21,6 +21,7 @@ while {true} do {
 		if (count ASTAirArray > 1) then {
 			ASTAirArray deleteAt (ASTAirArray findIf {!alive _x});
 		};
+		{ deleteVehicle _x; } forEach nearestObjects [getmarkerpos "Respawn_West",["WeaponHolder","GroundWeaponHolder"],1000];
 	};
 	sleep 450;
 	{ deleteVehicle _x } forEach allDead;

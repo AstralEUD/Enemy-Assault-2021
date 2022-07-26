@@ -47,6 +47,7 @@ if !(isnil "LDL_cam_rotating_center") then {
 
 {deletevehicle _x;} foreach nearestObjects [(getmarkerpos "Respawn_West"),["CraterLong_small","CraterLong","WeaponHolder","GroundWeaponHolder"], 2000,true];
 {deletevehicle _x;} foreach nearestObjects [[0,0,0],["ALL"], 200,true];
+{ deleteVehicle _x; } forEach nearestObjects [getmarkerpos "Respawn_West",["WeaponHolder","GroundWeaponHolder"],14000];
 
 //delete empty groups
 {deleteGroup _x;} foreach allGroups;
