@@ -18,7 +18,7 @@
     - Modified Ghost's Enemy Assault: Following APL-SA<br>
     - Added Astral (called as Testify) 's File (Mostly: added files without author): Following APL-ND<br>
     - Added another participants's File: Following their instructions<br>
-	- Server-side addon: @inidib2, @DiscordEmbedBuilder <br>
+	- Server-side addon: @inidbi2, @DiscordEmbedBuilder <br>
     
    *****
 Abuse: please use Issue Tab of Github.
