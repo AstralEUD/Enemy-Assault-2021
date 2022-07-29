@@ -80,6 +80,7 @@ class support
 	{
 		file = "ast\support";
 		class transportcheck {};
+		class reviveEH {};
 	};
 };
 class MRS 

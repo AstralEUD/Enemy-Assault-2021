@@ -70,7 +70,6 @@ ASTFOBvehicles = [["B_Quadbike_01_F",5],
 	["B_Heli_Light_01_F",15],
 	["B_Heli_Light_01_dynamicLoadout_F",50],
 	["B_Heli_Transport_01_F",25],
-	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",60]];
 
 ASTFOBvehiclesRP = [["B_Quadbike_01_F",5],
@@ -94,7 +93,6 @@ ASTFOBvehiclesRP = [["B_Quadbike_01_F",5],
 	["B_Heli_Light_01_F",15],
 	["B_Heli_Light_01_dynamicLoadout_F",20],
 	["B_Heli_Transport_01_F",25],
-	["B_Heli_Transport_03_unarmed_F",40],
 	["I_Heli_light_03_dynamicLoadout_F",20]];
 
 ASTvehiclesR = ASTvehicles apply {_x select 0};

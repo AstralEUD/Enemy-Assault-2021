@@ -228,7 +228,7 @@ if (ghst_acemod) then {
 [] spawn ast_fnc_escInterupt;
 //[] call ast_fnc_spawnlist;
 
-
+[] call ast_fnc_reviveEH;
 
 [ missionNamespace, "arsenalClosed", {
 	systemChat "Arsenal Loadout Saved";
@@ -304,7 +304,8 @@ player addEventHandler ["Respawn", {
 [] execVM "ast\fn_lock_vehicle.sqf";                                       
 //playerMarker
 //0 = [] execVM "external\player_markers.sqf";
-//[] execVM "external\tankboy.sqf";
+[] execVM "external\tankboy.sqf";
+
 //Transport Bonus
 [] execVM "ast\fn_transportbonus.sqf";
 [] execVM "ast\arsenal\fn_arsenal_limit.sqf";
