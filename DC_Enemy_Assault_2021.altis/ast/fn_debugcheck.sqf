@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Verifies debug key and completes current tasks       │
+│   Call Example:                                                     │
+│   [player, _key] call AST_fnc_debugcheck;                           │
+└─────────────────────────────────────────────────────────────────────*/
+
 params ["_player","_key"];
 if ((AST_debugKey find _key) != -1) then {
 	{[_X,'succeeded'] call BIS_fnc_taskSetState;} foreach Ghst_Current_tasks;;

@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Rewards players for successful transport operations  │
+│   Call Example:                                                     │
+│   [_driverName, _rewardAmount] call AST_fnc_serbonus;               │
+└─────────────────────────────────────────────────────────────────────*/
+
 params["_drivern","_reward"];
 _listplayer = call BIS_fnc_listPlayers;
 _namelist = _listplayer apply {name _x};

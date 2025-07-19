@@ -595,7 +595,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="[EA2021] v.1.9.8 SbAzgYjWqV";
+		briefingName="[ASTRO_Enemy Assault] v.1.9.901 https://discord.gg/drXxj3PmyG";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;

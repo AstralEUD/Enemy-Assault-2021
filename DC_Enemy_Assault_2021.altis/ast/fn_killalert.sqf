@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Handles kill notifications and point adjustments     │
+│   Call Example:                                                     │
+│   ["reason"] call AST_fnc_killalert;                                │
+└─────────────────────────────────────────────────────────────────────*/
+
 params ["_reason"];
 if (isServer) exitWith {};
 if (_reason == "civ") exitWith {

@@ -34,7 +34,24 @@ if (_PARAM_Overcast == 1) then {
 //Deletes players body on disconnect so AI wont be left everywhere
 addMissionEventHandler ["HandleDisconnect",{
 	params ["_unit", "_id", "_uid", "_name"];
-	_unit = _this select 0;
+	
+	// Save player's total playtime before deleting them
+	private _currentTime = time;
+	private _sessionStartTime = _unit getVariable ["AST_SESSION_START_TIME", _currentTime];
+	private _currentSessionTime = _currentTime - _sessionStartTime;
+	
+	// Get the total playtime from database
+	private _savedPlaytime = ["read", [_uid, "total_playtime", 0]] call inidbi;
+	if (isNil "_savedPlaytime") then { _savedPlaytime = 0; };
+	
+	// Update total play time
+	private _totalTime = _savedPlaytime + _currentSessionTime;
+	
+	// Save to database
+	["write", [_uid, "total_playtime", _totalTime]] call inidbi;
+	diag_log format["[AST Disconnect] Saved playtime for %1 (%2): Total %3", _name, _uid, _totalTime];
+	
+	// Delete the unit
 	deleteVehicle _unit;
 }];
 /*

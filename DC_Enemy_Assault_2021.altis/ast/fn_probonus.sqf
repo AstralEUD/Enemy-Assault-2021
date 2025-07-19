@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Awards proximity bonus based on distance to kill     │
+│   Call Example:                                                     │
+│   [_position] call AST_fnc_probonus;                                │
+└─────────────────────────────────────────────────────────────────────*/
+
 params ["_killedpos"];
 if (isServer) exitWith {};
 private _mypos = position player;

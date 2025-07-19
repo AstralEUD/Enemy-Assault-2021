@@ -182,7 +182,6 @@ class AST_arsenal_GUI
 			font = "PuristaMedium";
 			pictureColor[] = {1,1,1,1};
 			rowHeight = 0.04;
-			maxHistoryDelay = 1.0;
 			sizeEx = (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8);
 			soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
 			class ListScrollBar {
@@ -619,7 +618,7 @@ class AST_arsenal_GUI
 		class AST_STORE_SEARCH
 		{
 			type = 2; // CT_EDIT
-			idc = 11170; // Changed from 11192 to avoid conflict with category buttons
+			idc = 11192;
 			x = safeZoneX + safeZoneW * 0.31;
 			y = safeZoneY + safeZoneH * 0.75;
 			w = safeZoneW * 0.12;
@@ -635,7 +634,6 @@ class AST_arsenal_GUI
 			tooltip = "검색할 무기 이름을 입력하세요";
 			onKeyUp = "[] spawn AST_fnc_arsenal_search_new;";
 			autocomplete = "";
-			maxHistoryDelay = 1.0; // Added to avoid compilation warnings
 		};
 		
 		// 검색 아이콘
@@ -648,7 +646,7 @@ class AST_arsenal_GUI
 			w = safeZoneW * 0.03;
 			h = safeZoneH * 0.03;
 			style = 48;
-			text = "\a3\ui_f\data\GUI\RscCommon\RscButtonSearch\search_start_ca.paa";
+			text = "\a3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\icon_mg_ca.paa";
 			colorBackground[] = {0,0,0,0};
 			colorText[] = {1,1,1,0.5};
 			font = "PuristaMedium";

@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Handles unlocking items from Gotcha system and       │
+│   saving them to player's arsenal                                   │
+│   Call Example:                                                     │
+│   [_resultItem] call AST_fnc_unlock_gotcha;                         │
+└─────────────────────────────────────────────────────────────────────*/
+
 params["_result"];
 switch _result do 
 {

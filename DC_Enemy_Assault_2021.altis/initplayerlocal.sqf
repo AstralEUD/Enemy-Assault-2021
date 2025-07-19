@@ -317,7 +317,7 @@ player addEventHandler ["Respawn", {
 
 [] call ast_fnc_hud_init;
 
-diag_log "EA2021 Loading Completed!!";
+diag_log "ASTRO Loading Completed!!";
 
 [] call compileFinal preprocessFileLineNumbers "ast\player_money.sqf";
 [] spawn ghst_fnc_ptracker;
@@ -332,5 +332,75 @@ diag_log "EA2021 Loading Completed!!";
 */
 sleep 30;
 
+// Initialize inidbi for player data tracking
+if (isNil "inidbi") then {
+    inidbi = ["new", "astro_player_data"] call OO_INIDBI;
+    diag_log "[AST] iniDBI initialized";
+};
+
+// Initialize session tracking with current mission time
+AST_SESSION_START_TIME = time;
+diag_log format["[AST] Session start time set to: %1 (current time: %2)", AST_SESSION_START_TIME, time];
+
+// Store session start time on player unit for server access during disconnect
+player setVariable ["AST_SESSION_START_TIME", AST_SESSION_START_TIME, true];
+
+// Add a public variable event handler to ensure the session time is updated
+if (isNil "AST_TIME_MONITOR_RUNNING") then {
+    AST_TIME_MONITOR_RUNNING = true;
+    [] spawn {
+        while {true} do {
+            // Log every 60 seconds to monitor time progression
+            diag_log format["[AST Time Monitor] Current time: %1, Session start: %2, Elapsed: %3", 
+                time, AST_SESSION_START_TIME, (time - AST_SESSION_START_TIME)];
+            sleep 60;
+        };
+    };
+};
+
+// Fetch saved playtime from database
+_uid = getPlayerUID player;
+AST_TOTAL_PLAYTIME = ["read", [_uid, "total_playtime", 0]] call inidbi;
+if (isNil "AST_TOTAL_PLAYTIME" || {AST_TOTAL_PLAYTIME isEqualTo 0}) then {
+    AST_TOTAL_PLAYTIME = 0;
+    diag_log "[AST] No saved playtime found, initializing to 0";
+} else {
+    diag_log format["[AST] Loaded total playtime: %1", AST_TOTAL_PLAYTIME];
+};
+
 // Info text
-[str("Enemy Assault 2021") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By ArmA Gallery")] spawn BIS_fnc_infoText;
+[str("ASTRO") , str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("By ArmA Gallery")] spawn BIS_fnc_infoText;
+
+// Final check to ensure session time variables are properly set
+[] spawn {
+    sleep 5; // Wait a few seconds for everything to initialize
+    if (isNil "AST_SESSION_START_TIME") then {
+        AST_SESSION_START_TIME = time;
+        diag_log "[AST Final Check] Session start time was nil, initialized now";
+    };
+    
+    diag_log format["[AST Final Check] Current time: %1, Session start time: %2, Elapsed: %3", 
+        time, AST_SESSION_START_TIME, (time - AST_SESSION_START_TIME)];
+};
+
+// Set up disconnect event handler to save playtime
+player addEventHandler ["Killed", {
+    diag_log "[AST Events] Player killed, saving playtime";
+    [true] call AST_fnc_savePlaytime;
+}];
+
+// Add event handler for mission end
+addMissionEventHandler ["Ended", {
+    diag_log "[AST Events] Mission ended, saving playtime";
+    [true] call AST_fnc_savePlaytime;
+}];
+
+// Add periodic saving every 5 minutes
+[] spawn {
+    while {true} do {
+        sleep 300; // 5 minutes
+        diag_log "[AST Events] Periodic 5-minute save";
+        [false] call AST_fnc_savePlaytime;
+    };
+};
+};

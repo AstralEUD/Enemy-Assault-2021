@@ -610,7 +610,7 @@
 <!-- PPAP LINE END -->
 	</Package>
 </Project>
-<Project name="AST EA2021">
+<Project name="AST ASTRO">
 	<Package name="AST Error Fix Stringtable">
 		<Key ID="STR_A3_Fighter_03_Canopy_name">
 			<Original>ERROR</Original>

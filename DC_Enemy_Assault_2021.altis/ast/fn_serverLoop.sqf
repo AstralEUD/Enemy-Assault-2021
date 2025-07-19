@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Main server loop handling time acceleration,          │
+│   player reporting to Discord, and cleanup                           │
+│   Call Example:                                                     │
+│   [] spawn AST_fnc_serverLoop;                                      │
+└─────────────────────────────────────────────────────────────────────*/
+
 sleep 60;
 ["serverOn"] call DiscordEmbedBuilder_fnc_buildCfg;
 

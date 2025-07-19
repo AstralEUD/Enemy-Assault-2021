@@ -1,4 +1,7 @@
 _listselected = player getVariable ["ast_listselected",ObjNull];
+if (_listselected isEqualTo ObjNull) exitWith {
+	systemChat "선택된 무기가 없습니다.";
+};
 _index = AST_weaponlist find _listselected;
 _price = (AST_weaponPrice select _index) select 1;
 if (AST_kill_score > _price) then {

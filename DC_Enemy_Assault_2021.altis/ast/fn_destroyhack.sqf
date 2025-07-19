@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Handles hacking of demolition mission targets         │
+│   Call Example:                                                     │
+│   [_host, _caller, _id, _taskName] call AST_fnc_destroyhack;        │
+└─────────────────────────────────────────────────────────────────────*/
+
 private ["_host","_caller","_id","_tsk"];
 _host = _this select 0;
 _caller = _this select 1;

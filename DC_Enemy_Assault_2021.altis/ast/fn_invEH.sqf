@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Displays player points in inventory screen           │
+│   Call Example:                                                     │
+│   [] call AST_fnc_invEH;                                            │
+└─────────────────────────────────────────────────────────────────────*/
+
 player addEventHandler ["InventoryOpened", {
 [] spawn {
 waitUntil {!isNull (findDisplay 602)}; // Wait until the right dialog is really open

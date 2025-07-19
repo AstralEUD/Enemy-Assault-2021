@@ -45,7 +45,7 @@ player createDiaryRecord ["MissionFeatures", ["제재 방침","
 
   
 player createDiaryRecord ["MissionFeatures", ["포인트 체계","
-	EA2021에서는 개인별로 포인트를 모으거나 소비할 수 있습니다. <br/>
+	ASTRO에서는 개인별로 포인트를 모으거나 소비할 수 있습니다. <br/>
 	적을 1킬 할 시 3포인트가 축적됩니다.<br/>
 	민간인 사살시 1킬당 5포인트가 차감됩니다.<br/>
 	i키 (인벤토리 키)를 눌러 포인트를 확인할 수 있습니다. <br/>

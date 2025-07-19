@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Tracks and rewards transportation services based on  │
+│   distance traveled                                                 │
+│   Call Example:                                                     │
+│   [] call AST_fnc_transportbonus;                                   │
+└─────────────────────────────────────────────────────────────────────*/
+
 private _transbonus = {
 	{
 		params ["_vehicle", "_driver", "_pos"];

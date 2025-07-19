@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Creates an air transport to deliver Gotcha rewards   │
+│   to the player at a random landing zone                            │
+│   Call Example:                                                     │
+│   [] call AST_fnc_air_gotcha;                                       │
+└─────────────────────────────────────────────────────────────────────*/
+
 _airgrp = createGroup (side player);
 
 _spawnmark = getMarkerPos "gotcha_spawn";

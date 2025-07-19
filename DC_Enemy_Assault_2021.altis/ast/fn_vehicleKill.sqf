@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Awards points for destroying enemy vehicles           │
+│   Call Example:                                                     │
+│   [_pointAmount] call AST_fnc_vehicleKill;                          │
+└─────────────────────────────────────────────────────────────────────*/
+
 params ["_point"];
 if (isServer) exitWith {};
 AST_kill_score = AST_kill_score + _point;

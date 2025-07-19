@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Checks vehicle eligibility for rearm/repair and      │
+│   handles points deduction                                          │
+│   Call Example:                                                     │
+│   [] call AST_fnc_reloadCheck;                                      │
+└─────────────────────────────────────────────────────────────────────*/
+
 _veclass = typeOf (vehicle player);
 _vec = vehicle player;
 _selections = ASTAirListR find _veclass;

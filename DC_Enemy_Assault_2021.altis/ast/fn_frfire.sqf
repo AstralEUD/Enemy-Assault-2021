@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Creates friendly fire warning for players            │
+│   Call Example:                                                     │
+│   [] call AST_fnc_frfire;                                           │
+└─────────────────────────────────────────────────────────────────────*/
+
 /*[] spawn {
 	private _hc = entities "HeadlessClient_F";
 	private _vPlayers = allPlayers - _hc;

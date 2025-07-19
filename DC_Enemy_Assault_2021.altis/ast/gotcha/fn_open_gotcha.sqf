@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Opens the Gotcha (gacha) system and randomizes       │
+│   rewards based on probability                                      │
+│   Call Example:                                                     │
+│   [_target, _caller, _actionId, _args] call AST_fnc_open_gotcha;    │
+└─────────────────────────────────────────────────────────────────────*/
+
 params ["_target","_caller","_actionId","_a0"];
 _randomn = random [0, 50, 100];
 if (_randomn > 97) then {

@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Opens a dialog to send reports to admin via Discord  │
+│   Call Example:                                                     │
+│   [] call AST_fnc_report;                                           │
+└─────────────────────────────────────────────────────────────────────*/
+
 [
     [true,""],
     "어드민에게 디스코드로 알림보내기 (제보/신고)",

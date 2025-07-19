@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Creates an interface for transferring points to      │
+│   other players                                                     │
+│   Call Example:                                                     │
+│   [] call AST_fnc_transfer;                                         │
+└─────────────────────────────────────────────────────────────────────*/
+
 params ["_PlayerList","_PlayerNameList","_TransferList","_Money","_value"];
 PlayerList = call BIS_fnc_listPlayers;
 _PlayerNameList = PlayerList apply {
@@ -16,7 +25,7 @@ _PlayerNameList = PlayerList apply {
 		0, // Selects the quadbike by default
 		false // Multi select disabled
 	],
-	"EA2021 송금",
+	"ASTRO 송금",
 	{
 		/*systemchat format["_confirmed: %1",_confirmed];
 		systemchat format["_index: %1",_index];

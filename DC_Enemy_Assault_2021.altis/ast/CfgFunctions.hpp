@@ -31,6 +31,7 @@ class ast
 		class report {};
 		class rescueReward {};
 		class rtbReward {};
+		class savePlaytime {};
 		class serverLoop {};
 		class serbonus {};
 		class transfer {};
@@ -46,6 +47,9 @@ class ast
 		class arsenal_limit {};
 		class arsenal_search {};
 		class arsenal_list {};
+		class arsenal_filter {};
+		class arsenal_sort {};
+		class arsenal_search_new {};
 	};
 	class hud
 	{

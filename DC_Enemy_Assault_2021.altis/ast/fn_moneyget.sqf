@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Handles money pickup from objects with chance for    │
+│   bonus Gotcha ticket                                               │
+│   Call Example:                                                     │
+│   [] call AST_fnc_moneyget;                                         │
+└─────────────────────────────────────────────────────────────────────*/
+
 private ["_money", "_randomMoney", "_subtext"];
 if (isServer) exitWith {};
 _money = nearestObject [position player, 'Land_money_F'];

@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Makes buildings invincible near FOB_RTB               │
+│   Call Example:                                                     │
+│   [] call AST_fnc_build_invincible;                                 │
+└─────────────────────────────────────────────────────────────────────*/
+
 _list = FOB_RTB nearObjects ["House",30000];
 {
 	_x allowDamage false;

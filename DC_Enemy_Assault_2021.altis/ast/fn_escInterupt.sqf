@@ -1,12 +1,11 @@
-/*
-    File: fn_escInterupt.sqf
-    Author: Bryan "Tonic" Boardwine
-    Description:
-    Monitors when the ESC menu is pulled up and blocks off
-    certain controls when conditions meet.
-*/
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Bryan "Tonic" Boardwine                                   │
+│   Modified By: Astral                                               │
+│                                                                     │
+│   Description: Monitors when the ESC menu is pulled up and blocks   │
+│   off certain controls when conditions meet.                        │
+└─────────────────────────────────────────────────────────────────────*/
 
-// Modified : By Astral
 disableSerialization;
 
 private _escSync = { 
@@ -33,7 +32,11 @@ private _canUseControls = true;
 for "_i" from 0 to 1 step 0 do {
     waitUntil {!isNull (findDisplay 49)};
 	private _abortButton = ((findDisplay 49) displayCtrl 104);
-    _abortButton buttonSetAction "[player, 'kill_score', AST_kill_score] remoteExec ['AST_fnc_db_save', 2, false];";
+    _abortButton buttonSetAction "
+        [true] call AST_fnc_savePlaytime; 
+        [player, 'kill_score', AST_kill_score] remoteExec ['AST_fnc_db_save', 2, false];
+        systemChat '플레이 시간이 저장되었습니다.';
+    ";
     private _respawnButton = ((findDisplay 49) displayCtrl 1010);
     private _fieldManual = ((findDisplay 49) displayCtrl 122);
     private _saveButton = ((findDisplay 49) displayCtrl 103);

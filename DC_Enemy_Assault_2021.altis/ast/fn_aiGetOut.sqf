@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Makes AI units get out of the player's vehicle       │
+│   Call Example:                                                     │
+│   [] call AST_fnc_aiGetOut;                                         │
+└─────────────────────────────────────────────────────────────────────*/
+
 private _list = fullCrew (vehicle player);
 _seclist = [];
 {

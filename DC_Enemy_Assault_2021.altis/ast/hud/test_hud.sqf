@@ -1,21 +1,31 @@
 /*────────────────────────────────────────────────────────────────────┐
 │   Author: Enemy Assault Team                                         │
 │                                                                     │
-│   Description: Opens an input dialog for debug key entry            │
+│   Description: Test the HUD plus/minus notifications                 │
 │   Call Example:                                                     │
-│   [] call AST_fnc_debuginput;                                       │
+│   [] execVM "ast\hud\test_hud.sqf";                                 │
 └─────────────────────────────────────────────────────────────────────*/
 
-[
-    [false,""],
-    "관리자가 채팅으로 알려준 디버그 키를 입력하세요!",
-    {
-        if _confirmed then {
-            [player, _text] remoteExecCall ["ast_fnc_debugcheck", 2];
-        } else {
-            systemChat "취소하셨습니다";
-        };
-    },
-    "실행",
-    ""
-] call CAU_UserInputMenus_fnc_text;
+// Wait for HUD to initialize
+waitUntil {!isNil "AST_kill_score"};
+sleep 3;
+
+// Test positive notifications
+systemChat "테스트: 양수 알림";
+[100] call AST_fnc_hud_plus;
+sleep 5;
+[1000] call AST_fnc_hud_plus;
+sleep 5;
+[10000] call AST_fnc_hud_plus;
+sleep 5;
+
+// Test negative notifications
+systemChat "테스트: 음수 알림";
+[100] call AST_fnc_hud_minus;
+sleep 5;
+[1000] call AST_fnc_hud_minus;
+sleep 5;
+[10000] call AST_fnc_hud_minus;
+sleep 5;
+
+systemChat "HUD 테스트 완료";

@@ -1,3 +1,11 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Rewards points to nearby players upon mission completion│
+│   Call Example:                                                     │
+│   [_position, _rewardPoints] call AST_fnc_missionReward;            │
+└─────────────────────────────────────────────────────────────────────*/
+
 // [_killer] call ast_fnc_missionReward;
 
 params ["_callerpos","_point"];

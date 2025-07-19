@@ -1,3 +1,12 @@
+/*────────────────────────────────────────────────────────────────────┐
+│   Author: Enemy Assault Team                                         │
+│                                                                     │
+│   Description: Rewards players for successful return to base after  │
+│   mission completion                                                │
+│   Call Example:                                                     │
+│   [] call AST_fnc_rtbReward;                                        │
+└─────────────────────────────────────────────────────────────────────*/
+
 SAKY_Reward = 0;
 
 SAKY_RTBReward_GiveReward = {

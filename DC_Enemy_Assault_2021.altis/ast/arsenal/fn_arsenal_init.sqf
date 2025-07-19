@@ -1,30 +1,23 @@
 disableSerialization;
 _AST_display = findDisplay 1118;
-_ctrlList = _AST_display displayCtrl 11181; 
-{
-	_cfgName = _x call AST_fnc_getConfigClass;
-	_displayName = getText (_cfgName >> "displayName");
-	_ctrlList lbAdd _displayName;
-	_ctrlList lbSetToolTip [_foreachindex, _x];
-	_ctrlList lbSetPicture [_foreachindex, getText (_cfgName >> "editorPreview")];
-	_index = AST_weaponlist find _x;
-	_price = (AST_weaponPrice select _index) select 1;
-	_ctrlList lbSetTextRight [_foreachindex,str _price];
-	if (_price > AST_kill_score) then {
-		_ctrlList lbSetSelectColorRight [_foreachindex, [186, 13, 13, 1]];
-	} else {
-		_ctrlList lbSetSelectColorRight [_foreachindex, [82, 242, 64, 1]];
-	};
-	_ctrlList lbSetValue [_foreachindex, _price];
-} forEach AST_weaponlist;
+_ctrlList = _AST_display displayCtrl 11181;
+_ctrlSort = _AST_display displayCtrl 11193;
+
+// 정렬 옵션 초기화
+_ctrlSort lbAdd "이름순";
+_ctrlSort lbAdd "가격 낮은순";
+_ctrlSort lbAdd "가격 높은순";
+_ctrlSort lbAdd "구매 가능순";
+_ctrlSort lbSetCurSel 0;
+
+// 초기 카테고리 필터 (전체)
+[0] call AST_fnc_arsenal_filter;
 
 _ctrlMainTitle = _AST_display displayCtrl 11182;
 _ctrlMainTitle ctrlSetStructuredText parseText
-"<t align = 'center'> EA2021 아스널 언락 상점 </t>";
+"<t align = 'center' size='1.2'><img image='\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\rifle_ca.paa' size='1.2'/> ASTRO 아스널 언락 상점 </t>";
 _ctrlPtsTitle = _AST_display displayCtrl 11183;
-_ctrlPtsTitle ctrlSetStructuredText formatText ["%1 pts",AST_kill_score];
-
-_ctrlSelectedName = _AST_display displayCtrl 11185;
+_ctrlPtsTitle ctrlSetStructuredText parseText format ["<t align='right' color='#A3E0FF' size='1.2'>%1 ₩</t>", AST_kill_score];_ctrlSelectedName = _AST_display displayCtrl 11185;
 _ctrlSelectedPic = _AST_display displayCtrl 11184;
 _ctrlSelecetedDesc = _AST_display displayCtrl 11186;
 _ctrlButton = _AST_display displayCtrl 11187;
@@ -39,15 +32,19 @@ addMissionEventHandler ["EachFrame", {
 	_ctrlButton = _AST_display displayCtrl 11187;
 	_ctrlList = _AST_display displayCtrl 11181; 
 	//_tempSelected = (lbSelection _ctrlList) select 0;
+	private _listSelected = -1;
 	if (count (lbSelection _ctrlList) == 0) then {
 		_listSelected = 0;
+	} else {
+		_listSelected = (lbSelection _ctrlList) select 0;
 	};
-	_listSelected = (lbSelection _ctrlList) select 0;
-	_listSelectedClass = AST_weaponlist select _listSelected;
-	_Higherclass = ["srifle_GM6_F","srifle_GM6_camo_F","srifle_GM6_ghex_F","srifle_LRR_F","srifle_LRR_camo_F","srifle_LRR_tna_F","MMG_01_hex_F","MMG_01_tan_F","MMG_02_camo_F","MMG_02_black_F","MMG_02_sand_F"];
+	
+	// 올바른 항목을 가져오기 위해 수정
+	private _listSelectedClass = _ctrlList lbData _listSelected;
+	private _Higherclass = ["srifle_GM6_F","srifle_GM6_camo_F","srifle_GM6_ghex_F","srifle_LRR_F","srifle_LRR_camo_F","srifle_LRR_tna_F","MMG_01_hex_F","MMG_01_tan_F","MMG_02_camo_F","MMG_02_black_F","MMG_02_sand_F"];
 	player setVariable ["ast_listselected", _listSelectedClass, false];
-	_selectedindex = AST_weaponlist find _listSelectedClass;
-	_selectedPrice = (AST_weaponPrice select _selectedindex) select 1;
+	private _selectedindex = AST_weaponlist find _listSelectedClass;
+	private _selectedPrice = (AST_weaponPrice select _selectedindex) select 1;
 	_SelectedcfgName = _listSelectedClass call AST_fnc_getConfigClass;
 	_SelecteddisplayName = getText (_SelectedcfgName >> "displayName");
 	_SelectedPicture = getText (_SelectedcfgName >> "picture");
