@@ -16,6 +16,7 @@ class ast
 		class escInterupt {};
 		class fetch_another {};
 		class fetch_money {};
+		class firstLoginBonus {};
 		class fobTeleport {};
 		class invEH {};
 		class Ihatefog {};
